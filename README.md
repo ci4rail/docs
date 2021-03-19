@@ -17,3 +17,7 @@ bundle exec jekyll serve
 ```
 
 Visit `http://localhost:4000/` to see webside.
+
+## View latest version
+Latest version (main brauch) is published on:
+https://docs.ci4rail.com/
