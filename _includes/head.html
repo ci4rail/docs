@@ -3,7 +3,8 @@
 {% include seo.html %}
 
 {% unless site.atom_feed.hide %}
-  <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"
+  type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 {% endunless %}
 
 <!-- https://t.co/dKP3o1e -->
@@ -20,7 +21,7 @@
 <!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
-    .greedy-nav .site-title {
+    .greedy-nav .site-logo {
       padding-right: 3em;
     }
     .greedy-nav button {
@@ -33,7 +34,7 @@
 <![endif]-->
 
 {% if site.head_scripts %}
-  {% for script in site.head_scripts %}
-    <script src="{{ script | relative_url }}"></script>
-  {% endfor %}
+{% for script in site.head_scripts %}
+<script src="{{ script | relative_url }}"></script>
+{% endfor %}
 {% endif %}
