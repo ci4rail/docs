@@ -1,14 +1,14 @@
 # main links
 main:
   - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/about/
+    url: /docs/quick-start-guide/
   - title: "Video-Section"
-    url: /collection-archive/
+    url: /docs/example-file/
   - title: "Data Sheets"
     url: https://www.ci4rail.com/news/downloads/
   - title: "User Manual"
-    url: /year-archive/
+    url: /docs/example-file/
   - title: "News"
-    url: TBD
+    url: /docs/example-file/
   - title: "Ci4Rail Homepage"
     url: https://www.ci4rail.com/
