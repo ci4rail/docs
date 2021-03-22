@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "Quick-Start Guide"
-    url: /docs/quick-start-guide/
+    url: /quick-start-guide
   - title: "Video-Section"
     url: /docs/example-file/
   - title: "Data Sheets"
@@ -12,3 +12,30 @@ main:
     url: /docs/example-file/
   - title: "Ci4Rail Homepage"
     url: https://www.ci4rail.com/
+
+# Sidebar navigation contains all docs pages
+docs:
+  - title: Quick-Start Guide
+    children:
+      - title: "Getting Started"
+        url: /quick-start-guide
+      - title: "ModuCop"
+        url: /quick-start-guide/moducop/
+      - title: "DLM"
+        url: /quick-start-guide/dlm/
+      - title: "ALM"
+        url: /quick-start-guide/alm/
+      - title: "ADS"
+        url: /quick-start-guide/ads/
+  - title: Customization
+    children:
+      - title: "Configuration"
+        url: /docs/configuration/
+      - title: "Navigation"
+        url: /docs/navigation/
+      - title: "UI Text"
+        url: /docs/ui-text/
+      - title: "Authors"
+        url: /docs/authors/
+      - title: "Layouts"
+        url: /docs/layouts/

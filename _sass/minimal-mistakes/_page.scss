@@ -78,7 +78,7 @@ body {
 }
 
 .page__lead {
-  font-family: $global-font-family;
+  font-family: $header-image-font-family;
   font-size: $type-size-4;
 }
 
@@ -136,13 +136,13 @@ body {
 
   dt {
     margin-top: 1em;
-    font-family: $sans-serif;
+    font-family: $page-content-font-family;
     font-weight: bold;
   }
 
   dd {
     margin-left: 1em;
-    font-family: $sans-serif;
+    font-family: $page-content-font-family;
     font-size: $type-size-6;
   }
 
@@ -206,6 +206,7 @@ body {
 
     .page__title {
       font-size: $type-size-2;
+      font-family: $splash-font-family;
 
       @include breakpoint($small) {
         font-size: $type-size-1;
@@ -281,7 +282,7 @@ body {
 .page__meta {
   margin-top: 2em;
   color: $muted-text-color;
-  font-family: $sans-serif;
+  font-family: $page-content-font-family;
   font-size: $type-size-6;
 
   p {

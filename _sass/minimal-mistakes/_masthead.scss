@@ -4,7 +4,7 @@
 
 .masthead {
   position: relative;
-  border-bottom: 1px solid $border-color;
+  background-color: #fff;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
@@ -15,7 +15,7 @@
     @include clearfix;
     margin-left: auto;
     margin-right: auto;
-    padding: 1em;
+    padding: 0.3em;
     max-width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -23,7 +23,7 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    font-family: $sans-serif-narrow;
+    font-family: $masthead-font-family;
 
     @include breakpoint($x-large) {
       max-width: $max-width;
@@ -35,12 +35,15 @@
 
     a {
       text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: $type-size-6;
     }
   }
 }
 
 .site-logo img {
-  max-height: 2rem;
+  max-height: 3.1rem;
 }
 
 .masthead__menu {
@@ -70,9 +73,11 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
+  margin: 0;
+  padding: 0;
 
   &--lg {
     padding-right: 2em;
-    font-weight: 700;
+    font-weight: 200;
   }
 }

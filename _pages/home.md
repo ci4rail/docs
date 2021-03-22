@@ -1,38 +1,38 @@
 ---
+title: "Know your train"
 layout: splash
 permalink: /
-hidden: true
 header:
-  overlay_color: "#5e616c"
-  overlay_image: /assets/images/mm-home-page-feature.jpg
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/Know-your-train.jpg
   actions:
-    - label: "<i class='fas fa-download'></i> Install now"
-      url: "/docs/quick-start-guide/"
-excerpt: >
-  A flexible two-column Jekyll theme. Perfect for building personal sites, blogs, and portfolios.<br />
-  <small><a href="https://github.com/mmistakes/minimal-mistakes/releases/tag/4.22.0">Latest release v4.22.0</a></small>
+    - label: "Let's Go"
+      url: "#test-link"
+excerpt: "Use the Quick-Start Guide for a quick introduction into the KYT System and all of its components."
+
 feature_row:
-  - image_path: /assets/images/mm-customizable-feature.png
-    alt: "customizable"
-    title: "Super customizable"
-    excerpt: "Everything from the menus, sidebars, comments, and more can be configured or set with YAML Front Matter."
-    url: "/docs/configuration/"
+  - image_path: assets/images/EdgeFarm.jpg
+    alt: "EdgeFarm"
+    title: "EdgeFarm"
+    excerpt: "Use EdgeFarm to manage get an overview of devices, develop own edge or cloud modules and deploy them to your devices. Analayse the data provided from the devices."
+    url: "#test-link"
+    btn_label: "Learn More"
     btn_class: "btn--primary"
-    btn_label: "Learn more"
-  - image_path: /assets/images/mm-responsive-feature.png
-    alt: "fully responsive"
-    title: "Responsive layouts"
-    excerpt: "Built with HTML5 + CSS3. All layouts are fully responsive with helpers to augment your content."
-    url: "/docs/layouts/"
+  - image_path: /assets/images/Moducop.png
+    alt: "Moducop"
+    title: "Moducop"
+    excerpt: "Put Moducop into operation and connect it properly and consider the installation conditions."
+    url: "#test-link"
+    btn_label: "Learn More"
     btn_class: "btn--primary"
-    btn_label: "Learn more"
-  - image_path: /assets/images/mm-free-feature.png
-    alt: "100% free"
-    title: "100% free"
-    excerpt: "Free to use however you want under the MIT License. Clone it, fork it, customize it... whatever!"
-    url: "/docs/license/"
+  - image_path: /assets/images/Sensors.jpg
+    title: "Sensors & Converters"
+    alt: "Sensors & Converters"
+    excerpt: "Use Ci4Rail Sensors to get more information from your Edge Device."
+    url: "#test-link"
+    btn_label: "Learn More"
     btn_class: "btn--primary"
-    btn_label: "Learn more"
 ---
 
 {% include feature_row %}

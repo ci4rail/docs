@@ -131,6 +131,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _docs
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -256,6 +257,19 @@ defaults:
       show_date: true # Show dates in posts (news section)
       share: true
       related: true
+  # _docs
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: false # do not enable comments
+      show_date: true # show when last modified
+      share: false
+      related: true
+      toc: true
   # _pages
   - scope:
       path: ""
@@ -265,6 +279,6 @@ defaults:
       author_profile: false
       read_time: false
       comments: false # do not enable comments
-      show_date: false # Show dates in posts (news section)
+      show_date: false
       share: false
       related: true
