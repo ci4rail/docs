@@ -98,10 +98,12 @@ body {
 			-moz-transition: opacity 0.2s ease-in-out 0.1s;
 			-o-transition: opacity 0.2s ease-in-out 0.1s;
 			transition: opacity 0.2s ease-in-out 0.1s;
+      color: $ci4rail-orange;
 		}
 
 		&:hover .header-link {
 			opacity: 1;
+      color: $ci4rail-orange;
 		}
 	}
 

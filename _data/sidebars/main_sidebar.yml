@@ -1,0 +1,56 @@
+sidebar:
+  title: "abc"
+  navitems:
+    - title: Quick-Start Guide
+      navitems:
+        - title: "Getting Started"
+          url: /quick-start-guide
+        - title: "ModuCop"
+          navitems:
+            - title: "Getting Started"
+              url: /abcd
+            - title: "ModuCop"
+              url: /quick-start-guide/moducop/
+            - title: "ModuCop"
+              navitems:
+                - title: "Getting Started"
+                  url: /abcd
+                - title: "ModuCop"
+                  url: /quick-start-guide/moducop/
+        - title: "DLM"
+          url: /quick-start-guide/dlm/
+        - title: "ALM"
+          url: /quick-start-guide/alm/
+        - title: "ADS"
+          url: /quick-start-guide/ads/
+        - sidebar: abc
+    - title: Customization
+      navitems:
+        - title: "Configuration"
+          external_url: https://google.com
+        - title: "Navigation"
+          url: /docs/navigation/
+        - title: "UI Text"
+          url: /docs/ui-text/
+        - title: "Authors"
+          url: /docs/authors/
+        - title: "Layouts"
+          url: /docs/layouts/
+
+# Sidebar navigation contains all docs pages
+sidebar2:
+  navitems:
+    - title: Quick-Start Guide
+      navitems:
+        - title: "Getting Started"
+          url: /quick-start-guide
+        - title: "ModuCop"
+          url: /quick-start-guide/moducop/
+        - title: "EdgeFarm"
+          navitems:
+            - title: "DLM"
+              url: /quick-start-guide/dlm/
+            - title: "ALM"
+              url: /quick-start-guide/alm/
+            - title: "ADS"
+              url: /quick-start-guide/ads/
