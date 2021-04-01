@@ -5,10 +5,10 @@ main:
   - title: "Video-Section"
     url: /docs/example-file/
   - title: "Data Sheets"
-    url: https://www.ci4rail.com/news/downloads/
+    external_url: https://www.ci4rail.com/news/downloads/
   - title: "User Manual"
     url: /docs/example-file/
   - title: "News"
     url: /docs/example-file/
   - title: "Ci4Rail Homepage"
-    url: https://www.ci4rail.com/
+    external_url: https://www.ci4rail.com/
