@@ -4,7 +4,6 @@ permalink: /quick-start-guide
 excerpt: "How to quickly install and setup Minimal Mistakes for use with GitHub Pages."
 last_modified_at: 2021-03-22
 sidebar: main_sidebar
-author: true
 
 gallery:
   - url: /assets/images/Ci4Rail.png

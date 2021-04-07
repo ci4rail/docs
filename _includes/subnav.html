@@ -3,7 +3,7 @@
 {% assign padding = include.depth | times: 10 | plus: 10 %}
 
 <li class="nav_item">
-  <a href="#" style="padding-left:{{paddingTitle}}px">{{navigation.title}} {{include.depth}}</a>
+  <a href="#" style="padding-left:{{paddingTitle}}px">{{navigation.title}}</a>
   <ul>
     {% for item in navigation.navitems %}
     {% if item.navitems %}

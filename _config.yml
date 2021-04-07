@@ -260,7 +260,7 @@ defaults:
   # _docs
   - scope:
       path: ""
-      type: pages
+      type: docs
     values:
       layout: single
       author_profile: false

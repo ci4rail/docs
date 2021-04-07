@@ -1,56 +1,50 @@
 sidebar:
-  title: "abc"
   navitems:
     - title: Quick-Start Guide
       navitems:
-        - title: "Getting Started"
+        - title: Getting Started
           url: /quick-start-guide
-        - title: "ModuCop"
-          navitems:
-            - title: "Getting Started"
-              url: /abcd
-            - title: "ModuCop"
-              url: /quick-start-guide/moducop/
-            - title: "ModuCop"
-              navitems:
-                - title: "Getting Started"
-                  url: /abcd
-                - title: "ModuCop"
-                  url: /quick-start-guide/moducop/
-        - title: "DLM"
-          url: /quick-start-guide/dlm/
-        - title: "ALM"
-          url: /quick-start-guide/alm/
-        - title: "ADS"
-          url: /quick-start-guide/ads/
-        - sidebar: abc
-    - title: Customization
-      navitems:
-        - title: "Configuration"
-          external_url: https://google.com
-        - title: "Navigation"
-          url: /docs/navigation/
-        - title: "UI Text"
-          url: /docs/ui-text/
-        - title: "Authors"
-          url: /docs/authors/
-        - title: "Layouts"
-          url: /docs/layouts/
-
-# Sidebar navigation contains all docs pages
-sidebar2:
-  navitems:
-    - title: Quick-Start Guide
-      navitems:
-        - title: "Getting Started"
-          url: /quick-start-guide
-        - title: "ModuCop"
+        - title: ModuCop
           url: /quick-start-guide/moducop/
-        - title: "EdgeFarm"
+        - title: EdgeFarm
           navitems:
-            - title: "DLM"
+            - title: DLM
               url: /quick-start-guide/dlm/
-            - title: "ALM"
+            - title: ALM
               url: /quick-start-guide/alm/
-            - title: "ADS"
+            - title: ADS
               url: /quick-start-guide/ads/
+    - title: Video Section
+      navitems:
+        - title: Video Section
+          url: /video-section
+    - title: User Manual
+      navitems:
+        - title: Overview
+          url: user-manual
+        - title: EdgeFarm
+          navitems:
+            - title: DLM
+              url: /user-manual/dlm/
+            - title: ALM
+              url: /user-manual/alm/
+            - title: ADS
+              url: /user-manual/ads/
+        - title: Edge Solutions
+          navitems:
+            - title: ModuCop
+              navitems:
+                - title: LMP
+                  url: /user-manual/moducop/lmp/
+                - title: ModuCop Hardware
+                  url: /user-manual/moducop/hw/
+            - title: Sensor & Converters
+              navitems:
+                - title: SES01
+                  url: /user-manual/sensor-converters/ses01/
+                - title: SUS02
+                  url: /user-manual/sensor-converters/sus02/
+    - title: News
+      navitems:
+        - title: News
+          url: /news
