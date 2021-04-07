@@ -466,3 +466,43 @@
 		display: inline-block;
 	}
 }
+
+#video-wrapper {
+  width: 920px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+#video1 {
+  width: 47.5%;
+  height: auto;
+  float: left;
+  margin-right: 5%;
+}
+
+#video2 {
+  width: 47.5%;
+  height: auto;
+  float: left;
+}
+
+.clear{
+  clear: both;
+}
+
+@media (max-width:767px) {
+  #video-wrapper{
+      width: 100%;
+      height: auto;
+  }
+  #video1 {
+      width: 100%;
+      height: auto;
+      float: none;
+  }
+  #video2 {
+      width: 100%;
+      height: auto;
+      float: none;
+  }
+}

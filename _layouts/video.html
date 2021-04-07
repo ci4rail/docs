@@ -24,7 +24,7 @@ layout: default
         {% include page__meta.html type=include.type %}
         {% include video id=post.video_id provider=post.provider %}
         {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify |
-            strip_html | truncate: 160 }}</p>{% endif %}
+            strip_html }}</p>{% endif %}
         {{content}}
     </div>
 </div>
