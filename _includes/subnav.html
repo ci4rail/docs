@@ -2,6 +2,10 @@
 {% assign paddingTitle = include.depth | times: 10 %}
 {% assign padding = include.depth | times: 10 | plus: 10 %}
 
+{% if navigation.sidebar %}
+{% assign navigation = site.data.sidebars[navigation.sidebar].sidebar %}
+{% endif %}
+
 <li class="nav_item">
   <a href="#" style="padding-left:{{paddingTitle}}px">{{navigation.title}}</a>
   <ul>
@@ -9,6 +13,10 @@
     {% if item.navitems %}
     {% assign newdepth = include.depth | plus: 1 %}
     {% include subnav.html nav=item depth=newdepth %}
+    {% elsif item.sidebar %}
+    {% assign newdepth = include.depth | plus: 1 %}
+    {% assign subsidebar = site.data.sidebars[item.sidebar].sidebar %}
+    {% include subnav.html nav=subsidebar depth=newdepth %}
     {% elsif item.external_url %}
     <li><a href="{{item.external_url}}" target="_blank" rel="noopener"
         style="padding-left:{{padding}}px">{{item.title}}</a></li>

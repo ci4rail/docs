@@ -1,0 +1,15 @@
+sidebar:
+  title: Video Section
+  navitems:
+    - title: Video Section
+      url: /video-section/
+    - title: ModuCop
+      url: /video-section/moducop/
+    - title: EdgeFarm
+      navitems:
+        - title: DLM
+          url: /quick-start-guide/dlm/
+        - title: ALM
+          url: /quick-start-guide/alm/
+        - title: ADS
+          url: /quick-start-guide/ads/

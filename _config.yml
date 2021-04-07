@@ -127,6 +127,18 @@ footer:
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/company/ci4rail/"
 
+# Collections
+collections:
+  videos:
+    output: true
+    permalink: /:collection/:path/
+  video-categories:
+    output: true
+    permalink: /:collection/:path/
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
 # Reading Files
 include:
   - .htaccess
@@ -263,6 +275,19 @@ defaults:
       type: docs
     values:
       layout: single
+      author_profile: false
+      read_time: false
+      comments: false # do not enable comments
+      show_date: true # show when last modified
+      share: false
+      related: true
+      toc: true
+  # _videos
+  - scope:
+      path: ""
+      type: videos
+    values:
+      layout: video
       author_profile: false
       read_time: false
       comments: false # do not enable comments

@@ -14,10 +14,7 @@ sidebar:
               url: /quick-start-guide/alm/
             - title: ADS
               url: /quick-start-guide/ads/
-    - title: Video Section
-      navitems:
-        - title: Video Section
-          url: /video-section
+    - sidebar: video_section
     - title: User Manual
       navitems:
         - title: Overview
@@ -44,7 +41,3 @@ sidebar:
                   url: /user-manual/sensor-converters/ses01/
                 - title: SUS02
                   url: /user-manual/sensor-converters/sus02/
-    - title: News
-      navitems:
-        - title: News
-          url: /news
