@@ -2,13 +2,13 @@
 main:
   - title: "Quick-Start Guide"
     url: /quick-start-guide
+  - title: "User Manual"
+    url: /user-manual
   - title: "Video-Section"
     url: /video-section/
   - title: "Data Sheets"
     external_url: https://www.ci4rail.com/news/downloads/
-  - title: "User Manual"
-    url: /user-manual
-  - title: "News"
-    url: /news
   - title: "Ci4Rail Homepage"
     external_url: https://www.ci4rail.com/
+  - title: "News"
+    url: /news/

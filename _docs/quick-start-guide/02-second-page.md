@@ -1,9 +1,8 @@
 ---
-title: "Quick-Start Guide"
+title: "Quick-Start Guide 2"
+permalink: /quick-start-guide/next-page
 excerpt: "Overview how to starup"
 last_modified_at: 2021-03-22
-
-permalink: /quick-start-guide
 
 gallery:
   - url: /assets/images/Ci4Rail.png

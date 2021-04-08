@@ -1,9 +1,8 @@
 ---
-title: "Quick-Start Guide"
+title: "User Manual"
+permalink: /user-manual
 excerpt: "Overview how to starup"
 last_modified_at: 2021-03-22
-
-permalink: /quick-start-guide
 
 gallery:
   - url: /assets/images/Ci4Rail.png

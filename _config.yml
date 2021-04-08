@@ -280,21 +280,41 @@ defaults:
       comments: false # do not enable comments
       show_date: true # show when last modified
       share: false
-      related: true
+      related: false
       toc: true
+      classes: wide
+      sidebar: main_sidebar
   # _videos
   - scope:
       path: ""
       type: videos
     values:
-      layout: video
       author_profile: false
       read_time: false
       comments: false # do not enable comments
       show_date: true # show when last modified
       share: false
-      related: true
-      toc: true
+      related: false
+      toc: false
+      layout: video
+      classes: wide
+      sidebar: main_sidebar
+      provider: vimeo
+  # _video-categories
+  - scope:
+      path: ""
+      type: video-categories
+    values:
+      author_profile: false
+      read_time: false
+      comments: false # do not enable comments
+      show_date: true # show when last modified
+      share: false
+      related: false
+      toc: false
+      layout: video-category
+      classes: wide
+      sidebar: main_sidebar
   # _pages
   - scope:
       path: ""
@@ -307,3 +327,4 @@ defaults:
       show_date: false
       share: false
       related: true
+      toc: false
