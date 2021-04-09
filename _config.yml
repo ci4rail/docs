@@ -17,6 +17,7 @@ baseurl: "/" # the subpath of your site, e.g. "/blog"
 repository: ci4rail/docs # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser: /assets/images/Ci4Rail.png # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo: /assets/images/Ci4Rail.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+feedback_email: engineering@ci4rail.com
 breadcrumbs: true # true, false (default)
 words_per_minute: 200
 comments:
@@ -270,7 +271,9 @@ defaults:
       comments: false # do not enable comments
       show_date: true # Show dates in posts (news section)
       share: true
-      related: true
+      related: false
+      feedback: false
+      pagination: true
   # _quick-start-guide
   - scope:
       path: ""
@@ -286,6 +289,8 @@ defaults:
       toc: true
       classes: wide
       sidebar: main-sidebar
+      feedback: true
+      pagination: true
   # _user-manual
   - scope:
       path: ""
@@ -301,6 +306,8 @@ defaults:
       toc: true
       classes: wide
       sidebar: main-sidebar
+      feedback: true
+      pagination: true
   # drafts contains template file
   - scope:
       path: "_drafts"
@@ -314,6 +321,8 @@ defaults:
       related: false
       toc: true
       classes: wide
+      feedback: true
+      pagination: false
   # _videos
   - scope:
       path: ""
@@ -330,6 +339,7 @@ defaults:
       classes: wide
       sidebar: main-sidebar
       provider: vimeo
+      feedback: true
   # _video-categories
   - scope:
       path: ""
@@ -345,6 +355,7 @@ defaults:
       layout: video-category
       classes: wide
       sidebar: main-sidebar
+      feedback: true
   # _pages
   - scope:
       path: ""
@@ -358,3 +369,5 @@ defaults:
       share: false
       related: true
       toc: false
+      feedback: false
+      pagination: false

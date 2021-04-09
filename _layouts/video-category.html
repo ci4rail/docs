@@ -46,5 +46,13 @@ layout: default
 
         {% endif %}
         {% endfor %}
+
+        {% assign remainder = video_counter | modulo: 2 %}
+        {% if remainder != 0 %}
+        <div class="clear"></div>
     </div>
+    {% endif %}
+
+    {% if page.feedback %}{% include feedback.html %}{% endif %}
+</div>
 </div>

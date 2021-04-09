@@ -57,13 +57,18 @@ body {
 
     .page__content,
     .page__meta,
-    .page__share {
+    .page__share,
+    .page__feedback {
       position: relative;
       float: left;
       margin-left: 0;
       margin-right: 0;
       width: 100%;
       clear: both;
+    }
+
+    .page__feedback a {
+      padding-right: 10px;
     }
   }
 }
@@ -252,7 +257,8 @@ body {
    Social sharing
    ========================================================================== */
 
-.page__share {
+.page__share,
+.page__feedback {
   margin-top: 2em;
   padding-top: 1em;
   border-top: 1px solid $border-color;
@@ -271,7 +277,8 @@ body {
   }
 }
 
-.page__share-title {
+.page__share-title,
+.page__feedback-title {
   margin-bottom: 10px;
   font-size: $type-size-6;
   text-transform: uppercase;

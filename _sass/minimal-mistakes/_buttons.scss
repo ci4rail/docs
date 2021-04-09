@@ -17,7 +17,7 @@
   text-align: center;
   text-decoration: none;
   border-width: 0;
-  border-radius: $border-radius;
+  border-radius: 9999px;
   cursor: pointer;
 
   .icon {
@@ -30,7 +30,7 @@
 
   /* button colors */
   $buttoncolors:
-  (primary, $primary-color),
+  (primary, $ci4rail-orange),
   (inverse, #fff),
   (light-outline, transparent),
   (success, $success-color),
