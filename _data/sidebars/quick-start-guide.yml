@@ -1,0 +1,16 @@
+sidebar:
+  title: Quick-Start Guide
+  url: /quick-start-guide/
+  navitems:
+    - title: Setup Edge Device
+      navitems:
+        - title: Moducop as Edge Device
+          url: /quick-start-guide/moducop/
+        - title: Raspberry Pi as Edge Device
+          url: /quick-start-guide/raspberry-pi/
+        - title: Virtual Device as Edge Device
+          url: /quick-start-guide/virtual-device/
+    - title: Login to EdgeFarm
+      url: /quick-start-guide/login/
+    - title: Use EdgeFarm Basis Functions
+      url: /quick-start-guide/basis-functions/
