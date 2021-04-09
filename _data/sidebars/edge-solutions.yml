@@ -1,0 +1,18 @@
+sidebar:
+  title: Edge Solutions
+  url: /user-manual/edge-solutions
+  navitems:
+    - title: ModuCop
+      url: /user-manual/edge-solutions/moducop/
+      navitems:
+        - title: LMP
+          url: /user-manual/edge-solutions/moducop/lmp/
+        - title: ModuCop Hardware
+          url: /user-manual/edge-solutions/moducop/hw/
+    - title: Sensors & Converters
+      url: /user-manual/edge-solutions/sensor-converter/
+      navitems:
+        - title: SES01
+          url: /user-manual/edge-solutions/sensor-converters/ses01/
+        - title: SUS02
+          url: /user-manual/edge-solutions/sensor-converters/sus02/

@@ -20,6 +20,8 @@ layout: default
         {% unless page.header.overlay_color or page.header.overlay_image %}
         <h1 id="page-title" class="page__title">{{ page.title }}</h1>
         {% endunless %}
+        {% if page.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ page.excerpt | markdownify |
+            strip_html }}</p>{% endif %}
         {% assign video_counter = 0 %}
 
         {% for post in site.videos reversed %}

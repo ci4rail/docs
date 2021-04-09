@@ -5,7 +5,7 @@
   <li class="sidebarTitle">{{sidebar.title}}</li>
   {% endif %}
   {% for item in sidebar.navitems %}
-  {% include subnav.html nav=item depth=1 %}
+  {% include subnav.html nav=item depth=0 %}
   {% endfor %}
   <p class="external">
     <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>

@@ -1,22 +1,21 @@
 ---
-title: "Quick-Start Guide"
-permalink: /quick-start-guide
-excerpt: "Overview how to starup"
-last_modified_at: 2021-03-22
-sidebar: main_sidebar
+title: "Template File"
+excerpt: "See how to use this documentation template."
+last_modified_at: 2021-08-04
+permalink: /template/
 
 gallery:
   - url: /assets/images/Ci4Rail.png
     image_path: /assets/images/Ci4Rail.png
-    alt: "alternative description if image not found"
+    alt: "alternative description 1 if image not found"
     title: "Image 1 title caption"
   - url: /assets/images/Ci4Rail.png
     image_path: /assets/images/Ci4Rail.png
-    alt: "alternative description if image not found"
+    alt: "alternative description 2 if image not found"
     title: "Image 2 title caption"
   - url: /assets/images/Ci4Rail.png
     image_path: /assets/images/Ci4Rail.png
-    alt: "alternative description if image not found"
+    alt: "alternative description 3 if image not found"
     title: "Image 3 title caption"
 ---
 
