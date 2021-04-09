@@ -131,14 +131,16 @@ footer:
 collections:
   videos:
     output: true
-    permalink: /:collection/:path/
+    permalink: /video-section/:path/
   video-categories:
     output: true
+    permalink: /video-section/:path/
+  quick-start-guide:
     permalink: /:collection/:path/
-  docs:
     output: true
+  user-manual:
     permalink: /:collection/:path/
-
+    output: true
 # Reading Files
 include:
   - .htaccess
@@ -269,10 +271,10 @@ defaults:
       show_date: true # Show dates in posts (news section)
       share: true
       related: true
-  # _docs
+  # _quick-start-guide
   - scope:
       path: ""
-      type: docs
+      type: quick-start-guide
     values:
       layout: single
       author_profile: false
@@ -283,7 +285,35 @@ defaults:
       related: false
       toc: true
       classes: wide
-      sidebar: main_sidebar
+      sidebar: main-sidebar
+  # _user-manual
+  - scope:
+      path: ""
+      type: user-manual
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: false # do not enable comments
+      show_date: true # show when last modified
+      share: false
+      related: false
+      toc: true
+      classes: wide
+      sidebar: main-sidebar
+  # drafts contains template file
+  - scope:
+      path: "_drafts"
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: false # do not enable comments
+      show_date: true # show when last modified
+      share: false
+      related: false
+      toc: true
+      classes: wide
   # _videos
   - scope:
       path: ""
@@ -298,7 +328,7 @@ defaults:
       toc: false
       layout: video
       classes: wide
-      sidebar: main_sidebar
+      sidebar: main-sidebar
       provider: vimeo
   # _video-categories
   - scope:
@@ -314,7 +344,7 @@ defaults:
       toc: false
       layout: video-category
       classes: wide
-      sidebar: main_sidebar
+      sidebar: main-sidebar
   # _pages
   - scope:
       path: ""
