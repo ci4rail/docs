@@ -10,7 +10,7 @@ sidebar:
         - title: ModuCop Hardware
           url: /user-manual/edge-solutions/moducop/hw/
     - title: Sensors & Converters
-      url: /user-manual/edge-solutions/sensor-converter/
+      url: /user-manual/edge-solutions/sensors-converters/
       navitems:
         - title: SES01
           url: /user-manual/edge-solutions/sensor-converters/ses01/

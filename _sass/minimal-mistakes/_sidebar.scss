@@ -402,18 +402,17 @@ p.external a:hover {
 
 /* Item currently visited. */
 .nav li.active > a {
-  background-color: $ci4rail-brown;
+  background-color: $ci4rail-orange;
   color: white;
 }
 
-/* Item currently visited. */
 .nav li.nav_item.active > a {
-  background-color: $ci4rail-orange;
+  background-color: $ci4rail-brown;
 }
 
 /* Item currently visited. */
 .nav li.nav_item.active.onthis > a {
-  background-color: $ci4rail-brown;
+  background-color: $ci4rail-orange;
 }
 
 .nav li.nav_item > a {
@@ -422,7 +421,7 @@ p.external a:hover {
 
 /* Expanded menus */
 .nav > li.active > a  {
-background-color: $ci4rail-orange;
+background-color: $ci4rail-brown;
 border-radius: 5px;
 }
 
@@ -455,8 +454,9 @@ border-radius: 5px;
 }
 
 /* Hover over menu items */
-.nav li a:hover {
-  background-color: $ci4rail-brown;
+.nav li a:hover,
+.nav li.active a:hover {
+  background-color: $ci4rail-orange;
   color: white;
 }
 
