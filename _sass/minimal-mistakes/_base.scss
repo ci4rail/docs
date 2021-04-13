@@ -13,6 +13,7 @@ body {
   padding: 0;
   color: $text-color;
   font-family: $page-content-font-family;
+  font-size: $type-size-6;
   line-height: 1.5;
 
   &.overflow--hidden {
@@ -54,17 +55,14 @@ h5 {
   font-size: $h-size-5;
 }
 
-h6 {
-  font-size: $h-size-6;
-}
-
 small,
 .small {
-  font-size: $type-size-6;
+  font-size: $type-size-5;
 }
 
 p {
   margin-bottom: 1.3em;
+  font-size: $type-size-6;
 }
 
 u,
