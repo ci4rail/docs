@@ -5,16 +5,16 @@ last_modified_at: 2021-04-13
 permalink: /template/
 
 gallery:
-  - url: /assets/images/Ci4Rail.png
-    image_path: /assets/images/Ci4Rail.png
+  - url: /assets/images/Ci4RailDocs.png
+    image_path: /assets/images/Ci4RailDocs.png
     alt: "alternative description 1 if image not found"
     title: "Image 1 title caption"
-  - url: /assets/images/Ci4Rail.png
-    image_path: /assets/images/Ci4Rail.png
+  - url: /assets/images/Ci4RailDocs.png
+    image_path: /assets/images/Ci4RailDocs.png
     alt: "alternative description 2 if image not found"
     title: "Image 2 title caption"
-  - url: /assets/images/Ci4Rail.png
-    image_path: /assets/images/Ci4Rail.png
+  - url: /assets/images/Ci4RailDocs.png
+    image_path: /assets/images/Ci4RailDocs.png
     alt: "alternative description 3 if image not found"
     title: "Image 3 title caption"
 ---
@@ -80,15 +80,15 @@ Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit ame
 
 Html (Hover to see the Title Text):
 <figure>
-  <img src="{{ '/assets/images/Ci4Rail.png' | relative_url }}" alt="alternative description if image not found" title="Logo Title Text 1"> <figcaption>This is a figure caption.</figcaption>
+  <img src="{{ '/assets/images/Ci4RailDocs.png' | relative_url }}" alt="alternative description if image not found" title="Logo Title Text 1"> <figcaption>This is a figure caption.</figcaption>
 </figure>
 
 
 Markdown (Hover to see the Title Text):
-![alternative description if image not found]({{ '/assets/images/Ci4Rail.png' | relative_url }} "Logo Title Text 2")
+![alternative description if image not found]({{ '/assets/images/Ci4RailDocs.png' | relative_url }} "Logo Title Text 2")
 
 Another solution (does not support title but caption):
- {% include figure image_path="/assets/images/Ci4Rail.png" alt="alternative description if image not found" caption="This is a figure caption." %}
+ {% include figure image_path="/assets/images/Ci4RailDocs.png" alt="alternative description if image not found" caption="This is a figure caption." %}
 
 # Lorem
 

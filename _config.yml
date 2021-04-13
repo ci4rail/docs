@@ -68,7 +68,7 @@ facebook:
   username:
   app_id:
   publisher:
-og_image: /assets/images/Ci4Rail.png # Open Graph/Twitter default site image
+og_image: /assets/images/Ci4RailDocs.png # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -88,7 +88,7 @@ analytics:
 # Site Author
 author:
   name: "Ci4Rail"
-  avatar: /assets/images/Ci4Rail.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar: /assets/images/Ci4RailDocs.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio: "We are a young, dynamic company built on many years of experience in the railroad market and in embedded electronics/software. Our goal is to support our customers in the digitalization process, to increase transparency and to improve the value of your solution day by day in a sustainable way."
   location: "Nuremberg"
   email: info@ci4rail.com
@@ -125,6 +125,14 @@ footer:
     - label: "EdgeFarm"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/edgefarm"
+  address:
+    postal_code: "90441"
+    place: "Nürnberg"
+    street: "Vogelweiherstrasse"
+    house_number: "20"
+  contact:
+    mail: "info@ci4rail.com"
+    phone: "+49 911 477 133 70"
 
 # Collections
 collections:

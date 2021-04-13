@@ -1,10 +1,43 @@
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-    <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
+<div class="page__footer-contacts" id="contact">
+  {% if site.footer.address %}
+  <ul class="address">
+    <li><strong>Address</strong></li>
 
-    {% if site.footer.links %}
+    <li>{{ site.name }}</li>
+    <li>{{ site.footer.address.street }} {{ site.footer.address.house_number }}</li>
+    <li>{{ site.footer.address.postal_code }} {{ site.footer.address.place }}</li>
+  </ul>
+  {% endif %}
+
+  {% if site.footer.contact %}
+  <ul class="contact">
+    <li><strong>Contact</strong></li>
+
+    <li><a href="mailto:{{ site.footer.contact.mail }}">
+        <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">{{ site.footer.contact.mail
+          }}</span>
+      </a></li>
+    <li><i class="fas fa-fw fa-phone-square-alt" aria-hidden="true"></i><span class="label">{{ site.footer.contact.phone
+        }}</span></li>
+  </ul>
+  {% endif %}
+
+  {% if site.footer.github %}
+  <ul class="github-icons">
+    <li><strong>GitHub</strong></li>
+
+    {% for link in site.footer.github %}
+    {% if link.label and link.url %}
+    <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}"
+          aria-hidden="true"></i> {{ link.label }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if site.footer.links %}
+  <ul class="social-icons">
+    <li><strong>Follow</strong></li>
     {% for link in site.footer.links %}
     {% if link.label and link.url %}
     <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}"
@@ -20,21 +53,11 @@
         default: "Feed" }}</a></li>
     {% endunless %}
   </ul>
-  {% if site.footer.github %}
-  <ul class="github-icons">
-    <li><strong>GitHub:</strong></li>
-
-    {% for link in site.footer.github %}
-    {% if link.label and link.url %}
-    <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}"
-          aria-hidden="true"></i> {{ link.label }}</a></li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-  {% endif %}
 </div>
+<div class="clear"></div>
 
-<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{
+<div class="page__footer-copyright"><a href="https://www.ci4rail.com/site-notice/" rel="nofollow">Legal Notice</a> |
+  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }} | {{
   site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com"
     rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/"
-    rel="nofollow">Minimal Mistakes</a>.</div>
+    rel="nofollow">Minimal Mistakes</a></div>

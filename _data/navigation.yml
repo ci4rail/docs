@@ -12,3 +12,5 @@ main:
     external_url: https://www.ci4rail.com/
   - title: "News"
     url: /news/
+  - title: "Contact"
+    url: "#contact"

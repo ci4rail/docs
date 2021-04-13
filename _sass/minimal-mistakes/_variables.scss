@@ -84,7 +84,7 @@ $dropdown: 30px;
 $ci4rail-orange: #ff6116 !default;
 $lighter-ci4rail-orange: mix(#fff, $ci4rail-orange, 80%) !default;
 $ci4rail-brown: #666666 !default;
-$lighter-ci4rail-brown: mix(#fff, $ci4rail-brown, 80%) !default;
+$lighter-ci4rail-brown: mix(#fff, $ci4rail-brown, 70%) !default;
 
 $gray: #7a8288 !default;
 $dark-gray: mix(#000, $gray, 50%) !default;
@@ -97,7 +97,7 @@ $code-background-color: #fafafa !default;
 $code-background-color-dark: $light-gray !default;
 $text-color: $dark-gray !default;
 $muted-text-color: mix(#fff, $text-color, 20%) !default;
-$border-color: $lighter-gray !default;
+$border-color: $lighter-ci4rail-brown !default;
 $form-background-color: $lighter-gray !default;
 $footer-background-color: rgba(0,0,0,0.7) !default;
 $footer-background-image: "/assets/images/footer_background.jpg" !default;

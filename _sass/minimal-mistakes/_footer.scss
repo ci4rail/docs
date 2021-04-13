@@ -55,32 +55,26 @@
 .page__footer-copyright {
   font-family: $footer-font-family;
   font-size: $type-size-7;
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid $border-color;
 }
 
-.page__footer-follow {
+.page__footer-contacts {
   ul {
     margin: 0;
-    padding: 0;
+    padding: 0 0 1em 0;
     list-style-type: none;
+    float: left;
+    width: 25%;
   }
 
   li {
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    margin: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
     font-family: $footer-font-family;
     font-size: $type-size-6;
-    text-transform: uppercase;
-  }
-
-  li + li:before {
-    content: "";
-    padding-right: 5px;
-  }
-
-  a {
-    padding-right: 10px;
-    font-weight: bold;
   }
 
   .social-icons,
