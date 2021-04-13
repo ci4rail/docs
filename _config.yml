@@ -329,6 +329,7 @@ defaults:
       classes: wide
       feedback: true
       pagination: false
+      sidebar: main-sidebar
   # _videos
   - scope:
       path: ""
