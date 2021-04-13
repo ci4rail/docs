@@ -387,16 +387,16 @@ p.external a:hover {
 }
 
 .nav li > a > span {
-  float: left;
+  float: right;
   font-size: $dropdown;
   font-weight: bolder;
   padding-right: 10px;
 }
 
-.nav li > a > span:before {
+.nav li > a > span:after {
   content: '\25be';
 }
-.nav li.active > a > span:before {
+.nav li.active > a > span:after {
   content: '\25b4';
 }
 
@@ -415,10 +415,6 @@ p.external a:hover {
   background-color: $ci4rail-orange;
 }
 
-.nav li.nav_item > a {
-  background-color: $lighter-ci4rail-brown;
-}
-
 /* Expanded menus */
 .nav > li.active > a  {
 background-color: $ci4rail-brown;
@@ -431,7 +427,6 @@ border-radius: 5px;
   display: block;
   outline: none;
   text-decoration: none;
-  background-color: $lighter-ci4rail-brown;
 }
 
 /* Collapsed menus */

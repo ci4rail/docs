@@ -1,14 +1,31 @@
 sidebar:
   title: Edge Solutions
-  url: /user-manual/edge-solutions
+  url: /user-manual/edge-solutions/
   navitems:
     - title: ModuCop
       url: /user-manual/edge-solutions/moducop/
       navitems:
-        - title: LMP
-          url: /user-manual/edge-solutions/moducop/lmp/
-        - title: ModuCop Hardware
-          url: /user-manual/edge-solutions/moducop/hw/
+        - title: Introduction
+          url: /user-manual/edge-solutions/moducop/introduction/
+          navitems:
+            - title: Specification
+              url: /user-manual/edge-solutions/moducop/introduction/specification/
+            - title: Mechanical Outline
+              url: /user-manual/edge-solutions/moducop/introduction/mechanical-outline/
+        - title: Use ModuCop
+          url: /user-manual/edge-solutions/moducop/use/
+          navitems:
+            - title: Mounting Options
+              url: /user-manual/edge-solutions/moducop/use/mounting-options/
+            - title: Installing Accessories
+              url: /user-manual/edge-solutions/moducop/use/installing-accessories/
+        - title: Detailed Descriptions
+          url: /user-manual/edge-solutions/moducop/detailed/
+          navitems:
+            - title: LMP
+              url: /user-manual/edge-solutions/moducop/detailed/lmp/
+            - title: ModuCop Hardware
+              url: /user-manual/edge-solutions/moducop/detailed/moducop-hw/
     - title: Sensors & Converters
       url: /user-manual/edge-solutions/sensors-converters/
       navitems:

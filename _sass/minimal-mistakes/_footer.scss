@@ -9,12 +9,18 @@
   margin-right: 0;
   width: 100%;
   margin-top: 3em;
-  color: $muted-text-color;
+  color: white;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.45s;
   animation-delay: 0.45s;
+  background-image: url($footer-background-image);
   background-color: $footer-background-color;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
 
   footer {
     @include clearfix;
@@ -77,7 +83,8 @@
     font-weight: bold;
   }
 
-  .social-icons {
+  .social-icons,
+  .github-icons {
     a {
       white-space: nowrap;
     }

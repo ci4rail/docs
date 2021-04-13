@@ -2,10 +2,19 @@ sidebar:
   title: Quick-Start Guide
   url: /quick-start-guide/
   navitems:
+    - title: For Your Safety
+      url: /quick-start-guide/for-your-safety/
     - title: Setup Edge Device
       navitems:
         - title: Moducop as Edge Device
           url: /quick-start-guide/moducop/
+          navitems:
+            - title: Unpacking
+              url: /quick-start-guide/moducop/unpacking/
+            - title: Connecting Interfaces
+              url: /quick-start-guide/moducop/connecting-interfaces/
+            - title: Powering
+              url: /quick-start-guide/moducop/powering/
         - title: Raspberry Pi as Edge Device
           url: /quick-start-guide/raspberry-pi/
         - title: Virtual Device as Edge Device

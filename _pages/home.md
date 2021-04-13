@@ -4,7 +4,7 @@ layout: splash
 permalink: /
 header:
   overlay_color: "#000"
-  overlay_filter: "0.5"
+  overlay_filter: "0.4"
   overlay_image: /assets/images/Know-your-train.jpg
   actions:
     - label: "Let's Go"
@@ -26,10 +26,10 @@ feature_row:
     url: /user-manual/edge-solutions/moducop/
     btn_label: "Learn More"
     btn_class: "btn--primary"
-  - image_path: /assets/images/Sensors.jpg
+  - image_path: /assets/images/SES01.png
     title: "Sensors & Converters"
     alt: "Sensors & Converters"
-    excerpt: "Use Ci4Rail Sensors to get more information from your Edge Device."
+    excerpt: "Use Ci4Rail sensors to get more information from your Edge Device."
     url: /user-manual/edge-solutions/sensors-converters/
     btn_label: "Learn More"
     btn_class: "btn--primary"
