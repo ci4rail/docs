@@ -28,8 +28,28 @@ Latest version (main brauch) is published on:
 https://docs.ci4rail.com/
 
 
-## Install Pre-Commit Hooks
-TODO
+## Pre-Commit Hooks
+
+Pre-commit hooks are used to ensure a minimum level of quality in each commit.
+
+### Initial Install
+
+Pre-commit hook require a installation of Python Pip on the system. If not already installed, do this before:
+* On Windows, this is included in [Python installation](https://www.python.org/downloads/)
+* On Linux install Pip directly e.g. `apt install python3-pip`
+
+Afterwards install pre-commit:
+
+```
+pip3 install pre-commit
+```
+
+### Do Every new Checkout
+
+After each fresh checkout of this repository it is required to setup pre-commit as pre-commit hook by executing the following command:
+```
+pre-commit install
+```
 
 
 ## How to Change Documentation Content
@@ -55,7 +75,9 @@ The repository contains a lot of stuff, but only a view directories are required
 └── _videos <-------------- Place here files to point to videos in well known vido platforms
 ```
 
-Please [run theme locally](#run-theme-locally) to see how your changes will view and behave on the production website.
+> Please [run theme locally](#run-theme-locally) to see how your changes will behave on the production website.
+
+> Please ensure to install pre-commit hooks every new checkout of the repository to ensure a minimum level of quality every commit. See [Pre-Commit Hooks](#pre-commit-hooks) for install instructions.
 
 > For inspiration what can be done with doc pages in this template have a look at the template file `_drafts/template.md` which is generated to `http://localhost:4000/template/` when running the server with `--drafts` option.
 
@@ -71,70 +93,14 @@ Assume that the website has the following sidebar and you want to customize the 
 
 <img src="_readme_images/sidebar.png" alt="Sidebar" height="300px">
 
-The page currently visited is highlighted in orange. Expanded menus are highlighted in brown (yes, this color is brown). Items in menus are simbolized a indentation.
+Get the url of the page and use the path behind the base path
+<pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
+</code></pre>
 
-So if you follow the hierarchy to the item you get:
-```
-User Manual > Edge Solutions > ModuCop > Use ModuCop > Installing Accessories
-```
+to find the page in the directory structure by just ignoring the `_`, leading numbering and the fileending:
 
-This is also reflected by the current url, eg.:
-```
-http://localhost:4000/user-manual/edge-solutions/moducop/use/installing-accessories/
-```
-or the breadcrumps (displayed above page headline):
-
-<img src="_readme_images/breadcrumps.png" alt="Sidebar" width=60%>
-
-> Note: Breadcrumps are generated from url.
-
-To find the corresponding file, that needs to be modified, we now have a look at the directory structure of the section to be modified:
-```
-_user-manual
-├── 01-user-manual.md
-├── 02-edgefarm
-│   └── ...
-├── 03-edge-solutions
-│   ├── 01-edge-solutions.md
-│   ├── 02-moducop
-│   │   ├── 01-moducop.md
-│   │   ├── 02-introduction
-│   │   │   ├── 01-introduction.md
-│   │   │   ├── 02-specification.md
-│   │   │   └── 03-mechanical-outline.md
-│   │   ├── 03-use
-│   │   │   ├── 01-use.md
-│   │   │   ├── 02-mounting-options.md
-│   │   │   └── 03-installing-accessories.md
-│   │   └── 04-detailed
-│   │       ├── 01-detailed.md
-│   │       ├── 02-lmp.md
-│   │       └── 03-moducop-hw.md
-│   └── 03-sensor-converter
-│       ├── 01-sensor-converter.md
-│       ├── 02-SES01.md
-│       └── 03-SUS02.md
-└── 05-troubleshooting
-    └── ...
-```
-
-The files are numbered to ensure the order of the navigation with the `Previous` and `Next` buttons on the bottom ist the desired one: Logically step through the contents from top to down in the sidebar.
-
-In each folder you see a file which is (almost) named after the folder in which it is located. This is the landing page of the menu in the sidebar. A menu doesn't necessarily have to have a landing page. It may only group related stuff together.
-
-A menu in the sidebar is represented by a folder in the repository.
-
-The resulting file to change in this case is:
-```
-_user-manual/03-edge-solutions/02-moducop/03-use/03-installing-accessories.md
-```
-If you remove `_`, leading numbering and the fileending,
-```
-user-manual/edge-solutions/moducop/use/installing-accessories
-```
-this reflects the url part between the `/`:
-
-[BASE_PATH]/**user-manual/edge-solutions/moducop/use/installing-accessories**/
+<pre><code>_<strong style="color:red">user-manual/</strong>03-<strong style="color:red">edge-solutions/</strong>02-<strong style="color:red">moducop/</strong>03-<strong style="color:red">use/</strong>03-<strong style="color:red">installing-accessories</strong>.md
+</code></pre>
 
 Each docuentation file has a YAML front matter at the top, eg.:
 
@@ -159,12 +125,14 @@ Assume that the website has the following sidebar and you want to add another pa
 
 <img src="_readme_images/sidebar.png" alt="Sidebar" height="300px">
 
-Use the highlighted menus, the breadcrumps or the url to find the page with the title `Installing Accessories` in the folder structure of the repository. In this case it is:
-```
-_user-manual/03-edge-solutions/02-moducop/03-use/03-installing-accessories.md
-```
+Get the url of the page and use the path behind the base path
+<pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
+</code></pre>
 
-If you are not sure how to do this, see [How to Modify a Page](#how-to-modify-a-page), which shows how to get from page to file in repository.
+to find the page in the directory structure by just ignoring the `_`, leading numbering and the fileending:
+
+<pre><code>_<strong style="color:red">user-manual/</strong>03-<strong style="color:red">edge-solutions/</strong>02-<strong style="color:red">moducop/</strong>03-<strong style="color:red">use/</strong>03-<strong style="color:red">installing-accessories</strong>.md
+</code></pre>
 
 Copy the file in the same directory and give it a name in the following format:
 ```
@@ -263,3 +231,104 @@ TODO
 
 ### How to add a video section
 TODO
+
+## General descriptions
+### Sidebar
+img src="_readme_images/sidebar.png" alt="Sidebar" height="300px">
+
+The page currently visited is highlighted in orange. Expanded menus are highlighted in brown (yes, this color is brown). Items in menus are simbolized a indentation.
+
+So if you follow the hierarchy to the item you get:
+```
+User Manual > Edge Solutions > ModuCop > Use ModuCop > Installing Accessories
+```
+
+### Documentation Folder Structure
+
+The folder structure in the documentation folders is designed to match the url of the corresponding file, but with slightly changes.
+
+
+An example url:
+<pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
+</code></pre>
+
+At the front there is the base path, here `http://localhost:4000/`. This can be ingnored.
+
+This is the fitting part of the folderstructure:
+```
+_user-manual
+├── 01-user-manual.md
+├── 02-edgefarm
+│   └── ...
+├── 03-edge-solutions
+│   ├── 01-edge-solutions.md
+│   ├── 02-moducop
+│   │   ├── 01-moducop.md
+│   │   ├── 02-introduction
+│   │   │   ├── 01-introduction.md
+│   │   │   ├── 02-specification.md
+│   │   │   └── 03-mechanical-outline.md
+│   │   ├── 03-use
+│   │   │   ├── 01-use.md
+│   │   │   ├── 02-mounting-options.md
+│   │   │   └── 03-installing-accessories.md
+│   │   └── 04-detailed
+│   │       ├── 01-detailed.md
+│   │       ├── 02-lmp.md
+│   │       └── 03-moducop-hw.md
+│   └── 03-sensor-converter
+│       ├── 01-sensor-converter.md
+│       ├── 02-SES01.md
+│       └── 03-SUS02.md
+└── 05-troubleshooting
+    └── ...
+```
+
+The files are numbered to ensure the order of the navigation with the `Previous` and `Next` buttons on the bottom ist the desired one: Logically step through the contents from top to down in the sidebar.
+
+In each folder you see a file which is (almost) named after the folder in which it is located. This is the landing page of the menu in the sidebar. A menu doesn't necessarily have to have a landing page. It may only group related stuff together.
+
+A menu in the sidebar is represented by a folder in the repository only in case the menu itsel is considered to have a landing page. Else the files are just included in the directory of the menu above.
+
+So the resulting path to the url at the beginning is:
+<pre><code>_<strong style="color:red">user-manual/</strong>03-<strong style="color:red">edge-solutions/</strong>02-<strong style="color:red">moducop/</strong>03-<strong style="color:red">use/</strong>03-<strong style="color:red">installing-accessories</strong>.md
+</code></pre>
+
+
+
+### Breadcrumps
+Breadcrumps are displayed at the top of each page above the headline, e.g.:
+
+<img src="_readme_images/breadcrumps.png" alt="Sidebar" width=60%>
+
+Breadcrumps are generated from url, e.g.:
+```
+http://localhost:4000/user-manual/edge-solutions/moducop/use/installing-assessories/
+```
+
+
+
+
+######## Notes
+add docker container
+$ docker run --rm --name=jekyll-dev --volume="$PWD:/srv/jekyll"  -it -p 4000:4000 jekyll/jekyll:4 sh
+
+$ bundle update
+$ bundle exec jekyll serve --host=0.0.0.0
+
+
+# landign page link auf bilder
+
+
+# move editable stuff in subfolder
+
+# move all jekyll content one folder deeper to separate readme etc. from jekyll stuff
+
+# rename _readme_images to .assets .readme
+
+# remove travis
+
+
+# license
+im root lincense file von uns
+im jekyll ordner orginal license und uns oben hinzufügen
