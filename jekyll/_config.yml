@@ -135,7 +135,7 @@ footer:
     phone: "+49 911 477 133 70"
 
 # Collections
-# collections_dir: ../
+collections_dir: ../docs
 collections:
   videos:
     output: true
