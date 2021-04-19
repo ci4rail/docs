@@ -338,7 +338,6 @@
   padding: 0.5rem 0.75rem;
   font-family: $pagination-font-family;
   font-size: $type-size-5;
-  font-weight: bold;
 }
 
 .nav__sub-title {
@@ -358,19 +357,16 @@
 
 .toc {
   font-family: $toc-font-family;
-  color: $gray;
+  color: $ci4rail-brown;
   background-color: $background-color;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
   -webkit-box-shadow: $box-shadow;
-  box-shadow: $box-shadow;
+  box-shadow: 0 0 7px rgba(0,0,0,.1)!important;
 
   .nav__title {
-    color: #fff;
+    color: $ci4rail-brown;
     font-size: $type-size-6;
-    background: $primary-color;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    background: $lighter-ci4rail-brown;
+    border-radius: $border-radius;
   }
 
   // Scrollspy marks toc items as .active when they are in focus
@@ -393,13 +389,12 @@
   a {
     display: block;
     padding: 0.25rem 0.75rem;
-    color: $muted-text-color;
+    color: $ci4rail-brown;
     font-weight: bold;
     line-height: 1.5;
-    border-bottom: 1px solid $border-color;
 
     &:hover {
-      color: $text-color;
+      color: $link-toc-hover;
     }
   }
 

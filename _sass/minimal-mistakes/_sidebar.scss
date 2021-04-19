@@ -83,7 +83,7 @@
       @include clearfix();
       position: -webkit-sticky;
       position: sticky;
-      top: 2em;
+      top: calc(#{$nav-height} + 10.5em);
       float: right;
     }
   }
@@ -377,6 +377,7 @@ p.external a:hover {
   /* padding: 4px;*/
   padding:0px;
   margin: 0px;
+  box-shadow: 0 0 7px rgba(0,0,0,.1)!important;
 }
 
 .nav > li {
@@ -419,7 +420,7 @@ p.external a:hover {
 /* Expanded menus */
 .nav > li.active > a  {
 background-color: $ci4rail-brown;
-border-radius: 5px;
+border-radius: $border-radius;
 }
 
 /* Collapsed menus */
@@ -435,7 +436,7 @@ border-radius: 5px;
   font-size: $subnav;
   line-height: 18px;
   padding: 2px 10px;
-  border-radius: 5px;
+  border-radius: $border-radius;
 }
 
 .nav > li > a {
@@ -452,8 +453,7 @@ border-radius: 5px;
 /* Hover over menu items */
 .nav li a:hover,
 .nav li.active a:hover {
-  background-color: $ci4rail-orange;
-  color: white;
+  text-decoration: underline;
 }
 
 .nav li a {
