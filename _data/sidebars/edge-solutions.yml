@@ -30,6 +30,6 @@ sidebar:
       url: /user-manual/edge-solutions/sensors-converters/
       navitems:
         - title: SES01
-          url: /user-manual/edge-solutions/sensor-converters/ses01/
+          url: /user-manual/edge-solutions/sensors-converters/ses01/
         - title: SUS02
-          url: /user-manual/edge-solutions/sensor-converters/sus02/
+          url: /user-manual/edge-solutions/sensors-converters/sus02/

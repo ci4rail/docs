@@ -6,11 +6,11 @@ sidebar:
       url: /user-manual/edgefarm/introduction/
       navitems:
         - title: Edge Modules
-          url: /user-manual/edgefarm/overview/edge-modules/
+          url: /user-manual/edgefarm/introduction/edge-modules/
         - title: Cloud Modules
-          url: /user-manual/edgefarm/overview/cloud-modules/
+          url: /user-manual/edgefarm/introduction/cloud-modules/
         - title: Deployment Manifest
-          url: /user-manual/edgefarm/overview/deployment-manifest/
+          url: /user-manual/edgefarm/introduction/deployment-manifest/
     - title: Use EdgeFarm
       url: /user-manual/edgefarm/use/
       navitems:
