@@ -32,8 +32,6 @@ https://docs.ci4rail.com/
 
 Pre-commit hooks are used to ensure a minimum level of quality in each commit.
 
-### Initial Install
-
 Pre-commit hook require a installation of Python Pip on the system. If not already installed, do this before:
 * On Windows, this is included in [Python installation](https://www.python.org/downloads/)
 * On Linux install Pip directly e.g. `apt install python3-pip`
@@ -44,13 +42,12 @@ Afterwards install pre-commit:
 pip3 install pre-commit
 ```
 
-### Do Every new Checkout
-
-After each fresh checkout of this repository it is required to setup pre-commit as pre-commit hook by executing the following command:
+Install pre-commit hooks in repository:
 ```
 pre-commit install
 ```
 
+> Note: After each fresh checkout of a repository `pre-commit install` has to be repeated.
 
 ## How to Change Documentation Content
 The repository contains a lot of stuff, but only a view directories are required for documentation adaption:
@@ -88,10 +85,24 @@ Use well known practices to define a page title, see e.g. [How to Write a News A
 
 Also consider correct capitalizing for headlines, see e.g. [How Should I Capitalize my Headlines](https://www.hipb2b.com/blog/how-should-i-capitalize-my-headlines).
 
+### Naming Conventions for File Names and Folders
+
+- use only small letters
+- DO NOT USE SPACES!
+- no soderzeichen
+- separate words with `-` e.g. "total great stuff" -> total-great-stuff.jpg
+- naming shall reflect the content
+- DO not add pictures greater than > 500 KB
+- name of doc page shall contain title, but shorts can be used
+
+
+### how to add pictures
+TODO
+
 ### How to Modify a Page
 Assume that the website has the following sidebar and you want to customize the page marked in orange:
 
-<img src="_readme_images/sidebar.png" alt="Sidebar" height="300px">
+<img src=".readme/sidebar.png" alt="Sidebar" height="300px">
 
 Get the url of the page and use the path behind the base path
 <pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
@@ -123,7 +134,7 @@ Add the content below the front matter.
 ### How to Add a Page
 Assume that the website has the following sidebar and you want to add another page with the title `Demo Page` after the page highlighted in orange on the same level:
 
-<img src="_readme_images/sidebar.png" alt="Sidebar" height="300px">
+<img src=".readme/sidebar.png" alt="Sidebar" height="300px">
 
 Get the url of the page and use the path behind the base path
 <pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
@@ -222,7 +233,7 @@ So for this adjustment - remember: we want to add something in the user manual i
 
 Assume that the website has the following sidebar and you want to add another menu after the page highlighted in orange on the same level:
 
-<img src="_readme_images/sidebar.png" alt="Sidebar" height="300px">
+<img src=".readme/sidebar.png" alt="Sidebar" height="300px">
 
 TODO
 
@@ -234,7 +245,7 @@ TODO
 
 ## General descriptions
 ### Sidebar
-img src="_readme_images/sidebar.png" alt="Sidebar" height="300px">
+img src=".readme/sidebar.png" alt="Sidebar" height="300px">
 
 The page currently visited is highlighted in orange. Expanded menus are highlighted in brown (yes, this color is brown). Items in menus are simbolized a indentation.
 
@@ -299,7 +310,7 @@ So the resulting path to the url at the beginning is:
 ### Breadcrumps
 Breadcrumps are displayed at the top of each page above the headline, e.g.:
 
-<img src="_readme_images/breadcrumps.png" alt="Sidebar" width=60%>
+<img src=".readme/breadcrumps.png" alt="Sidebar" width=60%>
 
 Breadcrumps are generated from url, e.g.:
 ```
@@ -317,17 +328,10 @@ $ bundle update
 $ bundle exec jekyll serve --host=0.0.0.0
 
 
-# landign page link auf bilder
-
 
 # move editable stuff in subfolder
 
 # move all jekyll content one folder deeper to separate readme etc. from jekyll stuff
-
-# rename _readme_images to .assets .readme
-
-# remove travis
-
 
 # license
 im root lincense file von uns
