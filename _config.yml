@@ -135,6 +135,7 @@ footer:
     phone: "+49 911 477 133 70"
 
 # Collections
+# collections_dir: ../
 collections:
   videos:
     output: true
@@ -148,6 +149,7 @@ collections:
   user-manual:
     permalink: /:collection/:path/
     output: true
+
 # Reading Files
 include:
   - .htaccess
@@ -280,6 +282,7 @@ defaults:
       related: false
       feedback: false
       pagination: true
+      # classes: wide If this is inserted, it is also applied to the drafts
   # _quick-start-guide
   - scope:
       path: ""
@@ -293,10 +296,10 @@ defaults:
       share: false
       related: false
       toc: true
-      classes: wide
+      toc_sticky: true
       sidebar: main-sidebar
       feedback: true
-      pagination: true
+      pagination: false # do not show previous/next buttons in docs
   # _user-manual
   - scope:
       path: ""
@@ -310,10 +313,10 @@ defaults:
       share: false
       related: false
       toc: true
-      classes: wide
+      toc_sticky: true
       sidebar: main-sidebar
       feedback: true
-      pagination: true
+      pagination: false # do not show previous/next buttons in docs
   # drafts contains template file
   - scope:
       path: "_drafts"
@@ -326,9 +329,9 @@ defaults:
       share: false
       related: false
       toc: true
-      classes: wide
+      toc_sticky: true
       feedback: true
-      pagination: false
+      pagination: false # do not show previous/next buttons in docs
       sidebar: main-sidebar
   # _videos
   - scope:
