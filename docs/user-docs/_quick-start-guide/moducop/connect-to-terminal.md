@@ -16,7 +16,7 @@ In this section, you will connect your development PC with the Moducop Linux ter
 * Local network your Developer PC attached. Network with DHCP support
 * Ethernet Cable M12 X-Coded to RJ45
 
-# Step1: Connect Moducop to Network
+# Step 1: Connect Moducop to Network
 
 * Connect Moducops ETH1 interface to your local network using the Ethernet Cable M12 X-Coded to RJ45
 * Ensure your Moducop is powered 
