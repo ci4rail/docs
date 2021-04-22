@@ -377,8 +377,8 @@ custom_previous: /user-manual/edge-solutions/moducop/use/demo-menu/
 ```
 If one of the two is missing, the previous / next buttons are displayed, but the missing button is not clickable.
 
-## General descriptions
-### Sidebar
+# General descriptions
+## Sidebar
 The following figure shows the sidebar, while visiting a subpage in a deeper menu.
 
 <img src="../../user-docs/images/drafts/sidebar.png" alt="Sidebar" height="300px">
@@ -465,7 +465,7 @@ main-sidebar.yml
 </code></pre></div>
 
 
-### Breadcrumps
+## Breadcrumps
 Breadcrumps are displayed at the top of each page above the headline, e.g.:
 
 <img src="../../user-docs/images/drafts/breadcrumps.png" alt="Sidebar" width=60%>
