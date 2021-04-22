@@ -4,8 +4,6 @@ excerpt: Connect Moducop to Internet using Wifi
 last_modified_at: 2021-04-21
 ---
 # Overview
-In the [previous chapter]({{ '/quick-start-guide/moducop/connect-to-terminal' | relative_url }}), you connected Moducop with your local network and you have connection to Moducops Linux terminal from your development PC via `ssh`.
-
 In this section, you will use Moducops integrated Wifi module to connect with the internet.
 
 We will:
@@ -18,7 +16,7 @@ We will use Linux Networkmanager and its command line tool `nmcli`.
 ## Prerequisites
 
 What you need:
-* ssh access from your development PC to Moducops Linux Terminal
+* [ssh access]({{ '/quick-start-guide/moducop/connect-to-terminal' | relative_url }}) from your development PC to Moducops Linux Terminal
 * At least one Wifi Antenna
 * Wifi Access Point that provides Internet connection
 * Password for your Wifi Access point
