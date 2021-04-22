@@ -2,6 +2,9 @@
 title: Connect Moducop to Internet using LTE
 excerpt: Connect Moducop to Internet using mobile radio connection
 last_modified_at: 2021-04-21
+
+custom_previous: /quick-start-guide/moducop/connect-to-terminal/
+custom_next: /quick-start-guide/login/
 ---
 # Overview
 In this section, you will use Moducops integrated LTE module to connect with the internet.

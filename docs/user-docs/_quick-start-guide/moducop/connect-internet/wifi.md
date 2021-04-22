@@ -2,6 +2,9 @@
 title: Connect Moducop to Internet using Wifi
 excerpt: Connect Moducop to Internet using Wifi
 last_modified_at: 2021-04-21
+
+custom_previous: /quick-start-guide/moducop/connect-to-terminal/
+custom_next: /quick-start-guide/login/
 ---
 # Overview
 In this section, you will use Moducops integrated Wifi module to connect with the internet.

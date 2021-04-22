@@ -1,7 +1,10 @@
 ---
-title: Connect Moducop to Internet using Wifi
-excerpt: Connect Moducop to Internet using Wifi
+title: Connect Moducop to Internet using Local Ethernet
+excerpt: Connect Moducop to Internet using Local Ethernet
 last_modified_at: 2021-04-21
+
+custom_previous: /quick-start-guide/moducop/connect-to-terminal/
+custom_next: /quick-start-guide/login/
 ---
 
 

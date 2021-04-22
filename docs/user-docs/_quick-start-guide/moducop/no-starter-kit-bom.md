@@ -2,6 +2,9 @@
 title: Accessories needed for Moducop Quick Start 
 excerpt: Bill of Material you need in case you don't have a Moducop starter kit
 last_modified_at: 2021-04-20
+
+custom_previous: /quick-start-guide/moducop/
+custom_next: /quick-start-guide/moducop/powering/
 ---
 
 If you don't have a Moducop Starter Kit, you need the following items:

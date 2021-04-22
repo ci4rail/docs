@@ -2,12 +2,15 @@
 title: Connecting to Moducops Linux Terminal
 excerpt: How to get access to the Shell to configure Moducop
 last_modified_at: 2021-04-21
+
+custom_previous: /quick-start-guide/moducop/powering/
+custom_next: /quick-start-guide/moducop/connect-to-internet/
 ---
 
 # Overview
 In this section, you will connect your development PC with the Moducop Linux terminal, to configure basic parameters, such as the way to connect Moducop with the Internet.
 
-![System setup for Ethernet Connection]({{ '/assets/images/moducop/quick-start-guide/ConnectEthernet.svg' | relative_url }})
+![System setup for Ethernet Connection]({{ '/user-docs/images/moducop/quick-start-guide/ConnectEthernet.svg' | relative_url }})
 
 
 ## Prerequisites
@@ -44,13 +47,13 @@ Download PuTTY [here](https://www.putty.org/). Download the `.msi` package and i
 
 Enter your Moducops IP address (that you have noted in the previous step). Leave the port as 22.
 
-![Connect with putty]({{ '/assets/images/moducop/quick-start-guide/putty-connect.png' | relative_url }})
+![Connect with putty]({{ '/user-docs/images/moducop/quick-start-guide/putty-connect.png' | relative_url }})
 
 Click open. 
 
 The following dialog tells you that the host is not yet known.
 
-![Connect with putty]({{ '/assets/images/moducop/quick-start-guide/putty-host-warn.png' | relative_url }})
+![Connect with putty]({{ '/user-docs/images/moducop/quick-start-guide/putty-host-warn.png' | relative_url }})
 
 Click "Yes" to accept.
 
