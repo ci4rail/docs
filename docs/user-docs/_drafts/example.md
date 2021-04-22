@@ -4,21 +4,21 @@ excerpt: "See how to use this documentation."
 last_modified_at: 2021-04-20
 
 feature_row:
-  - image_path: /user-docs/images/edgefarm/orange-cloud.jpg
+  - image_path: /user-docs/images/drafts/orange-cloud.jpg
     alt: "EdgeFarm"
     title: "EdgeFarm"
     excerpt: "Use EdgeFarm to manage get an overview of devices, develop own edge or cloud modules and deploy them to your devices. Analayse the data provided from the devices."
     url: /user-manual/edgefarm/
     btn_label: "Learn More"
     btn_class: "btn--primary"
-  - image_path: /user-docs/images/moducop/photo.png
+  - image_path: /user-docs/images/drafts/photo.png
     alt: "Moducop"
     title: "Moducop"
     excerpt: "Put Moducop into operation and connect it properly and consider the installation conditions."
     url: /user-manual/edge-solutions/moducop/
     btn_label: "Learn More"
     btn_class: "btn--primary"
-  - image_path: /user-docs/images/sensors-converters/ses01-3d-model.png
+  - image_path: /user-docs/images/drafts/ses01-3d-model.png
     title: "Sensors & Converters"
     alt: "Sensors & Converters"
     excerpt: "Use Ci4Rail sensors to get more information from your Edge Device."
@@ -27,21 +27,21 @@ feature_row:
     btn_class: "btn--primary"
 
 gallery:
-  - url: /user-docs/images/sensors-converters/ses01-3d-model.png
-    image_path: /user-docs/images/sensors-converters/ses01-3d-model.png
+  - url: /user-docs/images/drafts/ses01-3d-model.png
+    image_path: /user-docs/images/drafts/ses01-3d-model.png
     alt: "alternative description 1 if image not found"
     title: "Image 1 title caption"
   - url: /user-manual/edge-solutions/moducop/
-    image_path: /user-docs/images/moducop/photo.png
+    image_path: /user-docs/images/drafts/photo.png
     alt: "alternative description 2 if image not found"
     title: "Image 2 title caption"
   - url: /user-manual/edgefarm/
-    image_path: /user-docs/images/edgefarm/orange-cloud.jpg
+    image_path: /user-docs/images/drafts/orange-cloud.jpg
     alt: "alternative description 3 if image not found"
     title: "Image 3 title caption"
 ---
 
-This example documentation file shows how different formatting can be established in this template. Some formatting is usual [markdown syntax](#general-markdown-usage), but some [template specific formatting](#jekyll-template-specific) is possible. In addition, some topics can be realized in [both ways](#markdown-vs-template-specific).
+This example documentation file shows how different formatting can be established in this template. Some formatting is usual [markdown syntax](#general-markdown-usage), but some [template specific formatting](#jekyll-template-specific) is possible. In addition, some topics can be done in [both ways](#markdown-vs-template-specific). Have a look at the [raw file on github](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) to see how this page is implemented.
 
 # General Markdown Usage
 
@@ -133,7 +133,7 @@ modules:
 **Danger** This is a red block.
 {: .notice--danger}
 
-**Success** This is a green block. Use \\ \
+**Success** This is a green block. Use `\` \
 to \
 \
 let the block run over several lines.
@@ -164,7 +164,7 @@ There are some features included in the theme to easily add pictures with specia
 This is the definition of the feature row in the front matter:
 ```yaml
 feature_row:
-  - image_path: assets/images/edgefarm/orange-cloud.jpg
+  - image_path: assets/images/drafts/orange-cloud.jpg
     alt: "EdgeFarm"
     title: "EdgeFarm"
     excerpt: "Use EdgeFarm to manage get an overview of devices, develop own edge or cloud modules and deploy them to your devices. Analayse the data provided from the devices."
@@ -178,7 +178,7 @@ feature_row:
     url: /user-manual/edge-solutions/moducop/
     btn_label: "Learn More"
     btn_class: "btn--primary"
-  - image_path: /user-docs/images/sensors-converters/ses01-3d-model.png
+  - image_path: /user-docs/images/drafts/ses01-3d-model.png
     title: "Sensors & Converters"
     alt: "Sensors & Converters"
     excerpt: "Use Ci4Rail sensors to get more information from your Edge Device."
@@ -194,16 +194,16 @@ This results in the following output:
 This is the definition of the image gallery in the front matter:
 ```yaml
 gallery:
-  - url: /user-docs/images/sensors-converters/ses01-3d-model.png
-    image_path: /user-docs/images/sensors-converters/ses01-3d-model.png
+  - url: /user-docs/images/drafts/ses01-3d-model.png
+    image_path: /user-docs/images/drafts/ses01-3d-model.png
     alt: "alternative description 1 if image not found"
     title: "Image 1 title caption"
   - url: /user-manual/edge-solutions/moducop/
-    image_path: /user-docs/images/moducop/photo.png
+    image_path: /user-docs/images/drafts/photo.png
     alt: "alternative description 2 if image not found"
     title: "Image 2 title caption"
   - url: /user-manual/edgefarm/
-    image_path: /user-docs/images/edgefarm/orange-cloud.jpg
+    image_path: /user-docs/images/drafts/orange-cloud.jpg
     alt: "alternative description 3 if image not found"
     title: "Image 3 title caption"
 ```
@@ -215,17 +215,17 @@ This results in the following output:
 ## Include Figure
 Include figure using markdown (Hover to see the Title Text):
 
-![alternative description if image not found]({{ '/user-docs/images/moducop/photo.png' | relative_url }} "Logo Title Text")
+![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text")
 
 Change size of markdown figure (mix of markdown and jekyll specific):
 
-![alternative description if image not found]({{ '/user-docs/images/moducop/photo.png' | relative_url }} "Logo Title Text"){: style="width: 100%"}
+![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text"){: style="width: 100%"}
 
-![alternative description if image not found]({{ '/user-docs/images/moducop/photo.png' | relative_url }} "Logo Title Text"){: style="width: 50%"}
+![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text"){: style="width: 50%"}
 
 Include figure using template syntax (does not support title but caption):
 
- {% include figure image_path="/user-docs/images/moducop/photo.png" alt="alternative description if image not found" caption="This is a figure caption." %}
+ {% include figure image_path="/user-docs/images/drafts/photo.png" alt="alternative description if image not found" caption="This is a figure caption." %}
 
 ## Add Links
 
