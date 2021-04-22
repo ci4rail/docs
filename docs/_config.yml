@@ -16,7 +16,8 @@ url: https://docs.ci4rail.com/ # the base hostname & protocol for your site e.g.
 baseurl: "/" # the subpath of your site, e.g. "/blog"
 repository: ci4rail/docs # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo: /assets/images/Ci4RailDocs.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo: /assets/images/ci4rail-docs.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+contact_logo: /assets/images/ci4rail.png # Used in footer
 feedback_email: engineering@ci4rail.com
 breadcrumbs: true # true, false (default)
 words_per_minute: 200
@@ -68,7 +69,7 @@ facebook:
   username:
   app_id:
   publisher:
-og_image: /assets/images/Ci4RailDocs.png # Open Graph/Twitter default site image
+og_image: /assets/images/ci4rail-docs.png # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -88,7 +89,7 @@ analytics:
 # Site Author
 author:
   name: "Ci4Rail"
-  avatar: /assets/images/Ci4RailDocs.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar: /assets/images/ci4rail-docs.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio: "We are a young, dynamic company built on many years of experience in the railroad market and in embedded electronics/software. Our goal is to support our customers in the digitalization process, to increase transparency and to improve the value of your solution day by day in a sustainable way."
   location: "Nuremberg"
   email: info@ci4rail.com
@@ -154,6 +155,7 @@ collections:
 include:
   - .htaccess
   - _pages
+  - user-docs/images
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -199,7 +201,7 @@ kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
-  toc_levels: 1..6
+  toc_levels: 1..5
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
@@ -277,6 +279,7 @@ defaults:
       read_time: true
       comments: false # do not enable comments
       show_date: true # Show dates in posts (news section)
+      show_last_updated: false # option only available on layout: single
       share: true
       related: false
       feedback: false
@@ -291,7 +294,8 @@ defaults:
       author_profile: false
       read_time: false
       comments: false # do not enable comments
-      show_date: true # show when last modified
+      show_date: false # do not show date on page
+      show_last_updated: true # option only available on layout: single
       share: false
       related: false
       toc: true
@@ -308,7 +312,8 @@ defaults:
       author_profile: false
       read_time: false
       comments: false # do not enable comments
-      show_date: true # show when last modified
+      show_date: false # do not show date on page
+      show_last_updated: true # option only available on layout: single
       share: false
       related: false
       toc: true
@@ -324,7 +329,8 @@ defaults:
       author_profile: false
       read_time: false
       comments: false # do not enable comments
-      show_date: true # show when last modified
+      show_date: false # do not show date on page
+      show_last_updated: true # option only available on layout: single
       share: false
       related: false
       toc: true
@@ -340,7 +346,7 @@ defaults:
       author_profile: false
       read_time: false
       comments: false # do not enable comments
-      show_date: true # show when last modified
+      show_date: true # show date in video page
       share: false
       related: false
       toc: false
@@ -357,7 +363,7 @@ defaults:
       author_profile: false
       read_time: false
       comments: false # do not enable comments
-      show_date: true # show when last modified
+      show_date: false # do not show date in video categories
       share: false
       related: false
       toc: false
@@ -374,6 +380,7 @@ defaults:
       author_profile: false
       read_time: false
       comments: false # do not enable comments
+      show_last_updated: false # option only available on layout: single
       show_date: false
       share: false
       related: true

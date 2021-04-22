@@ -66,7 +66,7 @@
     padding: 0 0 1em 0;
     list-style-type: none;
     float: left;
-    width: 25%;
+    width: 20%;
   }
 
   li {
@@ -75,6 +75,10 @@
     padding-bottom: 2px;
     font-family: $footer-font-family;
     font-size: $type-size-6;
+  }
+
+  img {
+    width: 50%;
   }
 
   .social-icons,

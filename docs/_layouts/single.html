@@ -60,12 +60,16 @@ layout: default
         <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
-        {% include page__date.html %}
+        {% if page.show_last_updated %} {% include page__date.html %} {% endif %}
       </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
-      {% if page.pagination %}{% include post_pagination.html %}{% endif %}
+      {% if page.custom_previous or page.custom_next %}
+      {% include custom_pagination.html %}
+      {% elsif page.pagination %}
+      {% include post_pagination.html %}
+      {% endif %}
 
       {% if page.feedback %}{% include feedback.html %}{% endif %}
     </div>

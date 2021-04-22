@@ -19,12 +19,11 @@ $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 $poppins: 'Poppins';
-$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
-  "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+$arial: Arial;
 
 // Link fonts to different sections
 // default font
-$global-font-family: $sans-serif !default;
+$global-font-family: $arial !default;
 // font in header
 $masthead-font-family: $poppins !default;
 // change font of landing page to poppings, landing page uses splash layout.
@@ -36,23 +35,23 @@ $footer-font-family: $poppins !default;
 // text displayed in search window
 $search-window-font-family: $poppins !default;
 // font for page content in documentation/video pages and posts
-$page-content-font-family: $sans-serif !default;
+$page-content-font-family: $arial !default;
 // captions
-$caption-font-family: $sans-serif !default;
+$caption-font-family: $arial !default;
 // header in text sections of documentation/video pages and posts
-$header-font-family: $sans-serif !default;
+$header-font-family: $arial !default;
 // Sidebar on the left side of documentation/video pages
-$sidebar-font-family: $sans-serif !default;
+$sidebar-font-family: $arial !default;
 // buttons
 $butons-font-family: $poppins !default;
 // TOC showed on the right of documentation/video pages
-$toc-font-family: $sans-serif !default;
+$toc-font-family: $arial !default;
 // forms font
 $forms-font-family: $poppins !default;
 // breadcrumbs font
-$breadcrumbs-font-family: $sans-serif !default;
+$breadcrumbs-font-family: $arial !default;
 // pagination
-$pagination-font-family: $sans-serif !default;
+$pagination-font-family: $arial !default;
 
 /* type scale */
 $type-size-1: 2.441em !default; // ~39.056px
@@ -74,8 +73,8 @@ $h-size-5: 1em !default; // ~16px
 
 
 /* Sidebar sizes. */
-$main-menus: 18px;
-$subnav: 16px;
+$main-menus: 16px;
+$subnav: 14px;
 $dropdown: 30px;
 
 /*
@@ -102,7 +101,7 @@ $muted-text-color: mix(#fff, $text-color, 20%) !default;
 $border-color: $lighter-ci4rail-brown !default;
 $form-background-color: $lighter-gray !default;
 $footer-background-color: rgba(0,0,0,0.7) !default;
-$footer-background-image: "/assets/images/footer_background.jpg" !default;
+$footer-background-image: "/assets/images/footer-background.jpg" !default;
 
 $primary-color: #6f777d !default;
 $success-color: #3fa63f !default;
