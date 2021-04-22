@@ -51,19 +51,48 @@ This is the normal text for user documentation displayed as entered.
 
 Create a new paragraph, a coherent section of a longer text, by leaving a blank line between two texts.
 
-For all characters that cause formatting, the effect can be canceled with a backslash: \* \' \_ 2\. – The backslash itself is inserted by \\.
+For all characters that cause formatting, the effect can be canceled with a backslash:
+```
+\* \' \_ 2\.
+```
+results in
+
+\* \' \_ 2\. \\
+
+Text formatting
+```
+*Italics*, **bold** and ***bold italic*** or
+_Italic_, __Bold__ and ___Bold italic___
+```
+resutls in
 
 *Italics*, **bold** and ***bold italic*** or
 _Italic_, __Bold__ and ___Bold italic___
 
+Block quote:
+```
+> This quote is packed into an HTML block quote element.
+```
 > This quote is packed into an HTML block quote element.
 
 Horizontal line, leave one blank line before, else it is interpreted as healine level one.
+```
+
+---
+```
 
 ---
 Futher context can start just the next line.
 
 ## Unordered List
+
+```
+* Item in an unordered list can be indicated by `*`
+* Another item of the list
+    * A sub-item, indented by four spaces
+- Also `-` and
++ and `+` can be used
+```
 
 * Item in an unordered list can be indicated by `*`
 * Another item of the list
@@ -73,6 +102,14 @@ Futher context can start just the next line.
 
 ## Numbered List
 
+```
+1. Item in an ordered list
+2. Another item of the list
+1. Another item showing the actuall number is not important
+100. Just need to be any decimal number followed by a dot
+101 This is not identified as a list item
+```
+
 1. Item in an ordered list
 2. Another item of the list
 1. Another item showing the actuall number is not important
@@ -81,7 +118,10 @@ Futher context can start just the next line.
 
 ## Code Formatting
 
-Create `inline source code`.
+Create `inline source code` with
+```
+`inline source code`
+```
 
 A normal paragraph
 
@@ -89,18 +129,22 @@ A normal paragraph
      by indentation
      with four spaces
 
-Block of code can also be done with:
+Block of code can also be done with \`\`\` in line before and after the source:
 ```
 source code
 ```
-or if you want language specific syntax highlighting:
+
+or if you want language specific syntax highlighting.
+
+\`\`\`bash
 ```bash
 echo "This is my bash code"
 ```
+\`\`\`python
 ```python
 print("This is python code")
 ```
-Also `yaml` and `json` supported:
+\`\`\`yaml
 ```yaml
 application: influxdb
 modules:
@@ -108,6 +152,7 @@ modules:
     image: influxdb:latest
     createOptions: '{\"HostConfig\":{\"PortBindings\":{\"8086/tcp\":[{\"HostPort\":\"8086\"}]}}}'
 ```
+\`\`\`json
 ```json
 {
   question: "???",
@@ -124,26 +169,67 @@ modules:
 # Jekyll Template Specific
 ## Info Blocks
 
+```
+**Info** This is a info block. **Markdown** `syntax` can be used within all of these blocks.
+{: .notice--info}
+```
 **Info** This is a info block. **Markdown** `syntax` can be used within all of these blocks.
 {: .notice--info}
 
+
+```
+**Warning** This is a warning text block.
+{: .notice--warning}
+```
 **Warning** This is a warning text block.
 {: .notice--warning}
 
+```
+**Danger** This is a red block.
+{: .notice--danger}
+```
 **Danger** This is a red block.
 {: .notice--danger}
 
+```
+**Success** This is a green block. Use `\` \
+to \
+\
+let the block run over several lines.
+{: .notice--success}
+```
 **Success** This is a green block. Use `\` \
 to \
 \
 let the block run over several lines.
 {: .notice--success}
 
+```
+**Primary** This is a grey block.
+{: .notice--primary}
+```
 **Primary** This is a grey block.
 {: .notice--primary}
 
+```
 **Notice** This is a light <br>grey block.
 {: .notice}
+```
+**Notice** This is a light <br>grey block.
+{: .notice}
+
+```
+{% raw %}{% capture notice-text %}
+You can also do some more content freely into the notices
+* Bullet point 1
+* Bullet point 2
+
+Some further content.
+{% endcapture %}
+<div class="notice--info">
+  {{ notice-text | markdownify }}
+</div>{% endraw %}
+```
 
 {% capture notice-text %}
 You can also do some more content freely into the notices
@@ -187,7 +273,11 @@ feature_row:
     btn_class: "btn--primary"
 ```
 
-This results in the following output:
+Use this
+```
+{% raw %}{% include feature_row %}{% endraw %}
+```
+in docs to create the following output:
 {% include feature_row %}
 
 ### Image Gallery
@@ -208,31 +298,50 @@ gallery:
     title: "Image 3 title caption"
 ```
 
-This results in the following output:
+Use this
+```
+{% raw %}{% include gallery caption="This is a sample gallery with **Markdown support**." %}{% endraw %}
+```
+in docs to create the following output:
 {% include gallery caption="This is a sample gallery with **Markdown support**." %}
 
 # Markdown and Template Specific
 ## Include Figure
 Include figure using markdown (Hover to see the Title Text):
+```
+{% raw %}![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text"){% endraw %}
+```
 
 ![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text")
 
 Change size of markdown figure (mix of markdown and jekyll specific):
-
+```
+{% raw %}![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text"){: style="width: 100%"}{% endraw %}
+```
 ![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text"){: style="width: 100%"}
-
+```
+{% raw %}![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text"){: style="width: 50%"}{% endraw %}
+```
 ![alternative description if image not found]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Logo Title Text"){: style="width: 50%"}
 
 Include figure using template syntax (does not support title but caption):
-
+```
+ {% raw %}{% include figure image_path="/user-docs/images/drafts/photo.png" alt="alternative description if image not found" caption="This is a figure caption." %}{% endraw %}
+```
  {% include figure image_path="/user-docs/images/drafts/photo.png" alt="alternative description if image not found" caption="This is a figure caption." %}
 
 ## Add Links
 
 A link to an external page can be done completely without template syntax:
+```
+{% raw %}[Link to external page](https://www.google.de "Title that is displayed when hovering over the mouse"){% endraw %}
+```
 [Link to external page](https://www.google.de "Title that is displayed when hovering over the mouse")
 
 A link to an internal page requires some template syntax `{% raw %}{ 'URL' | relative_url }}{% endraw %}` to ensure the link is correctly generated:
+```
+{% raw %}[Link to internal page]({{ '/quick-start-guide' | relative_url }} "Title that is displayed when hovering over the mouse"){% endraw %}
+```
 [Link to internal page]({{ '/quick-start-guide' | relative_url }} "Title that is displayed when hovering over the mouse")
 
 # Heading Level 1
@@ -240,3 +349,12 @@ A link to an internal page requires some template syntax `{% raw %}{ 'URL' | rel
 ### Heading Level 3
 #### Heading Level 4
 ##### Heading Level 5
+
+Headings created by:
+```
+# Heading Level 1
+## Heading Level 2
+### Heading Level 3
+#### Heading Level 4
+##### Heading Level 5
+```
