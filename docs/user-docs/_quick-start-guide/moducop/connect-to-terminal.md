@@ -74,8 +74,19 @@ root@moducop-cpu01:~#
 ```
 Enter `cheesebread` as the password. While you entering the password, you will not see any feedback on the console. This is normal.
 
+
+# Change Password
+
+Once you are logged in, you should change the root password to your own super-secret password:
+```bash
+root@moducop-cpu01:~# passwd
+New password: <your-super-secret-password>
+Retype new password: <your-super-secret-password>
+passwd: password updated successfully
+```
+
 # Next Steps.
-You have now access to Moducops Linux terminal. Now, you are read to [connect Moducop with the Internet]({{ '/quick-start-guide/moducop/connect-to-internet' | relative_url }})
+You have now access to Moducops Linux terminal. Now, you are ready to [connect Moducop with the Internet]({{ '/quick-start-guide/moducop/connect-to-internet' | relative_url }})
 
 
 
