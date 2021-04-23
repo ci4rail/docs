@@ -48,7 +48,6 @@ This will list the status of the first Modem (we only have one, so `-m 0` is val
 
 When the SIM has a pin, and the SIM is not yet unlocked, you will see the SIM state as `locked`:
 ```
-  -----------------------------
   Status   |              lock: sim-pin
            |    unlock retries: sim-pin (3), sim-puk (10), sim-pin2 (3), sim-puk2 (10)
            |             state: locked
@@ -59,6 +58,7 @@ Now, you need your SIM pin!
 To unlock the SIM, enter the
 ```bash
 # mmcli -i 0 --disable-pin --pin=<pin>
+
 successfully disabled PIN code request in the SIM
 ```
 
