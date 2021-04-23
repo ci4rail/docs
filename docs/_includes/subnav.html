@@ -1,0 +1,41 @@
+{% assign navigation = include.nav %}
+{% assign depth = include.depth %}
+{% assign multi = 15 %}
+{% assign left = 10 %}
+
+{% if navigation.sidebar %}
+{% assign navigation = site.data.sidebars[navigation.sidebar].sidebar %}
+{% endif %}
+
+{% if page.url == navigation.url %}
+<li class="nav_item active onthis">
+  {% else %}
+<li class="nav_item">
+  {% endif %}
+  <a href="{{navigation.url | remove: " /"}}"
+    style="padding-left:{{depth | times: multi | plus: left}}px">{{navigation.title}}</a>
+  <ul>
+    {% for item in navigation.navitems %}
+    {% if item.navitems %}
+    {% assign depth = depth | plus: 1 %}
+    {% include subnav.html nav=item depth=depth %}
+    {% assign depth = depth | minus: 1 %}
+    {% elsif item.sidebar %}
+    {% assign depth = depth | plus: 1 %}
+    {% assign subsidebar = site.data.sidebars[item.sidebar].sidebar %}
+    {% include subnav.html nav=subsidebar depth=depth %}
+    {% assign depth = depth | minus: 1 %}
+    {% elsif item.external_url %}
+    <li><a href="{{item.external_url}}" target="_blank" rel="noopener"
+        style="padding-left:{{depth | times: multi | plus: multi | plus: left}}px">{{item.title}}</a></li>
+    {% elsif page.url == item.url %}
+    <li class="active"><a href="{{item.url | remove: " /"}}"
+        style="padding-left:{{depth | times: multi | plus: multi | plus: left}}px">{{item.title}}</a></li>
+    {% elsif item.url %}
+    <li><a style="padding-left:{{depth | times: multi | plus: multi | plus: left}}px" href="{{item.url | remove: "
+        /"}}">{{item.title}}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</li>

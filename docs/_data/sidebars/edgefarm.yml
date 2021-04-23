@@ -1,0 +1,78 @@
+sidebar:
+  title: EdgeFarm
+  url: /user-manual/edgefarm/
+  navitems:
+    - title: Introduction
+      url: /user-manual/edgefarm/introduction/
+      navitems:
+        - title: Edge Modules
+          url: /user-manual/edgefarm/introduction/edge-modules/
+        - title: Cloud Modules
+          url: /user-manual/edgefarm/introduction/cloud-modules/
+        - title: Deployment Manifest
+          url: /user-manual/edgefarm/introduction/deployment-manifest/
+    - title: Use EdgeFarm
+      url: /user-manual/edgefarm/use/
+      navitems:
+        - title: User Management
+          navitems:
+            - title: Add a New Account to Tenant
+              url: /user-manual/edgefarm/use/add-account/
+        - title: Manage Edge Devices (DLM)
+          navitems:
+            - title: Inspect Devices
+              url: /user-manual/edgefarm/use/inspect-devices/
+            - title: Device Monitoring
+              url: /user-manual/edgefarm/use/device-monitoring/
+        - title: Manage Applications (ALM)
+          navitems:
+            - title: Application Development
+              url: /user-manual/edgefarm/use/app-development/
+              navitems:
+                - title: Develop a Container
+                  url: /user-manual/edgefarm/use/app-development/dev-container/
+                - title: Use Service Modules
+                  url: /user-manual/edgefarm/use/app-development/service-modules/
+                  navitems:
+                    - title: ADS Node Module
+                      url: /user-manual/edgefarm/use/app-development/service-modules/ads-node/
+                    - title: ALM Location Module
+                      url: /user-manual/edgefarm/use/app-development/service-modules/alm-location/
+                    - title: GPS Fake Module
+                      url: /user-manual/edgefarm/use/app-development/service-modules/gps-fake/
+                - title: Security Aspects for Application Development
+                  url: /user-manual/edgefarm/use/app-development/security/
+            - title: Roll out Deployments
+              url: /user-manual/edgefarm/use/roll-out-deployments/
+            - title: Application Monitoring
+              url: /user-manual/edgefarm/use/app-monitoring/
+        - title: Manage Data (ADS)
+          navitems:
+            - title: ADS Data Usage
+              url: /user-manual/edgefarm/use/ads-data-usage/
+    - title: Detailed Descriptions
+      url: /user-manual/edgefarm/detailed/
+      navitems:
+        - title: Device Lifecycle Management (DLM)
+        - title: Application Lifecycle Management (ALM)
+          navitems:
+            - title: Application Monitoring
+              url: /user-manual/edgefarm/detailed/app-monitoring/
+            - title: Distrubuted Applications
+              url: /user-manual/edgefarm/detailed/distributed-apps/
+            - title: Deployment Manifest
+              url: /user-manual/edgefarm/detailed/deployment-manifest/
+        - title: Application Data Service (ADS)
+        - title: Service Modules
+          url: /user-manual/edgefarm/detailed/service-modules/
+          navitems:
+            - title: ALM Modules
+              navitems:
+                - title: ALM Location Module
+                  url: /user-manual/edgefarm/detailed/service-modules/alm-location/
+                - title: GPS Fake Module
+                  url: /user-manual/edgefarm/detailed/service-modules/gps-fake/
+            - title: ADS Modules
+              navitems:
+                - title: ADS Node Module
+                  url: /user-manual/edgefarm/detailed/service-modules/ads-node/

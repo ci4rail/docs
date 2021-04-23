@@ -1,0 +1,40 @@
+<!-- start custom head snippets -->
+<script type="text/javascript" src="//code.jquery.com/jquery-3.5.1.js"></script>
+<script src="{{ '/assets/js/jquery.navgoco.js' | relative_url }}"></script>
+<script>
+    $(document).ready(function () {
+        $("#mysidebar").navgoco({
+            caretHtml: '',
+            accordion: false,
+            openClass: 'active',
+            save: false, // leave false or nav highlighting doesn't work right
+            cookie: {
+                name: 'navgoco',
+                expires: false,
+                path: '/'
+            },
+            slide: {
+                duration: 400,
+                easing: 'swing'
+            }
+        });
+
+        $("#collapseAll").click(function (e) {
+            e.preventDefault();
+            $("#mysidebar").navgoco('toggle', false);
+        });
+
+        $("#expandAll").click(function (e) {
+            e.preventDefault();
+            $("#mysidebar").navgoco('toggle', true);
+        });
+
+    });
+
+</script>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" href="https://www.ci4rail.com/wp-content/uploads/2020/07/cropped-Favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.ci4rail.com/wp-content/uploads/2020/07/cropped-Favicon-192x192.png"
+    sizes="192x192" />
+
+<!-- end custom head snippets -->

@@ -1,0 +1,14 @@
+<section class="page__feedback">
+    <h4 class="page__feedback-title">{{ "Feedback" }}</h4>
+
+    <a href="https://github.com/{{ site.repository }}/issues/new?title={{ page.title | append: ' (' | append: page.url | append: ')' | replace: '\u00A0', ' ' }}"
+        target="_blank">
+        <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+    </a>
+
+    <a
+        href="mailto:{{ site.feedback_email }}?subject=Feedback:%20{{ page.title | append: ' (' | append: page.url | append: ')' | replace: '\u00A0', ' ' }}">
+        <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">{{
+            site.data.ui-text[site.locale].email_label | default: "Email" }}</span>
+    </a>
+</section>

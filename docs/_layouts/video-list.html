@@ -1,0 +1,53 @@
+---
+layout: default
+---
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+{% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+{% include page__hero_video.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+{% unless paginator %}
+{% include breadcrumbs.html %}
+{% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+    {% include sidebar.html %}
+
+    <div class="archive">
+        {% unless page.header.overlay_color or page.header.overlay_image %}
+        <h1 id="page-title" class="page__title">{{ page.title }}</h1>
+        {% endunless %}
+        {% if page.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ page.excerpt | markdownify |
+            strip_html }}</p>{% endif %}
+        {% assign video_counter = 0 %}
+
+        {% for post in site.videos reversed %}
+        {% assign remainder = video_counter | modulo: 2 %}
+        {% if remainder == 0 %}
+        <div id="video-wrapper">
+            <div id="video1">
+                {% include archive-single-video.html %}
+            </div>
+            {% else %}
+            <div id="video2">
+                {% include archive-single-video.html %}
+            </div>
+            <div class="clear"></div>
+        </div>
+        {% endif %}
+        {% assign video_counter = video_counter | plus: 1 %}
+        {% endfor %}
+
+        {% assign remainder = video_counter | modulo: 2 %}
+        {% if remainder != 0 %}
+        <div class="clear"></div>
+    </div>
+    {% endif %}
+
+    {% if page.feedback %}{% include feedback.html %}{% endif %}
+</div>
+
+</div>

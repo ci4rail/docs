@@ -1,0 +1,40 @@
+# ===================================================
+# mounts
+# ===================================================
+mount=mount-docs:
+  bind: "docs"
+  path: "/srv/jekyll"
+  read-only: false
+
+# ===================================================
+# images
+# ===================================================
+image=image-jekyll:
+  image: jekyll/jekyll
+  pull: once
+  tags: ["4.2.0"]
+
+# ===================================================
+# jobs
+# ===================================================
+job=run-jekyll-interactive:
+  use: image-jekyll
+  interactive: true
+  command: sh
+  mounts:
+    - mount-docs
+  ports:
+    - 4000:4000
+  annotations:
+    description: "-> run jekyll interactive"
+
+job=run-jekyll-page:
+  use: image-jekyll
+  interactive: true
+  command: sh -c "bundle update && bundle exec jekyll serve --host=0.0.0.0 --drafts"
+  mounts:
+    - mount-docs
+  ports:
+    - 4000:4000
+  annotations:
+    description: "  -> run jekyll page"

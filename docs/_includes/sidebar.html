@@ -1,0 +1,17 @@
+{% if page.sidebar %}
+{% assign sidebar = site.data.sidebars[page.sidebar].sidebar %}
+<ul id="mysidebar" class="nav sidebar sticky">
+  {% if sidebar.title %}
+  <li class="sidebarTitle">{{sidebar.title}}</li>
+  {% endif %}
+  {% for item in sidebar.navitems %}
+  {% include subnav.html nav=item depth=0 %}
+  {% endfor %}
+  <p class="external">
+    <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+  </p>
+
+</ul>
+
+<script>$("li.active").parents('li').toggleClass("active");</script>
+{% endif %}

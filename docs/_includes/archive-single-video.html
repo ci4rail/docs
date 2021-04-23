@@ -1,0 +1,18 @@
+{% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+
+<div class="{{ include.type | default: 'list' }}__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    <h2 class="archive__item-title no_toc video-item-title" itemprop="headline">
+      {% if post.link %}
+      <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i
+          class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+      <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h2>
+    {% include page__meta.html type=include.type %}
+    {% include video id=post.video_id provider=post.provider %}
+    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify |
+      strip_html | truncate: 160 }}</p>{% endif %}
+  </article>
+</div>
