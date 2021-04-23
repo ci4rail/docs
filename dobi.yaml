@@ -12,7 +12,7 @@ mount=mount-docs:
 image=image-jekyll:
   image: jekyll/jekyll
   pull: once
-  tags: ["4"]
+  tags: ["4.2.0"]
 
 # ===================================================
 # jobs

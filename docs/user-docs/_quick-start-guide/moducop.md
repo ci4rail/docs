@@ -5,6 +5,7 @@ last_modified_at: 2021-04-13
 
 custom_next: /quick-start-guide/moducop/unpacking/
 ---
+<<<<<<< HEAD
 
 ![Moducop Edge Computer]({{ '/user-docs/images/moducop/photo.png' | relative_url }})
 
@@ -29,3 +30,5 @@ Here's a quick run-down of the first steps you need to do with the Moducop to us
 * [Connect Moducop to Internet]({{ '/quick-start-guide/moducop/connect-to-internet' | relative_url }})
 
 
+=======
+>>>>>>> main

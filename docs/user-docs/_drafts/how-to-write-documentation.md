@@ -3,28 +3,28 @@ title: "How to Write Documentation"
 excerpt: "See how to write documentation."
 last_modified_at: 2021-04-21
 ---
-The repository contains a lot of stuff, but only a view directories are required for documentation adaption:
+The repository contains a lot of stuff, but only a few directories are required for documentation adaptions:
 ```
 └── docs
     ├── ...
-    ├── _data <----------------- Contains the main menu displayed on the top of the webside
+    ├── _data <----------------- Contains the main menu displayed on the top of the website
     │   └── sidebars <---------- Contains the sidebar and subsidebars
     ├── ...
     └── user-docs <-------------- This contains the actual user documentation
-        ├── _drafts <------------ Containts example file
+        ├── _drafts <------------ Contains example file
         ├── _posts <------------- Place here articles for the news section
-        ├── _quick-start-guide <- Place here doc files from quick start guide section
-        ├── _user-manual <------- Place here doc files from user manual section
+        ├── _quick-start-guide <- Place here doc files for quick start guide section
+        ├── _user-manual <------- Place here doc files for user manual section
         ├── _video-categories <-- Place here files to group videos in categories
         └── _videos <------------ Place here files to point to videos in well known video platforms
         └── images <------------- Place here images required for your documentation
 ```
 
-> Please [run theme locally](#run-theme-locally) to see how your changes will behave on the production website.
+> Please [run theme locally](https://github.com/ci4rail/docs/tree/main#run-theme-locally) to see how your changes will behave on the production website.
 
-> Please ensure to install pre-commit hooks every new checkout of the repository to ensure a minimum level of quality every commit. See [Pre-Commit Hooks](#pre-commit-hooks) for install instructions.
+> Please ensure to install pre-commit hooks every new checkout of the repository to ensure a minimum level of quality every commit. See [Pre-Commit Hooks](https://github.com/ci4rail/docs/blob/main/README.md#pre-commit-hooks) for install instructions.
 
-> For inspiration what can be done with doc pages in this template have a look at the [example page](../_drafts/example.md) which is generated to [http://localhost:4000/example/](http://localhost:4000/example/) when running the server with `--drafts` option.
+> For inspiration what can be done with doc pages in this template have a look at the [example page](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) which is generated to [http://localhost:4000/example/](http://localhost:4000/example/) when running the server with `--drafts` option.
 
 > Don't use more than 5 heading depths.
 
@@ -36,7 +36,7 @@ The repository contains a lot of stuff, but only a view directories are required
 * Also consider correct capitalizing for headlines, see e.g. [How Should I Capitalize my Headlines](https://www.hipb2b.com/blog/how-should-i-capitalize-my-headlines).
 
 
-**For File Names and Folders (and so for urls):**
+**For File Names and Folders (and so for URLs):**
 
 - Use only small letters
 - Do NOT USE SPACES!
@@ -51,7 +51,7 @@ Assume that the website has the following sidebar and you want to customize the 
 
 <img src="../../user-docs/images/drafts/sidebar.png" alt="Sidebar" height="300px">
 
-Get the url of the page to find the page in the directory structure:
+Get the URL of the page to find the corresponding file in the directory structore:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
 </code></pre></div>
@@ -62,7 +62,7 @@ All docs are stored in docs/user-docs/ and grouped by the category, which has to
 <pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>.md
 </code></pre></div>
 
-Each docuentation file has a YAML front matter at the top, eg.:
+Each documentation file has a YAML front matter at the top, eg.:
 
 ```yaml
 ---
@@ -73,22 +73,22 @@ last_modified_at: 2021-04-13
 ```
 
 This is used to define page metadata:
-* **title:** Headline of the page, shown at the top of the page below the breadcrumps and in the browser tab
+* **title:** Headline of the page and in the browser tab
 * **excerpt:** A short description of the page content
 * **last_modified_at:** Needs to be updated manually and shows when the page was updated the last time
 
 Add the content below the front matter.
 
 ## How to Add Figures
-See the section `Include Figure` from [example page markdown](../_drafts/example.md#include-figure) / [generated example page](http://localhost:4000/example/#include-figure) to see how to add figures into the page.
+See the section `Include Figure` from [example markdown page](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) / [generated example page](http://localhost:4000/example/#include-figure) to see how to add figures into the page.
 
-Documentation figures are stored in `docs/user-docs/images`. Feel free to store the pictures in a structured way within folders.
+Documentation figures are stored in `docs/user-docs/images`. Please mirror the directory structure of your documentation in the image foldes folder. <strong style="color:red">You must not use `_` at the beginning of folders, otherwise the contained images are not accessible</strong>.
 
 > Please consider [naming conventions](#naming-conventions) for file name selection.
 
 > Do not add pictures greater than > 500 KB.
 
-Path to the figure needs to be calculated from `docs` as root folder: Image `docs/user-docs/images/super-image.jpg` results in url `/user-docs/images/super-image.jpg`.
+Image located in `docs/user-docs/images/super-image.jpg` results in URL `/user-docs/images/super-image.jpg`.
 
 
 ## How to Add a Page
@@ -96,7 +96,7 @@ Assume that the website has the following sidebar and you want to add another pa
 
 <img src="../../user-docs/images/drafts/sidebar.png" alt="Sidebar" height="300px">
 
-Get the url of the page to find the page in the directory structure:
+Get the URL of the page to find the corresponding file in the directory structore:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
 </code></pre></div>
@@ -107,7 +107,7 @@ All docs are stored in docs/user-docs/ and grouped by the category, which has to
 <pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>.md
 </code></pre></div>
 
-Add a file in the same directory and give it a name in the format `[TITLE_SMALL_WITH_SLASH].md`, where `TITLE_SMALL_WITH_SLASH` shall be the title converted in small letters where spaces are replaced with `-`. Shorts can be used to keep URL short, as file names are used to generate the URL.
+Add a file in the same directory and give it a name in the format `TITLE_SMALL_WITH_HYPHEN.md`, where `TITLE_SMALL_WITH_HYPHEN` shall be the title converted in small letters where spaces are replaced with `-`. Shorts can be used to keep URLs short, as file names are used to generate the URL.
 
 So a good name for our examle file would be `demo-page.md`.
 
@@ -120,7 +120,7 @@ last_modified_at: 2021-04-21
  ---
 ```
 
-Already now, the page can be visited on the homepage, as the filename defines the url together with the filepath:
+After this the page can be visited, as the filename defines the URL together with the filepath:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/demo-page</strong>.md
 </code></pre></div>
@@ -134,27 +134,27 @@ Search for the reference file `/user-manual/edge-solutions/moducop/use/installin
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Edge Solutions
-  url: /user-manual/edge-solutions/
+  URL: /user-manual/edge-solutions/
   navitems:
     - title: ModuCop
-      url: /user-manual/edge-solutions/moducop/
+      URL: /user-manual/edge-solutions/moducop/
       navitems:
         - title: Introduction
           ...
         - title: Use ModuCop
-          url: /user-manual/edge-solutions/moducop/use/
+          URL: /user-manual/edge-solutions/moducop/use/
           navitems:
             - title: Mounting Options
-              url: /user-manual/edge-solutions/moducop/use/mounting-options/
+              URL: /user-manual/edge-solutions/moducop/use/mounting-options/
             - title: Installing Accessories
-              url: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
+              URL: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
             <strong style="color:green">- title: Demo Page
-              url: /user-manual/edge-solutions/moducop/use/demo-page/</strong>
+              URL: /user-manual/edge-solutions/moducop/use/demo-page/</strong>
         - ...
     - ...
 </code></pre></div>
 
-## How to Add a New Menu to the Sidebar
+## How to Add a New Collapsible Menu to the Sidebar
 
 Assume that the website has the following sidebar and you want to add the menu `Demonstration Menu` after the page highlighted in orange on the same level:
 
@@ -164,11 +164,11 @@ There are two different types of menus:
 * Menu which has a landing page
 * Menu which has **NO** landing page
 
-The main difference is, that menus with landing pages shall have a folder in the directory structure and menus without landing page shall **NOT** have one.
+The main difference is, that menus with landing pages shall have a folder in the directory structure and menus without landing page **must NOT** have one.
 
 ### Add a Menu which has a Landing Page
 
-Get the url of the page to find the page in the directory structure:
+Get the URL of the page to find the corresponding file in the directory structore:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
 </code></pre></div>
@@ -180,12 +180,12 @@ All docs are stored in docs/user-docs/ and grouped by the category, which has to
 </code></pre></div>
 
 Now we need to create two files within the directory next to the file discovered:
-* File with name in the format `[TITLE_SMALL_WITH_SLASH].md` -> This is the landing page
-* Directory with name `TITLE_SMALL_WITH_SLASH` -> All items in the manu shall be placed within this folder
+* File with name in the format `TITLE_SMALL_WITH_HYPHEN.md` -> This is the landing page
+* Directory with name `TITLE_SMALL_WITH_HYPHEN` -> All items in the menu shall be placed within this folder
 
-`TITLE_SMALL_WITH_SLASH` needs to be the same in both cases and shall be the title converted in small letters where spaces are replaced with `-`. Shorts can be used to keep URL short, as file and directory names are used to generate the URL.
+`TITLE_SMALL_WITH_HYPHEN` needs to be the same in both cases and shall be the title converted in small letters where spaces are replaced with `-`. Shorts can be used to keep URL short, as file and directory names are used to generate the URL.
 
-So a good `TITLE_SMALL_WITH_SLASH` for our examle would be `demo-menu`.
+So a good `TITLE_SMALL_WITH_HYPHEN` for our examle would be `demo-menu`.
 
 The next step is to add a front matter at the top of the landing page file:
 ```yaml
@@ -196,7 +196,7 @@ last_modified_at: 2021-04-21
  ---
 ```
 
-Already now, the landing page of the menu can be visited on the homepage, as the filename defines the url together with the filepath:
+After this the landing page of the menu can be visited, as the filename defines the URL together with the filepath:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/demo-menu</strong>.md
 </code></pre></div>
@@ -210,40 +210,40 @@ Search for the reference file `/user-manual/edge-solutions/moducop/use/installin
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Edge Solutions
-  url: /user-manual/edge-solutions/
+  URL: /user-manual/edge-solutions/
   navitems:
     - title: ModuCop
-      url: /user-manual/edge-solutions/moducop/
+      URL: /user-manual/edge-solutions/moducop/
       navitems:
         - title: Introduction
           ...
         - title: Use ModuCop
-          url: /user-manual/edge-solutions/moducop/use/
+          URL: /user-manual/edge-solutions/moducop/use/
           navitems:
             - title: Mounting Options
-              url: /user-manual/edge-solutions/moducop/use/mounting-options/
+              URL: /user-manual/edge-solutions/moducop/use/mounting-options/
             - title: Installing Accessories
-              url: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
+              URL: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
             <strong style="color:green">- title: Demo Menu
-              url: /user-manual/edge-solutions/moducop/use/demo-menu/</strong>
+              URL: /user-manual/edge-solutions/moducop/use/demo-menu/</strong>
         - ...
     - ...
 </code></pre></div>
 
-Until now, a menu looks just as a new page. We need to add subpages to change that. Add a new file e.g. `demo-page.md` with title `Demonstration Page` in the newly created folder, consider the file [naming conventions](#naming-conventions) and add the front matter.
+The newly created menu looks just as a normal page. We need to add subpages to change that. Add a new file e.g. `demo-page.md` with title `Demonstration Page` in the newly created folder, consider the file [naming conventions](#naming-conventions) and add the front matter.
 
 Now we need to reference that file in the sidebar:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>            ...
             <strong style="color:green">- title: Demo Menu
-              url: /user-manual/edge-solutions/moducop/use/demo-menu/</strong>
+              URL: /user-manual/edge-solutions/moducop/use/demo-menu/</strong>
               <strong style="color:orange">navitems:
                 title: Demo Page
-                url: <strong style="color:red">/user-manual/edge-solutions/moducop/use/demo-menu/</strong>demo-page</strong>
+                URL: <strong style="color:red">/user-manual/edge-solutions/moducop/use/demo-menu/</strong>demo-page</strong>
             ...
 </code></pre></div>
 
-The url for the new file starts with the menu url, as highlighted in red.
+The URL for the new file starts with the menu URL, as highlighted in red.
 
 ### Add a Menu which has NO Landing Page
 
@@ -254,20 +254,20 @@ Search for the reference file `/user-manual/edge-solutions/moducop/use/installin
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Edge Solutions
-  url: /user-manual/edge-solutions/
+  URL: /user-manual/edge-solutions/
   navitems:
     - title: ModuCop
-      url: /user-manual/edge-solutions/moducop/
+      URL: /user-manual/edge-solutions/moducop/
       navitems:
         - title: Introduction
           ...
         - title: Use ModuCop
-          url: /user-manual/edge-solutions/moducop/use/
+          URL: /user-manual/edge-solutions/moducop/use/
           navitems:
             - title: Mounting Options
-              url: /user-manual/edge-solutions/moducop/use/mounting-options/
+              URL: /user-manual/edge-solutions/moducop/use/mounting-options/
             - title: Installing Accessories
-              url: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
+              URL: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
             <strong style="color:green">- title: Demo Menu</strong>
         - ...
     - ...
@@ -275,7 +275,7 @@ Search for the reference file `/user-manual/edge-solutions/moducop/use/installin
 
 After this step, you can see the menu on the sidebar, but without any functionality. We need to add subpages to change that.
 
-Get the url of the referenece page to find this page in the directory structure:
+Get the URL of the referenece page to find this page in the directory structure:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
 </code></pre></div>
@@ -294,18 +294,17 @@ Now we need to reference that file in the sidebar:
             <strong style="color:green">- title: Demo Menu</strong>
               <strong style="color:orange">navitems:
                 title: Demo Page
-                url: /user-manual/edge-solutions/moducop/use/demo-page</strong>
+                URL: /user-manual/edge-solutions/moducop/use/demo-page</strong>
             ...
 </code></pre></div>
 
 ## How to Add a Video
-You can add videos hosted by the following provider:
+You can add videos hosted by the following providers:
 - vimeo
 - youtube
 - google-drive
-- bilibili
 
-A video is added by simply add one markdown file somewhere beneeth the folder `docs/user-docs/_video/`. Please consider the [naming conventions](#naming-conventions).
+A video is added by simply add one markdown file somewhere inside the folder `docs/user-docs/_video/`. Please consider the [naming conventions](#naming-conventions).
 
 Add a front matter to the file:
 ```yaml
@@ -319,7 +318,7 @@ date: 2021-04-13
 ```
 This is used to define video metadata:
 - **title:** Video Title, same as used in the video platform
-- **video_id:** Video ID, depending on the platform. Usually last part of the url of the video on the video platform
+- **video_id:** Video ID, depending on the platform. Usually last part of the URL of the video on the video platform
 - **provider:** Add one of the supported providers. Default is `vimeo`
 - **excerpt:** A short description of the page content
 - **date**: Date, when the video was initially added
@@ -347,17 +346,17 @@ The last step is to add the video category to the sidebar. This needs to be adde
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Video Section
-  url: /video-section/
+  URL: /video-section/
   navitems:
     - title: ModuCop Videos
-      url: /video-section/moducop/
+      URL: /video-section/moducop/
     - title: EdgeFarm Videos
-      url: /video-section/edgefarm/
+      URL: /video-section/edgefarm/
     <strong style="color:green">- title: Super Cool Category
-      url: /video-section/super-cool-category/</strong>
+      URL: /video-section/super-cool-category/</strong>
 </code></pre></div>
 
-The url to be added is automatically generated and hast the format `/video-section/[FILENAME_WITHOUT_FILEENDING]/`, where `FILENAME_WITHOUT_FILEENDING` shall be the name of the video category markdown file, previously created.
+The URL to be added is automatically generated and hast the format `/video-section/FILENAME_WITHOUT_FILEENDING/`, where `FILENAME_WITHOUT_FILEENDING` shall be the name of the video category markdown file, previously created.
 
 ## How to Use Previous / Next Buttons in Pages
 To enable showing previous / next buttons on a page add the following lines to the front matter:
@@ -366,7 +365,7 @@ custom_previous: /PATH_TO_PREVIOUS_PAGE/
 custom_next: /PATH_TO_NEXT_PAGE/
 ```
 
-The path of a file can be derifed from the path in the folder structure, e.g.:
+The path of a file can be derived from the path in the folder structure, e.g.:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/demo-menu</strong>.md
 </code></pre></div>
@@ -377,19 +376,19 @@ custom_previous: /user-manual/edge-solutions/moducop/use/demo-menu/
 ```
 If one of the two is missing, the previous / next buttons are displayed, but the missing button is not clickable.
 
-## General descriptions
-### Sidebar
+# General descriptions
+## Sidebar
 The following figure shows the sidebar, while visiting a subpage in a deeper menu.
 
 <img src="../../user-docs/images/drafts/sidebar.png" alt="Sidebar" height="300px">
 
-The page currently visited is highlighted in orange. Expanded menus are highlighted in brown (yes, this color is brown). Items in menus are symbolized by a indentation.
+The page currently visited is highlighted in orange. Expanded menus are highlighted in brown (yes, this color is brown). Items in menus are symbolized by an indentation.
 
 So if you follow the menu hierarchy to the item you get:
 ```
 User Manual > Edge Solutions > ModuCop > Use ModuCop > Installing Accessories
 ```
-Sidebar definitions are stored within, which are in `docs/_data/sidebars`:
+Sidebar definitions are stored within markdown files, which are in `docs/_data/sidebars`:
 ```
 _data/sidebars
 ├── edgefarm.yml
@@ -399,9 +398,9 @@ _data/sidebars
 ├── user-manual.yml
 └── video-section.yml
 ```
-Sidebars can include other sidebars, so the different submenu can be separated from each other.
+Sidebars can include other sidebars, so that different submenus can be separated from each other.
 
-For example the `main-sidebar` includes the `quick-start-guide` sidebar, the `user-manual` sidebar and the `video-section` sidebar. Further includes the `user-manual` sidebar the `edgefarm` sidebar and the `edge-solutions` sidebar. For better imagination:
+For example the `main-sidebar` includes the sidebars `quick-start-guide`, the `user-manual` and the `video-section`. The `user-manual` sidebar includes the `edgefarm` sidebar and the `edge-solutions` sidebar. For better imagination:
 ```
 main-sidebar.yml
 ├── quick-start-guide.yml
@@ -414,63 +413,52 @@ main-sidebar.yml
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Example Sidebar
-  url: /example-sidebar/
+  URL: /example-sidebar/
   navitems:
-    <strong style="color:green">- sidebar: [SIDEBAR_NAME_WITHOUT_ENDING]</strong>
+    <strong style="color:green">- sidebar: SIDEBAR_NAME_WITHOUT_FILE_ENDING</strong>
 </code></pre></div>
 
 **Add a page:**
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Example Sidebar
-  url: /example-sidebar/
+  URL: /example-sidebar/
   navitems:
-    <strong style="color:green">- title: [TITLE]
-      url: /[path/to/file]/[TITLE_SMALL_WITH_SLASH]/</strong>
+    <strong style="color:green">- title: TITLE
+      URL: /path/to/file/TITLE_SMALL_WITH_HYPHEN/</strong>
 </code></pre></div>
 
 **Add a external link:**
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Example Sidebar
-  url: /example-sidebar/
+  URL: /example-sidebar/
   navitems:
-    <strong style="color:green">- title: [TITLE]
-      external_url: [URL]</strong>
+    <strong style="color:green">- title: TITLE
+      external_URL: URL</strong>
 </code></pre></div>
 
-**Add a menu wihtout landing page:**
+**Add a menu without landing page:**
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Example Sidebar
-  url: /example-sidebar/
+  URL: /example-sidebar/
   navitems:
-    <strong style="color:green">- title: [MENU_TITLE]
-      url: /[path/to/file]/[MENU_TITLE_SMALL_WITH_SLASH]/
+    <strong style="color:green">- title: MENU_TITLE
+      URL: /path/to/file/MENU_TITLE_SMALL_WITH_HYPHEN/
       navitems:
-      - title: [TITLE]
-        url: /[path/to/file]/[TITLE_SMALL_WITH_SLASH]/</strong>
+      - title: TITLE
+        URL: /path/to/file/TITLE_SMALL_WITH_HYPHEN/</strong>
 </code></pre></div>
 
 **Add a menu with landing page:**
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Example Sidebar
-  url: /example-sidebar/
+  URL: /example-sidebar/
   navitems:
-    <strong style="color:green">- title: [MENU_TITLE]
+    <strong style="color:green">- title: MENU_TITLE
       navitems:
-      - title: [TITLE]
-        url: /[path/to/file]/[TITLE_SMALL_WITH_SLASH]/</strong>
+      - title: TITLE
+        URL: /path/to/file/TITLE_SMALL_WITH_HYPHEN/</strong>
 </code></pre></div>
-
-
-### Breadcrumps
-Breadcrumps are displayed at the top of each page above the headline, e.g.:
-
-<img src="../../user-docs/images/drafts/breadcrumps.png" alt="Sidebar" width=60%>
-
-Breadcrumps are generated from url, e.g.:
-```
-http://localhost:4000/user-manual/edge-solutions/moducop/use/installing-assessories/
-```

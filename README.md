@@ -13,6 +13,27 @@ Latest version (main branch) is published on: [docs.ci4rail.com](https://docs.ci
 
 ## Run theme locally
 
+### On Windows
+
+Preconditions:
+* Install Jekyll: See [install instructions](https://jekyllrb.com/docs/installation/windows/).
+
+Start server locally:
+```
+cd docs
+bundle update
+bundle exec jekyll serve --host=0.0.0.0 --drafts
+```
+
+Visit `http://localhost:4000/` to see webside.
+
+> Note: View the [example page](docs/user-docs/_drafts/example.md) on `http://localhost:4000/example/` for impression how to design a side and how it will look like.
+
+> Note: On github pages, the website is build without `--drafts` option. This ensures, that files placed in `docs/user-docs/_drafts/` are not generated into the public website, as these are intendet to only be drafts and not published.
+
+
+### On Linux or WSL
+
 Preconditions:
 * Install docker: See [install instructions](https://docs.docker.com/engine/install/).
 
