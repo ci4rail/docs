@@ -6,16 +6,16 @@ sidebar:
       url: /quick-start-guide/for-your-safety/
     - title: Setup Edge Device
       navitems:
-        - title: Moducop as Edge Device
+        - title: ModuCop as Edge Device
           url: /quick-start-guide/moducop/
           navitems:
             - title: Unpacking
               url: /quick-start-guide/moducop/unpacking/
             - title: Powering
               url: /quick-start-guide/moducop/powering/
-            - title: Connect to Moducops Linux Terminal
+            - title: Connect to ModuCop's Linux Terminal
               url: /quick-start-guide/moducop/connect-to-terminal/
-            - title: Connect Moducop to Internet
+            - title: Connect ModuCop to Internet
               url: /quick-start-guide/moducop/connect-to-internet/
               navitems:
               - title: via Ethernet

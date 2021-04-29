@@ -1,32 +1,32 @@
 ---
-title: Connect Moducop to Internet using Wifi
-excerpt: Connect Moducop to Internet using Wifi
+title: Connect ModuCop to Internet using Wifi
+excerpt: Connect ModuCop to Internet using Wifi
 last_modified_at: 2021-04-21
 
 custom_previous: /quick-start-guide/moducop/connect-to-terminal/
 custom_next: /quick-start-guide/login/
 ---
 # Overview
-In this section, you will use Moducops integrated Wifi module to connect with the internet.
+In this section, you will use ModuCop's integrated Wifi module to connect with the internet.
 
-We will:
+You will:
 * Scan for Wifi networks
 * Connect to a Wifi access point
 * Check Internet connection
 
-We will use Linux Networkmanager and its command line tool `nmcli`.
+You will use Linux Networkmanager and its command line tool `nmcli`.
 
 ## Prerequisites
 
 What you need:
-* [ssh access]({{ '/quick-start-guide/moducop/connect-to-terminal' | relative_url }}) from your development PC to Moducops Linux Terminal
+* [ssh access]({{ '/quick-start-guide/moducop/connect-to-terminal' | relative_url }}) from your development PC to ModuCop's Linux Terminal
 * At least one Wifi Antenna
 * Wifi Access Point that provides Internet connection
 * Password for your Wifi Access point
 
 # Step 1: Attach Wifi Antenna
 
-Attach Wifi antenna to Moducops antenna connectors labelled `WLAN1` and `WLAN2`. One antenna is enough, a second antenna can improve Wifi quality.
+Attach Wifi antenna to ModuCop's antenna connectors labelled `WLAN1` and `WLAN2`. One antenna is enough, a second antenna can improve Wifi quality.
 `TODO: Picture`.
 
 
@@ -43,7 +43,7 @@ IN-USE  BSSID              SSID                         MODE   CHAN  RATE       
         02:A0:57:2A:DD:62  INTERN                       Infra  6     130 Mbit/s  32      **    WPA2
 ```
 
-# Step 3: Connect with your Access Point
+# Step 3: Connect With Your Access Point
 Now connect to your access point using the SSID of the access point (Ci4Rail-Office in this example) and the corresponding password:
 ```bash
 # nmcli -a device wifi connect Ci4Rail-Office
@@ -69,14 +69,14 @@ mlan0: connected to Ci4Rail-Office
         route6 ff00::/8
 ...
 ```
-Please record the assigned IP address in `<YOUR-IP>`. We'll use it later in [step 5](#step-5)
+Please record the assigned IP address in `<YOUR-IP>`. You'll use it later in [step 5](#step-5-get-rid-of-ethernet).
 
-**NOTE:** The connection settings you have entered are stored on Moducops internal disk. So, when you restart your Moducop, it will automatically re-connect to your Wifi access point.
+**NOTE:** The connection settings you have entered are stored on ModuCop's internal disk. So, when you restart your ModuCop, it will automatically re-connect to your Wifi access point.
 {: .notice--info}
 
 # Step 4: Verify Internet Connection
 Now try to ping a server on the Internet. 
-To ensure that we ping over Wifi, we specify the Wifi device with the `-I` option:
+To ensure that you ping over Wifi, specify the Wifi device with the `-I` option. This ensures that the ping uses the Wifi interface and not your local Ethernet for the Internet access.
 
 ```bash
 root@moducop-cpu01:~# ping -I mlan0 -c 4 www.wikipedia.com
@@ -95,10 +95,10 @@ round-trip min/avg/max = 48.950/90.924/128.140 ms
 ```
 
 # Step 5: Get Rid of Ethernet
-Now, as you have a wifi connection, you may get rid of the Ethernet cable you have used to configure Moducop. However, if you want to access Moducops Linux terminal later from your development PC, your development PC must also be in the access point's Wifi network.
+Now, as you have a wifi connection, you may get rid of the Ethernet cable you have used to configure ModuCop. However, if you want to access ModuCop's Linux terminal later from your development PC, your development PC must also be in the access point's Wifi network.
 
 Now Disconnect your Ethernet Cable.
 
-On your development PC, start a new ssh session, but now enter Moducops IP address on the Wifi network, you have noted in [step 3](#step-3).
+On your development PC, start a new ssh session, but now enter ModuCop's IP address on the Wifi network, you have noted in [step 3](#step-3-connect-with-your-access-point).
 
-You should be able to login as `root` with the standard password `cheesebread`.
+You should be able to login as `root` with the password you assigned [in this step]({{ '/quick-start-guide/moducop/connect-to-terminal/#change-password' | relative_url }})
