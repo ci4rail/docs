@@ -6,15 +6,24 @@ sidebar:
       url: /quick-start-guide/for-your-safety/
     - title: Setup Edge Device
       navitems:
-        - title: Moducop as Edge Device
+        - title: ModuCop as Edge Device
           url: /quick-start-guide/moducop/
           navitems:
             - title: Unpacking
               url: /quick-start-guide/moducop/unpacking/
-            - title: Connecting Interfaces
-              url: /quick-start-guide/moducop/connecting-interfaces/
             - title: Powering
               url: /quick-start-guide/moducop/powering/
+            - title: Connect to ModuCop's Linux Terminal
+              url: /quick-start-guide/moducop/connect-to-terminal/
+            - title: Connect ModuCop to Internet
+              url: /quick-start-guide/moducop/connect-to-internet/
+              navitems:
+              - title: via Ethernet
+                url: /quick-start-guide/moducop/connect-internet/ethernet/
+              - title: via Wifi
+                url: /quick-start-guide/moducop/connect-internet/wifi/
+              - title: via LTE
+                url: /quick-start-guide/moducop/connect-internet/lte/
         - title: Raspberry Pi as Edge Device
           url: /quick-start-guide/raspberry-pi/
         - title: Virtual Device as Edge Device

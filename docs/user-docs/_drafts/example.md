@@ -12,9 +12,9 @@ feature_row:
     btn_label: "Learn More"
     btn_class: "btn--primary"
   - image_path: /user-docs/images/drafts/photo.png
-    alt: "Moducop"
-    title: "Moducop"
-    excerpt: "Put Moducop into operation and connect it properly and consider the installation conditions."
+    alt: "ModuCop"
+    title: "ModuCop"
+    excerpt: "Put ModuCop into operation and connect it properly and consider the installation conditions."
     url: /user-manual/edge-solutions/moducop/
     btn_label: "Learn More"
     btn_class: "btn--primary"
@@ -258,9 +258,9 @@ feature_row:
     btn_label: "Learn More"
     btn_class: "btn--primary"
   - image_path: /user-docs/images/site/moducop/photo.png
-    alt: "Moducop"
-    title: "Moducop"
-    excerpt: "Put Moducop into operation and connect it properly and consider the installation conditions."
+    alt: "ModuCop"
+    title: "ModuCop"
+    excerpt: "Put ModuCop into operation and connect it properly and consider the installation conditions."
     url: /user-manual/edge-solutions/moducop/
     btn_label: "Learn More"
     btn_class: "btn--primary"
