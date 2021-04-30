@@ -6,7 +6,7 @@ last_modified_at: 2021-04-13
 ---
 Shall contain:
 * Disclaimer
-* Intended Use
+* Intended Use (do not use for functional safety applications)
 * Environmental Responsiblity
 * Reach Statement
 * WEEE Compliance
