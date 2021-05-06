@@ -4,7 +4,7 @@ excerpt: Connect ModuCop to Internet using Wifi
 last_modified_at: 2021-04-21
 
 custom_previous: /quick-start-guide/moducop/connect-to-terminal/
-custom_next: /quick-start-guide/login/
+custom_next: /quick-start-guide/edgefarm/basic-functions/
 ---
 # Overview
 In this section, you will use ModuCop's integrated Wifi module to connect with the internet.
