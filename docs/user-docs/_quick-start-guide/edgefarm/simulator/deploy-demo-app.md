@@ -108,7 +108,7 @@ $ docker logs train-simulator_edge-demo
 
 When you are done abort with `Ctrl+C`.
 
-# Final worlds
+# Final words
 
 Congratulations! You just finished your first application deployment using the edgefarm cli!
 You also learned about how to setup the train simulator and how the systems components interact with each other.
