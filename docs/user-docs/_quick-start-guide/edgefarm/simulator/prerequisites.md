@@ -1,7 +1,7 @@
 ---
 title: Setup the Prerequisites
 excerpt: Setup the prerequisites for the environment and tooling like docker, docker-compose, git
-last_modified_at: 2021-05-05
+last_modified_at: 2021-05-06
 
 custom_previous: /quick-start-guide/edgefarm/simulator/
 ---

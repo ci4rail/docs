@@ -1,7 +1,7 @@
 ---
 title: Use EdgeFarm Basic Functions
 excerpt: First steps with EdgeFarm basic functions.
-last_modified_at: 2021-05-05
+last_modified_at: 2021-05-06
 
 custom_previous: /quick-start-guide/edgefarm/basic-functions/
 custom_next: /quick-start-guide/edgefarm/simulator/

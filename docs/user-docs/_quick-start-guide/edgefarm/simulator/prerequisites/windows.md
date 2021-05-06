@@ -1,7 +1,7 @@
 ---
 title: Prerequesits setup for Windows
 excerpt: Prerequesits setup for Windows
-last_modified_at: 2021-05-05
+last_modified_at: 2021-05-06
 
 custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
 custom_next: /quick-start-guide/edgefarm/simulator/start-simulator/

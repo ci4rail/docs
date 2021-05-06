@@ -1,7 +1,7 @@
 ---
 title: Deploying the demo application
 excerpt: Deploying the demo application
-last_modified_at: 2021-05-05
+last_modified_at: 2021-05-06
 
 custom_previous: /quick-start-guide/edgefarm/simulator/start-simulator/
 ---
@@ -11,10 +11,10 @@ The Train Simulator Demo application is the part thar runs on the ModuCop.
 
 ## Prerequisites
 
-* `Train simulator` up and running. See [previous section](/quick-start-guide/edgefarm/simulator/start-simulator/) for assistance.
-* `edgefarm-cli` installed. See ["Using Basic Functions"](/quick-start-guide/edgefarm/basic-functions/) for assistance.
+* `Train simulator` up and running. See the [previous section](/quick-start-guide/edgefarm/simulator/start-simulator/) for assistance.
+* `edgefarm-cli` installed. See [Using Basic Functions](/quick-start-guide/edgefarm/basic-functions/) for assistance.
 * Cloned `edgefarm-demos` repository. This is done in the [Starting the Train Simulator](/quick-start-guide/edgefarm/simulator/start-simulator/) section.
-* Terminal connection to ModuCop. See [Connecting to ModuCop’s Linux Terminal](quick-start-guide/moducop/connect-to-terminal/) for assistance.
+* Terminal connection to ModuCop. See [Connecting to ModuCop’s Linux Terminal](/quick-start-guide/moducop/connect-to-terminal/) for assistance.
 
 # Getting the IP Address of your simulator
 
