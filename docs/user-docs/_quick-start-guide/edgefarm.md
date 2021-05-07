@@ -1,6 +1,6 @@
 ---
-title: Edgefarm
-excerpt: Edgefarm
+title: EdgeFarm
+excerpt: EdgeFarm
 last_modified_at: 2021-05-06
 
 custom_next:  /quick-start-guide/edgefarm/basic-functions/
