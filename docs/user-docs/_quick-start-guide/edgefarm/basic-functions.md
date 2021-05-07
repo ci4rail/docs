@@ -17,9 +17,9 @@ Download the latest edgefarm-cli. Select in `Assets` the appropriate version:
 
 [Download edgefarm-cli](https://github.com/edgefarm/edgefarm-cli/releases){: .btn .btn--info}
 
-## Usage of `edgefarm-cli`
+# Usage of `edgefarm-cli`
 
-### Login
+## Login
 
 First login to your user using the login command
 
@@ -31,7 +31,7 @@ Login Succeeded
 Logged in as: Stan Marsh
 ```
 
-### List devices
+## List devices
 
 List the devices registered in edgefarm DLM for your user.
 
@@ -41,7 +41,7 @@ DEVICE ID                               	CONNECTION STATE
 moducop0                                	Connected
 ```
 
-### List runtimes
+## List runtimes
 
 List the runtimes registered in edgefarm ALM for your user.
 
@@ -51,7 +51,7 @@ RUNTIME ID                               	CONNECTION STATE
 moducop0                                	Connected
 ```
 
-### Applying manifest
+## Applying manifest
 
 To apply an application manifest file use.
 

@@ -5,11 +5,9 @@ last_modified_at: 2021-05-06
 
 custom_previous: /quick-start-guide/edgefarm/simulator/start-simulator/
 ---
-
-# Overview
 The Train Simulator Demo application is the part thar runs on the ModuCop.
 
-## Prerequisites
+# Prerequisites
 
 * `Train simulator` up and running. See the [previous section](/quick-start-guide/edgefarm/simulator/start-simulator/) for assistance.
 * `edgefarm-cli` installed. See [Using Basic Functions](/quick-start-guide/edgefarm/basic-functions/) for assistance.

@@ -6,12 +6,16 @@ last_modified_at: 2021-05-06
 custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
 custom_next: /quick-start-guide/edgefarm/simulator/start-simulator/
 ---
+This chapter shows you how to setup the prerequisites for the train simulator on Linux.
 
-# Install docker
+# Prerequisites
 
-> Note: The following steps have been tested with Ubuntu 20.04 under `amd64`, but other Linux distributions and CPU architectures like Raspberry Pi with Raspbian may also work.
+* Ubuntu 20.04
+
+> **Note: The following steps have been tested with Ubuntu 20.04 under `amd64`, but other Linux distributions and CPU architectures like Raspberry Pi with Raspbian may also work.**
 <!-- {: .notice--info} -->
 
+# Install docker
 Use the convenience script for automatic installation of Docker Community Edition.
 
 ```console
@@ -19,17 +23,19 @@ $ curl -fsSL https://get.docker.com -o get-docker.sh
 $ sudo sh get-docker.sh
 ```
 
-After the installation is finished create a group called `docker` and add your user to this group.
+After the installation is finished create a group called `docker` and add your user to this group. This allows it to use docker as non elevated user.
 
 ```console 
 $ sudo groupadd docker
 $ sudo usermod -aG docker ${USER}
 ```
 
-Logout and log in again and test if docker is working properly or use `newgrp docker` to log in to the new group just created.
+Reboot your system to enable new `docker` group just created for your user.
+
+Try running a basic hello world container.
 
 ```console
-$ docker run hello-world
+$ docker run --rm hello-world
 ```
 
 # Install docker-compose
@@ -78,8 +84,6 @@ $ sudo apt install git
 ```
 
 # Troubleshooting
-
-See this section for troubleshooting.
 
 ## Docker-ce setup fails
 

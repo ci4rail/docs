@@ -29,6 +29,7 @@ sidebar:
         - title: Virtual Device as Edge Device
           url: /quick-start-guide/virtual-device/
     - title: Use EdgeFarm
+      url: /quick-start-guide/edgefarm/
       navitems:
         - title: Using Basic Functions
           url: /quick-start-guide/edgefarm/basic-functions/
