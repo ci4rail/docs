@@ -38,6 +38,18 @@ Download Git for Windows and select `64-bit Git for Windows Setup`. Follow the s
 
 [Download Git for Windows](https://git-scm.com/download/win){: .btn .btn--info}
 
+After installing Git for Windows open up `git-bash`.
+
+![Starting git-bash]({{ 'user-docs/images/edgefarm/simulator/prerequisites/start_git_bash.png' | relative_url }} "Starting git-bash"){: style="width: 40%"}
+
+After that enter the following command. This keeps the original line endings that are needed for the system to work correctly.
+
+```console
+  git config --global core.autocrlf false
+```
+
+![Configure git line endings]({{ 'user-docs/images/edgefarm/simulator/prerequisites/git_bash.png' | relative_url }} "Configure git line endings"){: style="width: 50%"}
+
 </div>
 <div class="tab-pane fade in" id="wsl2_installation" role="tabpanel" markdown="1">
 
