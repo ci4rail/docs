@@ -3,7 +3,7 @@ title: Deploying the demo application
 excerpt: Deploying the demo application
 last_modified_at: 2021-05-06
 
-custom_previous: /quick-start-guide/EdgeFarm/simulator/start-simulator/
+custom_previous: /quick-start-guide/edgefarm/simulator/start-simulator/
 ---
 The Train Simulator Demo application is the component that runs on the edge device. You are going to deploy an demo application on the edge device to read the data received from the `Train simulator` and handle them. The handling in the demo application is a simple dump of the received data, but can be made more complex in any customer application.
 
@@ -11,9 +11,9 @@ The Train Simulator Demo application is the component that runs on the edge devi
 
 To successfully walk through the next steps, please make sure, that the following actions have been performed.
 
-* `Train simulator` up and running. See the [previous section](/quick-start-guide/EdgeFarm/simulator/start-simulator/) for assistance.
-* `EdgeFarm-cli` installed. See [Using Basic Functions](/quick-start-guide/EdgeFarm/basic-functions/) for assistance.
-* Cloned `EdgeFarm-demos` repository. This is done in the [Starting the Train Simulator](/quick-start-guide/EdgeFarm/simulator/start-simulator/) section.
+* `Train simulator` up and running. See the [previous section](/quick-start-guide/edgefarm/simulator/start-simulator/) for assistance.
+* `EdgeFarm-cli` installed. See [Using Basic Functions](/quick-start-guide/edgefarm/basic-functions/) for assistance.
+* Cloned `edgefarm-demos` repository. This is done in the [Starting the Train Simulator](/quick-start-guide/edgefarm/simulator/start-simulator/) section.
 * Terminal connection to ModuCop. See [Connecting to ModuCop’s Linux Terminal](/quick-start-guide/moducop/connect-to-terminal/) for assistance.
 
 # Getting the IP Address of your simulator
@@ -99,7 +99,7 @@ From the example above the correct IP address is `192.168.1.22` for interface `e
 
 The deployment is performed using the EdgeFarm CLI called `edgefarm`. This quick-start-guide assumes that the CLI is used on the same machine as the simulator is running.
 
-Modify the manifest.yaml found in directory `EdgeFarm-demos/train-simulation/edge`. This is needed that the application running on the edge device is able to communicate with the machine that runs the simulation.
+Modify the manifest.yaml found in directory `edgefarm-demos/train-simulation/edge`. This is needed that the application running on the edge device is able to communicate with the machine that runs the simulation.
 Enter the IP address of your simulator machine as the value for the key `MQTT_SERVER` in the envs section (line 11).
 
 This example shows how this might look like:
@@ -108,7 +108,7 @@ This example shows how this might look like:
 application: train-simulator
 modules:
   - name: alm-mqtt-module
-    image: harbor.ci4rail.com/EdgeFarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc
+    image: harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc
     createOptions: '{}'
     imagePullPolicy: on-create
     restartPolicy: always
@@ -117,7 +117,7 @@ modules:
     envs:
       MQTT_SERVER: 192.168.1.22:1883
   - name: edge-demo
-    image:  harbor.ci4rail.com/EdgeFarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708
+    image:  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708
     createOptions: '{}'
     imagePullPolicy: on-create
     restartPolicy: always
@@ -140,8 +140,8 @@ Once the deployment is done the output should look similar to this.
 ```console
 $ docker ps
 CONTAINER ID  IMAGE                                                                                                                     COMMAND                 CREATED         STATUS         PORTS                                                                 NAMES
-98b628acf96b  harbor.ci4rail.com/EdgeFarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708   "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        train-simulator_edge-demo                
-f51de4aa3a12  harbor.ci4rail.com/EdgeFarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc             "/alm-mqtt-module"      10 seconds ago  Up 10 seconds                                                                        train-simulator_alm-mqtt-module
+98b628acf96b  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708   "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        train-simulator_edge-demo                
+f51de4aa3a12  harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc             "/alm-mqtt-module"      10 seconds ago  Up 10 seconds                                                                        train-simulator_alm-mqtt-module
 3662738bc98d  nats:2.1.9-alpine                                                                                                         "docker-entrypoint.s…"  2 weeks ago     Up 2 weeks     4222/tcp, 6222/tcp, 8222/tcp                                          nats
 2de416b8763f  mcr.microsoft.com/azureiotedge-hub:1.0                                                                                    "/bin/sh -c 'echo \"…"  2 weeks ago     Up 2 weeks     0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp  edgeHub
 21f31abc9bf0  mcr.microsoft.com/azureiotedge-agent:1.0                                                                                  "/bin/sh -c 'exec /a…"  2 weeks ago     Up 2 weeks                                                                           edgeAgent
@@ -163,5 +163,5 @@ When you are done abort with `Ctrl+C`.
 
 # Final words
 
-Congratulations! You just finished your first application deployment using the EdgeFarm cli!
+Congratulations! You just finished your first application deployment using the EdgeFarm CLI!
 You also learned about how to setup the train simulator and how the systems components interact with each other.

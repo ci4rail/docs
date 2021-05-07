@@ -3,8 +3,8 @@ title: Use EdgeFarm Basic Functions
 excerpt: First steps with EdgeFarm basic functions.
 last_modified_at: 2021-05-06
 
-custom_previous: /quick-start-guide/EdgeFarm/basic-functions/
-custom_next: /quick-start-guide/EdgeFarm/simulator/
+custom_previous: /quick-start-guide/edgefarm/basic-functions/
+custom_next: /quick-start-guide/edgefarm/simulator/
 ---
 
 This chapter shows the basic usage of the EdgeFarm CLI to interact with the EdgeFarm services.
@@ -32,9 +32,9 @@ This step is needed in order to call the EdgeFarm CLI from any location on your 
 Open up a command shell by pressing `Windows+R` and typing in `cmd`. 
 
 ```console
-> mkdir %homepath%\EdgeFarm
-> set PATH=%PATH%;%homepath%\EdgeFarm
-> copy %homepath%\Downloads\edgefarm.exe %homepath%\EdgeFarm
+> mkdir %homepath%\edgefarm
+> set PATH=%PATH%;%homepath%\edgefarm
+> copy %homepath%\Downloads\edgefarm.exe %homepath%\edgefarm
 ```
 
 Verify that your PATH variable settings have been successfully by executing the EdgeFarm CLI.

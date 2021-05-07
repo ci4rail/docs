@@ -3,12 +3,12 @@ title: Prerequesits setup for Windows
 excerpt: Prerequesits setup for Windows
 last_modified_at: 2021-05-06
 
-custom_previous: /quick-start-guide/EdgeFarm/simulator/prerequisites/
-custom_next: /quick-start-guide/EdgeFarm/simulator/start-simulator/
+custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
+custom_next: /quick-start-guide/edgefarm/simulator/start-simulator/
 
 gallery:
-  - url: /user-docs/images/EdgeFarm/simulator/prerequisites/docker-desktop-running.png
-    image_path: /user-docs/images/EdgeFarm/simulator/prerequisites/docker-desktop-running.png
+  - url: /user-docs/images/edgefarm/simulator/prerequisites/docker-desktop-running.png
+    image_path: /user-docs/images/edgefarm/simulator/prerequisites/docker-desktop-running.png
     alt: "Check if Docker Desktop is running"
     title: "Check if Docker Desktop is running"
 ---
@@ -92,7 +92,7 @@ Download Git for Windows and select `64-bit Git for Windows Setup`. Follow the s
 
 After installing Git for Windows open up `git-bash`.
 
-![Starting git-bash]({{ 'user-docs/images/EdgeFarm/simulator/prerequisites/start-git-bash.png' | relative_url }} "Starting git-bash"){: style="width: 40%"}
+![Starting git-bash]({{ 'user-docs/images/edgefarm/simulator/prerequisites/start-git-bash.png' | relative_url }} "Starting git-bash"){: style="width: 40%"}
 
 After that enter the following command. This keeps the original line endings that are needed for the system to work correctly.
 
@@ -100,7 +100,7 @@ After that enter the following command. This keeps the original line endings tha
   git config --global core.autocrlf false
 ```
 
-![Configure git line endings]({{ 'user-docs/images/EdgeFarm/simulator/prerequisites/git-bash.png' | relative_url }} "Configure git line endings"){: style="width: 50%"}
+![Configure git line endings]({{ 'user-docs/images/edgefarm/simulator/prerequisites/git-bash.png' | relative_url }} "Configure git line endings"){: style="width: 50%"}
 
 You are now ready to use git.
 </div>
@@ -170,7 +170,7 @@ Step 4 (`Linux kernel update package`) has been already done by following the pr
 
 Continue with the steps 5 and 6 to install Ubuntu 20.04.
 
-Once WSL2 and Ubuntu 20.04 is installed, continue with the [Linux setup instructions](/quick-start-guide/EdgeFarm/simulator/prerequisites/linux/). Inside Ubuntu 20.04 docker and docker-compose need to be installed.
+Once WSL2 and Ubuntu 20.04 is installed, continue with the [Linux setup instructions](/quick-start-guide/edgefarm/simulator/prerequisites/linux/). Inside Ubuntu 20.04 docker and docker-compose need to be installed.
 </div>
 </div> <!-- tab-content -->
 
@@ -178,7 +178,7 @@ Once WSL2 and Ubuntu 20.04 is installed, continue with the [Linux setup instruct
 
 ## I want to run this in a Windows VM on a Linux host
 
-This scenario is not useful at all. Please continue with [Linux setup instructions](/quick-start-guide/EdgeFarm/simulator/prerequisites/linux/).
+This scenario is not useful at all. Please continue with [Linux setup instructions](/quick-start-guide/edgefarm/simulator/prerequisites/linux/).
 
 ## My status bar in Docker Desktop is not `green`
 
