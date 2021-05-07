@@ -49,7 +49,7 @@ Run the following commands to download and start the simulator service.
 Verify that the simulator is up and running.
 
 ```console{% raw %}
-$ docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
+> docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
 CONTAINER ID   NAMES                                  STATUS
 f204253935ce   simulator_node-red_1                   Up 3 minutes (healthy)
 27f23408f865   mosquitto                              Up 3 minutes{% endraw %}
