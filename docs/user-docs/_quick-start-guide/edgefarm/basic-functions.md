@@ -17,7 +17,7 @@ Download the latest EdgeFarm CLI. Select in `Assets` the appropriate version:
 
 Download the file to your personal Downloads folder.
 
-[Download EdgeFarm CLI](https://github.com/edgefarm/edgefarm-cli/releases){: .btn .btn--info}
+[Get EdgeFarm CLI](https://github.com/edgefarm/edgefarm-cli/releases){: .btn .btn--info}
 
 # Seting up PATH variable
 
