@@ -3,12 +3,12 @@ title: Prerequesits setup for Windows
 excerpt: Prerequesits setup for Windows
 last_modified_at: 2021-05-06
 
-custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
-custom_next: /quick-start-guide/edgefarm/simulator/start-simulator/
+custom_previous: /quick-start-guide/EdgeFarm/simulator/prerequisites/
+custom_next: /quick-start-guide/EdgeFarm/simulator/start-simulator/
 
 gallery:
-  - url: /user-docs/images/edgefarm/simulator/prerequisites/docker-desktop-running.png
-    image_path: /user-docs/images/edgefarm/simulator/prerequisites/docker-desktop-running.png
+  - url: /user-docs/images/EdgeFarm/simulator/prerequisites/docker-desktop-running.png
+    image_path: /user-docs/images/EdgeFarm/simulator/prerequisites/docker-desktop-running.png
     alt: "Check if Docker Desktop is running"
     title: "Check if Docker Desktop is running"
 ---
@@ -21,10 +21,10 @@ This chapter shows you how to setup the prerequisites for the train simulator on
 > **Note: It is highly recommended using `Windows 10`. Other Windows versions are not guranteed to work.**
 <!-- {: .notice--warning} -->
 
-# Setup
-There are two ways to satisfy the prerequisites needed for the `Train Simulator`. 
+# Setup for Windows
+There are two possibilities to establish the prerequisites needed for the `Train Simulator`. 
 
-Using a standard Windows Installation process or the Linux way using 'Windows Subsystem for Linux' (WSL2). At this point you have to decide which way you want to go.
+Using a standard Windows Installation process or the Linux way using 'Windows Subsystem for Linux' (WSL2). At this point you have to decide which way you want to go. This depends on your personal taste. If you feel home on Linux use WSL2, otherwise use the regular installation process.
 
 <ul class="nav nav-tabs">
   <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#regular_installation" role="tab" >Regular</a></li>
@@ -37,11 +37,11 @@ Using a standard Windows Installation process or the Linux way using 'Windows Su
 
 You need to download and install Docker Desktop. Perform all reboots you are prompted.
 
-[Docker Desktop for Windows](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe){: .btn .btn--info}
+[Get Docker Desktop for Windows](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe){: .btn .btn--info}
 
 After the installation is finished you will be prompted to install the *Linux kernel update package*. 
 
-[Linux kernel update package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi){: .btn .btn--info}
+[Get Linux kernel update package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi){: .btn .btn--info}
 
 Verify that Docker Desktop is running. The status bar must be 'green'.
 
@@ -88,11 +88,11 @@ If you need further information please consult the official Docker documentation
 
 Download Git for Windows and select `64-bit Git for Windows Setup`. Follow the steps for installation.
 
-[Git for Windows](https://git-scm.com/download/win){: .btn .btn--info}
+[Get Git for Windows](https://git-scm.com/download/win){: .btn .btn--info}
 
 After installing Git for Windows open up `git-bash`.
 
-![Starting git-bash]({{ 'user-docs/images/edgefarm/simulator/prerequisites/start-git-bash.png' | relative_url }} "Starting git-bash"){: style="width: 40%"}
+![Starting git-bash]({{ 'user-docs/images/EdgeFarm/simulator/prerequisites/start-git-bash.png' | relative_url }} "Starting git-bash"){: style="width: 40%"}
 
 After that enter the following command. This keeps the original line endings that are needed for the system to work correctly.
 
@@ -100,7 +100,7 @@ After that enter the following command. This keeps the original line endings tha
   git config --global core.autocrlf false
 ```
 
-![Configure git line endings]({{ 'user-docs/images/edgefarm/simulator/prerequisites/git-bash.png' | relative_url }} "Configure git line endings"){: style="width: 50%"}
+![Configure git line endings]({{ 'user-docs/images/EdgeFarm/simulator/prerequisites/git-bash.png' | relative_url }} "Configure git line endings"){: style="width: 50%"}
 
 You are now ready to use git.
 </div>
@@ -111,11 +111,11 @@ You are now ready to use git.
 
 You need to download and install Docker Desktop. Perform all reboots you are prompted.
 
-[Docker Desktop for Windows](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe){: .btn .btn--info}
+[Get Docker Desktop for Windows](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe){: .btn .btn--info}
 
 After the installation is finished you will be prompted to install the *Linux kernel update package*. 
 
-[Linux kernel update package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi){: .btn .btn--info}
+[Get Linux kernel update package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi){: .btn .btn--info}
 
 Verify that Docker Desktop is running. The status bar must be 'green'.
 
@@ -170,7 +170,7 @@ Step 4 (`Linux kernel update package`) has been already done by following the pr
 
 Continue with the steps 5 and 6 to install Ubuntu 20.04.
 
-Once WSL2 and Ubuntu 20.04 is installed, continue with the [Linux setup instructions](/quick-start-guide/edgefarm/simulator/prerequisites/linux/). Inside Ubuntu 20.04 docker and docker-compose need to be installed.
+Once WSL2 and Ubuntu 20.04 is installed, continue with the [Linux setup instructions](/quick-start-guide/EdgeFarm/simulator/prerequisites/linux/). Inside Ubuntu 20.04 docker and docker-compose need to be installed.
 </div>
 </div> <!-- tab-content -->
 
@@ -178,7 +178,7 @@ Once WSL2 and Ubuntu 20.04 is installed, continue with the [Linux setup instruct
 
 ## I want to run this in a Windows VM on a Linux host
 
-This scenario is not useful at all. Please continue with [Linux setup instructions](/quick-start-guide/edgefarm/simulator/prerequisites/linux/).
+This scenario is not useful at all. Please continue with [Linux setup instructions](/quick-start-guide/EdgeFarm/simulator/prerequisites/linux/).
 
 ## My status bar in Docker Desktop is not `green`
 
