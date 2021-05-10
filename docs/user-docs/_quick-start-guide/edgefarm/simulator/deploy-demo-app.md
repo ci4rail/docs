@@ -149,10 +149,10 @@ f51de4aa3a12  harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.S
 
 # Testing the train simulator on the device
 
-View the logs of the `train-simulator_edge-demo -f` container by running `docker logs`. The output should look similar to this.
+To verify that everything is properly connected and running, view the logs of the `train-simulator_edge-demo` container by running `docker logs train-simulator_edge-demo -f`. The output should look similar to this.
 
 ```console
-$ docker logs train-simulator_edge-demo
+$ docker logs train-simulator_edge-demo -f
 {'device': 'moducop0', 'acqTime': 1620300886, 'payload': b'{"sensorname":"temperature","timestamp":1620300886,"value":"31.57"}'}
 {'device': 'moducop0', 'acqTime': 1620300887, 'payload': b'{"sensorname":"temperature","timestamp":1620300887,"value":"30.91"}'}
 {'device': 'moducop0', 'acqTime': 1620300888, 'payload': b'{"sensorname":"temperature","timestamp":1620300888,"value":"30.30"}'}

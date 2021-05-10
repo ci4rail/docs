@@ -37,7 +37,7 @@ Open up a command shell by pressing `Windows+R` and typing in `cmd`.
 > copy %homepath%\Downloads\edgefarm.exe %homepath%\edgefarm
 ```
 
-Verify that your PATH variable settings have been successfully by executing the EdgeFarm CLI.
+Verify that your PATH variable settings have been successfully set by executing the EdgeFarm CLI.
 
 ```console
 > edgefarm version

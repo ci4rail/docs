@@ -80,9 +80,9 @@ https://docs.docker.com/get-started/
   
 ```
 
-Continue with `Installing git`.
-
 If you need further information please consult the official Docker documentation on [how to install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/).
+
+Continue with `Installing git`.
 
 **Installing git**
 

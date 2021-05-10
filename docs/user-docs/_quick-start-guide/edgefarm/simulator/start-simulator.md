@@ -24,14 +24,16 @@ The following tools must be installed. See the [previous section](/quick-start-g
 
 # Get the Train Simulator up and Running
 
-Clone the repository `edgefarm-demos` and start the simulator using docker-compose.
+Clone the `edgefarm-demos` repository and start the simulator with docker-compose. The simulator can be seen as a logical group of two services:
+* Node-Red to generate the simulated data.
+* Mosquitto as the MQTT broker for distributing this data.
 
 <ul class="nav nav-tabs">
-  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#Windows" role="tab" >Windows</a></li>
-  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Linux" role="tab">Linux</a></li>
+  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#WindowsId1" role="tab" >Windows</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#LinuxId1" role="tab">Linux</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane fade in active" id="Windows" role="tabpanel" markdown="1">
+<div class="tab-pane fade in active" id="WindowsId1" role="tabpanel" markdown="1">
 Make sure that Docker Desktop is running.
 Open a command shell by pressing `Windows+R` and entering `cmd`.
 Run the following commands to download and start the simulator service.
@@ -55,7 +57,7 @@ f204253935ce   simulator_node-red_1                   Up 3 minutes (healthy)
 27f23408f865   mosquitto                              Up 3 minutes{% endraw %}
 ```
 </div>
-<div class="tab-pane fade in" id="Linux" role="tabpanel" markdown="1">
+<div class="tab-pane fade in" id="LinuxId1" role="tabpanel" markdown="1">
 Open a terminal and run the following commands to download and start the simulator service.
 
 ```console
@@ -75,7 +77,6 @@ CONTAINER ID   NAMES                                  STATUS
 f204253935ce   simulator_node-red_1                   Up 3 minutes (healthy)
 27f23408f865   mosquitto                              Up 3 minutes{% endraw %}
 ```
-
 </div>
 </div> <!-- tab-content -->
 
@@ -87,13 +88,36 @@ Go to the dashoard to view the values generated in the simulation [http://localh
 
 ![Running simulation]({{ 'user-docs/images/edgefarm/simulator/simulation-running.png' | relative_url }} "Running simulation"){: style="width: 75%"}
 
+The simulation is now up and running. Let's test it in the next step.
+
 # Testing the Simulator
 
-To test the simulation run this command to create a new MQTT client running as a container subscribing to all topics the simulator will output.
+To test whether clients can connect to the simulator and retrieve these simulated values, run this command. This creates a new MQTT client that runs as a container and subscribes to all the topics that the simulator outputs.
 
-```console {% raw %}
+<ul class="nav nav-tabs">
+  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#WindowsId2" role="tab" >Windows</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#LinuxId2" role="tab">Linux</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane fade in active" id="WindowsId2" role="tabpanel" markdown="1">
+Find out the IP address that Docker Deskop uses on your computer. Then use this IP address to connect to the MQTT client to test the simulation. For a default installation, this IP address is `172.17.0.1`.
+
+```console{% raw %}
+> docker network inspect bridge --format="{{(index .IPAM.Config 0).Gateway}}"
+172.17.0.1
+> docker run -it --rm efrecon/mqtt-client sub -h 172.17.0.1 -t "simulation/#" -v
+simulation/temperature {"sensorname":"temperature","timestamp":1620620201,"value":"0.39"}
+simulation/temperature {"sensorname":"temperature","timestamp":1620620202,"value":"1.15"}{% endraw %}
+```
+</div>
+<div class="tab-pane fade in" id="LinuxId2" role="tabpanel" markdown="1">
+```console{% raw %}
 $ docker run -it --rm efrecon/mqtt-client sub -h `docker network inspect bridge --format='{{(index .IPAM.Config 0).Gateway}}'` -t "simulation/#" -v
-{% endraw %}```
+simulation/temperature {"sensorname":"temperature","timestamp":1620620201,"value":"0.39"}
+simulation/temperature {"sensorname":"temperature","timestamp":1620620202,"value":"1.15"}{% endraw %}
+```
+</div>
+</div> <!-- tab-content -->
 
 When you're done abort with `Ctrl+C`.
 
