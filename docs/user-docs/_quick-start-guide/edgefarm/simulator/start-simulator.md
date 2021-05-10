@@ -1,13 +1,15 @@
 ---
-title: Starting the Simulator
-excerpt: Starting the Simulator
+title: Start the Simulator
+excerpt: Start the Simulator
 last_modified_at: 2021-05-06
 
 custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
 custom_next: /quick-start-guide/edgefarm/simulator/deploy-demo-app/
 ---
 
-This describes how to get the `Train Simulator` up and running. 
+As mentioned in previous sections, the simulator creates realistic train data and provides it to your edge device. This section helps you to get the `Train Simulator` up and running. 
+
+
 The steps are:
 1. Getting the simulator using git
 2. Starting the simulator environment using docker-compose
@@ -21,6 +23,7 @@ The following tools must be installed. See the [previous section](/quick-start-g
 * docker
 * docker-compose
 * git
+
 
 # Get the Train Simulator up and Running
 
@@ -80,19 +83,20 @@ f204253935ce   simulator_node-red_1                   Up 3 minutes (healthy)
 </div>
 </div> <!-- tab-content -->
 
-Next go to Node-Red's web UI [http://localhost:1880](http://localhost:1880) to start the simulation. Click on the blue control right next to the `start` node.
+# Start the simulator using Node-Red
+Please access the Node-Red's web UI [http://localhost:1880](http://localhost:1880) and start the simulation by clicking on the blue control right next to the `start` node.
 
 ![Start the simulation]({{ 'user-docs/images/edgefarm/simulator/start-simulation.png' | relative_url }} "Start the simulation"){: style="width: 75%"}
 
-Go to the dashoard to view the values generated in the simulation [http://localhost:1880/ui](http://localhost:1880/ui).
+You can view the generated data by visiting the dashoard [http://localhost:1880/ui](http://localhost:1880/ui).
 
 ![Running simulation]({{ 'user-docs/images/edgefarm/simulator/simulation-running.png' | relative_url }} "Running simulation"){: style="width: 75%"}
 
-The simulation is now up and running. Let's test it in the next step.
+The simulation is now up and running but there is not yet any consumer of those data. Let's establish that in the next step.
 
-# Testing the Simulator
+# Connect to Simulator
 
-To test whether clients can connect to the simulator and retrieve these simulated values, run this command. This creates a new MQTT client that runs as a container and subscribes to all the topics that the simulator outputs.
+To test whether clients can connect to the simulator and retrieve these simulated values, run the following commands. This creates a new MQTT client that runs as a container and subscribes to all the topics that the simulator outputs.
 
 <ul class="nav nav-tabs">
   <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#WindowsId2" role="tab" >Windows</a></li>
@@ -127,3 +131,7 @@ When you're done abort with `Ctrl+C`.
 
 If you are running Windows, please ensure that you've set up `Git for Windows` correctly. The problem might be wrong line endings. 
 Open a `git-bash` and type in `git config --global core.autocrlf false`. Then delete `edgefarm-demos` and redo the `git clone` command.
+
+
+# Achievements of this Section
+OK, you have setup and started the simulator, it's ceating train data. In addition, you have connected the simulator output to an MQTT client. We are now ready to go to make use of those simulated data in your edge devices. 

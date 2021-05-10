@@ -1,11 +1,11 @@
 ---
-title: Deploying the demo application
-excerpt: Deploying the demo application
+title: Deploy the Demo Application
+excerpt: Deploy the Demo Application
 last_modified_at: 2021-05-06
 
 custom_previous: /quick-start-guide/edgefarm/simulator/start-simulator/
 ---
-The Train Simulator Demo application is the component that runs on the edge device. You are going to deploy an demo application on the edge device to read the data received from the `Train simulator` and handle them. The handling in the demo application is a simple dump of the received data, but can be made more complex in any customer application.
+The Train Simulator Demo application is the component that runs on the edge device. You are going to deploy an demo application on the edge device to read the data received from the `Train simulator` and handle them. To keep it simple, our demo application provides a simple dump of the received data. Of course you are free to apply any data handling in a custom application.
 
 # Prerequisites
 
@@ -16,9 +16,9 @@ To successfully walk through the next steps, please make sure, that the followin
 * Cloned `edgefarm-demos` repository. This is done in the [Starting the Train Simulator](/quick-start-guide/edgefarm/simulator/start-simulator/) section.
 * Terminal connection to ModuCop. See [Connecting to ModuCop’s Linux Terminal](/quick-start-guide/moducop/connect-to-terminal/) for assistance.
 
-# Getting the IP Address of your simulator
+# Get the IP Address of Your Simulator
 
-On the machine that runs the simulator run the folloing command to obtain its IP address.
+On the machine that runs the simulator execute the folloing command to obtain it's IP address.
 Run this command to find out all IP addresses. Your local network IP address probably starts with `192.168.x.x` or `10.0.x.x`.
 
 <ul class="nav nav-tabs">
@@ -95,11 +95,13 @@ From the example above the correct IP address is `192.168.1.22` for interface `e
 </div>
 </div> <!-- tab-content -->
 
-# Modifying the application manifest
+# Connect Simulator Output to Edge Device
 
-The deployment is performed using the EdgeFarm CLI called `edgefarm`. This quick-start-guide assumes that the CLI is used on the same machine as the simulator is running.
+In order to connect the simulated data now to the edge device, we are going to apply an updated manifest file which will take care of deploying our demo application to the edge computer. The deployment is performed using the EdgeFarm CLI called `edgefarm`. This quick-start-guide assumes that the CLI is used on the same machine as the simulator is running.
 
-Modify the manifest.yaml found in directory `edgefarm-demos/train-simulation/edge`. This is needed that the application running on the edge device is able to communicate with the machine that runs the simulation.
+## Modify Manifest File
+First of all, please modify the manifest.yaml found in directory `edgefarm-demos/train-simulation/edge`. This is neccessary to establish communication between the application running on the edge device and the machine that runs the simulation.
+
 Enter the IP address of your simulator machine as the value for the key `MQTT_SERVER` in the envs section (line 11).
 
 This example shows how this might look like:
@@ -125,9 +127,9 @@ modules:
     startupOrder: 1
 {% endhighlight %}
 
-# Deploying the application manifest
+## Deploy the Application Manifest
 
-Apply the application manifest 
+Apply the application manifest by the corresponding EdgeFarm command. 
 
 ```console
 $ edgefarm alm apply -f manifest.yaml
@@ -147,7 +149,8 @@ f51de4aa3a12  harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.S
 21f31abc9bf0  mcr.microsoft.com/azureiotedge-agent:1.0                                                                                  "/bin/sh -c 'exec /a…"  2 weeks ago     Up 2 weeks                                                                           edgeAgent
 ```
 
-# Testing the train simulator on the device
+
+# Verify the Train Simulator Data on Your Device
 
 To verify that everything is properly connected and running, view the logs of the `train-simulator_edge-demo` container by running `docker logs train-simulator_edge-demo -f`. The output should look similar to this.
 
@@ -161,7 +164,7 @@ $ docker logs train-simulator_edge-demo -f
 
 When you are done abort with `Ctrl+C`.
 
-# Final words
 
+# Achievements of this Section
 Congratulations! You just finished your first application deployment using the EdgeFarm CLI!
-You also learned about how to setup the train simulator and how the systems components interact with each other.
+You also learned about how to setup the train simulator and how the system's components interact with each other.
