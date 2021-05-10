@@ -8,7 +8,7 @@ custom_next: /quick-start-guide/edgefarm/simulator/start-simulator/
 ---
 This chapter shows you how to setup the prerequisites for the train simulator on Linux.
 
-# Pre-Condition
+# Prerequisites
 
 * Ubuntu 20.04
 
@@ -16,7 +16,7 @@ This chapter shows you how to setup the prerequisites for the train simulator on
 <!-- {: .notice--info} -->
 
 # Install docker
-Use the convenient script for automatic installation of Docker Community Edition.
+Use the `convenience script` for automatic installation of Docker Community Edition.
 
 ```console
 $ curl -fsSL https://get.docker.com -o get-docker.sh
@@ -95,4 +95,4 @@ See [this link](https://docs.docker.com/engine/install/#supported-platforms) for
 Raspbian users must use the [convenience script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script).
 
 # Achievements of this Section
-Perfect, you have successfully setup all pre-conditions to run our train-simulator-demo on your machine under Linux. In the next sections, you will use the simulator to provide realistic train data to your edge device. 
+Perfect, you have successfully setup all prerequisites to run our train-simulator-demo on your machine on Linux. In the next sections, you will use the simulator to provide realistic train data to your edge device. 

@@ -97,7 +97,7 @@ From the example above the correct IP address is `192.168.1.22` for interface `e
 
 # Connect Simulator Output to Edge Device
 
-In order to connect the simulated data now to the edge device, we are going to apply an updated manifest file which will take care about deploying out demo application to the edge computer. The deployment is performed using the EdgeFarm CLI called `edgefarm`. This quick-start-guide assumes that the CLI is used on the same machine as the simulator is running.
+In order to connect the simulated data now to the edge device, we are going to apply an updated manifest file which will take care of deploying our demo application to the edge computer. The deployment is performed using the EdgeFarm CLI called `edgefarm`. This quick-start-guide assumes that the CLI is used on the same machine as the simulator is running.
 
 ## Modify Manifest File
 First of all, please modify the manifest.yaml found in directory `edgefarm-demos/train-simulation/edge`. This is neccessary to establish communication between the application running on the edge device and the machine that runs the simulation.

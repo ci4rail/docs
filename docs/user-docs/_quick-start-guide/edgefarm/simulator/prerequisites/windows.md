@@ -186,4 +186,4 @@ Please verify that you've installed the `Linux kernel update package`. Try perfo
 
 
 # Achievements of this Section
-Perfect, you have successfully setup all pre-conditions to run our train-simulator-demo on your machine under a Windows 10 environment. In the next sections, you will use the simulator to provide realistic train data to your edge device. 
+Perfect, you have successfully setup all pre-conditions to run our train-simulator-demo on your machine in a Windows 10 environment. In the next sections, you will use the simulator to provide realistic train data to your edge device. 
