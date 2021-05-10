@@ -19,9 +19,9 @@ Download the file to your personal Downloads folder.
 
 [Get EdgeFarm CLI](https://github.com/edgefarm/edgefarm-cli/releases){: .btn .btn--info}
 
-# Seting up PATH variable
+# Set PATH Variable
 
-This step is needed in order to call the EdgeFarm CLI from any location on your computer.
+This step is necessary to call the EdgeFarm CLI from any location on your computer.
 
 <ul class="nav nav-tabs">
   <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#Windows" role="tab" >Windows</a></li>
@@ -37,7 +37,7 @@ Open up a command shell by pressing `Windows+R` and typing in `cmd`.
 > copy %homepath%\Downloads\edgefarm.exe %homepath%\edgefarm
 ```
 
-Verify that your PATH variable settings have been successfully set by executing the EdgeFarm CLI.
+Verify that your PATH variable settings have been successfully applied by executing the EdgeFarm CLI.
 
 ```console
 > edgefarm version
@@ -62,11 +62,11 @@ edgefarm-cli 06f398c1b0d1949bbeec76ca19a9b6923afe7e79
 </div> <!-- tab-content -->
 
 
-# Usage of `EdgeFarm-cli`
+# Basic Features of `EdgeFarm-cli`
 
 ## Login
 
-First login to your user using the login command use the `login` subcommand. Your user and password will be handed over in a personal conversation.
+To make use of any EdgeFarm services, you first have to sign on using the `login` subcommand. Your user and password will be handed over in a personal conversation.
 
 ```console
 $ edgefarm login                     
@@ -76,9 +76,9 @@ Login Succeeded
 Logged in as: Stan Marsh
 ```
 
-## List devices
+## List Edge Devices
 
-List the devices registered in EdgeFarm DLM for your user use the `dlm get devices` subcommand.
+List the devices registered in EdgeFarm DLM for your account by using the `dlm get devices` subcommand.
 
 ```console
 $ edgefarm dlm get devices
@@ -88,7 +88,7 @@ moducop0                                	Connected
 
 ## List runtimes
 
-List the runtimes registered in EdgeFarm ALM for your user use the `alm get runtimes` subcommand.
+List the runtimes registered in EdgeFarm ALM for your account using the `alm get runtimes` subcommand.
 
 ```console
 $ edgefarm alm get runtimes
@@ -98,9 +98,9 @@ moducop0                                	Connected
 
 ## Applying manifest
 
-To apply an application manifest file use the `alm apply` subcommand.
+In order to deploy a specific configuration of applications to the edge computer, we are going to use so-called application manifest files. To apply such an application manifest file use the `alm apply` subcommand.
 
-See this example manifest file that deploys a nginx web server.
+As a first example, the following section explains how create and apply your first manifest file. In this case we will deploy a nginx web server to the edge device. 
 
 ```yaml
 ---
@@ -115,14 +115,15 @@ modules:
     startupOrder: 1
 ```
 
-Put the example in a yaml file, e.g. `manifest.yaml` and apply it.
+Copy the above example in a yaml file, e.g. `manifest.yaml`. Then apply it.
 
 ```console
 $ edgefarm alm apply -f manifest.yaml
 ```
 
-Login to the edge device. See [Connecting to ModuCop’s Linux Terminal](/quick-start-guide/moducop/connect-to-terminal/) for assistance.
+To see the result of your frst application deployment by using application manifest files, you need to login to the edge device. See [Connecting to ModuCop’s Linux Terminal](/quick-start-guide/moducop/connect-to-terminal/) for assistance.
 Now wait for the containers get deployed. 
+
 You can monitor the status of the deployment by triggering `docker ps` manually and looking for a container called `webserver_nginx`
 Once the deployment is done the output should look similar to this.
 
@@ -132,7 +133,7 @@ CONTAINER ID  IMAGE         COMMAND                 CREATED        STATUS       
 463d7e32c250  nginx:1.19.5  "/docker-entrypoint.…"  9 seconds ago  Up Less than a second  0.0.0.0:8080->80/tcp  webserver_nginx
 ```
 
-Download and test the webserver locally on the edge device.
+In the next step, you download and test the webserver locally on the edge device.
 ```console
 $ cd /data
 $ wget localhost:8080
@@ -169,4 +170,9 @@ Commercial support is available at
 </html>
 ```
 
-You also can open a new browser tab with this URI `http://<IP>:8080` where you put in the IP address of your edge device. You see a welcome message from the nginx webserver.
+You also can open a new browser tab with this URI `http://<IP>:8080` where you put in the IP address of your edge device. You should see a welcome message from the nginx webserver.
+
+# Achievements in this Section
+Well done, you have successfully logged on to the EdgeFarm services, got familier with the basic functionalities like listing all your connected devces and you deployed your first application to an edge computer. 
+
+Cool, isn't it? Go on, we have more for you to test!

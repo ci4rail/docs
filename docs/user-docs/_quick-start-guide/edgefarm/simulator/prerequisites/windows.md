@@ -1,6 +1,6 @@
 ---
-title: Prerequesits setup for Windows
-excerpt: Prerequesits setup for Windows
+title: Prerequesits Setup for Windows
+excerpt: Prerequesits Setup for Windows
 last_modified_at: 2021-05-06
 
 custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
@@ -12,9 +12,9 @@ gallery:
     alt: "Check if Docker Desktop is running"
     title: "Check if Docker Desktop is running"
 ---
-This chapter shows you how to setup the prerequisites for the train simulator on Windows.
+This chapter gives guidance how to setup the prerequisites for the train simulator on Windows.
 
-# Prerequisites
+# Pre-Condition
 
 * Windows 10
 
@@ -24,7 +24,7 @@ This chapter shows you how to setup the prerequisites for the train simulator on
 # Setup for Windows
 There are two possibilities to establish the prerequisites needed for the `Train Simulator`. 
 
-Using a standard Windows Installation process or the Linux way using 'Windows Subsystem for Linux' (WSL2). At this point you have to decide which way you want to go. This depends on your personal taste. If you feel home on Linux use WSL2, otherwise use the regular installation process.
+Using a standard Windows Installation process or the Linux way using 'Windows Subsystem for Linux' (WSL2). At this point you have to decide which way you want to go. This depends on your personal taste. If you feel at home on Linux use WSL2, otherwise use the regular installation process.
 
 <ul class="nav nav-tabs">
   <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#regular_installation" role="tab" >Regular</a></li>
@@ -39,7 +39,7 @@ You need to download and install Docker Desktop. Perform all reboots you are pro
 
 [Get Docker Desktop for Windows](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe){: .btn .btn--info}
 
-After the installation is finished you will be prompted to install the *Linux kernel update package*. 
+After the installation is finished you will be prompted to install the *Linux kernel update package*.
 
 [Get Linux kernel update package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi){: .btn .btn--info}
 
@@ -82,7 +82,7 @@ https://docs.docker.com/get-started/
 
 If you need further information please consult the official Docker documentation on [how to install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/).
 
-Continue with `Installing git`.
+No worries, we are almost done. Please continue with `Installing git`.
 
 **Installing git**
 
@@ -183,3 +183,7 @@ This scenario is not useful at all. Please continue with [Linux setup instructio
 ## My status bar in Docker Desktop is not `green`
 
 Please verify that you've installed the `Linux kernel update package`. Try performing a reboot.
+
+
+# Achievements of this Section
+Perfect, you have successfully setup all pre-conditions to run our train-simulator-demo on your machine under a Windows 10 environment. In the next sections, you will use the simulator to provide realistic train data to your edge device. 
