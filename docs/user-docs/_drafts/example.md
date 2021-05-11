@@ -165,7 +165,7 @@ modules:
    est Lorem ipsum dolor
    ```
 
-Add code block with line numbers:
+Surround code block with {% raw %}`{% highlight yaml linenos %}`{% endraw %} and {% raw %}`{% endhighlight %}`{% endraw %} instead of \`\`\` to add line numbers to the code bock:
 {% highlight yaml linenos %}
 application: influxdb
 modules:
