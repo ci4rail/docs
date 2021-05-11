@@ -41,7 +41,7 @@ gallery:
     title: "Image 3 title caption"
 ---
 
-This example documentation file shows how different formatting can be established in this template. Some formatting is usual [markdown syntax](#general-markdown-usage), but some [template specific formatting](#jekyll-template-specific) is possible. In addition, some topics can be done in [both ways](#markdown-vs-template-specific). Have a look at the [raw file on github](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) to see how this page is implemented.
+This example documentation file shows how different formatting can be established in this template. Some formatting is usual [markdown syntax](#general-markdown-usage), but some [template specific formatting](#jekyll-template-specific) is possible. In addition, some topics can be done in [both ways](#markdown-and-template-specific). Have a look at the [raw file on github](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) to see how this page is implemented.
 
 # General Markdown Usage
 
@@ -165,6 +165,14 @@ modules:
    est Lorem ipsum dolor
    ```
 
+Add code block with line numbers:
+{% highlight yaml linenos %}
+application: influxdb
+modules:
+  - name: influxdb
+    image: influxdb:latest
+    createOptions: '{\"HostConfig\":{\"PortBindings\":{\"8086/tcp\":[{\"HostPort\":\"8086\"}]}}}'
+{% endhighlight %}
 
 # Jekyll Template Specific
 ## Info Blocks
@@ -360,9 +368,9 @@ A link to an external page can be done completely without template syntax:
 
 A link to an internal page requires some template syntax `{% raw %}{ 'URL' | relative_url }}{% endraw %}` to ensure the link is correctly generated:
 ```
-{% raw %}[Link to internal page]({{ '/quick-start-guide' | relative_url }} "Title that is displayed when hovering over the mouse"){% endraw %}
+{% raw %}[Link to internal page]({{ '/quick-start-guide/' | relative_url }} "Title that is displayed when hovering over the mouse"){% endraw %}
 ```
-[Link to internal page]({{ '/quick-start-guide' | relative_url }} "Title that is displayed when hovering over the mouse")
+[Link to internal page]({{ '/quick-start-guide/' | relative_url }} "Title that is displayed when hovering over the mouse")
 
 # Heading Level 1
 ## Heading Level 2
