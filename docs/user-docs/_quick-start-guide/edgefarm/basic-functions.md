@@ -49,7 +49,8 @@ Open up a terminal and install the CLI to the `~/bin` directory.
 ```console
 $ mkdir -p ~/bin
 $ cp ~/Downloads/edgefarm ~/bin
-$ echo PATH="$PATH:~/bin" >> .bashrc
+$ echo PATH="$PATH:~/bin" >> ~/.bashrc
+$ source ~/.bashrc
 ```
 
 Verify that your PATH variable settings have been successfully by executing the EdgeFarm CLI.
