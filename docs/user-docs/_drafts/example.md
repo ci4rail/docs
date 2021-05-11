@@ -305,6 +305,26 @@ Use this
 in docs to create the following output:
 {% include gallery caption="This is a sample gallery with **Markdown support**." %}
 
+## Dynamic Tabs
+<ul class="nav nav-tabs">
+  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" >Tab 1</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab2" role="tab">Tab 2</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab3" role="tab">Tab 3</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane fade show active" id="tab1" role="tabpanel" markdown="1">
+This is tab 1.
+</div>
+<div class="tab-pane fade" id="tab2" role="tabpanel" markdown="1">
+![Figure in tab]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Figure in tab"){: style="width: 40%"}
+</div>
+<div class="tab-pane fade" id="tab3" role="tabpanel" markdown="1">
+```
+This is a code block in a tab.
+```
+</div>
+</div>
+
 # Markdown and Template Specific
 ## Include Figure
 Include figure using markdown (Hover to see the Title Text):

@@ -7,6 +7,6 @@ sidebar:
     - title: Release Notes
       navitems:
         - title: EdgeFarm CLI
-          external_url: https://github.com/ci4rail/kyt/releases
+          external_url: https://github.com/edgefarm/edgefarm-cli/releases
     - title: Troubleshooting
       url: /user-manual/troubleshooting/

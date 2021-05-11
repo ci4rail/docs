@@ -28,7 +28,22 @@ sidebar:
           url: /quick-start-guide/raspberry-pi/
         - title: Virtual Device as Edge Device
           url: /quick-start-guide/virtual-device/
-    - title: Login to EdgeFarm
-      url: /quick-start-guide/login/
-    - title: Use EdgeFarm Basis Functions
-      url: /quick-start-guide/basis-functions/
+    - title: Use EdgeFarm
+      url: /quick-start-guide/edgefarm/
+      navitems:
+        - title: Using Basic Functions
+          url: /quick-start-guide/edgefarm/basic-functions/
+        - title: Using the Train Simulator Demo
+          url: /quick-start-guide/edgefarm/simulator/
+          navitems:
+            - title: Setup the Prerequisites
+              url: /quick-start-guide/edgefarm/simulator/prerequisites/
+              navitems:
+              - title: Setup for Windows
+                url: /quick-start-guide/edgefarm/simulator/prerequisites/windows/
+              - title: Setup for Linux
+                url: /quick-start-guide/edgefarm/simulator/prerequisites/linux/
+            - title: Starting the Simulator
+              url: /quick-start-guide/edgefarm/simulator/start-simulator/
+            - title: Deploying the Demo Application
+              url: /quick-start-guide/edgefarm/simulator/deploy-demo-app/

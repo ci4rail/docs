@@ -4,7 +4,7 @@ excerpt: Connect ModuCop to Internet using Local Ethernet
 last_modified_at: 2021-04-21
 
 custom_previous: /quick-start-guide/moducop/connect-to-terminal/
-custom_next: /quick-start-guide/login/
+custom_next: /quick-start-guide/edgefarm/
 ---
 # Using Your Local Network As the Internet Connection
 If your local network provides access to the Internet, you are almost done. Just check if you could access the Internet.
