@@ -1,7 +1,7 @@
 ---
 title: Connecting to ModuCop's Linux Terminal
 excerpt: How to get access to the Shell to configure ModuCop
-last_modified_at: 2021-04-21
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/moducop/powering/
 custom_next: /quick-start-guide/moducop/connect-to-internet/
@@ -16,22 +16,22 @@ In this section, you will connect your development PC with the ModuCop Linux ter
 ## Prerequisites
 
 * ModuCop [supplied with Power]({{ '/quick-start-guide/moducop/powering' | relative_url }})
-* Developer PC attached to local network. 
+* Developer PC attached to local network.
 * Network with DHCP support
 * Ethernet Cable M12 X-Coded to RJ45
 
 # Step 1: Connect ModuCop to Network
 
 * Connect ModuCop's ETH1 interface to your local network using the Ethernet Cable M12 X-Coded to RJ45
-* Ensure your ModuCop is powered 
+* Ensure your ModuCop is powered
 
 After a few seconds, the ETH1 link LED should light. It blinks when there is ethernet traffic.
 
 # Step 2: Find Out the IP Address Assigned by DHCP
 
-This step depends on your DHCP server. 
+This step depends on your DHCP server.
 
-For example, if you have an Internet router that runs the DHCP server, login into the web interface of your Internet router. 
+For example, if you have an Internet router that runs the DHCP server, login into the web interface of your Internet router.
 
 In the management interface of your DHCP server, look for a device named `moducop-cpu01` and note the IP address assigned to your ModuCop (e.g. `192.168.1.56`).
 
@@ -50,7 +50,7 @@ Enter your ModuCop's IP address (that you have noted in the previous step). Leav
 
 ![Connect with putty]({{ '/user-docs/images/moducop/quick-start-guide/putty-connect.png' | relative_url }})
 
-Click open. 
+Click open.
 
 The following dialog tells you that the host is not yet known.
 
@@ -64,7 +64,7 @@ root@192.168.156´s password:
 root@moducop-cpu01:~#
 ```
 
-Enter `root` at `login as`. 
+Enter `root` at `login as`.
 
 Enter `cheesebread` as the password. While you entering the password, you will not see any feedback on the console. This is normal.
 
@@ -88,8 +88,3 @@ New password: <your-super-secret-password>
 Retype new password: <your-super-secret-password>
 passwd: password updated successfully
 ```
-
-
-
-
-

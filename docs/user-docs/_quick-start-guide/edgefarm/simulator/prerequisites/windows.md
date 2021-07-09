@@ -1,7 +1,7 @@
 ---
 title: Prerequesits Setup for Windows
 excerpt: Prerequesits Setup for Windows
-last_modified_at: 2021-05-06
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
 custom_next: /quick-start-guide/edgefarm/simulator/start-simulator/
@@ -22,7 +22,7 @@ This chapter gives guidance how to setup the prerequisites for the train simulat
 <!-- {: .notice--warning} -->
 
 # Setup for Windows
-There are two possibilities to establish the prerequisites needed for the `Train Simulator`. 
+There are two possibilities to establish the prerequisites needed for the `Train Simulator`.
 
 Using a standard Windows Installation process or the Linux way using 'Windows Subsystem for Linux' (WSL2). At this point you have to decide which way you want to go. This depends on your personal taste. If you feel at home on Linux use WSL2, otherwise use the regular installation process.
 
@@ -53,7 +53,7 @@ You are now ready to use docker. Open a `cmd.exe` and try running a basic hello 
 > docker run --rm hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
-b8dfde127a29: Pull complete 
+b8dfde127a29: Pull complete
 Digest: sha256:f2266cbfc127c960fd30e76b7c792dc23b588c0db76233517e1891a4e357d519
 Status: Downloaded newer image for hello-world:latest
 
@@ -77,7 +77,7 @@ https://hub.docker.com/
 
 For more examples and ideas, visit:
 https://docs.docker.com/get-started/
-  
+
 ```
 
 If you need further information please consult the official Docker documentation on [how to install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/).
@@ -113,7 +113,7 @@ You need to download and install Docker Desktop. Perform all reboots you are pro
 
 [Get Docker Desktop for Windows](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe){: .btn .btn--info}
 
-After the installation is finished you will be prompted to install the *Linux kernel update package*. 
+After the installation is finished you will be prompted to install the *Linux kernel update package*.
 
 [Get Linux kernel update package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi){: .btn .btn--info}
 
@@ -127,7 +127,7 @@ You are now ready to use docker. Try running a basic hello world container.
 > docker run --rm hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
-b8dfde127a29: Pull complete 
+b8dfde127a29: Pull complete
 Digest: sha256:f2266cbfc127c960fd30e76b7c792dc23b588c0db76233517e1891a4e357d519
 Status: Downloaded newer image for hello-world:latest
 
@@ -151,7 +151,7 @@ https://hub.docker.com/
 
 For more examples and ideas, visit:
 https://docs.docker.com/get-started/
-  
+
 ```
 
 Continue with `Installing Windows subsystem for Linux`.
@@ -186,4 +186,4 @@ Please verify that you've installed the `Linux kernel update package`. Try perfo
 
 
 # Achievements of this Section
-Perfect, you have successfully setup all pre-conditions to run our train-simulator-demo on your machine in a Windows 10 environment. In the next sections, you will use the simulator to provide realistic train data to your edge device. 
+Perfect, you have successfully setup all pre-conditions to run our train-simulator-demo on your machine in a Windows 10 environment. In the next sections, you will use the simulator to provide realistic train data to your edge device.

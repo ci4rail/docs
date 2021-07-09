@@ -1,7 +1,7 @@
 ---
-title: Accessories needed for ModuCop Quick Start 
+title: Accessories needed for ModuCop Quick Start
 excerpt: Bill of Material you need in case you don't have a ModuCop starter kit
-last_modified_at: 2021-04-20
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/moducop/
 custom_next: /quick-start-guide/moducop/powering/

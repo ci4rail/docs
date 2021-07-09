@@ -1,7 +1,7 @@
 ---
 title: Connect ModuCop to Internet using LTE
 excerpt: Connect ModuCop to Internet using mobile radio connection
-last_modified_at: 2021-04-21
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/moducop/connect-to-terminal/
 custom_next: /quick-start-guide/edgefarm/
@@ -80,7 +80,7 @@ Connection 'lte' (7c444550-a259-4072-97af-b06c38152a45) successfully added.
 First, let's check the LTE signal quality:
 
 ```bash
-# mmcli -m 0 
+# mmcli -m 0
 ```
 
 You should see something like this:
@@ -114,7 +114,7 @@ cdc-wdm0: connected to lte
 {: .notice--info}
 
 # Step 5: Verify Internet Connection
-Now try to ping a server on the Internet. 
+Now try to ping a server on the Internet.
 To ensure that you ping over mobile network, specify the LTE device with the `-I` option. This ensures that the ping uses the LTE interface and not your local Ethernet for the Internet access.
 
 ```bash

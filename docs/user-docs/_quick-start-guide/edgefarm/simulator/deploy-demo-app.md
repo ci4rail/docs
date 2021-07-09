@@ -1,7 +1,7 @@
 ---
 title: Deploy the Demo Application
 excerpt: Deploy the Demo Application
-last_modified_at: 2021-05-06
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/edgefarm/simulator/start-simulator/
 ---
@@ -77,17 +77,17 @@ From the example above the correct IP address is `192.168.1.22` for configuratio
 This is an example output. Your milage may vary.
 
 ```console
-$ sudo nmcli connection show                
-NAME                UUID                                  TYPE       DEVICE          
-Wired connection 1  c64299a7-9bd2-37cc-b951-8e555b396002  ethernet   enp2s0          
-MyWifi              83db5b6d-944e-4d63-9830-2e6b5c8aaddb  wifi       wlp3s0          
-br-93e302019a83     00517c8d-10eb-48ce-bd8b-ec142f060513  bridge     br-93e302019a83 
+$ sudo nmcli connection show
+NAME                UUID                                  TYPE       DEVICE
+Wired connection 1  c64299a7-9bd2-37cc-b951-8e555b396002  ethernet   enp2s0
+MyWifi              83db5b6d-944e-4d63-9830-2e6b5c8aaddb  wifi       wlp3s0
+br-93e302019a83     00517c8d-10eb-48ce-bd8b-ec142f060513  bridge     br-93e302019a83
 ```
 
 Select your network interface you are interested in to get the ip address.
 
 ```
-$ nmcli -g ip4.address connection show 'Wired connection 1'                      
+$ nmcli -g ip4.address connection show 'Wired connection 1'
 192.168.1.22/24
 ```
 From the example above the correct IP address is `192.168.1.22` for interface `enp2s0`.
@@ -129,7 +129,7 @@ modules:
 
 ## Deploy the Application Manifest
 
-Apply the application manifest by the corresponding EdgeFarm command. 
+Apply the application manifest by the corresponding EdgeFarm command.
 
 ```console
 $ edgefarm alm apply -f manifest.yaml
@@ -142,7 +142,7 @@ Once the deployment is done the output should look similar to this.
 ```console
 $ docker ps
 CONTAINER ID  IMAGE                                                                                                                     COMMAND                 CREATED         STATUS         PORTS                                                                 NAMES
-98b628acf96b  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708   "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        train-simulator_edge-demo                
+98b628acf96b  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708   "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        train-simulator_edge-demo
 f51de4aa3a12  harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc             "/alm-mqtt-module"      10 seconds ago  Up 10 seconds                                                                        train-simulator_alm-mqtt-module
 3662738bc98d  nats:2.1.9-alpine                                                                                                         "docker-entrypoint.s…"  2 weeks ago     Up 2 weeks     4222/tcp, 6222/tcp, 8222/tcp                                          nats
 2de416b8763f  mcr.microsoft.com/azureiotedge-hub:1.0                                                                                    "/bin/sh -c 'echo \"…"  2 weeks ago     Up 2 weeks     0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp  edgeHub

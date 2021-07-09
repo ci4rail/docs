@@ -1,7 +1,7 @@
 ---
 title: Prerequesits setup for Linux
 excerpt: Prerequesits setup for Linux
-last_modified_at: 2021-05-06
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
 custom_next: /quick-start-guide/edgefarm/simulator/start-simulator/
@@ -25,7 +25,7 @@ $ sudo sh get-docker.sh
 
 After the installation is finished create a group called `docker` and add your user to this group. This allows it to use docker as non elevated user.
 
-```console 
+```console
 $ sudo groupadd docker
 $ sudo usermod -aG docker ${USER}
 ```
@@ -95,4 +95,4 @@ See [this link](https://docs.docker.com/engine/install/#supported-platforms) for
 Raspbian users must use the [convenience script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script).
 
 # Achievements of this Section
-Perfect, you have successfully setup all prerequisites to run our train-simulator-demo on your machine on Linux. In the next sections, you will use the simulator to provide realistic train data to your edge device. 
+Perfect, you have successfully setup all prerequisites to run our train-simulator-demo on your machine on Linux. In the next sections, you will use the simulator to provide realistic train data to your edge device.
