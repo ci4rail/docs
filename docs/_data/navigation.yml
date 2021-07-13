@@ -1,9 +1,17 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: /quick-start-guide
+  - title: Quick-Start Guide
+    navitems:
+      - title: EdgeFarm
+        url: /quick-start-guide/edgefarm/
+      - title: ModuCop
+        url: /quick-start-guide/moducop/
   - title: "User Manual"
-    url: /user-manual
+    navitems:
+      - title: EdgeFarm
+        url: /user-manual/edgefarm/
+      - title: Edge Solutions
+        url: /user-manual/edge-solutions/
   - title: "Video-Section"
     url: /video-section/
   - title: "Data Sheets"
