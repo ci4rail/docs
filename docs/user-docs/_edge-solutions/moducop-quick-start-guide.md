@@ -1,14 +1,14 @@
 ---
-title: ModuCop as Edge Device
-excerpt: Use ModuCop as edge device.
-last_modified_at: 2021-07-09
+title: ModuCop Quick-Start-Guide
+excerpt: Quick startup with ModuCop device.
+last_modified_at: 2021-07-20
 
-custom_next: /quick-start-guide/moducop/unpacking/
+custom_next: /edge-solutions/moducop-quick-start-guide/no-starter-kit-bom/
 ---
 
 ![ModuCop Edge Computer]({{ '/user-docs/images/moducop/photo.png' | relative_url }})
 
-Here's a quick run-down of the first steps you need to do with the ModuCop to use it as an edge computer for edgefarm.
+This is the ModuCop quick start guide, which shows you the first steps with your moducop device. These include unboxing, connecting and powering as well as connecting the device to the internet.
 
 ## What You Need
 

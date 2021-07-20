@@ -1,7 +1,7 @@
 ---
 title: Connecting ModuCop to Internet
 excerpt: How to connect ModuCop with Internet via different connection options
-last_modified_at: 2021-07-09
+last_modified_at: 2021-07-20
 
 custom_previous: /quick-start-guide/moducop/connect-to-terminal/
 ---
