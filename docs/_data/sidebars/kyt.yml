@@ -1,0 +1,17 @@
+sidebar:
+  title: Know Your Train (KYT)
+  navitems:
+    - title: Overview
+      url: /kyt/overview/
+    - title: Disclaimer - Legal Parts
+      url: /kyt/disclaimer/
+    - title: For Your Safety
+      url: /kyt/for-your-safety/
+    - title: Intented Use
+      url: /kyt/intended-use/
+    - title: Environmental Responsibility
+      url: /kyt/environmental-responsibility/
+    - title: Reach Statement
+      url: /kyt/reach-statement/
+    - title: WEEE Compliance
+      url: /kyt/weee-compliance/
