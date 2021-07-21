@@ -1,7 +1,7 @@
 ---
 title: Connect ModuCop to Internet using Local Ethernet
 excerpt: Connect ModuCop to Internet using Local Ethernet
-last_modified_at: 2021-07-20
+last_modified_at: 2021-07-21
 
 custom_previous: /edge-solutions/moducop-quick-start-guide/connect-to-internet/
 ---

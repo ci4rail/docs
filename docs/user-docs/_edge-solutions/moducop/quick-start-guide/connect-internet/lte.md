@@ -1,7 +1,7 @@
 ---
 title: Connect ModuCop to Internet using LTE
 excerpt: Connect ModuCop to Internet using mobile radio connection
-last_modified_at: 2021-07-20
+last_modified_at: 2021-07-21
 
 custom_previous: /edge-solutions/moducop-quick-start-guide/connect-to-internet/
 ---

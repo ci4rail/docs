@@ -3,38 +3,29 @@ sidebar:
   navitems:
     - title: Overview
       url: /edge-solutions/overview/
-    - title: ModuCop Quick-Start-Guide
-      url: /edge-solutions/moducop-quick-start-guide/
-      navitems:
-        - title: Accessories needed for ModuCop Quick Start
-          url: /edge-solutions/moducop-quick-start-guide/no-starter-kit-bom/
-        - title: Unpacking
-          url: /edge-solutions/moducop-quick-start-guide/unpacking/
-        - title: Connecting & Powering
-          url: /edge-solutions/moducop-quick-start-guide/connecting-powering/
-        - title: Connecting to ModuCop's Linux Terminal
-          url: /edge-solutions/moducop-quick-start-guide/connect-to-terminal/
-        - title: Connect ModuCop to Internet
-          url: /edge-solutions/moducop-quick-start-guide/connect-to-internet/
-          navitems:
-            - title: via Ethernet
-              url: /edge-solutions/moducop-quick-start-guide/connect-internet/ethernet/
-            - title: via Wifi
-              url: /edge-solutions/moducop-quick-start-guide/connect-internet/wifi/
-            - title: via LTE
-              url: /edge-solutions/moducop-quick-start-guide/connect-internet/lte/
-    - title: SES01 Quick-Start-Guide
-      url: /edge-solutions/ses01-quick-start-guide/
-      navitems:
-        - title: Unpacking
-          url: /edge-solutions/ses01-quick-start-guide/unpacking/
-        - title: Connecting & Powering
-          url: /edge-solutions/ses01-quick-start-guide/connecting-powering/
-        - title: Reveiving First Data
-          url: /edge-solutions/ses01-quick-start-guide/receive-data/
     - title: ModuCop
       url: /edge-solutions/moducop/
       navitems:
+        - title: Quick-Start-Guide
+          url: /edge-solutions/moducop/quick-start-guide/
+          navitems:
+            - title: Accessories needed for ModuCop Quick Start
+              url: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+            - title: Unpacking
+              url: /edge-solutions/moducop/quick-start-guide/unpacking/
+            - title: Connecting & Powering
+              url: /edge-solutions/moducop/quick-start-guide/connecting-powering/
+            - title: Connecting to ModuCop's Linux Terminal
+              url: /edge-solutions/moducop/quick-start-guide/connect-to-terminal/
+            - title: Connect ModuCop to Internet
+              url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
+              navitems:
+                - title: via Ethernet
+                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/ethernet/
+                - title: via Wifi
+                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/wifi/
+                - title: via LTE
+                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/lte/
         - title: Introduction
           url: /edge-solutions/moducop/introduction/
           navitems:
@@ -64,6 +55,15 @@ sidebar:
     - title: SES01
       url: /edge-solutions/ses01/
       navitems:
+        - title: SES01 Quick-Start-Guide
+          url: /edge-solutions/ses01/quick-start-guide/
+          navitems:
+            - title: Unpacking
+              url: /edge-solutions/ses01/quick-start-guide/unpacking/
+            - title: Connecting & Powering
+              url: /edge-solutions/ses01/quick-start-guide/connecting-powering/
+            - title: Reveiving First Data
+              url: /edge-solutions/ses01/quick-start-guide/receive-data/
         - title: Introduction
           url: /edge-solutions/ses01/introduction/
           navitems:
