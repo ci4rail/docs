@@ -144,10 +144,13 @@ collections:
   video-categories:
     output: true
     permalink: /video-section/:path/
-  quick-start-guide:
+  edgefarm:
     permalink: /:collection/:path/
     output: true
-  user-manual:
+  edge-solutions:
+    permalink: /:collection/:path/
+    output: true
+  kyt:
     permalink: /:collection/:path/
     output: true
 
@@ -285,10 +288,10 @@ defaults:
       feedback: false
       pagination: true
       # classes: wide If this is inserted, it is also applied to the drafts
-  # _quick-start-guide
+    # _edgefarm
   - scope:
       path: ""
-      type: quick-start-guide
+      type: edgefarm
     values:
       layout: single
       author_profile: false
@@ -300,13 +303,13 @@ defaults:
       related: false
       toc: true
       toc_sticky: true
-      sidebar: main-sidebar
+      sidebar: edgefarm
       feedback: true
       pagination: false # do not show previous/next buttons in docs
-  # _user-manual
+    # _edge-solutions
   - scope:
       path: ""
-      type: user-manual
+      type: edge-solutions
     values:
       layout: single
       author_profile: false
@@ -318,7 +321,25 @@ defaults:
       related: false
       toc: true
       toc_sticky: true
-      sidebar: main-sidebar
+      sidebar: edge-solutions
+      feedback: true
+      pagination: false # do not show previous/next buttons in docs
+      # _kyt
+  - scope:
+      path: ""
+      type: kyt
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: false # do not enable comments
+      show_date: false # do not show date on page
+      show_last_updated: true # option only available on layout: single
+      share: false
+      related: false
+      toc: true
+      toc_sticky: true
+      sidebar: kyt
       feedback: true
       pagination: false # do not show previous/next buttons in docs
   # drafts contains template file

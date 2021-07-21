@@ -3,15 +3,15 @@ main:
   - title: Quick-Start Guide
     navitems:
       - title: EdgeFarm
-        url: /quick-start-guide/edgefarm/
+        url: /edgefarm/quick-start-guide/
       - title: ModuCop
-        url: /quick-start-guide/moducop/
+        url: /edge-solutions/moducop/quick-start-guide/
   - title: "User Manual"
     navitems:
       - title: EdgeFarm
-        url: /user-manual/edgefarm/
+        url: /edgefarm/overview/
       - title: Edge Solutions
-        url: /user-manual/edge-solutions/
+        url: /edge-solutions/overview/
   - title: "Video-Section"
     url: /video-section/
   - title: "Data Sheets"
