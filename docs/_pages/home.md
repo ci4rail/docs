@@ -8,29 +8,22 @@ header:
   overlay_image: /assets/images/know-your-train.jpg
   actions:
     - label: "Let's Go"
-      url: /quick-start-guide/
-excerpt: "Use the Quick-Start Guide for a quick introduction into the KYT System and all of its components."
+      url: /kyt/overview/
+excerpt: "See all KYT Products and how they fit together."
 
 feature_row:
-  - image_path: assets/images/edgefarm.jpg
+  - image_path: assets/images/edgefarm-logo-wo-text-1200x533.png
     alt: "EdgeFarm"
     title: "EdgeFarm"
-    excerpt: "Use EdgeFarm to manage get an overview of devices, develop own edge or cloud modules and deploy them to your devices. Analayse the data provided from the devices."
-    url: /user-manual/edgefarm/
+    excerpt: "Use EdgeFarm to get an overview of the devices, to develop your own Edge or Cloud modules and to deploy them on your devices. Analyze the data provided by the devices."
+    url: /edgefarm/overview/
     btn_label: "Learn More"
     btn_class: "btn--primary"
-  - image_path: /assets/images/moducop.png
-    alt: "ModuCop"
-    title: "ModuCop"
-    excerpt: "Put ModuCop into operation and connect it properly and consider the installation conditions."
-    url: /user-manual/edge-solutions/moducop/
-    btn_label: "Learn More"
-    btn_class: "btn--primary"
-  - image_path: /assets/images/ses01.png
-    title: "Sensors & Converters"
-    alt: "Sensors & Converters"
-    excerpt: "Use Ci4Rail sensors to get more information from your Edge Device."
-    url: /user-manual/edge-solutions/sensors-converters/
+  - image_path: /assets/images/moducop-logo-wo-text-1200x533.png
+    alt: "Edge Solutions"
+    title: "Edge Solutions"
+    excerpt: "Learn about our Edge Solutions. For example our flexible modular computer system ModuCop which apapts to all vehicle interfaces. See how to put ModuCop into operation and connect it properly."
+    url: /edge-solutions/overview/
     btn_label: "Learn More"
     btn_class: "btn--primary"
 ---
