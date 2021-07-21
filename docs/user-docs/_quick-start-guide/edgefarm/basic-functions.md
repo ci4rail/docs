@@ -1,7 +1,7 @@
 ---
 title: Use EdgeFarm Basic Functions
 excerpt: First steps with EdgeFarm basic functions.
-last_modified_at: 2021-05-06
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/edgefarm/basic-functions/
 custom_next: /quick-start-guide/edgefarm/simulator/
@@ -29,7 +29,7 @@ This step is necessary to call the EdgeFarm CLI from any location on your comput
 </ul>
 <div class="tab-content">
 <div class="tab-pane fade in active" id="Windows" role="tabpanel" markdown="1">
-Open up a command shell by pressing `Windows+R` and typing in `cmd`. 
+Open up a command shell by pressing `Windows+R` and typing in `cmd`.
 
 ```console
 > mkdir %homepath%\edgefarm
@@ -70,9 +70,9 @@ edgefarm-cli 06f398c1b0d1949bbeec76ca19a9b6923afe7e79
 To make use of any EdgeFarm services, you first have to sign on using the `login` subcommand. Your user and password will be handed over in a personal conversation.
 
 ```console
-$ edgefarm login                     
+$ edgefarm login
 ✔ Username: user@tenant1.com
-Password:           
+Password:
 Login Succeeded
 Logged in as: Stan Marsh
 ```
@@ -101,7 +101,7 @@ moducop0                                	Connected
 
 In order to deploy a specific configuration of applications to the edge computer, we are going to use so-called application manifest files. To apply such an application manifest file use the `alm apply` subcommand.
 
-As a first example, the following section explains how create and apply your first manifest file. In this case we will deploy a nginx web server to the edge device. 
+As a first example, the following section explains how create and apply your first manifest file. In this case we will deploy a nginx web server to the edge device.
 
 ```yaml
 ---
@@ -123,7 +123,7 @@ $ edgefarm alm apply -f manifest.yaml
 ```
 
 To see the result of your frst application deployment by using application manifest files, you need to login to the edge device. See [Connecting to ModuCop’s Linux Terminal](/quick-start-guide/moducop/connect-to-terminal/) for assistance.
-Now wait for the containers get deployed. 
+Now wait for the containers get deployed.
 
 You can monitor the status of the deployment by triggering `docker ps` manually and looking for a container called `webserver_nginx`
 Once the deployment is done the output should look similar to this.
@@ -143,7 +143,7 @@ saving to 'index.html'
 index.html           100% |**********************************************************************************************************************************************|   612  0:00:00 ETA
 'index.html' saved
 
-$ cat index.html 
+$ cat index.html
 <!DOCTYPE html>
 <html>
 <head>
@@ -174,6 +174,6 @@ Commercial support is available at
 You also can open a new browser tab with this URI `http://<IP>:8080` where you put in the IP address of your edge device. You should see a welcome message from the nginx webserver.
 
 # Achievements in this Section
-Well done, you have successfully logged on to the EdgeFarm services, got familier with the basic functionalities like listing all your connected devces and you deployed your first application to an edge computer. 
+Well done, you have successfully logged on to the EdgeFarm services, got familier with the basic functionalities like listing all your connected devces and you deployed your first application to an edge computer.
 
 Cool, isn't it? Go on, we have more for you to test!

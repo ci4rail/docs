@@ -1,7 +1,7 @@
 ---
 title: Connect ModuCop to Internet using Wifi
 excerpt: Connect ModuCop to Internet using Wifi
-last_modified_at: 2021-04-21
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/moducop/connect-to-terminal/
 custom_next: /quick-start-guide/edgefarm/
@@ -36,7 +36,7 @@ Run the command below to see the available wifi access points. Wait for the outp
 
 The access point that should be used for your Internet connection shall appear in the list:
 ```bash
-# nmcli device wifi list ifname mlan0 
+# nmcli device wifi list ifname mlan0
 IN-USE  BSSID              SSID                         MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
         46:4E:6D:DB:C2:97  Ci4Rail-Guest                Infra  1     260 Mbit/s  100     ****  WPA2
         44:4E:6D:DB:C2:97  Ci4Rail-Office               Infra  1     260 Mbit/s  100     ****  WPA2
@@ -75,7 +75,7 @@ Please record the assigned IP address in `<YOUR-IP>`. You'll use it later in [st
 {: .notice--info}
 
 # Step 4: Verify Internet Connection
-Now try to ping a server on the Internet. 
+Now try to ping a server on the Internet.
 To ensure that you ping over Wifi, specify the Wifi device with the `-I` option. This ensures that the ping uses the Wifi interface and not your local Ethernet for the Internet access.
 
 ```bash

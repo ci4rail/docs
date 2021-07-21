@@ -1,7 +1,7 @@
 ---
 title: Connect ModuCop to Internet using Local Ethernet
 excerpt: Connect ModuCop to Internet using Local Ethernet
-last_modified_at: 2021-04-21
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/moducop/connect-to-terminal/
 custom_next: /quick-start-guide/edgefarm/
@@ -35,7 +35,7 @@ Example:
 
 Enter the following commands to reconfigure.
 
-The configuration changes are not applied until you reboot. 
+The configuration changes are not applied until you reboot.
 {: .notice--info}
 
 ```bash
@@ -44,7 +44,7 @@ The configuration changes are not applied until you reboot.
 # nmcli con mod "Wired connection 1"  ipv4.dns 8.8.8.8
 # nmcli con mod "Wired connection 1"  ipv4.method "manual"
 # reboot
-``` 
+```
 After reboot, open a new ssh connection using the new configured static IP address. For this to work, the IP address of the development PC and the just configured IP address must be in the same network. If not, reconfigure your development PCs network address.
 
 If you are using Windows, open system settings and configure network settings (German `Netzwerkeinstellungen anzeigen`). Then configure a static IP for your Ethernet adapter. This example uses a class C IPv4 address. In this case, the first 3 numbers of the IP address define the network, and the last number defines the host address within the network. So, your PC's IP address must be `192.168.24.x`, where `x` is a number between 1 and 254 and must be different from ModuCop's IP address:
@@ -52,4 +52,3 @@ If you are using Windows, open system settings and configure network settings (G
 ![Connect with putty]({{ '/user-docs/images/moducop/quick-start-guide/windows-ethernet-static-ip.gif' | relative_url }})
 
 If you are a Linux user, please consult your distribution's documentation on how to change your Ethernet IP address.
-

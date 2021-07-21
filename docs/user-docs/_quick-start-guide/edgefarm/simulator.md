@@ -1,13 +1,13 @@
 ---
 title: Use the Train-Simulator-Demo
 excerpt: Use the Train-Simulator-Demo
-last_modified_at: 2021-05-06
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/edgefarm/basic-functions/
 custom_next: /quick-start-guide/edgefarm/simulator/prerequisites/
 ---
 
-The `Train Simulator Demo` has been designed to experience the complete data chain from simulation of realistic train data, acquisition in the edge device, transfer to cloud and both visualization in dashboards and export to external data systems. The simulated data vary from simple diagnosis data via train network messages to high frequent measurement data. 
+The `Train Simulator Demo` has been designed to experience the complete data chain from simulation of realistic train data, acquisition in the edge device, transfer to cloud and both visualization in dashboards and export to external data systems. The simulated data vary from simple diagnosis data via train network messages to high frequent measurement data.
 
 With this demonstrator, you will get an impression how EdgeFarm components work and how they interact.
 

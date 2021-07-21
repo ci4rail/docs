@@ -1,13 +1,13 @@
 ---
 title: Start the Simulator
 excerpt: Start the Simulator
-last_modified_at: 2021-05-06
+last_modified_at: 2021-07-09
 
 custom_previous: /quick-start-guide/edgefarm/simulator/prerequisites/
 custom_next: /quick-start-guide/edgefarm/simulator/deploy-demo-app/
 ---
 
-As mentioned in previous sections, the simulator creates realistic train data and provides it to your edge device. This section helps you to get the `Train Simulator` up and running. 
+As mentioned in previous sections, the simulator creates realistic train data and provides it to your edge device. This section helps you to get the `Train Simulator` up and running.
 
 
 The steps are:
@@ -129,9 +129,9 @@ When you're done abort with `Ctrl+C`.
 
 ## Running Windows the simulator won't start up and gives an error: "No such file or directory"
 
-If you are running Windows, please ensure that you've set up `Git for Windows` correctly. The problem might be wrong line endings. 
+If you are running Windows, please ensure that you've set up `Git for Windows` correctly. The problem might be wrong line endings.
 Open a `git-bash` and type in `git config --global core.autocrlf false`. Then delete `edgefarm-demos` and redo the `git clone` command.
 
 
 # Achievements of this Section
-OK, you have setup and started the simulator, it's ceating train data. In addition, you have connected the simulator output to an MQTT client. We are now ready to go to make use of those simulated data in your edge devices. 
+OK, you have setup and started the simulator, it's ceating train data. In addition, you have connected the simulator output to an MQTT client. We are now ready to go to make use of those simulated data in your edge devices.
