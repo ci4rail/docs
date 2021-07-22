@@ -10,8 +10,8 @@ main:
     navitems:
       - title: EdgeFarm
         url: /edgefarm/overview/
-      # - title: Edge Solutions
-      #   url: /edge-solutions/overview/
+      - title: Edge Solutions
+        url: /edge-solutions/overview/
   # - title: "Video-Section"
   #   url: /video-section/
   - title: "Data Sheets"

@@ -8,7 +8,12 @@
 
   {% for f in feature_row %}
     <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
-      <div class="archive__item">
+    {% if f.width %}
+    <div style="width:{{ f.width }}; margin:auto" class="archive__item">
+    {% else %}
+    <div class="archive__item">
+    {% endif %}
+
         {% if f.image_path %}
           {% if f.url %}
             <div class="archive__item-teaser">
