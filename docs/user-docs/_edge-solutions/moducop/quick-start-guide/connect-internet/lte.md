@@ -1,9 +1,9 @@
 ---
 title: Connect ModuCop to Internet using LTE
 excerpt: Connect ModuCop to Internet using mobile radio connection
-last_modified_at: 2021-07-21
+last_modified_at: 2021-07-22
 
-custom_previous: /edge-solutions/moducop-quick-start-guide/connect-to-internet/
+custom_previous: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
 # Overview
 In this section, you will use ModuCop's integrated LTE module to connect with the internet.
@@ -18,7 +18,7 @@ You will use Linux ModemManager/Networkmanager and their command line tools `mmc
 ## Prerequisites
 
 What you need:
-* [ssh access]({{ '/quick-start-guide/moducop/connect-to-terminal' | relative_url }}) from your development PC to ModuCop's Linux Terminal
+* [ssh access]({{ '/edge-solutions/moducop/quick-start-guide/connect-to-terminal' | relative_url }}) from your development PC to ModuCop's Linux Terminal
 * At least one LTE Antenna
 * Activated Nano SIM Card
   * Pin for your SIM Card

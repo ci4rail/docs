@@ -1,21 +1,21 @@
 ---
 title: Connecting to ModuCop's Linux Terminal
 excerpt: How to get access to the Shell to configure ModuCop
-last_modified_at: 2021-07-21
+last_modified_at: 2021-07-22
 
-custom_previous: /edge-solutions/moducop-quick-start-guide/no-starter-kit-bom/
-custom_next: /edge-solutions/moducop-quick-start-guide/connect-to-internet/
+custom_previous: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
 
 # Overview
 In this section, you will connect your development PC with the ModuCop Linux terminal to configure basic parameters, such as the way to connect ModuCop with the Internet.
 
-![System setup for Ethernet Connection]({{ '/user-docs/images/moducop/quick-start-guide/ConnectEthernet.svg' | relative_url }})
+![System setup for Ethernet Connection]({{ '/user-docs/images/edge-solutions/moducop/quick-start-guide/ConnectEthernet.svg' | relative_url }})
 
 
 ## Prerequisites
 
-* ModuCop [supplied with Power]({{ '/quick-start-guide/moducop/powering' | relative_url }})
+* ModuCop [supplied with Power]({{ '/edge-solutions/moducop/quick-start-guide/powering' | relative_url }})
 * Developer PC attached to local network.
 * Network with DHCP support
 * Ethernet Cable M12 X-Coded to RJ45
@@ -48,13 +48,13 @@ Download PuTTY [here](https://www.putty.org/). Download the `.msi` package and i
 
 Enter your ModuCop's IP address (that you have noted in the previous step). Leave the port as 22.
 
-![Connect with putty]({{ '/user-docs/images/moducop/quick-start-guide/putty-connect.png' | relative_url }})
+![Connect with putty]({{ '/user-docs/images/edge-solutions/moducop/quick-start-guide/putty-connect.png' | relative_url }})
 
 Click open.
 
 The following dialog tells you that the host is not yet known.
 
-![Connect with putty]({{ '/user-docs/images/moducop/quick-start-guide/putty-host-warn.png' | relative_url }})
+![Connect with putty]({{ '/user-docs/images/edge-solutions/moducop/quick-start-guide/putty-host-warn.png' | relative_url }})
 
 Click "Yes" to accept.
 

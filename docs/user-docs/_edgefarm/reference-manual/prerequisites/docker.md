@@ -1,11 +1,11 @@
 ---
 title: Docker
 excerpt: Instructions how to install docker
-last_modified_at: 2021-07-21
+last_modified_at: 2021-07-22
 
 gallery:
-  - url: /user-docs/images/edgefarm/simulator/prerequisites/docker-desktop-running.png
-    image_path: /user-docs/images/edgefarm/simulator/prerequisites/docker-desktop-running.png
+  - url: /user-docs/images/edgefarm/reference-manual/prerequisites/docker-desktop-running.png
+    image_path: /user-docs/images/edgefarm/reference-manual/prerequisites/docker-desktop-running.png
     alt: "Check if Docker Desktop is running"
     title: "Check if Docker Desktop is running"
 ---

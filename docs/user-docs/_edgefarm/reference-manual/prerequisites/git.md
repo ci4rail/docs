@@ -1,7 +1,7 @@
 ---
 title: git
 excerpt: Instructions how to install git
-last_modified_at: 2021-07-21
+last_modified_at: 2021-07-22
 ---
 # Windows
 
@@ -20,7 +20,7 @@ Download Git for Windows and select `64-bit Git for Windows Setup`. Follow the s
 
 After installing Git for Windows open up `git-bash`.
 
-![Starting git-bash]({{ 'user-docs/images/edgefarm/simulator/prerequisites/start-git-bash.png' | relative_url }} "Starting git-bash"){: style="width: 40%"}
+![Starting git-bash]({{ 'user-docs/images/edgefarm/reference-manual/prerequisites/start-git-bash.png' | relative_url }} "Starting git-bash"){: style="width: 40%"}
 
 After that enter the following command. This keeps the original line endings that are needed for the system to work correctly.
 
@@ -28,7 +28,7 @@ After that enter the following command. This keeps the original line endings tha
   git config --global core.autocrlf false
 ```
 
-![Configure git line endings]({{ 'user-docs/images/edgefarm/simulator/prerequisites/git-bash.png' | relative_url }} "Configure git line endings"){: style="width: 50%"}
+![Configure git line endings]({{ 'user-docs/images/edgefarm/reference-manual/prerequisites/git-bash.png' | relative_url }} "Configure git line endings"){: style="width: 50%"}
 
 You are now ready to use git.
 </div>

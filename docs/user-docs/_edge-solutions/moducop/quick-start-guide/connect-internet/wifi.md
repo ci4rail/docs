@@ -1,9 +1,9 @@
 ---
 title: Connect ModuCop to Internet using Wifi
 excerpt: Connect ModuCop to Internet using Wifi
-last_modified_at: 2021-07-21
+last_modified_at: 2021-07-22
 
-custom_previous: /edge-solutions/moducop-quick-start-guide/connect-to-internet/
+custom_previous: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
 # Overview
 In this section, you will use ModuCop's integrated Wifi module to connect with the internet.
@@ -18,7 +18,7 @@ You will use Linux Networkmanager and its command line tool `nmcli`.
 ## Prerequisites
 
 What you need:
-* [ssh access]({{ '/quick-start-guide/moducop/connect-to-terminal' | relative_url }}) from your development PC to ModuCop's Linux Terminal
+* [ssh access]({{ '/edge-solutions/moducop/quick-start-guide/connect-to-terminal' | relative_url }}) from your development PC to ModuCop's Linux Terminal
 * At least one Wifi Antenna
 * Wifi Access Point that provides Internet connection
 * Password for your Wifi Access point
@@ -100,4 +100,4 @@ Now Disconnect your Ethernet Cable.
 
 On your development PC, start a new ssh session, but now enter ModuCop's IP address on the Wifi network, you have noted in [step 3](#step-3-connect-with-your-access-point).
 
-You should be able to login as `root` with the password you assigned [in this step]({{ '/quick-start-guide/moducop/connect-to-terminal/#change-password' | relative_url }})
+You should be able to login as `root` with the password you assigned [in this step]({{ '/edge-solutions/moducop/quick-start-guide/connect-to-terminal/#change-password' | relative_url }})

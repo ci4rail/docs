@@ -1,7 +1,7 @@
 ---
 title: Quick-Start-Guide
 excerpt: First steps with EdgeFarm basic functions.
-last_modified_at: 2021-07-21
+last_modified_at: 2021-07-22
 ---
 
 This chapter shows the basic usage of the EdgeFarm CLI to interact with the EdgeFarm services.
@@ -67,7 +67,7 @@ Copy the above example in a yaml file, e.g. `manifest.yaml`. Then apply it.
 $ edgefarm alm apply -f manifest.yaml
 ```
 
-To see the result of your frst application deployment by using application manifest files, you need to login to the edge device. See [Connecting to ModuCop’s Linux Terminal](/quick-start-guide/moducop/connect-to-terminal/) for assistance.
+To see the result of your frst application deployment by using application manifest files, you need to login to the edge device. See [Connecting to ModuCop’s Linux Terminal](/edge-solutions/moducop/quick-start-guide/connect-to-terminal/) for assistance.
 Now wait for the containers get deployed.
 
 You can monitor the status of the deployment by triggering `docker ps` manually and looking for a container called `webserver_nginx`

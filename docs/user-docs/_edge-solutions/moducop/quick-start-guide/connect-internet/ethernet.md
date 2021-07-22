@@ -1,9 +1,9 @@
 ---
 title: Connect ModuCop to Internet using Local Ethernet
 excerpt: Connect ModuCop to Internet using Local Ethernet
-last_modified_at: 2021-07-21
+last_modified_at: 2021-07-22
 
-custom_previous: /edge-solutions/moducop-quick-start-guide/connect-to-internet/
+custom_previous: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
 # Using Your Local Network As the Internet Connection
 If your local network provides access to the Internet, you are almost done. Just check if you could access the Internet.
@@ -48,6 +48,6 @@ After reboot, open a new ssh connection using the new configured static IP addre
 
 If you are using Windows, open system settings and configure network settings (German `Netzwerkeinstellungen anzeigen`). Then configure a static IP for your Ethernet adapter. This example uses a class C IPv4 address. In this case, the first 3 numbers of the IP address define the network, and the last number defines the host address within the network. So, your PC's IP address must be `192.168.24.x`, where `x` is a number between 1 and 254 and must be different from ModuCop's IP address:
 
-![Connect with putty]({{ '/user-docs/images/moducop/quick-start-guide/windows-ethernet-static-ip.gif' | relative_url }})
+![Connect with putty]({{ '/user-docs/images/edge-solutions/moducop/quick-start-guide/windows-ethernet-static-ip.gif' | relative_url }})
 
 If you are a Linux user, please consult your distribution's documentation on how to change your Ethernet IP address.

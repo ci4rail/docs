@@ -1,7 +1,7 @@
 ---
 title: Setting up a External Simulation Environment
 excerpt: Setup the Train-Simulator
-last_modified_at: 2021-07-21
+last_modified_at: 2021-07-22
 ---
 
 The `Train Simulator` has been designed to experience the complete data chain from simulation of realistic train data, acquisition in the edge device, transfer to cloud and both visualization in dashboards and export to external data systems. The simulated data vary from simple diagnosis data via train network messages to high frequent measurement data.
@@ -10,7 +10,7 @@ With this demonstrator, you will get an impression how EdgeFarm components work 
 
 The following image shows how the different parts of the simulation interact with each other.
 
-![Basic Train Simulator Demo architecture]({{ 'user-docs/images/edgefarm/simulator/demo-arch.svg' | relative_url }} "Basic Train Simulator Demo architecture"){: style="width: 50%"}
+![Basic Train Simulator Demo architecture]({{ 'user-docs/images/edgefarm/tutorials/demo-arch.svg' | relative_url }} "Basic Train Simulator Demo architecture"){: style="width: 50%"}
 
 While the data acquistion and pre-processing will be executed on the edge device, the simulator has to be setup on a Windows or Linux machine. Be aware that the simulator machine and the edge device have to be in the same network to be able to communicate.
 
@@ -98,11 +98,11 @@ f204253935ce   simulator_node-red_1                   Up 3 minutes (healthy)
 # Start the simulator using Node-Red
 Please access the Node-Red's web UI [http://localhost:1880](http://localhost:1880) and start the simulation by clicking on the blue control right next to the `start` node.
 
-![Start the simulation]({{ 'user-docs/images/edgefarm/simulator/start-simulation.png' | relative_url }} "Start the simulation"){: style="width: 75%"}
+![Start the simulation]({{ 'user-docs/images/edgefarm/tutorials/start-simulation.png' | relative_url }} "Start the simulation"){: style="width: 75%"}
 
 You can view the generated data by visiting the dashoard [http://localhost:1880/ui](http://localhost:1880/ui).
 
-![Running simulation]({{ 'user-docs/images/edgefarm/simulator/simulation-running.png' | relative_url }} "Running simulation"){: style="width: 75%"}
+![Running simulation]({{ 'user-docs/images/edgefarm/tutorials/simulation-running.png' | relative_url }} "Running simulation"){: style="width: 75%"}
 
 The simulation is now up and running but there is not yet any consumer of those data. Let's establish that in the next step.
 
