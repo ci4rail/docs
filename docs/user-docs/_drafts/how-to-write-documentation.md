@@ -77,9 +77,12 @@ Each documentation file has a YAML front matter at the top, eg.:
 
 ```yaml
 ---
-title: Installing Accessories
-excerpt: How to install accessories on ModuCop.
+title: Connecting to ModuCop's Linux Terminal
+excerpt: How to get access to the Shell to configure ModuCop
 last_modified_at: 2021-07-22
+
+custom_previous: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
 ```
 
@@ -124,11 +127,11 @@ So a good name for our examle file would be `demo-page.md`.
 
 The next step is to add a front matter at the top of the file:
 ```yaml
- ---
+---
 title: Demonstration Page
 excerpt: This is a page for demonstration.
 last_modified_at: 2021-07-22
- ---
+---
 ```
 
 After this the page can be visited, as the filename defines the URL together with the filepath:
