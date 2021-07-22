@@ -6,10 +6,11 @@ header:
   overlay_color: "#000"
   overlay_filter: "0.4"
   overlay_image: /assets/images/know-your-train.jpg
-  actions:
-    - label: "Let's Go"
-      url: /kyt/overview/
-excerpt: "See all KYT products and how they fit together."
+  # Hide this sections as long there is no content
+  # actions:
+    # - label: "Let's Go"
+      # url: /kyt/overview/
+# excerpt: "See all KYT Products and how they fit together."
 
 feature_row:
   - image_path: assets/images/edgefarm-logo-wo-text-1200x533.png
