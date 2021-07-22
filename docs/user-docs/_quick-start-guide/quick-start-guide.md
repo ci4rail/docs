@@ -7,7 +7,7 @@ last_modified_at: 2021-04-13
 ---
 # Welcome
 
-> Congratulations: You made the right decision on deciding for Ci4Rail's products. Welcome to the user documentation
+> Congratulations: You made the right decision on deciding for Ci4Rail's products. Welcome to the user documentation.
 
 This section gives you guidance to get started in less then 30 minutes. 
 You can expect all necessary information on equipment and a step by step walk-through to make your first experience with ***ModuCop*** and ***EdgeFarm***.
@@ -25,7 +25,7 @@ You can expect all necessary information on equipment and a step by step walk-th
 
 If you have not decided for an Edge Device and need assistance, please don't hesitate to contact us [TBD]({{ '/quick-start-guide/raspberry-pi' | relative_url }})
 
-You don't know were to start? You have question marks, missing context, don't worry, it's normal. It also took us some time to understand all the meanings and definitions of e.g.***Edge Device***, ***ModuCop*** or ***EdgeFarm***. If you would like to have a detailed introduction first, we can help. Click [here]({{ '/user-manual/introduction' | relative_url }})
+You don't know were to start? You have question marks, missing context, don't worry, it's normal. It also took us some time to understand all the meanings and definitions of e.g.***Edge Device***, ***ModuCop*** or ***EdgeFarm***. If you would like to have a detailed introduction first, we can help. Click [here]({{ '/user-manual/kyt-introduction' | relative_url }})
 
 
 ### Technical Support and Assistance

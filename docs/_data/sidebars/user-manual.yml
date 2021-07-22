@@ -2,6 +2,8 @@ sidebar:
   title: User Manual
   url: /user-manual/
   navitems:
+    - title: Introduction
+      url: /user-manual/kyt-introduction
     - sidebar: edgefarm
     - sidebar: edge-solutions
     - title: Release Notes
