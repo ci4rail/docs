@@ -9,7 +9,7 @@ header:
   actions:
     - label: "Let's Go"
       url: /kyt/overview/
-excerpt: "See all KYT Products and how they fit together."
+excerpt: "See all KYT products and how they fit together."
 
 feature_row:
   - image_path: assets/images/edgefarm-logo-wo-text-1200x533.png

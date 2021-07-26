@@ -29,7 +29,7 @@ sidebar:
           url: /edgefarm/reference-manual/edgefarm-manifest/
         - title: Grafana Access
           url: /edgefarm/reference-manual/grafana-access/
-        - title: Data Endpint Access
+        - title: Data Endpoint Access
           url: /edgefarm/reference-manual/data-endpoint-access/
         - title: User Management
           url: /edgefarm/reference-manual/user-management/

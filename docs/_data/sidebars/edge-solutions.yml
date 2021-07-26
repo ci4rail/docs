@@ -55,7 +55,7 @@ sidebar:
     - title: SES01
       url: /edge-solutions/ses01/
       navitems:
-        - title: SES01 Quick-Start-Guide
+        - title: Quick-Start-Guide
           url: /edge-solutions/ses01/quick-start-guide/
           navitems:
             - title: Unpacking
