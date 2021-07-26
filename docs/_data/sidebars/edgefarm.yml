@@ -55,12 +55,14 @@ sidebar:
           url: /edgefarm/operator-guide/register-devices/
         - title: Roll Out Deployments
           url: /edgefarm/operator-guide/roll-out-deployments/
+        - title: Update Firmware
+          url: /edgefarm/operator-guide/update-firmware/
     - title: Tutorials
       url: /edgefarm/tutorials/
       navitems:
         - title: Setting up a External Simulation Environment
           url: /edgefarm/tutorials/setup-simulator/
-        - title: Receive and Process External Data
+        - title: Receive and Process MQTT Data
           url: /edgefarm/tutorials/receive-and-process-data/
         - title: Using Labels
           url: /edgefarm/use-labels/

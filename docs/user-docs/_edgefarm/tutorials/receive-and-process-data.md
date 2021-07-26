@@ -1,7 +1,7 @@
 ---
-title: Receive and Process External Data
-excerpt: Receive and Process External Data
-last_modified_at: 2021-07-21
+title: Receive and Process MQTT Data
+excerpt: Simple example of receiving MQTT data from an external device and transferring the data to the cloud using the train simulator
+last_modified_at: 2021-07-26
 ---
 The Train Simulator Demo application for this use-case is a component that runs on the edge device. You are going to deploy an demo application on the edge device to read the data received from the `Train simulator` and handle them. To keep it simple, our demo application provides a simple dump of the received data. Of course you are free to apply any data handling in a custom application.
 

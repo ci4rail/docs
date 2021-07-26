@@ -1,7 +1,7 @@
 ---
 title: Setting up a External Simulation Environment
-excerpt: Setup the Train-Simulator
-last_modified_at: 2021-07-22
+excerpt: Simulate a train to provide data to the edge device without the need of real sensors
+last_modified_at: 2021-07-26
 ---
 
 The `Train Simulator` has been designed to experience the complete data chain from simulation of realistic train data, acquisition in the edge device, transfer to cloud and both visualization in dashboards and export to external data systems. The simulated data vary from simple diagnosis data via train network messages to high frequent measurement data.
