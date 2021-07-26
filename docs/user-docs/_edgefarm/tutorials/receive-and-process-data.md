@@ -107,8 +107,8 @@ This example shows how this might look like:
 {% highlight yaml linenos %}
 application: train-simulator
 modules:
-  - name: alm-mqtt-module
-    image: harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc
+  - name: mqtt-bridge
+    image: harbor.ci4rail.com/edgefarm/mqtt-bridge:0.1.0-1-3.Branch.initalSetup.Sha.792ac2137e7af38c4dc16bbc8799d4a3acd9bb0f
     createOptions: '{}'
     imagePullPolicy: on-create
     restartPolicy: always
@@ -130,18 +130,19 @@ modules:
 Apply the application manifest by the corresponding EdgeFarm command.
 
 ```console
-$ edgefarm alm apply -f manifest.yaml
+$ edgefarm applications apply -f manifest.yaml
 ```
 
 Now wait for the containers get deployed.
-Open the terminal connection to the edge device. You can monitor the status of the deployment by triggering `docker ps` manually and looking for containers called `train-simulator_alm-mqtt-module` and `train-simulator_edge-demo`.
+Open the terminal connection to the edge device. You can monitor the status of the deployment by triggering `docker ps` manually and looking for containers called `train-simulator_mqtt-bridge` and `train-simulator_edge-demo`.
 Once the deployment is done the output should look similar to this.
 
 ```console
 $ docker ps
 CONTAINER ID  IMAGE                                                                                                                     COMMAND                 CREATED         STATUS         PORTS                                                                 NAMES
 98b628acf96b  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708   "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        train-simulator_edge-demo
-f51de4aa3a12  harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc             "/alm-mqtt-module"      10 seconds ago  Up 10 seconds                                                                        train-simulator_alm-mqtt-module
+f51de4aa3a12  harbor.ci4rail.com/edgefarm/mqtt-bridge:0.1.0-1-3.Branch.initalSetup.Sha.792ac2137e7af38c4dc16bbc8799d4a3acd9bb0f
+             "/mqtt-bridge"      10 seconds ago  Up 10 seconds                                                                        train-simulator_mqtt-bridge
 3662738bc98d  nats:2.1.9-alpine                                                                                                         "docker-entrypoint.s…"  2 weeks ago     Up 2 weeks     4222/tcp, 6222/tcp, 8222/tcp                                          nats
 2de416b8763f  mcr.microsoft.com/azureiotedge-hub:1.0                                                                                    "/bin/sh -c 'echo \"…"  2 weeks ago     Up 2 weeks     0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp  edgeHub
 21f31abc9bf0  mcr.microsoft.com/azureiotedge-agent:1.0                                                                                  "/bin/sh -c 'exec /a…"  2 weeks ago     Up 2 weeks                                                                           edgeAgent

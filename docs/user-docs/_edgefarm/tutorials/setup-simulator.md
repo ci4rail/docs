@@ -14,7 +14,7 @@ The following image shows how the different parts of the simulation interact wit
 
 While the data acquistion and pre-processing will be executed on the edge device, the simulator has to be setup on a Windows or Linux machine. Be aware that the simulator machine and the edge device have to be in the same network to be able to communicate.
 
-Once the simulator is up and running it sends simulated data to an MQTT broker. The application module `alm-mqtt-module` running on the device listens to the MQTT topics from the simulator. It then redirects the received messages directly to a specific demo application module where the data can be handeled.
+Once the simulator is up and running it sends simulated data to an MQTT broker. The application module `mqtt-bridge` running on the device listens to the MQTT topics from the simulator. It then redirects the received messages directly to a specific demo application module where the data can be handeled.
 
 The steps are:
 1. Installing prerequisites
