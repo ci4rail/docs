@@ -1,8 +1,8 @@
 sidebar:
   title: Edge Solutions
   navitems:
-    # - title: Overview
-    #   url: /edge-solutions/overview/
+    - title: Overview
+      url: /edge-solutions/overview/
     - title: ModuCop
       url: /edge-solutions/moducop/
       navitems:
