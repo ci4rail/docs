@@ -1,35 +1,99 @@
 sidebar:
   title: Edge Solutions
-  url: /user-manual/edge-solutions/
   navitems:
+    - title: Overview
+      url: /edge-solutions/overview/
     - title: ModuCop
-      url: /user-manual/edge-solutions/moducop/
+      url: /edge-solutions/moducop/
       navitems:
+        - title: Quick-Start-Guide
+          url: /edge-solutions/moducop/quick-start-guide/
+          navitems:
+            - title: Accessories needed for ModuCop Quick Start
+              url: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+            - title: Unpacking
+              url: /edge-solutions/moducop/quick-start-guide/unpacking/
+            - title: Connecting & Powering
+              url: /edge-solutions/moducop/quick-start-guide/connecting-powering/
+            - title: Connecting to ModuCop's Linux Terminal
+              url: /edge-solutions/moducop/quick-start-guide/connect-to-terminal/
+            - title: Connect ModuCop to Internet
+              url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
+              navitems:
+                - title: via Ethernet
+                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/ethernet/
+                - title: via Wifi
+                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/wifi/
+                - title: via LTE
+                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/lte/
         - title: Introduction
-          url: /user-manual/edge-solutions/moducop/introduction/
+          url: /edge-solutions/moducop/introduction/
           navitems:
             - title: Specification
-              url: /user-manual/edge-solutions/moducop/introduction/specification/
+              url: /edge-solutions/moducop/introduction/specification/
             - title: Mechanical Outline
-              url: /user-manual/edge-solutions/moducop/introduction/mechanical-outline/
-        - title: Use ModuCop
-          url: /user-manual/edge-solutions/moducop/use/
-          navitems:
-            - title: Mounting Options
-              url: /user-manual/edge-solutions/moducop/use/mounting-options/
-            - title: Installing Accessories
-              url: /user-manual/edge-solutions/moducop/use/installing-accessories/
+              url: /edge-solutions/moducop/introduction/mech-outline/
+        - title: Mounting Options
+          url: /edge-solutions/moducop/mounting-options/
+        - title: Installing Accessories
+          url: /edge-solutions/moducop/install-accessories/
         - title: Detailed Descriptions
-          url: /user-manual/edge-solutions/moducop/detailed/
+          url: /edge-solutions/moducop/detailed-descriptions/
           navitems:
-            - title: LMP
-              url: /user-manual/edge-solutions/moducop/detailed/lmp/
-            - title: ModuCop Hardware
-              url: /user-manual/edge-solutions/moducop/detailed/moducop-hw/
-    - title: Sensors & Converters
-      url: /user-manual/edge-solutions/sensors-converters/
+            - title: Hardware
+              url: /edge-solutions/moducop/detailed-descriptions/hardware/
+              navitems:
+                - title: Interfaces
+                  url: /edge-solutions/moducop/detailed-descriptions/hardware/interfaces/
+                - title: Functions
+                  url: /edge-solutions/moducop/detailed-descriptions/hardware/functions/
+            - title: Linux microPlatform (LmP)
+              url: /edge-solutions/moducop/detailed-descriptions/lmp/
+              navitems:
+                - title: Functions
+                  url: /edge-solutions/moducop/detailed-descriptions/lmp/functions/
+    - title: SES01
+      url: /edge-solutions/ses01/
       navitems:
-        - title: SES01
-          url: /user-manual/edge-solutions/sensors-converters/ses01/
-        - title: SUS02
-          url: /user-manual/edge-solutions/sensors-converters/sus02/
+        - title: Quick-Start-Guide
+          url: /edge-solutions/ses01/quick-start-guide/
+          navitems:
+            - title: Unpacking
+              url: /edge-solutions/ses01/quick-start-guide/unpacking/
+            - title: Connecting & Powering
+              url: /edge-solutions/ses01/quick-start-guide/connecting-powering/
+            - title: Reveiving First Data
+              url: /edge-solutions/ses01/quick-start-guide/receive-data/
+        - title: Introduction
+          url: /edge-solutions/ses01/introduction/
+          navitems:
+            - title: Specification
+              url: /edge-solutions/ses01/introduction/specification/
+            - title: Mechanical Outline
+              url: /edge-solutions/ses01/introduction/mech-outline/
+        - title: Mounting Options
+          url: /edge-solutions/ses01/mounting-options/
+        - title: Detailed Descriptions
+          url: /edge-solutions/ses01/detailed-descriptions/
+          navitems:
+            - title: Hardware
+              url: /edge-solutions/ses01/detailed-descriptions/hardware/
+              navitems:
+                - title: Interfaces
+                  url: /edge-solutions/ses01/detailed-descriptions/hardware/interfaces/
+                - title: Functions
+                  url: /edge-solutions/ses01/detailed-descriptions/hardware/functions/
+            - title: Software
+              url: /edge-solutions/ses01/detailed-descriptions/software/
+              navitems:
+                - title: Functions
+                  url: /edge-solutions/ses01/detailed-descriptions/software/functions
+    - title: Tutorials
+      url: /edge-solutions/tutorials/
+      navitems:
+        - title: Tutorial A
+          url: /edge-solutions/tutorials/tutorial-a/
+        - title: Tutorial B
+          url: /edge-solutions/tutorials/tutorial-b/
+    - title: FAQ
+      url: /edge-solutions/faq/

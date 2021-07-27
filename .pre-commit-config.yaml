@@ -12,4 +12,5 @@ repos:
       - id: update-last_modified
         name: Update Last Modified Date
         entry: .pre-commit-scripts/update-last_modified.sh
+        exclude: docs/user-docs/_drafts/how-to-write-documentation.md
         language: "script"
