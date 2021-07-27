@@ -3,8 +3,8 @@ sidebar:
   navitems:
     - title: Overview
       url: /edgefarm/overview/
-    - title: Core Concept
-      url: /edgefarm/core-concept/
+    # - title: Core Concept
+    #   url: /edgefarm/core-concept/
     - title: Quick-Start-Guide
       url: /edgefarm/quick-start-guide/
     - title: Reference Manual
@@ -21,42 +21,42 @@ sidebar:
               url: /edgefarm/reference-manual/prerequisites/docker-compose/
             - title: EdgeFarm CLI
               url: /edgefarm/reference-manual/prerequisites/edgefarm-cli/
-        - title: EdgeFarm CLI
-          url: /edgefarm/reference-manual/edgefarm-cli/
-        - title: EdgeFarm REST API
-          url: /edgefarm/reference-manual/edgefarm-rest-api/
-        - title: EdgeFarm Manifest
-          url: /edgefarm/reference-manual/edgefarm-manifest/
-        - title: Grafana Access
-          url: /edgefarm/reference-manual/grafana-access/
-        - title: Data Endpoint Access
-          url: /edgefarm/reference-manual/data-endpoint-access/
-        - title: User Management
-          url: /edgefarm/reference-manual/user-management/
-        - title: Cloud Runtime
-          url: /edgefarm/reference-manual/cloud-runtime/
-    - title: Developer Guide
-      url: /edgefarm/developer-guide/
-      navitems:
-        - title: Create Application Container
-          url: /edgefarm/developer-guide/create-app-container/
-        - title: Using EdgeFarm Docker Registry
-          url: /edgefarm/developer-guide/using-edgefarm-docker-registry/
-        - title: EdgeFarm SDKs
-          navitems:
-            - title: EdgeFarm Application Python SDK
-              url: /edgefarm/developer-guide/edgefearm-application-python-sdk/
-        - title: Local Development Environment
-          url: /edgefarm/developer-guide/local-dev-environment/
-    - title: Operator Guide
-      url: /edgefarm/operator-guide/
-      navitems:
-        - title: Register Devices in EdgeFarm Cloud
-          url: /edgefarm/operator-guide/register-devices/
-        - title: Roll Out Deployments
-          url: /edgefarm/operator-guide/roll-out-deployments/
-        - title: Update Firmware
-          url: /edgefarm/operator-guide/update-firmware/
+        # - title: EdgeFarm CLI
+        #   url: /edgefarm/reference-manual/edgefarm-cli/
+        # - title: EdgeFarm REST API
+        #   url: /edgefarm/reference-manual/edgefarm-rest-api/
+        # - title: EdgeFarm Manifest
+        #   url: /edgefarm/reference-manual/edgefarm-manifest/
+        # - title: Grafana Access
+        #   url: /edgefarm/reference-manual/grafana-access/
+        # - title: Data Endpint Access
+        #   url: /edgefarm/reference-manual/data-endpoint-access/
+        # - title: User Management
+        #   url: /edgefarm/reference-manual/user-management/
+        # - title: Cloud Runtime
+        #   url: /edgefarm/reference-manual/cloud-runtime/
+    # - title: Developer Guide
+    #   url: /edgefarm/developer-guide/
+    #   navitems:
+    #     - title: Create Application Container
+    #       url: /edgefarm/developer-guide/create-app-container/
+    #     - title: Using EdgeFarm Docker Registry
+    #       url: /edgefarm/developer-guide/using-edgefarm-docker-registry/
+    #     - title: EdgeFarm SDKs
+    #       navitems:
+    #         - title: EdgeFarm Application Python SDK
+    #           url: /edgefarm/developer-guide/edgefearm-application-python-sdk/
+    #     - title: Local Development Environment
+    #       url: /edgefarm/developer-guide/local-dev-environment/
+    # - title: Operator Guide
+    #   url: /edgefarm/operator-guide/
+    #   navitems:
+    #     - title: Register Devices in EdgeFarm Cloud
+    #       url: /edgefarm/operator-guide/register-devices/
+    #     - title: Roll Out Deployments
+    #       url: /edgefarm/operator-guide/roll-out-deployments/
+    #     - title: Update Firmware
+    #       url: /edgefarm/operator-guide/update-firmware/
     - title: Tutorials
       url: /edgefarm/tutorials/
       navitems:
@@ -64,14 +64,14 @@ sidebar:
           url: /edgefarm/tutorials/setup-simulator/
         - title: Receive and Process MQTT Data
           url: /edgefarm/tutorials/receive-and-process-data/
-        - title: Using Labels
-          url: /edgefarm/use-labels/
-    - title: Architecture
-      url: /edgefarm/architecture/
-    - title: FAQ
-      url: /edgefarm/faq/
-    - title: Supported Devices
-      url: /edgefarm/supported-devices/
+    #     - title: Using Labels
+    #       url: /edgefarm/use-labels/
+    # - title: Architecture
+    #   url: /edgefarm/architecture/
+    # - title: FAQ
+    #   url: /edgefarm/faq/
+    # - title: Supported Devices
+    #   url: /edgefarm/supported-devices/
     - title: Release Notes
       navitems:
         - title: EdgeFarm CLI

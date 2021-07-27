@@ -12,8 +12,8 @@ main:
         url: /edgefarm/overview/
       - title: Edge Solutions
         url: /edge-solutions/overview/
-  - title: "Video-Section"
-    url: /video-section/
+  # - title: "Video-Section"
+  #   url: /video-section/
   - title: "Data Sheets"
     external_url: https://www.ci4rail.com/news/downloads/
   - title: "Ci4Rail Homepage"
