@@ -1,7 +1,7 @@
 ---
 title: Connect ModuCop to Internet using Wifi
 excerpt: Connect ModuCop to Internet using Wifi
-last_modified_at: 2021-07-22
+last_modified_at: 2021-07-28
 
 custom_previous: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
@@ -26,7 +26,6 @@ What you need:
 # Step 1: Attach Wifi Antenna
 
 Attach Wifi antenna to ModuCop's antenna connectors labelled `WLAN1` and `WLAN2`. One antenna is enough, a second antenna can improve Wifi quality.
-`TODO: Picture`.
 
 
 # Step 2: Scan for Wifi Access Points

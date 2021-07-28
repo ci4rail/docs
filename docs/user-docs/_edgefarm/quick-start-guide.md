@@ -1,7 +1,7 @@
 ---
 title: Quick-Start-Guide
 excerpt: First steps with EdgeFarm basic functions.
-last_modified_at: 2021-07-22
+last_modified_at: 2021-07-26
 ---
 
 This chapter shows the basic usage of the EdgeFarm CLI to interact with the EdgeFarm services.
@@ -24,27 +24,27 @@ Logged in as: Stan Marsh
 
 ## List Edge Devices
 
-List the devices registered in EdgeFarm DLM for your account by using the `dlm get devices` subcommand.
+List the devices registered in EdgeFarm DLM for your account by using the `devices get devices` subcommand.
 
 ```console
-$ edgefarm dlm get devices
+$ edgefarm devices get devices
 DEVICE ID                               	CONNECTION STATE
 moducop0                                	Connected
 ```
 
 ## List runtimes
 
-List the runtimes registered in EdgeFarm ALM for your account using the `alm get runtimes` subcommand.
+List the runtimes registered in EdgeFarm ALM for your account using the `applications get runtimes` subcommand.
 
 ```console
-$ edgefarm alm get runtimes
+$ edgefarm applications get runtimes
 RUNTIME ID                               	CONNECTION STATE
 moducop0                                	Connected
 ```
 
 ## Applying manifest
 
-In order to deploy a specific configuration of applications to the edge computer, we are going to use so-called application manifest files. To apply such an application manifest file use the `alm apply` subcommand.
+In order to deploy a specific configuration of applications to the edge computer, we are going to use so-called application manifest files. To apply such an application manifest file use the `applications apply` subcommand.
 
 As a first example, the following section explains how create and apply your first manifest file. In this case we will deploy a nginx web server to the edge device.
 
@@ -64,7 +64,7 @@ modules:
 Copy the above example in a yaml file, e.g. `manifest.yaml`. Then apply it.
 
 ```console
-$ edgefarm alm apply -f manifest.yaml
+$ edgefarm applications apply -f manifest.yaml
 ```
 
 To see the result of your frst application deployment by using application manifest files, you need to login to the edge device. See [Connecting to ModuCop’s Linux Terminal](/edge-solutions/moducop/quick-start-guide/connect-to-terminal/) for assistance.

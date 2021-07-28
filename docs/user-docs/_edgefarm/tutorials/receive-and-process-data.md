@@ -1,7 +1,7 @@
 ---
 title: Receive and Process MQTT Data
 excerpt: Simple example of receiving MQTT data from an external device and transferring the data to the cloud using the train simulator
-last_modified_at: 2021-07-26
+last_modified_at: 2021-07-28
 ---
 In this tutorial, you will learn how to receive and process data from MQTT data sources. This tutorial uses the Train Simulator to create the external data. In order to process those external data in your edge device, an application on the edge device is required. You are going to deploy a demo application on the edge device to read the data received from the `Train simulator` and handle them. To keep it simple, our demo application provides a simple dump of the received data. Of course you are free to apply any data handling in a custom application.
 
@@ -105,10 +105,10 @@ Enter the IP address of your simulator machine as the value for the key `MQTT_SE
 This example shows how this might look like:
 
 {% highlight yaml linenos %}
-application: train-simulator
+application: receive-and-process-data
 modules:
-  - name: alm-mqtt-module
-    image: harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc
+  - name: mqtt-bridge
+    image: c4rail/mqtt-bridge:latest
     createOptions: '{}'
     imagePullPolicy: on-create
     restartPolicy: always
@@ -116,8 +116,8 @@ modules:
     startupOrder: 1
     envs:
       MQTT_SERVER: 192.168.1.22:1883
-  - name: edge-demo
-    image:  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708
+  - name: push-temperature
+    image:  ci4rail/push-temperature:latest
     createOptions: '{}'
     imagePullPolicy: on-create
     restartPolicy: always
@@ -130,30 +130,30 @@ modules:
 Apply the application manifest by the corresponding EdgeFarm command.
 
 ```console
-$ edgefarm alm apply -f manifest.yaml
+$ edgefarm applications apply -f manifest.yaml
 ```
 
 Now wait for the containers get deployed.
-Open the terminal connection to the edge device. You can monitor the status of the deployment by triggering `docker ps` manually and looking for containers called `train-simulator_alm-mqtt-module` and `train-simulator_edge-demo`.
+Open the terminal connection to the edge device. You can monitor the status of the deployment by triggering `docker ps` manually and looking for containers called `receive-and-process-data_mqtt-bridge` and `receive-and-process-data_push-temperature`.
 Once the deployment is done the output should look similar to this.
 
 ```console
 $ docker ps
-CONTAINER ID  IMAGE                                                                                                                     COMMAND                 CREATED         STATUS         PORTS                                                                 NAMES
-98b628acf96b  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708   "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        train-simulator_edge-demo
-f51de4aa3a12  harbor.ci4rail.com/edgefarm/alm-mqtt-module:0.1.0-22.Branch.main.Sha.08e21b9e732fe725a4722302bf0c46e27afa76cc             "/alm-mqtt-module"      10 seconds ago  Up 10 seconds                                                                        train-simulator_alm-mqtt-module
-3662738bc98d  nats:2.1.9-alpine                                                                                                         "docker-entrypoint.s…"  2 weeks ago     Up 2 weeks     4222/tcp, 6222/tcp, 8222/tcp                                          nats
-2de416b8763f  mcr.microsoft.com/azureiotedge-hub:1.0                                                                                    "/bin/sh -c 'echo \"…"  2 weeks ago     Up 2 weeks     0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp  edgeHub
-21f31abc9bf0  mcr.microsoft.com/azureiotedge-agent:1.0                                                                                  "/bin/sh -c 'exec /a…"  2 weeks ago     Up 2 weeks                                                                           edgeAgent
+CONTAINER ID  IMAGE                                       COMMAND                 CREATED         STATUS         PORTS                                                                 NAMES
+98b628acf96b  ci4rail/push-temperature:latest             "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        receive-and-process-data_push-temperature
+f51de4aa3a12  ci4rail/mqtt-bridge:latest                  "/mqtt-bridge"          10 seconds ago  Up 10 seconds                                                                        receive-and-process-data_mqtt-bridge
+3662738bc98d  nats:2.1.9-alpine                           "docker-entrypoint.s…"  2 weeks ago     Up 2 weeks     4222/tcp, 6222/tcp, 8222/tcp                                          nats
+2de416b8763f  mcr.microsoft.com/azureiotedge-hub:1.0      "/bin/sh -c 'echo \"…"  2 weeks ago     Up 2 weeks     0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp  edgeHub
+21f31abc9bf0  mcr.microsoft.com/azureiotedge-agent:1.0    "/bin/sh -c 'exec /a…"  2 weeks ago     Up 2 weeks                                                                           edgeAgent
 ```
 
 
 # Verify the Train Simulator Data on Your Device
 
-To verify that everything is properly connected and running, view the logs of the `train-simulator_edge-demo` container by running `docker logs train-simulator_edge-demo -f`. The output should look similar to this.
+To verify that everything is properly connected and running, view the logs of the `receive-and-process-data_edge-demo` container by running `docker logs receive-and-process-data_edge-demo -f`. The output should look similar to this.
 
 ```console
-$ docker logs train-simulator_edge-demo -f
+$ docker logs receive-and-process-data_edge-demo -f
 {'device': 'moducop0', 'acqTime': 1620300886, 'payload': b'{"sensorname":"temperature","timestamp":1620300886,"value":"31.57"}'}
 {'device': 'moducop0', 'acqTime': 1620300887, 'payload': b'{"sensorname":"temperature","timestamp":1620300887,"value":"30.91"}'}
 {'device': 'moducop0', 'acqTime': 1620300888, 'payload': b'{"sensorname":"temperature","timestamp":1620300888,"value":"30.30"}'}

@@ -1,24 +1,34 @@
 ---
 title: Docker
 excerpt: Instructions how to install docker
-last_modified_at: 2021-07-22
+last_modified_at: 2021-07-28
 
 gallery:
   - url: /user-docs/images/edgefarm/reference-manual/prerequisites/docker-desktop-running.png
     image_path: /user-docs/images/edgefarm/reference-manual/prerequisites/docker-desktop-running.png
     alt: "Check if Docker Desktop is running"
     title: "Check if Docker Desktop is running"
+
+toc: false
 ---
-# Windows
 
-## Pre-Condition
+This section shows how to install docker.
 
+<ul class="nav nav-tabs">
+  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#windows" role="tab" >Windows</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#linux" role="tab">Linux</a></li>
+</ul>
+
+<div class="tab-content">
+<div class="tab-pane fade in active" id="windows" role="tabpanel" markdown="1">
+
+**Pre-Condition**
 * Windows 10
 
 > **Note: It is highly recommended using `Windows 10`. Other Windows versions are not guranteed to work.**
 <!-- {: .notice--warning} -->
 
-## Install
+**Install**
 
 There are two possibilities to install and use docker on a Windows machine.
 
@@ -151,23 +161,25 @@ Once WSL2 and Ubuntu 20.04 is installed, continue with the [Linux setup instruct
 </div>
 </div> <!-- tab-content -->
 
-## Troubleshooting
+**Troubleshooting**
 
-### My status bar in Docker Desktop is not `green`
+| Problem                                        | Solution                                                                                        |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| My status bar in Docker Desktop is not `green` | Please verify that you've installed the `Linux kernel update package`. Try performing a reboot. |
 
-Please verify that you've installed the `Linux kernel update package`. Try performing a reboot.
+</div>
+<div class="tab-pane fade in" id="linux" role="tabpanel" markdown="1">
 
+**Pre-Condition**
 
-# Linux
-## Pre-Condition
-
-* Ubuntu 20.04
+ * Ubuntu 20.04
 
 > **Note: The following steps have been tested with Ubuntu 20.04 under `amd64`, but other Linux distributions and CPU
 architectures like Raspberry Pi with Raspbian may also work.**
 <!-- {: .notice--info} -->
 
-## Install
+**Install**
+
 Use the `convenience script` for automatic installation of Docker Community Edition.
 
 ```console
@@ -190,16 +202,12 @@ Try running a basic hello world container.
 ```console
 $ docker run --rm hello-world
 ```
+**Troubleshooting**
 
+| Problem                | Solution                                                                                                                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Docker-ce setup fails  | You can always install docker-ce manually following the steps for your distribution. See [this link](https://docs.docker.com/engine/install/#supported-platforms) for further information. |
+| You are using Raspbian | Raspbian users must use the [convenience script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script).                                                     |
 
-## Troubleshooting
-
-### Docker-ce setup fails
-
-You can always install docker-ce manually following the steps for your distribution.
-See [this link](https://docs.docker.com/engine/install/#supported-platforms) for further information.
-
-### You are using Raspbian
-
-Raspbian users must use the [convenience
-script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script).
+</div>
+</div> <!-- tab-content -->
