@@ -1,7 +1,7 @@
 ---
 title: Connect ModuCop to Internet using LTE
 excerpt: Connect ModuCop to Internet using mobile radio connection
-last_modified_at: 2021-07-22
+last_modified_at: 2021-07-28
 
 custom_previous: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
@@ -28,12 +28,11 @@ What you need:
 
 ## Insert SIM Card
 
-* Remove the service flap from Modcops front panel `TODO: Picture`.
-* Insert a Nano SIM Card into the SIM Card slot `TODO: Picture`.
+* Remove the service flap from Modcops front panel.
+* Insert a Nano SIM Card into the SIM Card slot.
 
 ## Attach LTE Antenna
 Attach LTE antenna to ModuCop's antenna connectors labelled `LTE1` and `LTE2`. One antenna is enough, a second antenna can improve signal quality.
-`TODO: Picture`.
 
 # Step 2: Unlock SIM Card
 

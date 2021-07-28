@@ -1,7 +1,7 @@
 ---
 title: Receive and Process MQTT Data
 excerpt: Simple example of receiving MQTT data from an external device and transferring the data to the cloud using the train simulator
-last_modified_at: 2021-07-26
+last_modified_at: 2021-07-28
 ---
 In this tutorial, you will learn how to receive and process data from MQTT data sources. This tutorial uses the Train Simulator to create the external data. In order to process those external data in your edge device, an application on the edge device is required. You are going to deploy a demo application on the edge device to read the data received from the `Train simulator` and handle them. To keep it simple, our demo application provides a simple dump of the received data. Of course you are free to apply any data handling in a custom application.
 
@@ -108,7 +108,7 @@ This example shows how this might look like:
 application: train-simulator
 modules:
   - name: mqtt-bridge
-    image: harbor.ci4rail.com/edgefarm/mqtt-bridge:0.1.0-1-3.Branch.initalSetup.Sha.792ac2137e7af38c4dc16bbc8799d4a3acd9bb0f
+    image: c4rail/mqtt-bridge:latest
     createOptions: '{}'
     imagePullPolicy: on-create
     restartPolicy: always
@@ -116,8 +116,8 @@ modules:
     startupOrder: 1
     envs:
       MQTT_SERVER: 192.168.1.22:1883
-  - name: edge-demo
-    image:  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708
+  - name: push-temperature
+    image:  ci4rail/push-temperature:latest
     createOptions: '{}'
     imagePullPolicy: on-create
     restartPolicy: always
@@ -140,8 +140,8 @@ Once the deployment is done the output should look similar to this.
 ```console
 $ docker ps
 CONTAINER ID  IMAGE                                                                                                                     COMMAND                 CREATED         STATUS         PORTS                                                                 NAMES
-98b628acf96b  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:0.1.0-11.Branch.main.Sha.80849351b5dedfb10f4c894c2cf4e471d16e0708   "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        train-simulator_edge-demo
-f51de4aa3a12  harbor.ci4rail.com/edgefarm/mqtt-bridge:0.1.0-1-3.Branch.initalSetup.Sha.792ac2137e7af38c4dc16bbc8799d4a3acd9bb0f
+98b628acf96b  harbor.ci4rail.com/edgefarm/train-simulator-edge-demo:latest   "python3 -u ./main.py"  10 seconds ago  Up 10 seconds                                                                        train-simulator_edge-demo
+f51de4aa3a12  harbor.ci4rail.com/edgefarm/mqtt-bridge:latest
              "/mqtt-bridge"      10 seconds ago  Up 10 seconds                                                                        train-simulator_mqtt-bridge
 3662738bc98d  nats:2.1.9-alpine                                                                                                         "docker-entrypoint.s…"  2 weeks ago     Up 2 weeks     4222/tcp, 6222/tcp, 8222/tcp                                          nats
 2de416b8763f  mcr.microsoft.com/azureiotedge-hub:1.0                                                                                    "/bin/sh -c 'echo \"…"  2 weeks ago     Up 2 weeks     0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp  edgeHub
