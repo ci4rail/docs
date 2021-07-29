@@ -31,6 +31,23 @@ Visit `http://localhost:4000/` to see webside.
 
 > Note: On github pages, the website is build without `--drafts` option. This ensures, that files placed in `docs/user-docs/_drafts/` are not generated into the public website, as these are intendet to only be drafts and not published.
 
+> If you get an error starting the server locally check [next section](#fixing-could-not-open-library-libcurl-error) for instructions how to fix it.
+
+
+#### Fixing errors
+
+**Fixing `Could not open library 'libcurl'` error**
+1. Download [curl](https://curl.se/windows/) (curl for 64 bit)
+2. Unpack zip file
+3. Go to bin folder and rename `libcurl-x64.dll` to `libcurl.dll`
+4. Copy the file `libcurl.dll` to the directory `C:\Ruby27-x64` while `27` has to be replaced by actual Ruby version
+
+
+**Fixing `cannot load such file webrick` error**
+This fix is included in latest `Gemfile`.
+
+Run `bundle update` in `docs` folder before starting jekyll page.
+
 
 ### On Linux or WSL
 
