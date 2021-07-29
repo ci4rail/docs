@@ -40,9 +40,7 @@ Visit `http://localhost:4000/` to see webside.
 1. Download [curl](https://curl.se/windows/) (curl for 64 bit)
 2. Unpack zip file
 3. Go to bin folder and rename `libcurl-x64.dll` to `libcurl.dll`
-4. Create folder in C:\ called `curl` and put in the file `libcurl.dll`
-5. Open a command shell by pressing `Windows+R` and typing in cmd
-6. Execute the command `set PATH=%PATH%;C:\curl\`
+4. Copy the file `libcurl.dll` to the directory `C:\Ruby27-x64` while `27` has to be replaced by actual Ruby version
 
 
 **Fixing `cannot load such file webrick` error**
