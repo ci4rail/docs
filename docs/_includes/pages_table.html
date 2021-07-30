@@ -22,6 +22,10 @@
 {% assign headline_description = "Description" %}
 {% endif %}
 
+{% if include.type %}
+{% assign type = include.type %}
+{% endif %}
+
 
 {% for c in site.collections %}
 {% if c.label == collectionName %}
@@ -40,10 +44,19 @@
     {% assign pages = collection.docs | sort: 'last_modified' | reverse %}
     {% for page in pages %}
     {% if page.url contains url and page.url != url %}
+    {% if type %}
+    {% if type == page.type %}
     <tr>
         <td><a href="{{ page.url | relative_url }}">{{ page.title }}</a></td>
         <td>{{ page.excerpt }}</td>
     </tr>
+    {% endif %}
+    {% else %}
+    <tr>
+        <td><a href="{{ page.url | relative_url }}">{{ page.title }}</a></td>
+        <td>{{ page.excerpt }}</td>
+    </tr>
+    {% endif %}
     {% endif %}
     {% endfor %}
 </table>

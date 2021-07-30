@@ -62,6 +62,8 @@ sidebar:
       navitems:
         - title: Setting up a External Simulation Environment
           url: /edgefarm/tutorials/setup-simulator/
+        - title: Apply Simulator Base Deployment
+          url: /edgefarm/tutorials/simulator-base-deployment/
         - title: Receive and Process MQTT Data
           url: /edgefarm/tutorials/receive-and-process-data/
     #     - title: Using Labels

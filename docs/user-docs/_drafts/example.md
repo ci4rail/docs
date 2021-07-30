@@ -1,7 +1,7 @@
 ---
 title: "Example File"
 excerpt: "See how to use this documentation."
-last_modified_at: 2021-04-20
+last_modified_at: 2021-07-30
 
 feature_row:
   - image_path: /user-docs/images/drafts/orange-cloud.jpg
@@ -138,8 +138,20 @@ or if you want language specific syntax highlighting.
 
 \`\`\`bash
 ```bash
-echo "This is my bash code"
+$ echo "This is my bash code"
+This is my bash code
 ```
+\`\`\`console
+```console
+$ echo "This is my bash code"
+This is my bash code
+```
+> `bash` vs. `console`:
+> * Mark the content of `bash` code block the `$` is marked.
+> * CopMarky the content of `console` code block the `$` is **NOT** marked.
+>
+> Last one is useful to copy code.
+
 \`\`\`python
 ```python
 print("This is python code")
