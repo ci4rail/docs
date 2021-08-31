@@ -2,6 +2,8 @@
 title: Data Endpoint Access
 excerpt: How to Access EdgeFarm Data Endpoint
 last_modified_at: 2021-08-31
+
+type: reference
 ---
 
 EdgeFarm.data provides an data export using `NATS Jetstream`. The data within this endpoint is puffered for at least `48 hours`, `100000 messages` or `2 GB`. Messages reaching the limits are dropped and cannot be restored.
