@@ -89,7 +89,7 @@ custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 This is used to define page metadata:
 * **title:** Headline of the page and in the browser tab
 * **excerpt:** A short description of the page content
-* **last_modified_at:** Needs to be updated manually and shows when the page was updated the last time
+* **last_modified_at:** Is updated automatically with pre-commit hooks, shows when the page was updated the last time
 
 Add the content below the front matter.
 
