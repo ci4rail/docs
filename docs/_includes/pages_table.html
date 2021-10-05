@@ -1,0 +1,62 @@
+{% if include.collectionName %}
+{% assign collectionName = include.collectionName %}
+{% else %}
+{% assign collectionName = page.collection %}
+{% endif %}
+
+{% if include.url %}
+{% assign url = include.url %}
+{% else %}
+{% assign url = page.url %}
+{% endif %}
+
+{% if include.headline_link %}
+{% assign headline_link = include.headline_link %}
+{% else %}
+{% assign headline_link = "Page" %}
+{% endif %}
+
+{% if include.headline_description %}
+{% assign headline_description = include.headline_description %}
+{% else %}
+{% assign headline_description = "Description" %}
+{% endif %}
+
+{% if include.type %}
+{% assign type = include.type %}
+{% endif %}
+
+
+{% for c in site.collections %}
+{% if c.label == collectionName %}
+{% assign collection = c %}
+{% endif %}
+{% endfor %}
+
+<table>
+    <thead>
+        <tr>
+            <th>{{ headline_link }}</th>
+            <th>{{ headline_description }}</th>
+        </tr>
+    </thead>
+
+    {% assign pages = collection.docs | sort: 'last_modified' | reverse %}
+    {% for page in pages %}
+    {% if page.url contains url and page.url != url %}
+    {% if type %}
+    {% if type == page.type %}
+    <tr>
+        <td><a href="{{ page.url | relative_url }}">{{ page.title }}</a></td>
+        <td>{{ page.excerpt }}</td>
+    </tr>
+    {% endif %}
+    {% else %}
+    <tr>
+        <td><a href="{{ page.url | relative_url }}">{{ page.title }}</a></td>
+        <td>{{ page.excerpt }}</td>
+    </tr>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+</table>

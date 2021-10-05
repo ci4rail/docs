@@ -1,11 +1,19 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: /quick-start-guide
+  - title: Quick-Start Guide
+    navitems:
+      - title: EdgeFarm
+        url: /edgefarm/quick-start-guide/
+      - title: ModuCop
+        url: /edge-solutions/moducop/quick-start-guide/
   - title: "User Manual"
-    url: /user-manual
-  - title: "Video-Section"
-    url: /video-section/
+    navitems:
+      - title: EdgeFarm
+        url: /edgefarm/overview/
+      - title: Edge Solutions
+        url: /edge-solutions/overview/
+  # - title: "Video-Section"
+  #   url: /video-section/
   - title: "Data Sheets"
     external_url: https://www.ci4rail.com/news/downloads/
   - title: "Ci4Rail Homepage"

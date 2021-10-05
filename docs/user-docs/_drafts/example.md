@@ -1,7 +1,7 @@
 ---
 title: "Example File"
 excerpt: "See how to use this documentation."
-last_modified_at: 2021-04-20
+last_modified_at: 2021-07-30
 
 feature_row:
   - image_path: /user-docs/images/drafts/orange-cloud.jpg
@@ -12,9 +12,9 @@ feature_row:
     btn_label: "Learn More"
     btn_class: "btn--primary"
   - image_path: /user-docs/images/drafts/photo.png
-    alt: "Moducop"
-    title: "Moducop"
-    excerpt: "Put Moducop into operation and connect it properly and consider the installation conditions."
+    alt: "ModuCop"
+    title: "ModuCop"
+    excerpt: "Put ModuCop into operation and connect it properly and consider the installation conditions."
     url: /user-manual/edge-solutions/moducop/
     btn_label: "Learn More"
     btn_class: "btn--primary"
@@ -41,7 +41,7 @@ gallery:
     title: "Image 3 title caption"
 ---
 
-This example documentation file shows how different formatting can be established in this template. Some formatting is usual [markdown syntax](#general-markdown-usage), but some [template specific formatting](#jekyll-template-specific) is possible. In addition, some topics can be done in [both ways](#markdown-vs-template-specific). Have a look at the [raw file on github](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) to see how this page is implemented.
+This example documentation file shows how different formatting can be established in this template. Some formatting is usual [markdown syntax](#general-markdown-usage), but some [template specific formatting](#jekyll-template-specific) is possible. In addition, some topics can be done in [both ways](#markdown-and-template-specific). Have a look at the [raw file on github](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) to see how this page is implemented.
 
 # General Markdown Usage
 
@@ -138,8 +138,20 @@ or if you want language specific syntax highlighting.
 
 \`\`\`bash
 ```bash
-echo "This is my bash code"
+$ echo "This is my bash code"
+This is my bash code
 ```
+\`\`\`console
+```console
+$ echo "This is my bash code"
+This is my bash code
+```
+> `bash` vs. `console`:
+> * Mark the content of `bash` code block the `$` is marked.
+> * CopMarky the content of `console` code block the `$` is **NOT** marked.
+>
+> Last one is useful to copy code.
+
 \`\`\`python
 ```python
 print("This is python code")
@@ -165,6 +177,14 @@ modules:
    est Lorem ipsum dolor
    ```
 
+Surround code block with {% raw %}`{% highlight yaml linenos %}`{% endraw %} and {% raw %}`{% endhighlight %}`{% endraw %} instead of \`\`\` to add line numbers to the code bock:
+{% highlight yaml linenos %}
+application: influxdb
+modules:
+  - name: influxdb
+    image: influxdb:latest
+    createOptions: '{\"HostConfig\":{\"PortBindings\":{\"8086/tcp\":[{\"HostPort\":\"8086\"}]}}}'
+{% endhighlight %}
 
 # Jekyll Template Specific
 ## Info Blocks
@@ -258,9 +278,9 @@ feature_row:
     btn_label: "Learn More"
     btn_class: "btn--primary"
   - image_path: /user-docs/images/site/moducop/photo.png
-    alt: "Moducop"
-    title: "Moducop"
-    excerpt: "Put Moducop into operation and connect it properly and consider the installation conditions."
+    alt: "ModuCop"
+    title: "ModuCop"
+    excerpt: "Put ModuCop into operation and connect it properly and consider the installation conditions."
     url: /user-manual/edge-solutions/moducop/
     btn_label: "Learn More"
     btn_class: "btn--primary"
@@ -305,6 +325,26 @@ Use this
 in docs to create the following output:
 {% include gallery caption="This is a sample gallery with **Markdown support**." %}
 
+## Dynamic Tabs
+<ul class="nav nav-tabs">
+  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" >Tab 1</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab2" role="tab">Tab 2</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab3" role="tab">Tab 3</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane fade show active" id="tab1" role="tabpanel" markdown="1">
+This is tab 1.
+</div>
+<div class="tab-pane fade" id="tab2" role="tabpanel" markdown="1">
+![Figure in tab]({{ '/user-docs/images/drafts/photo.png' | relative_url }} "Figure in tab"){: style="width: 40%"}
+</div>
+<div class="tab-pane fade" id="tab3" role="tabpanel" markdown="1">
+```
+This is a code block in a tab.
+```
+</div>
+</div>
+
 # Markdown and Template Specific
 ## Include Figure
 Include figure using markdown (Hover to see the Title Text):
@@ -340,9 +380,9 @@ A link to an external page can be done completely without template syntax:
 
 A link to an internal page requires some template syntax `{% raw %}{ 'URL' | relative_url }}{% endraw %}` to ensure the link is correctly generated:
 ```
-{% raw %}[Link to internal page]({{ '/quick-start-guide' | relative_url }} "Title that is displayed when hovering over the mouse"){% endraw %}
+{% raw %}[Link to internal page]({{ '/quick-start-guide/' | relative_url }} "Title that is displayed when hovering over the mouse"){% endraw %}
 ```
-[Link to internal page]({{ '/quick-start-guide' | relative_url }} "Title that is displayed when hovering over the mouse")
+[Link to internal page]({{ '/quick-start-guide/' | relative_url }} "Title that is displayed when hovering over the mouse")
 
 # Heading Level 1
 ## Heading Level 2

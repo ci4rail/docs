@@ -1,7 +1,7 @@
 ---
 title: "How to Write Documentation"
 excerpt: "See how to write documentation."
-last_modified_at: 2021-04-21
+last_modified_at: 2021-07-22
 ---
 The repository contains a lot of stuff, but only a few directories are required for documentation adaptions:
 ```
@@ -13,8 +13,9 @@ The repository contains a lot of stuff, but only a few directories are required 
     └── user-docs <-------------- This contains the actual user documentation
         ├── _drafts <------------ Contains example file
         ├── _posts <------------- Place here articles for the news section
-        ├── _quick-start-guide <- Place here doc files for quick start guide section
-        ├── _user-manual <------- Place here doc files for user manual section
+        ├── _edge-solutions <---- Place here doc files for edge-solutions section
+        ├── _edgefarm <---------- Place here doc files for EdgeFarm section
+        ├── _kyt <--------------- Place here doc files for KYT section
         ├── _video-categories <-- Place here files to group videos in categories
         └── _videos <------------ Place here files to point to videos in well known video platforms
         └── images <------------- Place here images required for your documentation
@@ -29,6 +30,16 @@ The repository contains a lot of stuff, but only a few directories are required 
 > Don't use more than 5 heading depths.
 
 # Naming Conventions
+
+**Spell proper names correctly:**
+* ModuCop
+* EdgeFarm
+* EdgeFarm.applications
+* EdgeFarm.devices
+* EdgeFarm.data
+* EdgeFarm.network
+* EdgeFarm.monitor
+* ... take care of the capital letters!
 
 **For Page Titles and Menu Items:**
 
@@ -53,29 +64,32 @@ Assume that the website has the following sidebar and you want to customize the 
 
 Get the URL of the page to find the corresponding file in the directory structore:
 <div class="language-plaintext highlighter-rouge">
-<pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
+<pre><code>http://localhost:4000/<strong style="color:red">edge-solutions/moducop/quick-start-guide/connect-to-terminal</strong>/
 </code></pre></div>
 
 All docs are stored in docs/user-docs/ and grouped by the category, which has to start with `_`:
 
 <div class="language-plaintext highlighter-rouge">
-<pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>.md
+<pre><code>docs/user-docs/_<strong style="color:red">edge-solutions/moducop/quick-start-guide/connect-to-terminal</strong>.md
 </code></pre></div>
 
 Each documentation file has a YAML front matter at the top, eg.:
 
 ```yaml
 ---
-title: Installing Accessories
-excerpt: How to install accessories on ModuCop.
-last_modified_at: 2021-04-13
+title: Connecting to ModuCop's Linux Terminal
+excerpt: How to get access to the Shell to configure ModuCop
+last_modified_at: 2021-07-22
+
+custom_previous: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
 ```
 
 This is used to define page metadata:
 * **title:** Headline of the page and in the browser tab
 * **excerpt:** A short description of the page content
-* **last_modified_at:** Needs to be updated manually and shows when the page was updated the last time
+* **last_modified_at:** Is updated automatically with pre-commit hooks, shows when the page was updated the last time
 
 Add the content below the front matter.
 
@@ -98,13 +112,13 @@ Assume that the website has the following sidebar and you want to add another pa
 
 Get the URL of the page to find the corresponding file in the directory structore:
 <div class="language-plaintext highlighter-rouge">
-<pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
+<pre><code>http://localhost:4000/<strong style="color:red">edge-solutions/moducop/quick-start-guide/connect-to-terminal</strong>/
 </code></pre></div>
 
 All docs are stored in docs/user-docs/ and grouped by the category, which has to start with `_`:
 
 <div class="language-plaintext highlighter-rouge">
-<pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>.md
+<pre><code>docs/user-docs/_<strong style="color:red">edge-solutions/moducop/quick-start-guide/connect-to-terminal</strong>.md
 </code></pre></div>
 
 Add a file in the same directory and give it a name in the format `TITLE_SMALL_WITH_HYPHEN.md`, where `TITLE_SMALL_WITH_HYPHEN` shall be the title converted in small letters where spaces are replaced with `-`. Shorts can be used to keep URLs short, as file names are used to generate the URL.
@@ -113,43 +127,41 @@ So a good name for our examle file would be `demo-page.md`.
 
 The next step is to add a front matter at the top of the file:
 ```yaml
- ---
+---
 title: Demonstration Page
 excerpt: This is a page for demonstration.
-last_modified_at: 2021-04-21
- ---
+last_modified_at: 2021-07-22
+---
 ```
 
 After this the page can be visited, as the filename defines the URL together with the filepath:
 <div class="language-plaintext highlighter-rouge">
-<pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/demo-page</strong>.md
+<pre><code>docs/user-docs/_<strong style="color:red">edge-solutions/moducop/quick-start-guide/demo-page</strong>.md
 </code></pre></div>
 
-Hosting the webside on your local machine, this would be [http://localhost:4000/user-manual/edge-solutions/moducop/use/demo-page/](http://localhost:4000/user-manual/edge-solutions/moducop/use/demo-page/).
+Hosting the webside on your local machine, this would be [http://localhost:4000/edge-solutions/moducop/quick-start-guide/demo-page/](http://localhost:4000/edge-solutions/moducop/quick-start-guide/demo-page/).
 
 But, as you may see, there is stil no reference on the sidebar right now. For this case we need to change the sidebar config file, which is located in `docs/_data/sidebars`. For futher information regarding the sidebar structure, see [section Sidebar](#sidebar).
 
-Search for the reference file `/user-manual/edge-solutions/moducop/use/installing-accessories/` (marked in yellow) in the sidebars to find the correct place for your new page (added in green). In this case, we need to adapt the `edge-solutions.yml` file:
+Search for the reference file `/edge-solutions/moducop/quick-start-guide/connect-to-terminal/` (marked in yellow) in the sidebars to find the correct place for your new page (added in green). In this case, we need to adapt the `edge-solutions.yml` file:
 
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Edge Solutions
-  URL: /user-manual/edge-solutions/
+  URL: /edge-solutions/
   navitems:
     - title: ModuCop
-      URL: /user-manual/edge-solutions/moducop/
+      URL: /edge-solutions/moducop/
       navitems:
-        - title: Introduction
-          ...
-        - title: Use ModuCop
-          URL: /user-manual/edge-solutions/moducop/use/
+        - title: Quick-Start-Guide
+          URL: edge-solutions/moducop/quick-start-guide/
           navitems:
-            - title: Mounting Options
-              URL: /user-manual/edge-solutions/moducop/use/mounting-options/
-            - title: Installing Accessories
-              URL: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
+            - title: Accessories needed for ModuCop Quick Start
+              url: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+            - title: Connecting to ModuCop's Linux Terminal
+              URL: <strong style="color:yellow">/edge-solutions/moducop/quick-start-guide/connect-to-terminal/</strong>
             <strong style="color:green">- title: Demo Page
-              URL: /user-manual/edge-solutions/moducop/use/demo-page/</strong>
+              URL: /edge-solutions/moducop/quick-start-guide/demo-page/</strong>
         - ...
     - ...
 </code></pre></div>
@@ -170,13 +182,13 @@ The main difference is, that menus with landing pages shall have a folder in the
 
 Get the URL of the page to find the corresponding file in the directory structore:
 <div class="language-plaintext highlighter-rouge">
-<pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
+<pre><code>http://localhost:4000/<strong style="color:red">edge-solutions/moducop/quick-start-guide/connect-to-terminal</strong>/
 </code></pre></div>
 
 All docs are stored in docs/user-docs/ and grouped by the category, which has to start with `_`:
 
 <div class="language-plaintext highlighter-rouge">
-<pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>.md
+<pre><code>docs/user-docs/_<strong style="color:red">edge-solutions/moducop/quick-start-guide/connect-to-terminal</strong>.md
 </code></pre></div>
 
 Now we need to create two files within the directory next to the file discovered:
@@ -192,40 +204,38 @@ The next step is to add a front matter at the top of the landing page file:
  ---
 title: Demonstration Menu
 excerpt: This is a menu for demonstration.
-last_modified_at: 2021-04-21
+last_modified_at: 2021-07-22
  ---
 ```
 
 After this the landing page of the menu can be visited, as the filename defines the URL together with the filepath:
 <div class="language-plaintext highlighter-rouge">
-<pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/demo-menu</strong>.md
+<pre><code>docs/user-docs/_<strong style="color:red">edge-solutions/moducop/quick-start-guide/demo-menu</strong>.md
 </code></pre></div>
 
-Hosting the webside on your local machine, this would be [http://localhost:4000/user-manual/edge-solutions/moducop/use/demo-menu/](http://localhost:4000/user-manual/edge-solutions/moducop/use/demo-menu/).
+Hosting the webside on your local machine, this would be [http://localhost:4000/edge-solutions/moducop/quick-start-guide/demo-menu/](http://localhost:4000/edge-solutions/moducop/quick-start-guide/demo-menu/).
 
 But, as you may see, there is stil no reference on the sidebar right now. For this case we need to change the sidebar config file, which is located in `docs/_data/sidebars`. For futher information regarding the sidebar structure, see [section Sidebar](#sidebar).
 
-Search for the reference file `/user-manual/edge-solutions/moducop/use/installing-accessories/` (marked in yellow) in the sidebars to find the correct place for your new page (added in green). In this case, we need to adapt the `edge-solutions.yml` file:
+Search for the reference file `/edge-solutions/moducop/quick-start-guide/connect-to-terminal/` (marked in yellow) in the sidebars to find the correct place for your new page (added in green). In this case, we need to adapt the `edge-solutions.yml` file:
 
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Edge Solutions
-  URL: /user-manual/edge-solutions/
+  URL: /edge-solutions/
   navitems:
     - title: ModuCop
-      URL: /user-manual/edge-solutions/moducop/
+      URL: /edge-solutions/moducop/
       navitems:
-        - title: Introduction
-          ...
-        - title: Use ModuCop
-          URL: /user-manual/edge-solutions/moducop/use/
+        - title: Quick-Start-Guide
+          URL: /edge-solutions/moducop/quick-start-guide/
           navitems:
-            - title: Mounting Options
-              URL: /user-manual/edge-solutions/moducop/use/mounting-options/
-            - title: Installing Accessories
-              URL: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
+            - title: Accessories needed for ModuCop Quick Start
+              url: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+            - title: Connecting to ModuCop's Linux Terminal
+              URL: <strong style="color:yellow">/edge-solutions/moducop/quick-start-guide/connect-to-terminal/</strong>
             <strong style="color:green">- title: Demo Menu
-              URL: /user-manual/edge-solutions/moducop/use/demo-menu/</strong>
+              URL: /edge-solutions/moducop/quick-start-guide/demo-menu/</strong>
         - ...
     - ...
 </code></pre></div>
@@ -236,10 +246,10 @@ Now we need to reference that file in the sidebar:
 <div class="language-plaintext highlighter-rouge">
 <pre><code>            ...
             <strong style="color:green">- title: Demo Menu
-              URL: /user-manual/edge-solutions/moducop/use/demo-menu/</strong>
+              URL: /edge-solutions/moducop/quick-start-guide/demo-menu/</strong>
               <strong style="color:orange">navitems:
                 title: Demo Page
-                URL: <strong style="color:red">/user-manual/edge-solutions/moducop/use/demo-menu/</strong>demo-page</strong>
+                URL: <strong style="color:red">/edge-solutions/moducop/quick-start-guide/demo-menu/</strong>demo-page</strong>
             ...
 </code></pre></div>
 
@@ -249,25 +259,23 @@ The URL for the new file starts with the menu URL, as highlighted in red.
 
 In this case, we do not need to add any file in the first step. We just add the menu in the side bar.
 
-Search for the reference file `/user-manual/edge-solutions/moducop/use/installing-accessories/` (marked in yellow) in the sidebars to find the correct place for your new page (added in green). In this case, we need to adapt the `edge-solutions.yml` file:
+Search for the reference file `/edge-solutions/moducop/quick-start-guide/connect-to-terminal/` (marked in yellow) in the sidebars to find the correct place for your new page (added in green). In this case, we need to adapt the `edge-solutions.yml` file:
 
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:
   title: Edge Solutions
-  URL: /user-manual/edge-solutions/
+  URL: /edge-solutions/
   navitems:
     - title: ModuCop
-      URL: /user-manual/edge-solutions/moducop/
+      URL: /edge-solutions/moducop/
       navitems:
-        - title: Introduction
-          ...
-        - title: Use ModuCop
-          URL: /user-manual/edge-solutions/moducop/use/
+        - title: Quick-Start-Guide
+          URL: /edge-solutions/moducop/quick-start-guide/
           navitems:
-            - title: Mounting Options
-              URL: /user-manual/edge-solutions/moducop/use/mounting-options/
-            - title: Installing Accessories
-              URL: <strong style="color:yellow">/user-manual/edge-solutions/moducop/use/installing-accessories/</strong>
+            - title: Accessories needed for ModuCop Quick Start
+              url: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+            - title: Connecting to ModuCop's Linux Terminal
+              URL: <strong style="color:yellow">/edge-solutions/moducop/quick-start-guide/connect-to-terminal/</strong>
             <strong style="color:green">- title: Demo Menu</strong>
         - ...
     - ...
@@ -277,13 +285,13 @@ After this step, you can see the menu on the sidebar, but without any functional
 
 Get the URL of the referenece page to find this page in the directory structure:
 <div class="language-plaintext highlighter-rouge">
-<pre><code>http://localhost:4000/<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>/
+<pre><code>http://localhost:4000/<strong style="color:red">edge-solutions/moducop/quick-start-guide/connect-to-terminal</strong>/
 </code></pre></div>
 
 All docs are stored in docs/user-docs/ and grouped by the category, which has to start with `_`:
 
 <div class="language-plaintext highlighter-rouge">
-<pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/installing-accessories</strong>.md
+<pre><code>docs/user-docs/_<strong style="color:red">edge-solutions/moducop/quick-start-guide/connect-to-terminal</strong>.md
 </code></pre></div>
 
 Add a new file e.g. `demo-page.md` with title `Demonstration Page` next to the reference page, consider the file [naming conventions](#naming-conventions) and add the front matter.
@@ -294,7 +302,7 @@ Now we need to reference that file in the sidebar:
             <strong style="color:green">- title: Demo Menu</strong>
               <strong style="color:orange">navitems:
                 title: Demo Page
-                URL: /user-manual/edge-solutions/moducop/use/demo-page</strong>
+                URL: /edge-solutions/moducop/quick-start-guide/demo-page</strong>
             ...
 </code></pre></div>
 
@@ -367,12 +375,12 @@ custom_next: /PATH_TO_NEXT_PAGE/
 
 The path of a file can be derived from the path in the folder structure, e.g.:
 <div class="language-plaintext highlighter-rouge">
-<pre><code>docs/user-docs/_<strong style="color:red">user-manual/edge-solutions/moducop/use/demo-menu</strong>.md
+<pre><code>docs/user-docs/_<strong style="color:red">edge-solutions/moducop/quick-start-guide/demo-menu</strong>.md
 </code></pre></div>
 
 leads to
 ```yaml
-custom_previous: /user-manual/edge-solutions/moducop/use/demo-menu/
+custom_previous: /edge-solutions/moducop/quick-start-guide/demo-menu/
 ```
 If one of the two is missing, the previous / next buttons are displayed, but the missing button is not clickable.
 
@@ -386,29 +394,17 @@ The page currently visited is highlighted in orange. Expanded menus are highligh
 
 So if you follow the menu hierarchy to the item you get:
 ```
-User Manual > Edge Solutions > ModuCop > Use ModuCop > Installing Accessories
+ModuCop > Quick-Start-Guide > Connecting to ModuCop's Linux Terminal
 ```
 Sidebar definitions are stored within markdown files, which are in `docs/_data/sidebars`:
 ```
 _data/sidebars
 ├── edgefarm.yml
 ├── edge-solutions.yml
-├── main-sidebar.yml
-├── quick-start-guide.yml
-├── user-manual.yml
 └── video-section.yml
 ```
-Sidebars can include other sidebars, so that different submenus can be separated from each other.
+Sidebars can include other sidebars, so that different submenus can be separated from each other. This feature is currently not used.
 
-For example the `main-sidebar` includes the sidebars `quick-start-guide`, the `user-manual` and the `video-section`. The `user-manual` sidebar includes the `edgefarm` sidebar and the `edge-solutions` sidebar. For better imagination:
-```
-main-sidebar.yml
-├── quick-start-guide.yml
-├── user-manual.yml
-│   ├── edgefarm.yml
-│   └── edge-solutions.yml
-└── video-section.yml
-```
 **Include a sidebar:**
 <div class="language-plaintext highlighter-rouge">
 <pre><code>sidebar:

@@ -10,6 +10,30 @@
         {% endunless %}
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
+          {% if link.navitems %}
+          <li class="dropdown masthead__menu-item">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">{{ link.title }} <i class="fa fa-caret-down fa-sm" aria-hidden="true"></i><span
+                class="caret"></span></a>
+            <ul class="dropdown-content">
+              {% for navitem in link.navitems %}
+              <li>
+                {% if navitem.external_url %}
+                <a href="{{ navitem.external_url }}" target="_blank" {% if navitem.description %}
+                  title="{{ navitem.description }}" {% endif %}>{{ navitem.title }}</a>
+                {% elsif navitem.url == "#contact" %}
+                <a href="{{navitem.url}}" {% if navitem.description %} title="{{ navitem.description }}" {% endif %}>{{
+                  navitem.title
+                  }}</a>
+                {% elsif navitem.url %}
+                <a href="{{ navitem.url | relative_url }}" {% if navitem.description %}
+                  title="{{ navitem.description }}" {% endif %}>{{ navitem.title }}</a>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
           <li class="masthead__menu-item">
             {% if link.external_url %}
             <a href="{{ link.external_url }}" target="_blank" {% if link.description %} title="{{ link.description }}"
@@ -23,6 +47,7 @@
               %}>{{ link.title }}</a>
             {% endif %}
           </li>
+          {% endif %}
           {%- endfor -%}
         </ul>
         {% if site.search == true %}

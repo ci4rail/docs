@@ -1,78 +1,80 @@
 sidebar:
   title: EdgeFarm
-  url: /user-manual/edgefarm/
   navitems:
-    - title: Introduction
-      url: /user-manual/edgefarm/introduction/
+    - title: Overview
+      url: /edgefarm/overview/
+    # - title: Core Concept
+    #   url: /edgefarm/core-concept/
+    - title: Quick-Start-Guide
+      url: /edgefarm/quick-start-guide/
+    - title: Reference Manual
+      url: /edgefarm/reference-manual/
       navitems:
-        - title: Edge Modules
-          url: /user-manual/edgefarm/introduction/edge-modules/
-        - title: Cloud Modules
-          url: /user-manual/edgefarm/introduction/cloud-modules/
-        - title: Deployment Manifest
-          url: /user-manual/edgefarm/introduction/deployment-manifest/
-    - title: Use EdgeFarm
-      url: /user-manual/edgefarm/use/
+        - title: Prerequisites
+          url: /edgefarm/reference-manual/prerequisites/
+          navitems:
+            - title: git
+              url: /edgefarm/reference-manual/prerequisites/git/
+            - title: Docker
+              url: /edgefarm/reference-manual/prerequisites/docker/
+            - title: Docker-Compose
+              url: /edgefarm/reference-manual/prerequisites/docker-compose/
+            - title: EdgeFarm CLI
+              url: /edgefarm/reference-manual/prerequisites/edgefarm-cli/
+        # - title: EdgeFarm CLI
+        #   url: /edgefarm/reference-manual/edgefarm-cli/
+        # - title: EdgeFarm REST API
+        #   url: /edgefarm/reference-manual/edgefarm-rest-api/
+        # - title: EdgeFarm Manifest
+        #   url: /edgefarm/reference-manual/edgefarm-manifest/
+        # - title: Grafana Access
+        #   url: /edgefarm/reference-manual/grafana-access/
+        - title: Data Endpint Access
+          url: /edgefarm/reference-manual/data-endpoint-access/
+        # - title: User Management
+        #   url: /edgefarm/reference-manual/user-management/
+        # - title: Cloud Runtime
+        #   url: /edgefarm/reference-manual/cloud-runtime/
+    # - title: Developer Guide
+    #   url: /edgefarm/developer-guide/
+    #   navitems:
+    #     - title: Create Application Container
+    #       url: /edgefarm/developer-guide/create-app-container/
+    #     - title: Using EdgeFarm Docker Registry
+    #       url: /edgefarm/developer-guide/using-edgefarm-docker-registry/
+    #     - title: EdgeFarm SDKs
+    #       navitems:
+    #         - title: EdgeFarm Application Python SDK
+    #           url: /edgefarm/developer-guide/edgefearm-application-python-sdk/
+    #     - title: Local Development Environment
+    #       url: /edgefarm/developer-guide/local-dev-environment/
+    # - title: Operator Guide
+    #   url: /edgefarm/operator-guide/
+    #   navitems:
+    #     - title: Register Devices in EdgeFarm Cloud
+    #       url: /edgefarm/operator-guide/register-devices/
+    #     - title: Roll Out Deployments
+    #       url: /edgefarm/operator-guide/roll-out-deployments/
+    #     - title: Update Firmware
+    #       url: /edgefarm/operator-guide/update-firmware/
+    - title: Tutorials
+      url: /edgefarm/tutorials/
       navitems:
-        - title: User Management
-          navitems:
-            - title: Add a New Account to Tenant
-              url: /user-manual/edgefarm/use/add-account/
-        - title: Manage Edge Devices (DLM)
-          navitems:
-            - title: Inspect Devices
-              url: /user-manual/edgefarm/use/inspect-devices/
-            - title: Device Monitoring
-              url: /user-manual/edgefarm/use/device-monitoring/
-        - title: Manage Applications (ALM)
-          navitems:
-            - title: Application Development
-              url: /user-manual/edgefarm/use/app-development/
-              navitems:
-                - title: Develop a Container
-                  url: /user-manual/edgefarm/use/app-development/dev-container/
-                - title: Use Service Modules
-                  url: /user-manual/edgefarm/use/app-development/service-modules/
-                  navitems:
-                    - title: ADS Node Module
-                      url: /user-manual/edgefarm/use/app-development/service-modules/ads-node/
-                    - title: ALM Location Module
-                      url: /user-manual/edgefarm/use/app-development/service-modules/alm-location/
-                    - title: GPS Fake Module
-                      url: /user-manual/edgefarm/use/app-development/service-modules/gps-fake/
-                - title: Security Aspects for Application Development
-                  url: /user-manual/edgefarm/use/app-development/security/
-            - title: Roll out Deployments
-              url: /user-manual/edgefarm/use/roll-out-deployments/
-            - title: Application Monitoring
-              url: /user-manual/edgefarm/use/app-monitoring/
-        - title: Manage Data (ADS)
-          navitems:
-            - title: ADS Data Usage
-              url: /user-manual/edgefarm/use/ads-data-usage/
-    - title: Detailed Descriptions
-      url: /user-manual/edgefarm/detailed/
+        - title: Setting up a External Simulation Environment
+          url: /edgefarm/tutorials/setup-simulator/
+        - title: Apply Simulator Base Deployment
+          url: /edgefarm/tutorials/simulator-base-deployment/
+        - title: Receive and Process MQTT Data
+          url: /edgefarm/tutorials/receive-and-process-data/
+    #     - title: Using Labels
+    #       url: /edgefarm/use-labels/
+    # - title: Architecture
+    #   url: /edgefarm/architecture/
+    # - title: FAQ
+    #   url: /edgefarm/faq/
+    # - title: Supported Devices
+    #   url: /edgefarm/supported-devices/
+    - title: Release Notes
       navitems:
-        - title: Device Lifecycle Management (DLM)
-        - title: Application Lifecycle Management (ALM)
-          navitems:
-            - title: Application Monitoring
-              url: /user-manual/edgefarm/detailed/app-monitoring/
-            - title: Distrubuted Applications
-              url: /user-manual/edgefarm/detailed/distributed-apps/
-            - title: Deployment Manifest
-              url: /user-manual/edgefarm/detailed/deployment-manifest/
-        - title: Application Data Service (ADS)
-        - title: Service Modules
-          url: /user-manual/edgefarm/detailed/service-modules/
-          navitems:
-            - title: ALM Modules
-              navitems:
-                - title: ALM Location Module
-                  url: /user-manual/edgefarm/detailed/service-modules/alm-location/
-                - title: GPS Fake Module
-                  url: /user-manual/edgefarm/detailed/service-modules/gps-fake/
-            - title: ADS Modules
-              navitems:
-                - title: ADS Node Module
-                  url: /user-manual/edgefarm/detailed/service-modules/ads-node/
+        - title: EdgeFarm CLI
+          external_url: https://github.com/edgefarm/edgefarm-cli/releases
