@@ -8,7 +8,7 @@ custom_next: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
 
 ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/photo.png' | relative_url }})
 
-This is the ModuCop quick start guide, which shows you the first steps with your moducop device. These include unboxing, connecting and powering as well as connecting the device to the internet.
+This is the ModuCop quick start guide, which shows you the first steps with your ModuCop device. These include unboxing, connecting and powering as well as connecting the device to the internet.
 
 ## What You Need
 

@@ -3,7 +3,7 @@ title: Connecting to ModuCop's Linux Terminal
 excerpt: How to get access to the Shell to configure ModuCop
 last_modified_at: 2021-07-22
 
-custom_previous: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
+custom_previous: /edge-solutions/moducop/quick-start-guide/interfaces/
 custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---
 
