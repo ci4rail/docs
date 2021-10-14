@@ -7,10 +7,10 @@ custom_previous: /edge-solutions/moducop/quick-start-guide/powering/
 custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-terminal/
 ---
 
-ModuCop offers several service interfaces. typically they are used for service and maintenance and are not supposed to be connected permantently in operation. 
+ModuCop offers several service interfaces. Typically they are used for service and maintenance and are not supposed to be connected permantently in operation. 
 
 # Removing the Service Cover
-To get access to the service interfaces hidden behind the service cover you have to remove the service cover. 
+To get access to the service interfaces hidden behind the service cover you have to remove it. 
 
 * Remove the screw fastening the service cover.
 * Open the service cover like shown in the picture below.
@@ -28,7 +28,7 @@ The service cover conceals the following interfaces:
 * Battery holder
 
 For getting started quickly, only the a SIM card might be required when you would like to connect your device through LTE. 
-In case you have to insert a nano-SIM card in "SIM slot 1".
+In this case please insert a nano-SIM card in "SIM slot 1".
 
 ![Service cover interfaces]({{ '/user-docs/images/moducop/quick-start-guide/service-interfaces-180deg.svg' | relative_url }}){: style="width: 75%"}
 
