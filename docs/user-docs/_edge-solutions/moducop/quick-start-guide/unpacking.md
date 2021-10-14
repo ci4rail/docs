@@ -14,7 +14,7 @@ In this section you will unpack your ModuCop and get ready to connect and power 
 * Check ModuCop and the delivered equipment for any visible damage. In case of any shipping damage or inconsistencies between the contents and the original order, contact Ci4Rail for help and information.
 
 # Check the delivered equipment
-If you have ModuCop with the Starter kit (ACS01), the content consists of:
+If you have ordered ModuCop including the Starter kit (ACS01), the content consists of:
 
 1. ModuCop
 2. Power supply unit
