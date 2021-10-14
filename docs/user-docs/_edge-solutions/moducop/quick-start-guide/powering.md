@@ -34,13 +34,13 @@ In this section you will connect your ModuCop to the power supply and all releva
 ![ModuCop 4 slot connector]({{ '/user-docs/images/moducop/quick-start-guide/moducop-4-slot-connector.svg' | relative_url }})
 
 # Powering
-* Connect the AC power supply with your mains supply.
+* Connect the AC power supply with your main supply.
 * The indicator LED "Power OK" lights up indicating ModuCop's internal power supply is stable.
 * Your connected and powered ModuCop should look like in the picture below.
 
 ![ModuCop connected]({{ '/user-docs/images/moducop/quick-start-guide/moducop-connected.jpg' | relative_url }}){: style="width: 50%"}
 
-# Achievements in this section
+# Achievements in this Section
 Great! ModuCop is now properly connected and powered. Now you can begin establishing the communication.
 
 
