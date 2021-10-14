@@ -6,6 +6,9 @@ last_modified_at: 2021-10-13
 custom_previous: /edge-solutions/moducop/quick-start-guide/powering/
 custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-terminal/
 ---
+
+ModuCop offers several service interfaces. typically they are used for service and maintenance and are not supposed to be connected permantently in operation. 
+
 # Removing the Service Cover
 To get access to the service interfaces hidden behind the service cover you have to remove the service cover. 
 
@@ -16,7 +19,7 @@ To get access to the service interfaces hidden behind the service cover you have
 ![Service cover opening]({{ '/user-docs/images/moducop/quick-start-guide/moducop-service-cover-opening-with-arrow.jpg' | relative_url }}){: style="width: 50%"}
 
 # Service Interfaces
-The service cover bears the following interfaces 
+The service cover conceals the following interfaces: 
 
 * Terminal connection (USB-C)
 * USB-OTG connection (USB-C)
