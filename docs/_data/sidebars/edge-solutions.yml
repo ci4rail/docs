@@ -2,7 +2,9 @@ sidebar:
   title: Edge Solutions
   navitems:
     - title: Overview
-      url: /edge-solutions/overview/
+      url: /edge-solutions/overview/    
+    - title: For Your Safety
+      url: /edge-solutions/for-your-safety/
     - title: ModuCop
       url: /edge-solutions/moducop/
       navitems:
