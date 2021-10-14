@@ -1,5 +1,5 @@
 ---
-title: Service Cover Description
+title: Service Cover 
 excerpt: Short description of relevant information to access and understand the service cover interfaces
 last_modified_at: 2021-10-13
 
