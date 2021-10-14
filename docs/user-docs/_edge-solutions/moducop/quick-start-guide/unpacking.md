@@ -14,7 +14,7 @@ In this section you will unpack your ModuCop and get ready to connect and power 
 * Check ModuCop and the delivered equipment for any visible damage. In case of any shipping damage or inconsistencies between the contents and the original order, contact Ci4Rail for help and information.
 * Please do not dispose of the original packaging. Keep original packaging for storage and future transport. 
 
-# Check the delivered equipment
+# Check the Delivered Equipment
 If you have ordered ModuCop including the Starter kit (ACS01), the content consists of:
 
 1. ModuCop
@@ -28,5 +28,5 @@ If you have ordered ModuCop including the Starter kit (ACS01), the content consi
 
 Otherwise you will need the accessories described [here]({{ '/edge-solutions/moducop/quick-start-guide/no-starter-kit-bom' | relative_url }}).
 
-# Achievements in this section
+# Achievements in this Section
 ModuCop is unpacked and you checked the delivered content. Now let's start to connect everything and turn it on.
