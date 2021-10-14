@@ -15,9 +15,9 @@
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
    id="svg8"
    version="1.1"
-   viewBox="0 0 297 210"
-   height="210mm"
-   width="297mm">
+   viewBox="0 0 228.98054 148.60249"
+   height="148.60249mm"
+   width="228.98055mm">
   <title
      id="title1870">cpu01-frontpanel-print-image</title>
   <defs
@@ -501,9 +501,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="493.28569"
-     inkscape:cy="395.49508"
+     inkscape:zoom="0.82188716"
+     inkscape:cx="1356.6338"
+     inkscape:cy="52.270902"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -517,9 +517,13 @@
      inkscape:window-x="1912"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:snap-page="false">
+     inkscape:snap-page="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
     <sodipodi:guide
-       position="142.2208,192.84841"
+       position="106.06814,170.01543"
        orientation="1,0"
        id="guide717" />
     <inkscape:grid
@@ -528,7 +532,9 @@
        empspacing="5"
        units="mm"
        spacingx="1"
-       spacingy="1" />
+       spacingy="1"
+       originx="-36.152659"
+       originy="-38.56454" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -546,12 +552,13 @@
      inkscape:label="3D"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline">
+     style="display:inline"
+     transform="translate(-36.152661,-38.564541)">
     <text
        xml:space="preserve"
        id="text6880"
        style="font-size:45.8611px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';white-space:pre;shape-inside:url(#rect6882);"
-       transform="matrix(0.1,0,0,0.1,2.2692487,26.083807)"><tspan
+       transform="matrix(0.1,0,0,0.1,8.0638398,26.164287)"><tspan
          x="334.23438"
          y="566.95048"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.8611px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift">Earthing Stud</tspan></tspan></text>
@@ -559,7 +566,7 @@
        xml:space="preserve"
        id="text6880-4"
        style="font-size:45.8611px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';white-space:pre;shape-inside:url(#rect6882-9);"
-       transform="matrix(0.1,0,0,0.1,4.4448487,82.44689)"><tspan
+       transform="matrix(0.1,0,0,0.1,12.492892,82.124968)"><tspan
          x="334.23438"
          y="566.95048"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift">Power Input</tspan></tspan></text>
@@ -567,7 +574,7 @@
        xml:space="preserve"
        id="text6880-2"
        style="font-size:45.8611px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';white-space:pre;shape-inside:url(#rect6882-98);"
-       transform="matrix(0.1,0,0,0.1,85.530158,-20.876991)"><tspan
+       transform="matrix(0.1,0,0,0.1,86.174001,-14.840959)"><tspan
          x="334.23438"
          y="566.95048"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift">Service Cover</tspan></tspan></text>
@@ -688,30 +695,30 @@
        d="m 138.6055,105.70322 c 80.13412,-0.57068 80.13412,-0.57068 80.13412,-0.57068"
        id="path7268" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.215161px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 84.134793,81.439267 c -19.478744,0.0841 -19.478744,0.0841 -19.478744,0.0841"
+       style="fill:none;stroke:#000000;stroke-width:0.185161px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 84.134032,81.438976 c -14.326474,0.08468 -14.326474,0.08468 -14.326474,0.08468"
        id="path782" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 117.33132,100.22607 C 218.35921,99.15699 218.35921,99.15699 218.35921,99.15699"
        id="path784" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 63.877417,137.6438 c 17.639789,0 17.639789,0 17.639789,0"
+       style="fill:none;stroke:#000000;stroke-width:0.206244px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 70.798734,137.6438 c 10.718472,0 10.718472,0 10.718472,0"
        id="path790" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 121.60763,57.462948 C 121.34037,36.348656 121.34037,36.348656 121.34037,36.348656"
+       style="fill:none;stroke:#000000;stroke-width:0.22398px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 121.60885,57.461404 c -0.2697,-14.994691 -0.2697,-14.994691 -0.2697,-14.994691"
        id="path1556" />
     <path
-       style="display:inline;fill:none;stroke:#000000;stroke-width:0.24469px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 88.962895,69.981425 C 65.144652,59.769946 65.144652,59.769946 65.144652,59.769946"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.216369px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 88.965841,69.989883 C 70.372935,59.761488 70.372935,59.761488 70.372935,59.761488"
        id="path782-0" />
     <text
        xml:space="preserve"
        id="text6880-43"
        style="font-size:45.8611px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';white-space:pre;shape-inside:url(#rect6882-0);display:inline;"
-       transform="matrix(0.1,0,0,0.1,-3.2357573,4.7235814)"><tspan
+       transform="matrix(0.1,0,0,0.1,2.4381132,4.6028607)"><tspan
          x="334.23438"
          y="566.95048"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.8611px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift">&quot;Power OK&quot;-LED</tspan></tspan></text>
@@ -765,20 +772,20 @@
        d="M 168.13676,69.66181 C 218.73962,52.358605 218.73962,52.358605 218.73962,52.358605"
        id="path7232-3" />
     <path
-       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 121.60763,57.462948 C 121.34037,36.348656 121.34037,36.348656 121.34037,36.348656"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.223686px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 121.60885,57.461395 c -0.2697,-14.954433 -0.2697,-14.954433 -0.2697,-14.954433"
        id="path1556-2" />
     <path
-       style="display:inline;fill:none;stroke:#000000;stroke-width:0.24469px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 88.962895,69.981425 C 65.144652,59.769946 65.144652,59.769946 65.144652,59.769946"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.216601px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 88.965814,69.989813 C 70.332721,59.761558 70.332721,59.761558 70.332721,59.761558"
        id="path782-0-4" />
     <path
-       style="display:inline;fill:none;stroke:#000000;stroke-width:0.215161px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 84.134793,81.439267 c -19.478744,0.0841 -19.478744,0.0841 -19.478744,0.0841"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.18385px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 84.134074,81.438979 c -14.125356,0.08468 -14.125356,0.08468 -14.125356,0.08468"
        id="path782-7" />
     <path
-       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 63.877417,137.6438 c 17.639789,0 17.639789,0 17.639789,0"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.206244px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 70.798734,137.6438 c 10.718472,0 10.718472,0 10.718472,0"
        id="path790-7" />
   </g>
   <g
@@ -786,7 +793,8 @@
      id="layer2"
      inkscape:label="DXF CPU01"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <g
        id="g1684"
        transform="matrix(0.26458333,0,0,0.26458333,9.3442889,-9.9840068)">
@@ -1136,7 +1144,8 @@
      id="layer3"
      inkscape:label="DXF PSU01"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1301,7 +1310,8 @@
      id="layer7"
      inkscape:label="DXF IOU04"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <g
        id="g2017"
        transform="matrix(0.26458333,0,0,0.26458333,19.345264,-53.420748)">
@@ -1483,7 +1493,8 @@
      id="layer9"
      inkscape:label="DXF IOU2"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <g
        id="g1453"
        transform="matrix(0.26458333,0,0,0.26458333,62.845262,-9.9207493)">
@@ -1625,7 +1636,8 @@
      id="layer4"
      inkscape:label="Print CPU01"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <circle
        id="path977"
        cx="144.39235"
@@ -1903,7 +1915,8 @@
      id="layer5"
      inkscape:label="Print PSU01"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;white-space:pre;inline-size:45.696;display:inline;stroke-width:0.264583"
@@ -2051,7 +2064,8 @@
      id="layer6"
      inkscape:label="Print PSU02"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;white-space:pre;inline-size:45.696;display:inline;stroke-width:0.264583"
@@ -2209,7 +2223,8 @@
      id="layer10"
      inkscape:label="Print IOU2"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <text
        xml:space="preserve"
        style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;display:inline;stroke-width:0.264583"
@@ -2320,7 +2335,8 @@
      id="layer8"
      inkscape:label="Print IOU4"
      style="display:none"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     transform="translate(-36.152661,-38.564541)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.04655px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;display:inline;stroke-width:0.255818"
