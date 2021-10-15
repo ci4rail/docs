@@ -15,7 +15,7 @@ We know it's boring, but it prevents damage to yourself and the product.
 - Store, install and operate the product only within it's specifications to prevent personal and product damage. 
 - Always apply recommended voltage and power source
 settings.
-- Always apply proper earthing ('TBD - link to Earthing') before powering. 
+- Always apply proper earthing before powering. 
 - Do not operate the product in case of 
     - Obvious damage
     - Product was exposed to liquid 
@@ -29,7 +29,6 @@ settings.
 - Remove from power before product installation or de-installation 
 - Remove from power before asseccories installing / de-installing
 - Do not open the product; For safety reasons (product can be operated at higher voltage level than 60V DC), only qualified service personnel shall open the product.
-- Before opening the service flap (tbd link to how-to) disconnect power. 
 - Protect the product from water or liquid sources - for cleaning, please use a dry or damp cloth. 
 
 
@@ -45,10 +44,10 @@ Please apply earthing for any of the following conditions:
 - operative use in vehicles
 - use with input power higher than 60V DC
 
-Earthing prevents damage to persons and the product. Please follow the earthing instructions described in [Powering]({{ '/quick-start-guide/moducop/powering' | relative_url }})
+Earthing prevents damage to persons and the product. Please follow the earthing instructions described in [Powering]({{ '/edge-solutions/moducop/quick-start-guide/powering' | relative_url }})
 
 # Instruction for Battery
-CAUTION: The equipment offers the installation of a battery for battery-powered real-time clock. There is a risk of explosion if a battery is incorrectly replaced. Replace only with same or equivalent type as recommended by the manufacturer. Discard all used batteries according to the manufacturer’s instructions. Please refer to [How to replace the battery(TBD)]({{ '/quick-start-guide/moducop/powering' | relative_url }})
+CAUTION: The equipment offers the installation of a battery for battery-powered real-time clock. There is a risk of explosion if a battery is incorrectly replaced. Replace only with same or equivalent type as recommended by the manufacturer. Discard all used batteries according to the manufacturer’s instructions. Please refer to user manual section "How to replace battery".
 
 
-For further information, please check our [Disclaimer TBD]({{ '/quick-start-guide/moducop/powering' | relative_url }}
+For further information, please contact Ci4Rail.
