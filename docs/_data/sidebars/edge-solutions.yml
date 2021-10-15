@@ -2,7 +2,9 @@ sidebar:
   title: Edge Solutions
   navitems:
     - title: Overview
-      url: /edge-solutions/overview/
+      url: /edge-solutions/overview/    
+    - title: For Your Safety
+      url: /edge-solutions/for-your-safety/
     - title: ModuCop
       url: /edge-solutions/moducop/
       navitems:
@@ -11,10 +13,12 @@ sidebar:
           navitems:
             - title: Accessories needed for ModuCop Quick Start
               url: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
-            # - title: Unpacking
-            #   url: /edge-solutions/moducop/quick-start-guide/unpacking/
-            # - title: Connecting & Powering
-            #   url: /edge-solutions/moducop/quick-start-guide/connecting-powering/
+            - title: Unpacking
+              url: /edge-solutions/moducop/quick-start-guide/unpacking/
+            - title: Connecting & Powering
+              url: /edge-solutions/moducop/quick-start-guide/powering/
+            - title: Service Cover
+              url: /edge-solutions/moducop/quick-start-guide/interfaces/
             - title: Connecting to ModuCop's Linux Terminal
               url: /edge-solutions/moducop/quick-start-guide/connect-to-terminal/
             - title: Connect ModuCop to Internet
@@ -22,7 +26,7 @@ sidebar:
               navitems:
                 - title: via Ethernet
                   url: /edge-solutions/moducop/quick-start-guide/connect-internet/ethernet/
-                - title: via Wifi
+                - title: via Wi-Fi
                   url: /edge-solutions/moducop/quick-start-guide/connect-internet/wifi/
                 - title: via LTE
                   url: /edge-solutions/moducop/quick-start-guide/connect-internet/lte/
