@@ -1,7 +1,7 @@
 ---
 title: For Your Safety
 excerpt: Safety instructions for proper product use.
-last_modified_at: 2021-04-13-18
+last_modified_at: 2021-10-15
 ---
 Ci4Rail has carefully developed and produced the product to meet all product features and to ensure high quality for a long product life. 
 
@@ -10,12 +10,12 @@ Nevertheless, to ensure that you as the product user have long lasting satisfact
 We know it's boring, but it prevents damage to yourself and the product. 
 
 # General Safety Instructions
-- Please read the safety instructions carefully
+- Please read the safety instructions carefully.
 - For future reference, note the link to this user documentation. 
 - Store, install and operate the product only within it's specifications to prevent personal and product damage. 
 - Always apply recommended voltage and power source
-settings 
-- Always apply proper earthing ('TBD - link to Earthing') before powering 
+settings.
+- Always apply proper earthing ('TBD - link to Earthing') before powering. 
 - Do not operate the product in case of 
     - Obvious damage
     - Product was exposed to liquid 
@@ -27,14 +27,14 @@ settings
 
 # Protection from Electric Shock
 - Remove from power before product installation or de-installation 
-- remove from power before asseccories installing / de-installing
+- Remove from power before asseccories installing / de-installing
 - Do not open the product; For safety reasons (product can be operated at higher voltage level than 60V DC), only qualified service personnel shall open the product.
 - Before opening the service flap (tbd link to how-to) disconnect power. 
 - Protect the product from water or liquid sources - for cleaning, please use a dry or damp cloth. 
 
 
 # Protection from Hot Surface
-The product is designed for lowests power consumption. Nevertheless depending on product's use and environmental temperature, product surfaces might be hot. To avoid injuries, please let product cool down for 5 mins (unpowered) before handling. 
+The product is designed for lowests power consumption. Nevertheless, depending on product's use and environmental temperature, product surfaces might be hot. To avoid injuries, please let the product cool down for 5 mins (unpowered) before handling. 
 
 
 # Electrostatic Sensitive Products
@@ -43,7 +43,7 @@ The product's sensitive components are protected by the housing. Nevertheless, b
 The product is designed for protective earthing. 
 Please apply earthing for any of the following conditions: 
 - operative use in vehicles
-- use with input power higher then 60V DC
+- use with input power higher than 60V DC
 
 Earthing prevents damage to persons and the product. Please follow the earthing instructions described in [Powering]({{ '/quick-start-guide/moducop/powering' | relative_url }})
 
@@ -52,4 +52,3 @@ CAUTION: The equipment offers the installation of a battery for battery-powered 
 
 
 For further information, please check our [Disclaimer TBD]({{ '/quick-start-guide/moducop/powering' | relative_url }}
-

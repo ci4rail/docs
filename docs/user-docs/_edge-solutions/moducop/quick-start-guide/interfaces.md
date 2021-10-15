@@ -1,7 +1,7 @@
 ---
 title: Service Cover 
 excerpt: Short description of relevant information to access and understand the service cover interfaces
-last_modified_at: 2021-10-13
+last_modified_at: 2021-10-15
 
 custom_previous: /edge-solutions/moducop/quick-start-guide/powering/
 custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-terminal/
@@ -30,7 +30,7 @@ The service cover conceals the following interfaces:
 For getting started quickly, only the a SIM card might be required when you would like to connect your device through LTE. 
 In this case please insert a nano-SIM card in "Nano-SIM slot 1".
 
-![Service cover interfaces]({{ '/user-docs/images/moducop/quick-start-guide/service-interfaces-180deg.svg' | relative_url }}){: style="width: 75%"}
+![Service cover interfaces]({{ '/user-docs/images/moducop/quick-start-guide/service-interfaces-180deg.svg' | relative_url }}){: style="width: 50%"}
 
 # Achievements in this Section
 You know how to access the interfaces under the service cover and insert a SIM card as a preparation to connect ModuCop via LTE to the internet.
