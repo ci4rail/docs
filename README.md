@@ -11,7 +11,11 @@ Version 3d3cb58a2efa2c8b1ed4d9f93f48419e9e0aedec from 03.03.2021.
 
 Latest version (main branch) is published on: [docs.ci4rail.com](https://docs.ci4rail.com/)
 
-## Run theme locally
+## Run theme
+
+### With Gitpod
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ci4rail/docs)
 
 ### On Windows
 

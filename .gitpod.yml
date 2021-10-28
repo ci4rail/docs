@@ -1,0 +1,16 @@
+
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - command: cd docs &&  bundle update && bundle exec jekyll serve --host=0.0.0.0 --drafts
+    name: jekyll
+    openMode: tab-before
+
+ports:
+  - port: 4000
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - mhutchie.git-graph
