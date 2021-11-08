@@ -5,7 +5,6 @@ image:
 tasks:
   - name: install pre-commit hook
     init: |-
-      pip install pre-commit
       pre-commit install
   - name: jekyll
     command: cd docs &&  bundle update && bundle exec jekyll serve --host=0.0.0.0 --drafts
