@@ -11,7 +11,25 @@ Version 3d3cb58a2efa2c8b1ed4d9f93f48419e9e0aedec from 03.03.2021.
 
 Latest version (main branch) is published on: [docs.ci4rail.com](https://docs.ci4rail.com/)
 
-## Run theme locally
+## Run theme
+
+### With Gitpod
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ci4rail/docs)
+
+This opens ci4rail docs in a Visual Studio Code environment and runs the template automatically on startup.
+
+Click on the button on the top right to open the preview in a own browser window:
+![Open Preview in Browser](readme-images/open-in-browser.png)
+
+Current logs of the website can be viewed in the terminal automatically opened:
+![Terminals](readme-images/terminal.png)
+
+Click on the `+` in the top right to open a new terminal for e.g. git actions like `git commit`. For git actions also VS Code Editor can be used. Therefore click on the red marked symbol in the sidebar:
+
+![Terminals](readme-images/git.png)
+
+The source control panel opens and enables to execute almost every git action to be done with help of a GUI. The red marked button on the top right enables to view the git graph and e.g. check out existing branches or view current position.
 
 ### On Windows
 
