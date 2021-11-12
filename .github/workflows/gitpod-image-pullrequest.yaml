@@ -1,4 +1,4 @@
-name: gitpod-image
+name: gitpod-image-pullrequest
 on:
   pull_request:
     branches:
