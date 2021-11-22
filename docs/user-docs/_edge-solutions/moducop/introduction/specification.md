@@ -8,7 +8,7 @@ custom_next: /edge-solutions/moducop/introduction/mech-outline/
 
 This page provides information about the technical specification of ModuCop Edge Computer.
 
-![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/photo.png' | relative_url }})
+![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/photo_a.png' | relative_url }})
 
 
 ## Features
@@ -25,7 +25,7 @@ This page provides information about the technical specification of ModuCop Edge
 ## Detailed Technical Specification
 
 | System                                 | Value                  | S100-MEC01- (Rail)      | S100-MEC02- (Automotive) |
-| -------------------------------------- | :---------------------:|:-----------------------:|:----------------------:|
+| :------------------------------------- | :---------------------:|:-----------------------:|:----------------------:|
 | CPU                                    | ARM Cortex A53 Quad Core 1,6 Ghz | x             | x |
 | Main Memory                            | 2 GB DDR4                        | x             | x |
 | Storage                                | 16 GB eMMC                       | x             | x |

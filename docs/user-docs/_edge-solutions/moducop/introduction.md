@@ -16,6 +16,8 @@ In addition, a variety of wireless connectivity is provided, enabling both a con
 
 The edge computer comes as ONE platform, differencing only by application specific power supply and custom configurations. ModuCop is available with various software functionality based on Linux operating system (LMP) and is integrated seamlessly in Ci4Rails EdgeFarm cloud services.
 
+![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/ModuCop_10c.png' | relative_url }})
+
 # Target Applications
 
 * Condition-based monitoring 
