@@ -3,7 +3,8 @@ title: ModuCop Introduction
 excerpt: ModuCop Introduction.
 last_modified_at: 2021-11-08
 
-custom_next: /edge-solutions/moducop/introduction/specification.md
+custom_next: /edge-solutions/moducop/introduction/specification/
+
 ---
 
 The modular and flexibly expandable Edge Computer ModuCop MEC01 is qualified for use in rail and public transport applications. Due to its flexibility MEC01 adapts to a wide range of vehicle interfaces and thus represents the basic platform for numerous onboard applications.

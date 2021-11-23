@@ -3,7 +3,7 @@ title: Mechanical Outline
 excerpt: ModuCop Mechanical Dimensions.
 last_modified_at: 2021-11-08
 
-custom_next: /edge-solutions/moducop/mouting-options.md
+custom_next: /edge-solutions/moducop/mount-install/
 ---
 
 # Dimensions
