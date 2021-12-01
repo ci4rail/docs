@@ -8,7 +8,7 @@ custom_next: /edge-solutions/moducop/introduction/mech-outline/
 
 This page provides information about the technical specification of ModuCop Edge Computer.
 
-![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/photo_a.png' | relative_url }})
+![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/42HP15_trans1.jpg' | relative_url }})
 
 
 ## Features

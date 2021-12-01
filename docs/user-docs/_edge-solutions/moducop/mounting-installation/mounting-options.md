@@ -33,9 +33,9 @@ ModuCop is designed to be installed on TH35 DIN rail (35 mm) by using the approp
 ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/MEC01_4slot_DIN.png' | relative_url }})
 
 Required Accessories:
-* S104-ACS02-:    35mm DIN-Rail Mounting Kit (contains 2x DIN-Rail holder)
+* S104-ACS02-:    35mm DIN rail mounting kit (contains 2x DIN rail holders)
 
-> DIN-Rail is not part of accessory. 
+> DIN rail is not part of accessory. 
 {: .notice--info}
 
 For details please refer to [Installation Guide]({{ '/edge-solutions/moducop/mounting-installation/install-guide' | relative_url }}).

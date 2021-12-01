@@ -34,9 +34,12 @@ ModuCop is a protection class I device (protective earth).
 > It is mandatory to connect protective earth first and disconnect last for any installation action! 
 {: .notice--danger}
 
-Use proper components and cable equipment to establish a safe and stable earth connection. Pay particular attention to the choice of the right
-- Current carrying capacity
-- Cable cross section
+Use proper components and cable equipment to establish a safe and stable earth connection. 
+
+Protective earth bolt is located on the front of installed power supply unit. 
+
+![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/prot_earth.png' | relative_url }})
+
 
 
 ## Mechanical Installation Requirements
@@ -69,7 +72,7 @@ Please avoid mounting which prevents heat dissipation!
 
 
 ### Keep Free Areas
-Since ModuCop is completely passively cooled, the installation must allow for natural air convection through clearances with specific distances to adjacent equipment on the top and bottom of the ModuCop.
+Since ModuCop is completely passively cooled, the installation must allow for natural air convection through clearances with specific distances to adjacent equipment.
 
 The following figures show clearence areas depending on choosen mounting:
 

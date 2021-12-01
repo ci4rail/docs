@@ -28,7 +28,7 @@ For installation in railway vehicles, equipment location is defined according to
 {: .notice--warning}
 
 > Please use Ci4Rail's accessories for mounting 
-{: .notice--warning}
+{: .notice--info}
 
 
 # Installation Guidance
@@ -53,7 +53,7 @@ For guidance on mounting orientation, angles, keep free areas, please refer to [
 
 ### Assembly of ModuCop to Wall
 
-* Select clean and level ground
+* Select clean and level ground.
 * Use 2x M3x25 screws per mounting bracket. 
 * Start mounting top bracket, then bottom bracket. 
 
@@ -82,7 +82,7 @@ For guidance on mounting orientation, angles, keep free areas, please refer to [
 
 ### Removal of ModuCop from 35 mm DIN Rail
 
-* Lift DIN rail holder flanges simultaneously, turn ModuCop slightly forward from the top and remove it downward.  
+* Pull down flexible flanges of DIN rail holders (e.g. with screwdriver) simultaneously, turn ModuCop slightly upwards from bottom side and remove it upwards.  
 
 ## Installation to 19'' Sub-Rack
 Make sure, you are using the correct accessory for rack mounting depending on your ModuCop configuration. For example, a 6 slot ModuCop must be mounted with 6 slot rack mount brackets.  
@@ -105,7 +105,7 @@ For details please refer to [Installation Requirements]({{ '/edge-solutions/modu
 ### Assembly of ModuCop into 19'' Sub-Rack
 
 * Check 19'' sub-rack for fitting threaded bars. 
-* Use M3x25 screws per mounting bracket
+* Use M3x10 screws per mounting bracket
 * Start mounting top bracket, then bottom bracket. 
 
     ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/Mounting/rack-install3.png' | relative_url }})
