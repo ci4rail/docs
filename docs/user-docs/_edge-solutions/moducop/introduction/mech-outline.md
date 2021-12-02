@@ -9,7 +9,8 @@ custom_next: /edge-solutions/moducop/mount-install/
 # Dimensions
 The following chapters show the relevant ModuCop dimensions depending on the mounting accessories. 
 
-[All dimensions in mm.]
+>[All dimensions in mm.]
+{: .notice--info}
 
 ## Dimensions Wall-Mount
 
@@ -19,7 +20,7 @@ The following chapters show the relevant ModuCop dimensions depending on the mou
 
 ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/Mounting/moducop-4-slots-rail-mounted-dimension.svg' | relative_url }})
 
-## Dimensions 19''-Sub-Rack-Mount
+## Dimensions 19"-Sub-Rack-Mount
 
 ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/Mounting/moducop-4-slots-rack-mounted-dimension.svg' | relative_url }})
 

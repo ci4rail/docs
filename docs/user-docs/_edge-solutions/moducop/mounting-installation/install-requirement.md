@@ -21,11 +21,9 @@ The following table describes the requirements to the fuse depending on the nomi
 
 |Nominal Voltage |Required Fuse|
 |:--------------:|:-----------:|
-|24V DC | 2,5A melting bla|
-|36V DC| 2,5A melting bla|
-|48V DC | 2,5A melting bla|
-|72V DC | 2,5A melting bla|
-|110V DC | 2,5A melting bla|
+|24V DC | 2.5A medium time-lag|
+|36V DC| 1.6A medium time-lag|
+|110V DC | 1A medium time-lag|
 
 
 ### Earthing
@@ -50,7 +48,7 @@ To benefit from all ModuCop features, proper mounting in permanent vehicle insta
 
 
 ### Mounting Orientation
-When mounted in wall or DIN-rail assembly, the following mounting orientations are possible:
+When mounted in wall or DIN rail assembly, the following mounting orientations are possible:
 
 Horizontal Mounting
 
