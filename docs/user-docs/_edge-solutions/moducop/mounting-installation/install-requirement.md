@@ -14,7 +14,7 @@ This section gives installation requirements and guidance on how ModuCop has to 
 
 ### External Fuse
 
-> Do not use ModuCop without an external fuse! If you are unsure, which fuse type and characteristics to choose, contact Ci4Rail.
+> Do not use ModuCop without an EXTERNAL FUSE! If you are unsure, which fuse type and characteristics to choose, contact Ci4Rail.
 {: .notice--danger}
 
 The following table describes the requirements to the fuse depending on the nominal input voltage of your power system. 
@@ -72,19 +72,22 @@ Please avoid mounting which prevents heat dissipation!
 ### Keep Free Areas
 Since ModuCop is completely passively cooled, the installation must allow for natural air convection through clearances with specific distances to adjacent equipment.
 
-The following figures show clearence areas depending on choosen mounting:
+> Keep free areas apply to any mounting option 
+{: .notice--info}
 
-Horizontal wall installation
 
-![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/keepfree_top1.png' | relative_url }})
+The following figures show clearence areas:
 
-Vertical wall installation
+- Top & bottom areas to be kept free from further installations
 
-![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/keepfree_ver1.png' | relative_url }})
+    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/keepfree_top1.png' | relative_url }})
 
-DIN rail installation
 
-![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/din-rail-keepfree1.png' | relative_url }})
+    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/keepfree_ver1.png' | relative_url }})
+
+- Left & right areas to be kept free from further installations
+
+    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/din-rail-keepfree1.png' | relative_url }})
 
 
 

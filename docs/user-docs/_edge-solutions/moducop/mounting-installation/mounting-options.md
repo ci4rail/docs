@@ -25,6 +25,9 @@ Required Accessories:
 * S104-ACS04-:  Brackets for wall / rack mount - 6 slot ModuCop versions
 * S104-ACS05-:  Brackets for wall / rack mount - 12 slot ModuCop versions
 
+> Screws to mount ModuCop to wall are not part of accessory. 
+{: .notice--info}
+
 For details please refer to [Installation Guide]({{ '/edge-solutions/moducop/mounting-installation/install-guide' | relative_url }}).
 
 ## DIN Rail Mounting
@@ -51,7 +54,7 @@ Required Accessories:
 * S104-ACS04-:  Brackets for wall / rack mount - 6 slot ModuCop versions
 * S104-ACS05-:  Brackets for wall / rack mount - 12 slot ModuCop versions
 
-> 19'' Sub-Rack is not part of accessory.
+> 19'' Sub-Rack itself and screws to mount ModuCop into the sub-rack are not part of accessory.
 {: .notice--info}
 
 For details please refer to [Installation Guide]({{ '/edge-solutions/moducop/mounting-installation/install-guide' | relative_url }}).

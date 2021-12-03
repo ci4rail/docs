@@ -54,7 +54,7 @@ For guidance on mounting orientation, angles, keep free areas, please refer to [
 ### Assembly of ModuCop to Wall
 
 * Select clean and level ground.
-* Use 2x M3x25 screws per mounting bracket. 
+* Per mounting bracket use 2x appropriate screws depending on your underground. 
 * Start mounting top bracket, then bottom bracket. 
 
 ## Installation to DIN Rail
@@ -105,7 +105,7 @@ For details please refer to [Installation Requirements]({{ '/edge-solutions/modu
 ### Assembly of ModuCop into 19'' Sub-Rack
 
 * Check 19'' sub-rack for fitting threaded bars. 
-* Use M3x10 screws per mounting bracket
+* Use M2.5x6 screws per mounting bracket
 * Start mounting top bracket, then bottom bracket. 
 
     ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/Mounting/rack-install3.png' | relative_url }})
