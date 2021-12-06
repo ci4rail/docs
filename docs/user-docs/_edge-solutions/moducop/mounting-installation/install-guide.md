@@ -49,7 +49,7 @@ For guidance on mounting orientation, angles, keep free areas, please refer to [
 * Place brackets as shown
 * Fix brackets with two screws M2.5x25 (part of mounting kit) to the threaded bar. 
 
-    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/Mounting/wall-install1.png' | relative_url }})
+    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mount/wall-install1.png' | relative_url }})
 
 ### Assembly of ModuCop to Wall
 
@@ -73,7 +73,7 @@ For guidance on mounting orientation, angles, keep free areas, please refer to [
 * Place holder as shown
 * Use 2x screw M2.5x8 plus lock washer M2.5 (part of mounting kit) per holder to fix holder to threaded bar as shown in the following figure
 
-    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/Mounting/din-install1.png' | relative_url }})
+    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mount/din-install1.png' | relative_url }})
 
 ### Assembly of ModuCop to 35 mm DIN Rail
 
@@ -100,7 +100,7 @@ For details please refer to [Installation Requirements]({{ '/edge-solutions/modu
 * Place brackets as shown
 * Fix brackets with two screws M2.5x25 (part of mounting kit) to the threaded bar.
 
-    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/Mounting/rack-install1.png' | relative_url }})
+    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mount/rack-install1.png' | relative_url }})
 
 ### Assembly of ModuCop into 19'' Sub-Rack
 
@@ -108,7 +108,7 @@ For details please refer to [Installation Requirements]({{ '/edge-solutions/modu
 * Use M2.5x6 screws per mounting bracket
 * Start mounting top bracket, then bottom bracket. 
 
-    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/Mounting/rack-install3.png' | relative_url }})
+    ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mount/rack-install3.png' | relative_url }})
 
 
 
