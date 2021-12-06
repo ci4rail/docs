@@ -18,7 +18,7 @@ For general mounting requirements please refer to [Installation Requirements]({{
 ## Wall Mounting
 Your ModuCop can simply be mounted to a wall by using the accessory brackets and few screws. 
 
-![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/MEC01_4slot_wall.png' | relative_url }})
+![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mount/mec01_4slot_wall.png' | relative_url }})
 
 Required Accessories:
 * S104-ACS03-:  Brackets for wall / rack mount - 4 slot ModuCop versions
@@ -33,7 +33,7 @@ For details please refer to [Installation Guide]({{ '/edge-solutions/moducop/mou
 ## DIN Rail Mounting
 ModuCop is designed to be installed on TH35 DIN rail (35 mm) by using the appropriate accessories.
 
-![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/MEC01_4slot_DIN.png' | relative_url }})
+![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mount/mec01_4slot_DIN.png' | relative_url }})
 
 Required Accessories:
 * S104-ACS02-:    35mm DIN rail mounting kit (contains 2x DIN rail holders)
@@ -47,7 +47,7 @@ For details please refer to [Installation Guide]({{ '/edge-solutions/moducop/mou
 
 ModuCop can also easily be mounted in existing 19'' sub-racks as a autonomous cassette just by using the accessory brackets mounting to the front of ModuCop. 
 
-![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mounting/MEC01_4slot_rack.png' | relative_url }})
+![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/mount/mec01_4slot_rack.png' | relative_url }})
 
 Required Accessories:
 * S104-ACS03-:  Brackets for wall / rack mount - 4 slot ModuCop versions
