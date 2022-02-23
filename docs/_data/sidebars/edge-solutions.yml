@@ -2,7 +2,7 @@ sidebar:
   title: Edge Solutions
   navitems:
     - title: Overview
-      url: /edge-solutions/overview/    
+      url: /edge-solutions/overview/
     - title: For Your Safety
       url: /edge-solutions/for-your-safety/
     - title: ModuCop
@@ -43,9 +43,49 @@ sidebar:
             - title: Mounting Options
               url: /edge-solutions/moducop/mounting-installation/mounting-options/
             - title: Installation Requirements
-              url: /edge-solutions/moducop/mounting-installation/install-requirement/          
+              url: /edge-solutions/moducop/mounting-installation/install-requirement/
             - title: Installation Guide
-              url: /edge-solutions/moducop/mounting-installation/install-guide/ 
+              url: /edge-solutions/moducop/mounting-installation/install-guide/
+
+    - title: ModuCop I/O Modules
+      url: /edge-solutions/moducop-IOU/
+      navitems:
+        - title: IOU01 - Discrete I/O
+          url: /edge-solutions/moducop-IOU/01/
+          navitems:
+            - title: Quick-Start-Guide
+              url: /edge-solutions/moducop-iou/01/quick-start-guide/
+              navitems:
+                - title: Unpacking
+                  url: /edge-solutions/moducop-iou/01/quick-start-guide/unpacking/
+                - title: Connecting & Powering
+                  url: /edge-solutions/moducop-iou/01/quick-start-guide/connecting-powering/
+                - title: Reveiving First Data
+                  url: /edge-solutions/moducop-iou/01/quick-start-guide/receive-data/
+            - title: Introduction
+              url: /edge-solutions/moducop-iou/01/introduction/
+              navitems:
+                - title: Specification
+                  url: /edge-solutions/moducop-iou/01/introduction/specification/
+                - title: Mechanical Outline
+                  url: /edge-solutions/moducop-iou/01/introduction/mech-outline/
+            - title: Mounting Options
+              url: /edge-solutions/moducop-iou/01/mounting-options/
+            - title: Detailed Descriptions
+              url: /edge-solutions/moducop-iou/01/detailed-descriptions/
+              navitems:
+                - title: Hardware
+                  url: /edge-solutions/moducop-iou/01/detailed-descriptions/hardware/
+                  navitems:
+                    - title: Interfaces
+                      url: /edge-solutions/moducop-iou/01/detailed-descriptions/hardware/interfaces/
+                    - title: Functions
+                      url: /edge-solutions/moducop-iou/01/detailed-descriptions/hardware/functions/
+                - title: Software
+                  url: /edge-solutions/moducop-iou/01/detailed-descriptions/software/
+                  navitems:
+                    - title: Functions
+                      url: /edge-solutions/moducop-iou/01/detailed-descriptions/software/functions
     #     - title: Detailed Descriptions
     #       url: /edge-solutions/moducop/detailed-descriptions/
     #       navitems:
