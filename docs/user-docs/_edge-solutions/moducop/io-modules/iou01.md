@@ -1,10 +1,9 @@
 ---
-title: IOU01 - Rail Compliant Discrete I/O
+title: IOU01
 excerpt: IOU01 Introduction.
-last_modified_at: 2022-02-23
+last_modified_at: 2022-03-15
 
-custom_next: /edge-solutions/moducop-iou/01/introduction/specification/
-
+custom_next: /edge-solutions/moducop/io-modules/iou01/quick-start-guide
 ---
 
 IOU01 is a Binary & analogue input/output extension unit for edge applications in rail & busses.
