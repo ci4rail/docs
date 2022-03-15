@@ -1,10 +1,12 @@
 ---
 title: IOU01 - Rail Compliant Discrete I/O
-excerpt: IOU01 Introduction.
+excerpt: IOU01 - Rail Compliant Discrete I/O Introduction.
 last_modified_at: 2022-03-15
 
 custom_next: /edge-solutions/moducop/io-modules/iou01/quick-start-guide
 product_name: IOU01
+
+type: io-module
 ---
 
 Welcome to the {{ page.product_name }} documentation
