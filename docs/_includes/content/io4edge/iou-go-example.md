@@ -1,15 +1,14 @@
 #### Compile Demo
-{% if page.article_group == "S103" %}
+{% if is_mio %}
   {% assign target_arch ="arm" %}
-  {% assign target_name ="target machine" %}
   The demo must be compiled for the architecture of your target machine. Typical targets are:
   - modern x86 PCs: Architecture = `amd64`
   - RaspberryPi (32 Bit): `arm`
+  - ModuCop: `arm64`
 
 In the following examples, we use `{{ target_arch }}`.
 {% else %}
   {% assign target_arch ="arm64" %}
-  {% assign target_name ="Moducop" %}
 {% endif %}
 
 
@@ -37,12 +36,12 @@ This produces the binary file `{{ example_name }}` in the current folder.
 
 Transfer the compiled binary. Replace `<target-ip>` with the IP address of your {{ target_name }}.
 
-{% if page.article_group != "S103" %}
+{% if is_iou %}
 We copy the binary to the `/data` folder of ModuCop, as this is a writeable, whereas the rest of the filesystem is write protected.
 {% endif %}
 
 
-{% if page.article_group != "S103" %}
+{% if is_iou %}
 ```console
 scp {{ example_name }} root@<target-ip>:/data
 ```
@@ -57,7 +56,7 @@ scp {{ example_name }} <target-ip>:/~
 
 Login into your {{ target_name }} over SSH:
 
-{% if page.article_group != "S103" %}
+{% if is_iou %}
 ```bash
 ssh root@<target-ip>
 ```
@@ -69,6 +68,6 @@ ssh <target-ip>
 
 Once logged in into the {{ target_name }}'s Shell, run the demo.
 
-{% if page.article_group != "S103" %}
+{% if is_iou %}
 In case your {{ page.product_name }} is not in the slot next to the CPU, use a different address, e.g. `{{ full_product_name }}-USB-EXT-2-{{ example_service_ext }}`
 {% endif %}

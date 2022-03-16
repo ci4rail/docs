@@ -1,0 +1,23 @@
+{% assign full_product_name = page.article_group | append: "-" | append: page.product_name %}
+{% if page.article_group == "S103" %}
+  {% assign is_mio = true %}
+  {% assign example_exec_dir = "." %}
+  {% assign target_name ="target machine" %}
+  {% assign mdns_service_address = "my-given-service-name" %}
+{% else %}
+  {% assign is_iou = true %}
+  {% assign example_exec_dir = "/data" %}
+  {% assign target_name ="Moducop" %}
+  {% assign mdns_service_address = full_product_name | append: "-USB-EXT-1" %}
+{% endif %}
+
+In this quick-start guide we will run demo programs to stimulate the {{ page.product_name }}'s binary I/Os and to read values from the analog inputs.
+
+## Prerequisites
+
+### Hardware
+{% if is_iou %}
+* A Moducop Edge Computer with a {{ page.product_name }} installed
+* A development PC (Windows or Linux), connected via Network to the Moducop{% else %}
+* A target machine running Linux that is in the same network as your {{ page.product_name }}
+* A development PC (Windows or Linux), connected via Network to the target machine{% endif %}
