@@ -55,6 +55,8 @@ sidebar:
               navitems:
                 - title: Quick-Start-Guide
                   url: /edge-solutions/moducop/io-modules/iou01/quick-start-guide
+                - title: Detailed-Description
+                  url: /edge-solutions/moducop/io-modules/iou01/detailed-description
     - title: ModuSio
       url: /edge-solutions/modusio/
       navitems:
