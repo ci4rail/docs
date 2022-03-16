@@ -55,6 +55,14 @@ sidebar:
               navitems:
                 - title: Quick-Start-Guide
                   url: /edge-solutions/moducop/io-modules/iou01/quick-start-guide
+    - title: ModuSio
+      url: /edge-solutions/modusio/
+      navitems:
+        - title: MIO01 - Discrete I/O
+          url: /edge-solutions/modusio/mio01
+          navitems:
+            - title: Quick-Start-Guide
+              url: /edge-solutions/modusio/mio01/quick-start-guide
 
     #     - title: Detailed Descriptions
     #       url: /edge-solutions/moducop/detailed-descriptions/

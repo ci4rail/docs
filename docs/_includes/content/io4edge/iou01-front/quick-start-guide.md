@@ -1,4 +1,9 @@
 {% assign full_product_name = page.article_group | append: "-" | append: page.product_name %}
+{% if page.article_group == "S103" %}
+  {% assign example_exec_dir ="." %}
+{% else %}
+  {% assign example_exec_dir ="/data" %}
+{% endif %}
 
 In this quick-start guide we will run demo programs to stimulate the {{ page.product_name }}'s binary I/Os and to read values from the analog inputs.
 
@@ -43,9 +48,10 @@ If your {{ page.product_name }} is in the slot next to the CPU, the output shoul
 
 
 ## Binary I/O Demo
+
 {% assign example_name="blinky" %}
 {% assign example_path="binaryIoTypeA" %}
-{% assign example_service_ext="binaryIoTypeA" %}
+{% assign example_service_name = full_product_name | append: "-USB-EXT-1-binaryIoTypeA" %}
 
 
 The Binary I/O demo will stimulate the binary outputs of the {{ page.product_name }} one after another. Please supply the binary I/O groups with 24V, so when the output switch turns on, the binary I/O pin has 24V, which in turn illuminates the corresponding LED.
@@ -66,7 +72,7 @@ Connect the `CI` and `CO` pins to your laboratory power supply which is set to a
 {% include content/io4edge/iou-go-example.md %}
 
 ```bash
-/data/{{example_name}} {{ full_product_name }}-USB-EXT-1-{{ example_service_ext }}
+{{ example_exec_dir }}/{{example_name}} {{ example_service_name }}
 ```
 
 You should see now the 4 LEDs of the binary I/O running.
