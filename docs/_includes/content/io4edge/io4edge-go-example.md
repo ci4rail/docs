@@ -16,9 +16,12 @@ In the following examples, we use `{{ target_arch }}`.
 
 {% include content/tab-select.md head=true instance=tab_instance %}
 
-```console
+Run this in a powershell console
+```powershell
 cd examples\{{ example_path }}\{{ example_name }}
-GOOS=linux GOARCH={{ target_arch }} go build
+$Env:GOOS = "linux"
+$Env:GOARCH = "{{ target_arch }}"
+go build
 ```
 
 {% include content/tab-select.md middle=true instance=tab_instance %}
