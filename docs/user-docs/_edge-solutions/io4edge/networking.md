@@ -22,6 +22,30 @@ All io4edge devices receive their IP address via [DHCP](https://en.wikipedia.org
 
 Consider the following scenario: You have five identical io4edge devices (e.g. ModuSios) connected to your network. Each one got an IP address from the DHCP server. But how do you know which device has which IP address? Even if you find it out by checking your router's device table, the information is valid only for this particular network. If you want to duplicate the setup later for production, devices may get different IP addresses. This is bad.
 
-To solve this issue, io4edge devices announce themselves (or better the services they provide) in the network. Each service (like an anlog input function block) is announced in the network with a specific name. For this, [MDNS](https://en.wikipedia.org/wiki/Multicast_DNS) is used, a protocol that is widely used, e.g. by office printers.
+To solve this issue, io4edge devices announce themselves (or better the services they provide) in the network. Each service (like an anlog input function block) is announced in the network with a specific name. For this, [MDNS](https://en.wikipedia.org/wiki/Multicast_DNS) is used, a protocol that is widely used, e.g. by office printers. To access a io4edge device from your application, you use the service address (a string) of the specific function rather an IP address.
+
+### Addressing ModuCop I/O Modules
+
+The base service addresses of ModuCop I/O Modules are assigned in the factory before the assembled ModuCop is shipped according to the following scheme:
+`S101-<MODULE_TYPE>-USB-EXT-<SLOT_NUMBER>`, with
+* `MODULE_TYPE` - I/O Module type, e.g. `IOU01`
+* `SLOT_NUMBER` - Slot number, starting with `1` for the slot next to the CPU module.
+
+So when you have an IOU01 module in slot, the service addresses would start with `S101-IOU01-USB-EXT-1`.
+
+### Addressing WLAN and Ethernet Based io4edge Modules
+
+By default, these devices use their *Article Number* and *Serial Number* as their base service address according to the following scheme:
+`S103-<MODULE_TYPE>-<SERIAL_NUMBER>`, with
+* `MODULE_TYPE` - I/O Module type, e.g. `MIO01`
+* `SERIAL_NUMBER` - Serial number, a [UUIDV4](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+
+For example, for a MIO01, the default base service name would be something like this: `S101-MIO01-b4e31793-f660-4e2e-af20-c175186b95be`.
+
+However, this address is only used as long no application specific `device-id` is set in the module. It is adisable to change the `device-id` to an application defined name, such as `axle-sensor-left1`, for example using the `io4edge-cli` tool or via the console provided through the USB service connector. See the quick start guides of the respective module for details. As soon as a `device-id` is set, this name is now used as the base service name.
+
+### Function Service Addresses
+The service addresses for individual functions (like analog input and binary input) of an I/O module use the base service address plus a suffix, e.g.:
+* `S101-IOU01-USB-EXT-1-binaryIoTypeA` for the binary I/O block
 
 Each service has an `instance name` and a `protocol`
