@@ -1,9 +1,9 @@
 ---
 title: MIO01 Quick-Start-Guide
 excerpt: Quick startup with MIO01 extension module
-last_modified_at: 2022-03-16
+last_modified_at: 2022-03-17
 
-custom_next: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/ TODO
+custom_next: /edge-solutions/modusio/mio01/detailed-description/
 product_name: MIO01
 article_group: S103
 ---
