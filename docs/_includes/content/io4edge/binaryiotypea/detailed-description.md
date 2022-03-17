@@ -1,4 +1,4 @@
-### Function Principle
+### Features
 
 The {{ page.product_name }} has a Binary I/O function block with 4 channels, corresponding to 4 pins.
 * 2 galvanically isolated groups, group1=Pin 1/2, group2=Pin 3/4
@@ -14,13 +14,13 @@ The {{ page.product_name }} has a Binary I/O function block with 4 channels, cor
 * Configurable output watchdog, to reset outputs in case host application crashed
 * Max. Input Frequency: 50Hz
 * Max. Output Frequency: 50Hz
-
+* Can drive capacitive loads up to 470µF
 
 ![Binary I/O Groups Pricnciple]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/groups-principle.svg' | relative_url }})
 
 ### Connection
 
-Each binary I/O groups has its own connector:
+Each binary I/O group has its own connector:
 
 ![Binary I/O Groups Pricnciple]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/conn.svg' | relative_url }})
 
@@ -217,7 +217,7 @@ To read samples from the stream:
 
 It is possible to fine-tune the stream behavior to the application needs:
 
-Configuring a keep alive interval, then you get a bucket latest after the configured interval, regardless whether the bucket is full or not:
+Configure a keep alive interval, then you get a bucket latest after the configured interval, regardless whether the bucket is full or not:
 
 ```go
   // configure stream to send the bucket at least once a second
