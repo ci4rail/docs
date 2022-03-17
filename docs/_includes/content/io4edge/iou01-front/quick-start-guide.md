@@ -33,7 +33,7 @@ Connect the `CI` and `CO` pins to your laboratory power supply which is set to a
 ![Connection for Binary I/O Demo]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou01/iou01-qs-binio.svg' | relative_url }})
 
 ### Demo Software
-{% include content/io4edge/iou-go-example.md %}
+{% include content/io4edge/io4edge-go-example.md %}
 
 ```bash
 {{ example_exec_dir }}/{{example_name}} {{ example_service_name }}
@@ -59,7 +59,7 @@ Connect the `0V` and `Uin1` pins to your laboratory power supply which is set to
 ![Connection for Analog Input Demo]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou01/iou01-qs-anain.svg' | relative_url }})
 
 ### Demo Software
-{% include content/io4edge/iou-go-example.md %}
+{% include content/io4edge/io4edge-go-example.md %}
 
 ```bash
 /data/{{example_name}} {{ full_product_name }}-USB-EXT-1-{{ example_service_ext }} 400 | more
