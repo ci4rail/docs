@@ -211,7 +211,7 @@ To read samples from the stream:
 ```
 
 **NOTE:** At the moment, timestamps are expressed in micro seconds relative to the start of the {{ page.product_name }}. Future client libraries will map the time to the host's time domain
-{: .notice--warning}
+{: .notice--info}
 
 #### Controlling the Stream
 
@@ -221,9 +221,9 @@ Configure a keep alive interval, then you get a bucket latest after the configur
 
 ```go
   // configure stream to send the bucket at least once a second
-	err = c.StartStream(
-		functionblock.WithKeepAliveInterval(1000),
-	)
+  err = c.StartStream(
+    functionblock.WithKeepAliveInterval(1000),
+  )
 ```
 
 Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. This can be changed:
@@ -231,10 +231,10 @@ Configure the number of samples per bucket. By default, a bucket contains max. 2
 ```go
   // configure stream to send the bucket at least once a second
   // configure the bucket to contain only one sample, so each transition is immediately send
-	err = c.StartStream(
-		functionblock.WithKeepAliveInterval(1000),
+  err = c.StartStream(
+    functionblock.WithKeepAliveInterval(1000),
     functionblock.WithBucketSamples(1),
-	)
+  )
 ```
 
 #### Multiple Streams

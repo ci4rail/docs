@@ -4,7 +4,7 @@ excerpt: MIO101 - Rail Compliant Discrete I/O Introduction.
 last_modified_at: 2022-03-17
 
 custom_next: /edge-solutions/modusio/mio01/quick-start-guide
-product_name: IOU01
+product_name: MIO01
 
 type: modusio-module
 ---

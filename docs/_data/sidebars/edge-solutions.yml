@@ -68,6 +68,8 @@ sidebar:
             - title: Detailed-Description
               url: /edge-solutions/modusio/mio01/detailed-description
 
+    - title: io4edge
+      url: /edge-solutions/io4edge
     #     - title: Detailed Descriptions
     #       url: /edge-solutions/moducop/detailed-descriptions/
     #       navitems:
