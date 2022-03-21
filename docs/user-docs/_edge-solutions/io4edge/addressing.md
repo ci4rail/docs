@@ -40,7 +40,7 @@ By default, these devices use their *Article Number* and *Serial Number* as thei
 * `ARTICLE_NUMBER` - I/O Module group and type, e.g. `S103-MIO01`
 * `SERIAL_NUMBER` - Serial number, an [UUIDV4](https://en.wikipedia.org/wiki/Universally_unique_identifier).
 
-For example, a MIO01 would have a default base service name like this: `S101-MIO01-b4e31793-f660-4e2e-af20-c175186b95be`.
+For example, a MIO01 would have a default base service name like this: `S103-MIO01-b4e31793-f660-4e2e-af20-c175186b95be`.
 
 However, this address is only used as long no application specific `device-id` is set in the module. We recommend to change the `device-id` to an application defined name, such as `axle-sensor-left1`. This can be done using the `io4edge-cli` tool or via the console provided through the USB service connector. See the quick start guides of the respective module for details. As soon as a `device-id` is set, this name is now used as the base service name.
 
