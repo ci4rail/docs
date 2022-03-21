@@ -48,28 +48,28 @@ sidebar:
               url: /edge-solutions/moducop/mounting-installation/install-guide/
 
         - title: ModuCop I/O Modules
-          url: /edge-solutions/moducop/io-modules
+          url: /edge-solutions/moducop/io-modules/
           navitems:
             - title: IOU01 - Discrete I/O
-              url: /edge-solutions/moducop/io-modules/iou01
+              url: /edge-solutions/moducop/io-modules/iou01/
               navitems:
                 - title: Quick-Start-Guide
-                  url: /edge-solutions/moducop/io-modules/iou01/quick-start-guide
+                  url: /edge-solutions/moducop/io-modules/iou01/quick-start-guide/
                 - title: Detailed-Description
-                  url: /edge-solutions/moducop/io-modules/iou01/detailed-description
+                  url: /edge-solutions/moducop/io-modules/iou01/detailed-description/
     - title: ModuSio
       url: /edge-solutions/modusio/
       navitems:
         - title: MIO01 - Discrete I/O
-          url: /edge-solutions/modusio/mio01
+          url: /edge-solutions/modusio/mio01/
           navitems:
             - title: Quick-Start-Guide
-              url: /edge-solutions/modusio/mio01/quick-start-guide
+              url: /edge-solutions/modusio/mio01/quick-start-guide/
             - title: Detailed-Description
-              url: /edge-solutions/modusio/mio01/detailed-description
+              url: /edge-solutions/modusio/mio01/detailed-description/
 
     - title: io4edge
-      url: /edge-solutions/io4edge
+      url: /edge-solutions/io4edge/
     #     - title: Detailed Descriptions
     #       url: /edge-solutions/moducop/detailed-descriptions/
     #       navitems:

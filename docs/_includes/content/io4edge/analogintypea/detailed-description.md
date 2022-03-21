@@ -8,15 +8,15 @@
   * 10.5 bit @4000Hz
 * Accuracy: Better than 0.5% to full scale
 * Voltage or current measurement
-  * Voltage measurement range +/-10V
-  * Current masurement range +/-20mA
+  * Voltage measurement range +/-10V. Input impedance 100kOhms/1nF.
+  * Current measurement range +/-20mA. Impedance 50Ohms.
 * Each analog input is completely isolated
 * Integrated power supply for sensor: 24V, up to 24mA
 
 
 ### Connection
 
-Each binary I/O groups has its own connector:
+Each analogue I/O group has its own connector:
 
 ![Binary I/O Groups Pricnciple]({{ '/user-docs/images/edge-solutions/moducop/io-modules/analogintypea/conn.svg' | relative_url }})
 
@@ -37,7 +37,7 @@ Want to have a quick look to the examples? See our [Github repository](https://g
 
 #### Connect to the Analog Input function
 
-To access the Analog Inputs, create a *Client* `c`. Pass as address either a service address or an ip address with port. Examples:
+To access the Analog Inputs, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
 * As a service address: `S101-IUO01-USB-EXT-1-analogInTypeA1`
 * As a IP/Port: `192.168.201.1:10000`
 
@@ -145,7 +145,7 @@ Configure a keep alive interval, then you get a bucket latest after the configur
 
 Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. For high sample rates, it is advisable to use higher numbers to reduce the load of the host and the device.
 
-If number of buckets per sample is changed, the number of buffered samples for this stream in the device, must be changed accordingly. As a rule of thumb, `Buffered Samples` should be two times the number of samples in the bucket.
+If number of buckets per sample is changed, the number of buffered samples for this stream in the device must be changed accordingly. As a rule of thumb, `Buffered Samples` should be two times the number of samples in the bucket.
 
 ```go
   // configure stream to send the bucket at least once a second
@@ -158,7 +158,9 @@ If number of buckets per sample is changed, the number of buffered samples for t
   )
 ```
 
-#### Multiple Streams
+#### Multiple Clients
 
-It is possible to have multiple clients, and each client has its own stream.
-However, all clients use the same sampling rate.
+It is possible to have multiple clients active at the same time. For example:
+One client reads the current value of the analog channel, another client reads the stream
+
+Note that all clients use the same sampling rate on a particular analog channel.

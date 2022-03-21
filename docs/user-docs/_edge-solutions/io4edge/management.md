@@ -1,12 +1,12 @@
 ---
 title: io4edge Device Management
 excerpt: Describes the Device Management Functionality Common to all io4edge Devices
-last_modified_at: 2022-03-17
+last_modified_at: 2022-03-21
 
 #custom_next: /edge-solutions/modusio/mio01/detailed-description/
 ---
 
-All io4edge Devices support Device Management over Network for
+All io4edge devices support Device Management over Network for
   * Firmware Update
   * Firmware Identification
   * Inventory Data

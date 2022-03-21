@@ -1,7 +1,7 @@
 ---
 title: io4edge Networking
 excerpt: Network behaviour of io4edge devices
-last_modified_at: 2022-03-17
+last_modified_at: 2022-03-21
 
 custom_next: /edge-solutions/io4edge/management
 ---
@@ -42,7 +42,7 @@ By default, these devices use their *Article Number* and *Serial Number* as thei
 
 For example, for a MIO01, the default base service name would be something like this: `S101-MIO01-b4e31793-f660-4e2e-af20-c175186b95be`.
 
-However, this address is only used as long no application specific `device-id` is set in the module. It is adisable to change the `device-id` to an application defined name, such as `axle-sensor-left1`, for example using the `io4edge-cli` tool or via the console provided through the USB service connector. See the quick start guides of the respective module for details. As soon as a `device-id` is set, this name is now used as the base service name.
+However, this address is only used as long no application specific `device-id` is set in the module. We recommend to change the `device-id` to an application defined name, such as `axle-sensor-left1`, for example using the `io4edge-cli` tool or via the console provided through the USB service connector. See the quick start guides of the respective module for details. As soon as a `device-id` is set, this name is now used as the base service name.
 
 ### Function Service Addresses
 The service addresses for individual functions (like analog input and binary input) of an I/O module use the base service address plus a suffix, e.g.:

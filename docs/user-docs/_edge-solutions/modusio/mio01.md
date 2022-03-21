@@ -1,7 +1,7 @@
 ---
 title: MIO01 - Rail Compliant Discrete I/O
-excerpt: MIO101 - Rail Compliant Discrete I/O Introduction.
-last_modified_at: 2022-03-17
+excerpt: MIO01 - Rail Compliant Discrete I/O Introduction.
+last_modified_at: 2022-03-21
 
 custom_next: /edge-solutions/modusio/mio01/quick-start-guide
 product_name: MIO01
@@ -13,7 +13,7 @@ Welcome to the {{ page.product_name }} documentation
 
 ![{{ page.product_name }} frontal view]({{ '/user-docs/images/edge-solutions/modusio/mio01/frontal.png' | relative_url }})
 
-{{ page.product_name }} is a Binary & analogue input/output module with Ethernet and WLAN connectivity for edge applications in rail & busses.
+{{ page.product_name }} is a binary & analogue input/output module with Ethernet and WLAN connectivity for edge applications in rail & busses.
 
 # Features
 
@@ -27,7 +27,7 @@ Welcome to the {{ page.product_name }} documentation
 * EN 50155 compliant
 
 [TODO]: # (link to io4edeg common page)
-{{ page.product_name }} is an Io4Edge Device, and therefore supports the features common to all Io4Edge devices.
+{{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all Io4Edge devices.
 
 ## Detailed Technical Specification
 

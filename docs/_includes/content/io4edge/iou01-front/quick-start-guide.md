@@ -1,5 +1,5 @@
 {% include content/io4edge/quick-start/intro1.md %}
-* A Laboratory Power Supply capable of supplying 5V..24V/200mA.
+* A laboratory Power Supply capable of supplying 5V..24V/200mA.
 
 {% include content/io4edge/quick-start/intro2.md %}
 | Service Name                              | Description            |
@@ -29,6 +29,9 @@ Plug a mating connector to the two top connectors of the {{ page.product_name }}
 {% include content/io4edge/iou01-front/mating-connectors.md %}
 
 Connect the `CI` and `CO` pins to your laboratory power supply which is set to a voltage of 24V (up to 110V).
+**Warning** Caution, voltages over 60V are dangerou! If voltages above 60 V DC are used, ensure that all necessary protective measures are taken and that only qualified personnel is using the equipment.
+{: .notice--warning}
+
 
 ![Connection for Binary I/O Demo]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou01/iou01-qs-binio.svg' | relative_url }})
 
@@ -50,7 +53,7 @@ The Analog Input demo will sample one analog input of the {{ page.product_name }
 
 ### Connecting
 
-Plug a mating connector to the 3rd connectors from the top of the {{ page.product_name }}.
+Plug a mating connector to the 3rd connector from the top of the {{ page.product_name }}.
 
 {% include content/io4edge/iou01-front/mating-connectors.md %}
 

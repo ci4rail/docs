@@ -1,7 +1,7 @@
 ### Features
 
-The {{ page.product_name }} has a Binary I/O function block with 4 channels, corresponding to 4 pins.
-* 2 galvanically isolated groups, group1=Pin 1/2, group2=Pin 3/4
+The {{ page.product_name }} has a binary I/O function block with 4 channels, corresponding to 4 I/O pins.
+* 2 galvanically isolated groups, group1=I/O 1/2, group2=I/O 3/4
 * Each pin can be used as a
   * binary output with read-back
   * binary input
@@ -55,7 +55,7 @@ This example shows how you can control a DC Motor in both directions:
 
 #### Mixed Application
 
-This example shows how you can use one pins of a group as input and the other pin as output. It also shows that you can supply each group with a different voltage:
+This example shows how you can use one pin of a group as input and the other pin as output. It also shows that you can supply each group with a different voltage:
 
 ![Mixed Application]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/use-case-mixed-voltage.svg' | relative_url }})
 
@@ -68,7 +68,7 @@ Want to have a quick look to the examples? See our [Github repository](https://g
 
 #### Connect to the binary I/O function
 
-To access the Binary I/Os, create a *Client* `c`. Pass as address either a service address or an ip address with port. Examples:
+To access the binary I/Os, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Examples:
 * As a service address: `S101-IUO01-USB-EXT-1-binaryIoTypeA`
 * As a IP/Port: `192.168.201.1:10000`
 
@@ -143,7 +143,7 @@ This tells the binary output controller to try again. It does however not wait i
 
 ### Reading Inputs
 
-The API provides two methods to read the state current of pins:
+The API provides two methods to read the current state of the pins:
 * Get value of a single pin
 * Get value of multipe pins
 
@@ -237,6 +237,8 @@ Configure the number of samples per bucket. By default, a bucket contains max. 2
   )
 ```
 
-#### Multiple Streams
+#### Multiple Clients
 
-It is possible to have multiple clients, and each client has its own stream. For example, client A may have a stream that records transistions on I/O #1, while client B records transitions on I/O #2, #3 and #4.
+It is possible to have multiple clients. Example usage:
+* Each client has its own stream. One client may have a stream that records transitions on I/O #1, while another client records transitions on I/O #2, #3 and #4.
+* One client is reading the current state of the I/Os, while another client is recording transitions and a third client is writing to an I/O.

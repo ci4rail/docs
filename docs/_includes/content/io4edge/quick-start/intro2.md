@@ -30,7 +30,7 @@ cd io4edge-client-go
 Io4Edge Devices are usually addressed by their service address, which is a name in the network.
 
 {% if is_iou %}
-The {{ page.product_name }}'s service name depends on the ModuCops slot and is usually
+The {{ page.product_name }}'s service name depends on the ModuCop's slot and is usually
 `{{ full_product_name }}-USB-EXT-<slot-number>[-<function>]`, i.e. if the {{ page.product_name }} is in the slot next to ModuCops CPU01, we have the following service names:
 {% endif %}
 
