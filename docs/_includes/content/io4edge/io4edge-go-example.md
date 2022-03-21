@@ -13,8 +13,8 @@ In the following examples, we use `{{ target_arch }}`.
 
 
 {% assign tab_instance = example_name  | append: "1" %}
-
-{% include content/tab-select.md head=true instance=tab_instance %}
+{% include content/tab/start.md tabs="Windows, Linux" instance=tab_instance %}
+{% include content/tab/entry-start.md %}
 
 Run this in a powershell console
 ```powershell
@@ -23,15 +23,16 @@ $Env:GOOS = "linux"
 $Env:GOARCH = "{{ target_arch }}"
 go build
 ```
+{% include content/tab/entry-end.md %}
 
-{% include content/tab-select.md middle=true instance=tab_instance %}
+{% include content/tab/entry-start.md %}
 
 ```bash
 cd examples/{{ example_path }}/{{ example_name }}
 GOOS=linux GOARCH={{ target_arch }} go build
 ```
-
-{% include content/tab-select.md foot=true %}
+{% include content/tab/entry-end.md %}
+{% include content/tab/end.md %}
 
 This produces the binary file `{{ example_name }}` in the current folder.
 
