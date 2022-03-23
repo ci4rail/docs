@@ -40,6 +40,10 @@ Load may be connected to ground (high side switch) or to supply (low side switch
 
 ![Connect Load]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/use-case-output1.svg' | relative_url }})
 
+**Warning** Do not leave the CI pin open! If the CI pin is left open, one I/O may affect the read-back level of the other I/O!
+{: .notice--warning}
+
+
 #### Using Inputs
 
 In case you want to use a pin as input, you can select whether the input needs to be driven to high or low.
