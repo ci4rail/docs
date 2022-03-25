@@ -1,10 +1,12 @@
 ---
 title: io4edge Network Addressing
 excerpt: Network Addring of io4edge devices
-last_modified_at: 2022-03-21
+last_modified_at: 2022-03-25
 
 custom_next: /edge-solutions/io4edge/management
 ---
+**Notice** This chapter is work-in-process, will be completed soon. Stay tuned.
+{: .notice}
 
 io4edge devices are always connected to the host via network, either via
 * Ethernet over USB (ModuCop I/O Modules and Microcontrollers on CPU boards)
