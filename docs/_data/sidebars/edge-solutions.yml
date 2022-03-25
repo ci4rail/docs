@@ -2,7 +2,7 @@ sidebar:
   title: Edge Solutions
   navitems:
     - title: Overview
-      url: /edge-solutions/overview/    
+      url: /edge-solutions/overview/
     - title: For Your Safety
       url: /edge-solutions/for-your-safety/
     - title: ModuCop
@@ -43,9 +43,38 @@ sidebar:
             - title: Mounting Options
               url: /edge-solutions/moducop/mounting-installation/mounting-options/
             - title: Installation Requirements
-              url: /edge-solutions/moducop/mounting-installation/install-requirement/          
+              url: /edge-solutions/moducop/mounting-installation/install-requirement/
             - title: Installation Guide
-              url: /edge-solutions/moducop/mounting-installation/install-guide/ 
+              url: /edge-solutions/moducop/mounting-installation/install-guide/
+
+        - title: ModuCop I/O Modules
+          url: /edge-solutions/moducop/io-modules/
+          navitems:
+            - title: IOU01 - Discrete I/O
+              url: /edge-solutions/moducop/io-modules/iou01/
+              navitems:
+                - title: Quick-Start-Guide
+                  url: /edge-solutions/moducop/io-modules/iou01/quick-start-guide/
+                - title: Detailed-Description
+                  url: /edge-solutions/moducop/io-modules/iou01/detailed-description/
+    - title: ModuSio
+      url: /edge-solutions/modusio/
+      navitems:
+        - title: MIO01 - Discrete I/O
+          url: /edge-solutions/modusio/mio01/
+          navitems:
+            - title: Quick-Start-Guide
+              url: /edge-solutions/modusio/mio01/quick-start-guide/
+            - title: Detailed-Description
+              url: /edge-solutions/modusio/mio01/detailed-description/
+
+    - title: io4edge
+      url: /edge-solutions/io4edge/
+      navitems:
+        - title: Network Addressing
+          url: /edge-solutions/io4edge/addressing/
+        - title: Device Management
+          url: /edge-solutions/io4edge/management/
     #     - title: Detailed Descriptions
     #       url: /edge-solutions/moducop/detailed-descriptions/
     #       navitems:
