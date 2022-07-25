@@ -67,6 +67,13 @@ sidebar:
               url: /edge-solutions/modusio/mio01/quick-start-guide/
             - title: Detailed-Description
               url: /edge-solutions/modusio/mio01/detailed-description/
+        - title: MIO04 - CAN & Serial Interfaces
+          url: /edge-solutions/modusio/mio04/
+          navitems:
+            - title: Quick-Start-Guide
+              url: /edge-solutions/modusio/mio04/quick-start-guide/
+            - title: Detailed-Description
+              url: /edge-solutions/modusio/mio04/detailed-description/
 
     - title: io4edge
       url: /edge-solutions/io4edge/

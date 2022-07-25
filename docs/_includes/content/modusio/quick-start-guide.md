@@ -1,4 +1,22 @@
-In this quick-start guide we will run demo programs to stimulate the {{ page.product_name }}'s binary I/Os and to read values from the analog inputs.
+## Setup Power and Network Interface
+
+ModuSio devices are powered via the M12 X-coded connector labelled `POWER/ETH`. Power can be supplied through these options:
+* [Power-over-ethernet](#poe)
+* [Auxiliary Power (12V to 24VDC nominal)](#auxpower)
+
+
+### Using Power-Over-Ethernet {#poe}
+
+ModuSio devices are Class 2 (3,84–6,49 W) PoE powered devices. Please connect the ModuSio Device to a PoE source that can supply class 2 devices. ModuSios expect the PoE power as phantom power, i.e. using the Ethernet Tx and Rx pins.
+
+TODO: Image PoE Switch and Moducop with PoE
+
+### Using Auxiliary Power {#auxpower}
+
+
+
+
+
 {% include content/io4edge/quick-start/intro1.md %}
 * A laboratory Power Supply capable of supplying 5V..24V/200mA.
 

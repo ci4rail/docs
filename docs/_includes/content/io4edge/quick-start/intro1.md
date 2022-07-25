@@ -11,8 +11,6 @@
   {% assign mdns_service_address = full_product_name | append: "-USB-EXT-1" %}
 {% endif %}
 
-In this quick-start guide we will run demo programs to stimulate the {{ page.product_name }}'s binary I/Os and to read values from the analog inputs.
-
 ## Prerequisites
 
 ### Hardware

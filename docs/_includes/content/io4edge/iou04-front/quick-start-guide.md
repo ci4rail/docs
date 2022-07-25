@@ -1,4 +1,3 @@
-In this quick-start guide we will run demo programs to stimulate the {{ page.product_name }}'s binary I/Os and to read values from the analog inputs.
 {% include content/io4edge/quick-start/intro1.md %}
 * A laboratory Power Supply capable of supplying 5V..24V/200mA.
 
