@@ -1,13 +1,89 @@
-## Setup Power and Network Interface
+## Establishing Host Connection and Power
 
-ModuSio devices are powered via the M12 X-coded connector labelled `POWER/ETH`. Power can be supplied through these options:
-* [Power-over-ethernet](#poe)
-* [Auxiliary Power (12V to 24VDC nominal)](#auxpower)
+ModuSio devices can be connected to the Network via Ethernet or Wifi. Please select the tab for your preferred option:
+
+{% include content/tab/start.md tabs="Ethernet, Wifi" instance="qs1" %}
+{% include content/tab/entry-start.md %}
+
+### Network and Power Connection
+ModuSio devices are Class 2 (3,84–6,49 W) PoE powered devices. Connect the ModuSio Device to a PoE source that can supply class 2 devices. ModuSios expect the PoE power as phantom power, i.e. using the Ethernet Tx and Rx pins.
+
+![PoE connection]({{ '/user-docs/images/edge-solutions/modusio/modusio-poe.svg' | relative_url }}){: style="width: 100%"}
+
+### Initial Device Configuration
+
+For initial configuration, connect the `SERVICE` interface to a computer and start a terminal program. See [Instructions]({{ '/edge-solutions/modusio/config-console' | relative_url }}) for details.
+
+Press Enter in the Terminal program, and you should see the config prompt:
+
+```
+config>
+```
+
+Configure the device for Ethernet operation. The device is configured for Ethernet when it is *NOT* configured for Wifi. So we clear Wifi settings:
+```
+config> wifi-ssid ""
+Delete wifi-ssid
+```
+
+You can ignore the message: `Can't set wifi-ssid: ESP_ERR_NVS_NOT_FOUND`. This is normal if wifi has not been configured before.
+{: .notice--info}
+
+#### Setup for DHCP
+To obtain the devices IP address from a DHCP server, clear any static IP address setting:
+
+```
+config> static-ip ""
+Delete static-ip
+```
+
+You can ignore the message: `Can't set static-ip: ESP_ERR_NVS_NOT_FOUND`. This is normal if no static IP has not been configured before.
+{: .notice--info}
+
+Activate the changes:
+```
+config> reboot
+```
+
+
+#### Setup Static IP
+To use a static IP address, configure the IP-Address, Gateway and Network Mask using the `static-ip` command:
+
+The three parameters have to be specified as a single string, separated by colons (`:`), `<ip>:<gateway>:<netmask`>`.
+
+```
+config> static-ip 192.168.24.88:192.168.24.1:255.255.255.0
+Setting static-ip to '192.168.24.88:192.168.24.1:255.255.255.0'
+A 'reboot' is required to activate the new setting!
+```
+
+
+
+{% include content/tab/entry-end.md %}
+{% include content/tab/entry-start.md %}
+
+When using Wifi, supply the ModuSio by an power supply, capable of delivering 12V..24VDC, 5W. Use contacts 5+6 and 7+8 to supply the power. Polarity doesn't matter.
+
+For initial configuration, connect the `SERVICE` interface to a computer using a USB cable.
+
+![Wifi connection]({{ '/user-docs/images/edge-solutions/modusio/modusio-wifi.svg' | relative_url }}){: style="width: 100%"}
+
+
+{% include content/tab/entry-end.md %}
+{% include content/tab/end.md %}
+
+#### Activate Changes
+
+```
+config> reboot
+```
+
+
+
 
 
 ### Using Power-Over-Ethernet {#poe}
 
-ModuSio devices are Class 2 (3,84–6,49 W) PoE powered devices. Please connect the ModuSio Device to a PoE source that can supply class 2 devices. ModuSios expect the PoE power as phantom power, i.e. using the Ethernet Tx and Rx pins.
 
 TODO: Image PoE Switch and Moducop with PoE
 
