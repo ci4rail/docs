@@ -1,95 +1,151 @@
-{% include content/io4edge/quick-start/intro1.md %}
-* A laboratory Power Supply capable of supplying 5V..24V/200mA.
+## Serial Port Demo
 
-{% include content/io4edge/quick-start/intro2.md %}
-| Service Name                              | Description            |
-| ----------------------------------------- | ---------------------- |
-| {{ mdns_service_address }}                | Core function          |
-| {{ mdns_service_address }}-binaryIoTypeA  | Binary I/O function    |
-| {{ mdns_service_address }}-analogInTypeA1 | Analog Input channel 1 |
-| {{ mdns_service_address }}-analogInTypeA2 | Analog Input channel 2 |
+In this demo, we'll demonstrate how to connect an application on a Linux host with a {{ page.product_name }} COM port. We'll use a cable to loop the RS232 transmit pin to the receive pin, so that we'll get all characters back that are sent to the COM port.
 
-{% include content/io4edge/quick-start/intro3.md %}
+The procedure depends on your host system. Select the tab that matches your host:
+
+{% include content/tab/start.md tabs="ModuCop, OtherLinuxHost" instance="serial-host" %}
 
 
-## Binary I/O Demo
+<!--
+==========================================================================================
+ModuCop Host TAB
+==========================================================================================
+-->
+{% include content/tab/entry-start.md %}
 
-{% assign example_name="blinky" %}
-{% assign example_path="binaryIoTypeA" %}
-{% assign example_service_name = full_product_name | append: "-USB-EXT-1-binaryIoTypeA" %}
+### Access {{ page.product_name }} COM port from ModuCop
 
-The Binary I/O demo will stimulate the binary outputs of the {{ page.product_name }} one after another. Please supply the binary I/O groups with 24V, so when the output switch turns on, the binary I/O pin has 24V, which in turn illuminates the corresponding LED.
+Preparation Steps:
+* Ensure you have configured the network and device ID for the {{ page.product_name }} as shown above
+* Connect a PC, ModuCop, and {{ page.product_name }} to the same network, e.g. by using an Ethernet Switch or a Wifi Access Point
+* From the PC, login into the ModuCop via ssh
 
-You will see a running light on the 4 LEDs.
+#### Check whether {{ page.product_name }} COM ports are recognized on ModuCop
 
-### Connecting
+ModuCop's linux image is configured to detected COM Ports of io4edge devices automatically.
 
-Plug a mating connector to the two top connectors of the {{ page.product_name }}.
-
-{% include content/io4edge/iou01-front/mating-connectors.md %}
-
-Connect the `CI` and `CO` pins to your laboratory power supply which is set to a voltage of 24V (up to 110V).
-**Warning** Caution, voltages over 60V are dangerou! If voltages above 60 V DC are used, ensure that all necessary protective measures are taken and that only qualified personnel is using the equipment.
-{: .notice--warning}
-
-
-![Connection for Binary I/O Demo]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou01/iou01-qs-binio.svg' | relative_url }})
-
-### Demo Software
-{% include content/io4edge/io4edge-go-example.md %}
+For each detected COM port, a linux device `/dev/tty<device-ID>-com<port>` is created. For example, if your {{ page.product_name }} device ID is `{{ page.product_name }}-1`, you'll find the following tty devices:
 
 ```bash
-{{ example_exec_dir }}/{{example_name}} {{ example_service_name }}
+root@moducop-cpu01: ~# ls -l /dev/tty{{ page.product_name }}*
+crw-rw---- 1 root dialout 199, 3 Jul 28 13:33 /dev/tty{{ page.product_name }}-1-com1
+crw-rw---- 1 root dialout 199, 4 Jul 28 13:33 /dev/tty{{ page.product_name }}-1-com2
 ```
 
-You should see now the 4 LEDs of the binary I/O running.
+#### Function Test
+Now, let's make a hardware loop between the RS232 transmit and receive pin of the COM1 RS232 interface. Connect pin 2 and 3 of the COM ports D-Sub connector:
 
-## Analog Input Demo
-{% assign example_name="stream" %}
-{% assign example_path="analogInTypeA" %}
-{% assign example_service_ext="analogInTypeA1" %}
+![COM Loop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou04/iou04-qs-com-loop.svg' | relative_url }}){: style="width: 10%"}
 
-The Analog Input demo will sample one analog input of the {{ page.product_name }} for 10 seconds, with the sample rate you specify on the command line. The sampled values are printed.
+Start the `minicom` terminal program on ModuCop:
+```bash
+root@moducop-cpu01: ~# minicom -D /dev/tty{{ page.product_name }}-1-com1 -b 115200
+```
+Because we haven't connected hardware flow control lines, we have to tell minicom not to use hardware flow control:
+* Press `CTRL-A` followed by `O` (O like Omega)
+```
 
-### Connecting
+            ┌─────[configuration]──────┐
+            │ Filenames and paths      │
+            │ File transfer protocols  │
+            │ Serial port setup        │
+            │ Modem and dialing        │
+            │ Screen and keyboard      │
+            │ Save setup as dfl        │
+            │ Save setup as..          │
+            │ Exit                     │
+            └──────────────────────────┘
+```
+* Select `Serial Port Setup`
+* Press `F`
 
-Plug a mating connector to the 3rd connector from the top of the {{ page.product_name }}.
+Then hardware flow control should be off:
+```
+F - Hardware Flow Control : No
+```
+Press two times `ESC` and you are back in the main screeen of minicom.
 
-{% include content/io4edge/iou01-front/mating-connectors.md %}
+Now type some character, and you should see that the characters are echoed back, due to the hardware loop we have created!
 
-Connect the `0V` and `Uin1` pins to your laboratory power supply which is set to a voltage of 5V.
+```
+Welcome to minicom 2.7.1
 
-![Connection for Analog Input Demo]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou01/iou01-qs-anain.svg' | relative_url }})
+OPTIONS: I18n
+Compiled on Apr 18 2017, 09:55:23.
+Port /dev/tty{{ page.product_name }}-1-com1, 13:45:27
 
-### Demo Software
-{% include content/io4edge/io4edge-go-example.md %}
+Press CTRL-A Z for help on special keys
+
+dddddddddddd..ffffdddddddddddddddd
+```
+
+To leave minicom, type `CTRL-A`, followed by `x`.
+
+{% include content/tab/entry-end.md %}
+
+<!--
+==========================================================================================
+Other Linux Host TAB
+==========================================================================================
+-->
+{% include content/tab/entry-start.md %}
+
+### Access {{ page.product_name }} COM port from any Linux Host
+
+To access the {{ page.product_name }} COM ports from a linux host, the easiest way is to use the user space program `ttynvt` that creates a virtual `tty` device on the host and forwards all host accessed via network to the {{ page.product_name }}.
+
+
+#### `ttynvt` installation
+
+Requirements on linux host:
+* kernel must support FUSE (`FUSE_FS=y`)
+* `libpthread` and `libfuse` must be installed in the root filesystem.
+* git, autoconf, make, gcc installed
 
 ```bash
-/data/{{example_name}} {{ full_product_name }}-USB-EXT-1-{{ example_service_ext }} 400 | more
-```
-You should see now the sampled values together with the timestamp:
-```
-Started stream
-got stream data seq=1 ts=22224066708
-  #0: ts=22223821033 0.5076
-  #1: ts=22223823468 0.5077
-  #2: ts=22223825968 0.5076
-  #3: ts=22223828468 0.5077
-  #4: ts=22223830994 0.5077
-  #5: ts=22223833468 0.5076
-  #6: ts=22223835968 0.5077
-  #7: ts=22223838468 0.5077
-  #8: ts=22223841003 0.5077
-  #9: ts=22223843468 0.5077
-  #10: ts=22223845968 0.5076
-  #11: ts=22223848468 0.5076
-  #12: ts=22223850999 0.5076
-  #13: ts=22223853468 0.5076
-  #14: ts=22223855968 0.5077
-  #15: ts=22223858468 0.5076
-  ...
+$ git clone https://gitlab.com/ci4rail/ttynvt.git
+$ cd ttynvt
+$ autoreconf -vif
+$ ./configure
+$ make
 ```
 
-The sampled values are normalized, so the value `1.0` represents full-scale, i.e. 10 Volts.
+#### Start `ttynvt`
 
-The timestamps are expressed in microseconds since the start of the {{ page.product_name }}.
+In a first terminal, start a temporary instance of `ttynvt`.
+
+```bash
+# From the folder where you have built ttynvt
+$ sudo src/ttynvt -f -E -M 384 -m 1 -S <ip-address-of-your-device>:10000 -n ttyNVT0
+```
+
+This will create a new device `/dev/ttyNVT0`
+
+```bash
+$ ls -l /dev/ttyNVT0
+crw-rw---- 1 root dialout 384, 1 Jul 28 16:05 /dev/ttyNVT0
+```
+
+#### Function Test
+Now, let's make a hardware loop between the RS232 transmit and receive pin of the COM1 RS232 interface. Connect pin 2 and 3 of the COM ports D-Sub connector:
+
+![COM Loop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou04/iou04-qs-com-loop.svg' | relative_url }}){: style="width: 10%"}
+
+In a second terminal, start `picocom` terminal program.
+
+Then type some character, and you should see that the characters are echoed back, due to the hardware loop we have created!
+
+```bash
+$ picocom /dev/ttyNVT0 -b 115200
+...
+Terminal ready
+
+dddddddddddd..ffffdddddddddddddddd
+```
+
+To leave picocom, type `CTRL-A`, followed by `CTRL-X`.
+
+{% include content/tab/entry-end.md %}
+
+{% include content/tab/end.md %}

@@ -93,8 +93,5 @@ Total APs scanned = 2
                             OfficeRouter -53   1
 ```
 
-
-
-
 {% include content/tab/entry-end.md %}
 {% include content/tab/end.md %}
