@@ -1,155 +1,152 @@
-### Features
+<!---
+Features and connections shall be described by the including file (e.g. iou04-front/detailed-description.md)
+--->
+
+### Operating Principle of IP Based COM-Port
+
+COM ports on the {{ page.product_name }} are exposed to the network as a `ttynvt` (network virtual terminal) service. For each COM port, a TCP-Server, implementing the [RFC2217](https://datatracker.ietf.org/doc/html/rfc2217) protocol is active on the {{ page.product_name }}, each TCP-Server uses a dedicated TCP port.
+
+RFC2217 extends the telnet protocol by adding COM port configuration commands, flow control and more. In addition to RFC2217 standard, we have added a proprietary extension for {{ page.product_name }} to control half duplex operation. (See `TNS_CTL_ENABLE_RS485` and `TNS_CTL_DISABLE_RS485` in the [telnet header file](https://gitlab.com/ci4rail/ttynvt/-/blob/master/src/telnet.h))
 
 
-TBD
-### Connection
-
-TBD
-Each analogue I/O group has its own connector:
-
-![Binary I/O Groups Pricnciple]({{ '/user-docs/images/edge-solutions/moducop/io-modules/analogintypea/conn.svg' | relative_url }})
-
-| Pin | Symbol | Description          |
-| --- | ------ | -------------------- |
-| 1   | +24V   | Sensor supply output |
-| 2   | Uin    | Voltage Input        |
-| 3   | Iin    | Current Input        |
-| 4   | 0V     | Measurement Ground   |
-
-{% include content/io4edge/iou01-front/mating-connectors.md %}
-
-### Using the io4edge API to access the Analog Inputs
-
-If you haven't installed yet the io4edge client software, install it now as [described here]({{ page.url | append: "../quick-start-guide" | relative_url }}#getdemosoftware).
-
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/analogInTypeA)
-
-#### Connect to the Analog Input function
-
-To access the Analog Inputs, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
-* As a service address: `S101-IUO01-USB-EXT-1-analogInTypeA1`
-* As a IP/Port: `192.168.201.1:10000`
-
-We need this client variable for all further access methods.
-
-```go
-import (
-  time
-  log "github.com/sirupsen/logrus"
-
-  anain "github.com/ci4rail/io4edge-client-go/analogintypea"
-  "github.com/ci4rail/io4edge-client-go/functionblock"
-)
-
-func main() {
-    c, err := anain.NewClientFromUniversalAddress("S101-IUO01-USB-EXT-1-analogInTypeA1", time.Second)
-    if err != nil {
-        log.Fatalf("Failed to create anain client: %v\n", err)
-    }
-}
-```
-
-### Set the Sampling Rate
-
-The sample rate is by default set to 300Hz. To change it to a higher value, use
-
-```go
-  // set sampleRate to 1000 Hz
-  if err := c.UploadConfiguration(anain.WithSampleRate(uint32(1000))); err != nil {
-    log.Fatalf("Failed to set configuration: %v\n", err)
-  }
-```
-
-This setting remains active until you change it again or restart the device.
-
-### Reading Input Value {#readinputvalue}
-
-To read the current value of the analog input:
-
-```go
-  val, err := c.Value()
-```
-
-Where `val` is a floating point number reflecting the current value, from -1.0..+1.0, corresponding to the full scale.
-
-For voltage measurement, a value of `-1.0` corresponds to -10V, and `+1.0` corresponds to +10V.
-
-For current measurement, a value of `-1.0` corresponds to -20mA, and `+1.0` corresponds to +20mA.
-
-Note that the value is updated internally with the configured sample rate. If high accuracy is required, set the sample rate to the lowest sample rate (300Hz).
-
-### Streamed Sampling
-
-In data logger applications, you may want to record the waveform on the analog input.
-
-Therefore the API provides functions to start a *Stream*.
-
-```go
-// start stream
-err = c.StartStream()
-```
-
-Then, *Samples* are generated with the configured sample rate in the stream, each sample contains:
-* A timestamp of the sample
-* Measured value
-
-For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
-To read samples from the stream:
-
-```go
-  for {
-    // read next bucket from stream
-    sd, err := c.ReadStream(time.Second * 1)
-
-    if err != nil {
-      log.Errorf("ReadStreamData failed: %v\n", err)
-    } else {
-      samples := sd.FSData.GetSamples()
-      fmt.Printf("got stream data seq=%d ts=%d\n", sd.Sequence, sd.DeliveryTimestamp)
-
-      for i, sample := range samples {
-        fmt.Printf("  #%d: ts=%d %.4f\n", i, sample.Timestamp, sample.Value)
-      }
-    }
-  }
-```
-`sample.Value` is as described in [the section above](#readinputvalue)
-
-
-**NOTE:** At the moment, timestamps are expressed in micro seconds relative to the start of the {{ page.product_name }}. Future client libraries will map the time to the host's time domain
+**WARNING** RFC2217 is a protocol without any security measures. Please use it only in trusted, closed networks!
 {: .notice--warning}
 
-#### Controlling the Stream
+To access the COM ports from the host, you can
+* Use the [ttynvt](https://gitlab.com/ci4rail/ttynvt) program to create a virtual `/dev/tty` device for each COM port. `ttynvt` supports
+* Use pyserial's [RFC2217 support](https://pyserial.readthedocs.io/en/latest/url_handlers.html?highlight=rfc2217#rfc2217)
 
-It is possible to fine-tune the stream behavior to the application needs:
+### Using ttynvt
 
-Configure a keep alive interval, then you get a bucket latest after the configured interval, regardless whether the bucket is full or not:
+An instance of `ttynvt` must be started for each virtual RFC2217 COM port. `ttynvt` creates a device entry in `/dev`, e.g. `/dev/tty{{ page.product_name }}-com1`. Your application can then use this device as any other `tty` device in the system.
 
-```go
-  // configure stream to send the bucket at least once a second
-  err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
-  )
+{% include content/tab/start.md tabs="Ci4Rail-Linux-Image, Other-Linux" instance="host" %}
+
+<!--
+==========================================================================================
+Ci4Rail Image
+==========================================================================================
+-->
+{% include content/tab/entry-start.md %}
+#### Ci4Rail Linux Image
+
+If you are using a Linux Image from Ci4Rail, `ttynvt` instances are automatically started for each ttynvt COM port in the network via [ttynvt-runner](https://github.com/ci4rail/ttynvt-runner). `ttynvt-runner` is started as a `systemd` service.
+
+{% include content/tab/entry-end.md %}
+{% include content/tab/entry-start.md %}
+<!--
+==========================================================================================
+Non Ci4Rail Image
+==========================================================================================
+-->
+
+#### Linux Images without ttynvt support
+
+If ttynvt isn't integrated in your Linux Image, follow this section.
+
+##### Compile ttynvt
+
+{% include content/io4edge/ttynvt/build.md %}
+
+##### Start ttynvt
+
+Start ttynvt as root:
+
+```bash
+$ ttynvt -f -E -M <major-number> -m <minor-number> -S <device-ip-address>:<port-number> -n <tty-devicename>
 ```
 
-Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. For high sample rates, it is advisable to use higher numbers to reduce the load of the host and the device.
+Parameters:
 
-If number of buckets per sample is changed, the number of buffered samples for this stream in the device must be changed accordingly. As a rule of thumb, `Buffered Samples` should be two times the number of samples in the bucket.
+| Parameter         | Description                                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------- |
+| major number      | The major number that ttynvt uses for the device. Select a number that is not yet in use in your system |
+| minor number      | Provide a new minor number for each device. Select a number between 1 and 255                           |
+| device-ip-address | The IP address of your {{ page.product_name }}                                                          |
+| port-number       | The port number in your {{ page.product_name }} associated with the COM port                            |
+| tty-devicename    | The name to create for the device. E.g. `tty{{ page.product_name }} -com1`                              |
 
-```go
-  // configure stream to send the bucket at least once a second
-  // configure the samples per bucket to 100
-  // configure the buffered samples to 200
-  err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
-    functionblock.WithBucketSamples(100),
-    functionblock.WithBufferedSamples(200),
-  )
+To find the IP address and Port, ensure `avahi` and `avahi-utils` are installed on host and run `avahi-browse`. Example:
+
+```bash
+$ avahi-browse -rt _ttynvt._tcp
++ enp5s0 IPv4 {{ page.product_name }} -com1                                  _ttynvt._tcp         local
++ enp5s0 IPv4 {{ page.product_name }} -com2                                  _ttynvt._tcp         local
+= enp5s0 IPv4 {{ page.product_name }} -com1                                  _ttynvt._tcp         local
+   hostname = [{{ page.product_name }} .local]
+   address = [192.168.24.89]
+   port = [10000]
+   txt = ["funcclass=ttynvt" "security=no" "auxport=not_avail-0" "auxschema=not_avail"]
+= enp5s0 IPv4 {{ page.product_name }} -com2                                  _ttynvt._tcp         local
+   hostname = [{{ page.product_name }} .local]
+   address = [192.168.24.89]
+   port = [10001]
+   txt = ["funcclass=ttynvt" "security=no" "auxport=not_avail-0" "auxschema=not_avail"]
 ```
 
-#### Multiple Clients
+##### Autostart of ttynvt
 
-It is possible to have multiple clients active at the same time. For example:
-One client reads the current value of the analog channel, another client reads the stream
+Instead of starting `ttynvt` manually, you can use [ttynvt-runner](https://github.com/ci4rail/ttynvt-runner). `ttynvt-runner` starts `ttynvt` automatically for each virtual COM port in the network.
 
-Note that all clients use the same sampling rate on a particular analog channel.
+{% include content/tab/entry-end.md %}
+{% include content/tab/end.md %}
+
+<!--
+==========================================================================================
+End Image Tab
+==========================================================================================
+-->
+
+#### Using Half Duplex Mode with ttynvt
+
+Half duplex mode must be used with the RS485/RS422 signals on the connector. In half duplex mode, two or more participants share the Rx/Tx lines. Only one participant is allowed to drive the Tx data.
+
+To enable half duplex mode, the application must call iotcl `TIOCSRS485` on the tty device provided by `ttynvt`. In python, this can be done like this:
+
+```python
+import serial
+import serial.rs485
+import time
+import threading
+
+ser = serial.Serial(
+                port="/dev/ttyMIO04-1-com1",
+                baudrate = 115200,
+                parity=serial.PARITY_NONE,
+                stopbits=serial.STOPBITS_ONE,
+                bytesize=serial.EIGHTBITS,
+                timeout=1,
+                rtscts = False
+            )
+
+# Set half duplex operation
+ser.rs485_mode = serial.rs485.RS485Settings()
+
+ser.write(bytes("Hello World", "utf8"))
+
+data = ser.read(10)
+print("data: {}".format(data))
+```
+
+
+### Using pyserial with RFC2217
+
+`pyserial` provides a way to communicate directly with RFC2217 compliant servers, this way, `ttynvt` is not required.
+
+The following example opens the server with address/port `192.168.24.89:10000`, sets the baudrate to 192000 and sends and receives some characters:
+
+```python
+import serial
+import time
+
+ser = serial.serial_for_url("rfc2217://192.168.24.89:10000?ign_set_control")
+ser.baudrate = 19200
+
+ser.write(bytes("Hello World", "utf8"))
+
+data = ser.read(10)
+print("data: {}".format(data))
+
+```
+**WARNING** pyserial with RFC2217 does not support the proprietary extension to set the COM port into half duplex mode. Therefore half-duplex mode is not supported.
+{: .notice--warning}

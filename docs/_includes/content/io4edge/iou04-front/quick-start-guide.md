@@ -98,18 +98,7 @@ To access the {{ page.product_name }} COM ports from a linux host, the easiest w
 
 #### `ttynvt` installation
 
-Requirements on linux host:
-* kernel must support FUSE (`FUSE_FS=y`)
-* `libpthread` and `libfuse` must be installed in the root filesystem.
-* git, autoconf, make, gcc installed
-
-```bash
-$ git clone https://gitlab.com/ci4rail/ttynvt.git
-$ cd ttynvt
-$ autoreconf -vif
-$ ./configure
-$ make
-```
+{% include content/io4edge/ttynvt/build.md %}
 
 #### Start `ttynvt`
 
