@@ -1,11 +1,13 @@
 ---
 title: MIO04 Quick-Start-Guide
 excerpt: Quick startup with MIO04 extension module
-last_modified_at: 2022-07-25
+last_modified_at: 2022-08-03
 
 custom_next: /edge-solutions/modusio/mio01/detailed-description/
 product_name: MIO04
 article_group: S103
+
+
 ---
 
 {% include content/modusio/quick-start-guide.md %}

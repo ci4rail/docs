@@ -18,7 +18,7 @@ To access the COM ports from the host, you can
 
 ### Using ttynvt
 
-An instance of `ttynvt` must be started for each virtual RFC2217 COM port. `ttynvt` creates a device entry in `/dev`, e.g. `/dev/tty{{ page.product_name }}-com1`. Your application can then use this device as any other `tty` device in the system.
+An instance of `ttynvt` must be started for each virtual RFC2217 COM port. `ttynvt` creates a device entry in `/dev`, e.g. `/dev/tty{{ page.example_device_name }}-com1`. Your application can then use this device as any other `tty` device in the system.
 
 {% include content/tab/start.md tabs="Ci4Rail-Linux-Image, Other-Linux" instance="host" %}
 
@@ -64,21 +64,21 @@ Parameters:
 | minor number      | Provide a new minor number for each device. Select a number between 1 and 255                           |
 | device-ip-address | The IP address of your {{ page.product_name }}                                                          |
 | port-number       | The port number in your {{ page.product_name }} associated with the COM port                            |
-| tty-devicename    | The name to create for the device. E.g. `tty{{ page.product_name }} -com1`                              |
+| tty-devicename    | The name to create for the device. E.g. `tty{{ page.example_device_name }} -com1`                       |
 
 To find the IP address and Port, ensure `avahi` and `avahi-utils` are installed on host and run `avahi-browse`. Example:
 
 ```bash
 $ avahi-browse -rt _ttynvt._tcp
-+ enp5s0 IPv4 {{ page.product_name }} -com1                                  _ttynvt._tcp         local
-+ enp5s0 IPv4 {{ page.product_name }} -com2                                  _ttynvt._tcp         local
-= enp5s0 IPv4 {{ page.product_name }} -com1                                  _ttynvt._tcp         local
-   hostname = [{{ page.product_name }} .local]
++ enp5s0 IPv4 {{ page.example_device_name }}-com1                                  _ttynvt._tcp         local
++ enp5s0 IPv4 {{ page.example_device_name }}-com2                                  _ttynvt._tcp         local
+= enp5s0 IPv4 {{ page.example_device_name }}-com1                                  _ttynvt._tcp         local
+   hostname = [{{ page.example_device_name }}.local]
    address = [192.168.24.89]
    port = [10000]
    txt = ["funcclass=ttynvt" "security=no" "auxport=not_avail-0" "auxschema=not_avail"]
-= enp5s0 IPv4 {{ page.product_name }} -com2                                  _ttynvt._tcp         local
-   hostname = [{{ page.product_name }} .local]
+= enp5s0 IPv4 {{ page.example_device_name }}-com2                                  _ttynvt._tcp         local
+   hostname = [{{ page.example_device_name }}.local]
    address = [192.168.24.89]
    port = [10001]
    txt = ["funcclass=ttynvt" "security=no" "auxport=not_avail-0" "auxschema=not_avail"]
@@ -106,8 +106,6 @@ To enable half duplex mode, the application must call iotcl `TIOCSRS485` on the 
 ```python
 import serial
 import serial.rs485
-import time
-import threading
 
 ser = serial.Serial(
                 port="/dev/ttyMIO04-1-com1",
@@ -128,6 +126,9 @@ data = ser.read(10)
 print("data: {}".format(data))
 ```
 
+**NOTE**: In half duplex mode, the data that is sent to the line is *NOT* echoed back to the application, because the receiver is disabled while sending.
+{: .notice--info}
+
 
 ### Using pyserial with RFC2217
 
@@ -137,7 +138,6 @@ The following example opens the server with address/port `192.168.24.89:10000`, 
 
 ```python
 import serial
-import time
 
 ser = serial.serial_for_url("rfc2217://192.168.24.89:10000?ign_set_control")
 ser.baudrate = 19200
