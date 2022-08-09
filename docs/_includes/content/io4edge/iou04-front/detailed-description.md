@@ -43,7 +43,7 @@ Whether to use RS232 or RS485 is solely defined by hardware connection. It is no
 For RS485/RS422 half-duplex operation, you must externally connect the COM ports Rx pins with the corresponding Tx pin
 {: .notice--info}
 
-In RS485/RS422 mode, please add termination resistors to the end of the line. The overall termination must be 120R.
+In RS485/RS422 mode, please add termination resistors to the end of the line. The termination must be 120R at each end of the cable.
 {: .notice--info}
 
 

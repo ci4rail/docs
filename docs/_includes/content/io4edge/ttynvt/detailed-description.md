@@ -8,18 +8,20 @@ COM ports on the {{ page.product_name }} are exposed to the network as a `ttynvt
 
 RFC2217 extends the telnet protocol by adding COM port configuration commands, flow control and more. In addition to RFC2217 standard, we have added a proprietary extension for {{ page.product_name }} to control half duplex operation. (See `TNS_CTL_ENABLE_RS485` and `TNS_CTL_DISABLE_RS485` in the [telnet header file](https://gitlab.com/ci4rail/ttynvt/-/blob/master/src/telnet.h))
 
-
+{% if page.article_group == "S103" %}
 **WARNING** RFC2217 is a protocol without any security measures. Please use it only in trusted, closed networks!
 {: .notice--warning}
+{% endif %}
 
 To access the COM ports from the host, you can
-* Use the [ttynvt](https://gitlab.com/ci4rail/ttynvt) program to create a virtual `/dev/tty` device for each COM port. `ttynvt` supports
+* Use the [ttynvt](https://gitlab.com/ci4rail/ttynvt) program to create a virtual `/dev/tty` device for each COM port.
 * Use pyserial's [RFC2217 support](https://pyserial.readthedocs.io/en/latest/url_handlers.html?highlight=rfc2217#rfc2217)
 
 ### Using ttynvt
 
 An instance of `ttynvt` must be started for each virtual RFC2217 COM port. `ttynvt` creates a device entry in `/dev`, e.g. `/dev/tty{{ page.example_device_name }}-com1`. Your application can then use this device as any other `tty` device in the system.
 
+{% if page.article_group == "S103" %}
 {% include content/tab/start.md tabs="Ci4Rail-Linux-Image, Other-Linux" instance="host" %}
 
 <!--
@@ -29,9 +31,11 @@ Ci4Rail Image
 -->
 {% include content/tab/entry-start.md %}
 #### Ci4Rail Linux Image
+{% endif %}
 
 If you are using a Linux Image from Ci4Rail, `ttynvt` instances are automatically started for each ttynvt COM port in the network via [ttynvt-runner](https://github.com/ci4rail/ttynvt-runner). `ttynvt-runner` is started as a `systemd` service.
 
+{% if page.article_group == "S103" %}
 {% include content/tab/entry-end.md %}
 {% include content/tab/entry-start.md %}
 <!--
@@ -64,7 +68,7 @@ Parameters:
 | minor number      | Provide a new minor number for each device. Select a number between 1 and 255                           |
 | device-ip-address | The IP address of your {{ page.product_name }}                                                          |
 | port-number       | The port number in your {{ page.product_name }} associated with the COM port                            |
-| tty-devicename    | The name to create for the device. E.g. `tty{{ page.example_device_name }} -com1`                       |
+| tty-devicename    | The name to create for the device. E.g. `tty{{ page.example_device_name }}-com1`                        |
 
 To find the IP address and Port, ensure `avahi` and `avahi-utils` are installed on host and run `avahi-browse`. Example:
 
@@ -96,6 +100,7 @@ Instead of starting `ttynvt` manually, you can use [ttynvt-runner](https://githu
 End Image Tab
 ==========================================================================================
 -->
+{% endif %}
 
 #### Using Half Duplex Mode with ttynvt
 
@@ -108,7 +113,7 @@ import serial
 import serial.rs485
 
 ser = serial.Serial(
-                port="/dev/ttyMIO04-1-com1",
+                port="/dev/{{ page.example_device_name }}-com1",
                 baudrate = 115200,
                 parity=serial.PARITY_NONE,
                 stopbits=serial.STOPBITS_ONE,
@@ -134,12 +139,12 @@ print("data: {}".format(data))
 
 `pyserial` provides a way to communicate directly with RFC2217 compliant servers, this way, `ttynvt` is not required.
 
-The following example opens the server with address/port `192.168.24.89:10000`, sets the baudrate to 192000 and sends and receives some characters:
+The following example opens COM1 of the {{ page.product_name}} with device id `{{ page.example_device_name }}` (port 10000 is the port for `COM1`), sets the baudrate to 19200 and sends and receives some characters:
 
 ```python
 import serial
 
-ser = serial.serial_for_url("rfc2217://192.168.24.89:10000?ign_set_control")
+ser = serial.serial_for_url("rfc2217://{{ page.example_device_name }}.local:10000?ign_set_control")
 ser.baudrate = 19200
 
 ser.write(bytes("Hello World", "utf8"))

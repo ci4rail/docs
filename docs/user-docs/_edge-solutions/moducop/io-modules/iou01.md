@@ -1,7 +1,7 @@
 ---
 title: IOU01 - Rail Compliant Discrete I/O
 excerpt: IOU01 - Rail Compliant Discrete I/O Introduction.
-last_modified_at: 2022-03-21
+last_modified_at: 2022-08-09
 
 custom_next: /edge-solutions/moducop/io-modules/iou01/quick-start-guide
 product_name: IOU01
@@ -9,7 +9,7 @@ product_name: IOU01
 type: io-module
 ---
 
-Welcome to the {{ page.product_name }} documentation
+Welcome to the {{ page.product_name }} documentation.
 
 ![{{ page.product_name }} integrated in ModuCop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou01/iou01-in-moducop.png' | relative_url }})
 
@@ -25,7 +25,7 @@ Welcome to the {{ page.product_name }} documentation
 * Galvanic isolation of all inputs and outputs
 * EN 50155 compliant
 
-[TODO]: # (link to io4edeg common page)
+[TODO]: # (link to io4edge common page)
 {{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all Io4Edge devices.
 
 ## Detailed Technical Specification
