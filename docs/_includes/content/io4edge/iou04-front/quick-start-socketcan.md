@@ -1,8 +1,7 @@
 
----
-# CAN Demo using Io4Edge API
+# SocketCAN Demo
 
-In this demo, we'll demonstrate how to receive data from a CAN bus and print it to the console. This demo directly accesses the {{ page.product_name }} CAN interface via the Io4Edge API.
+In this demo, we'll demonstrate how to receive data from a CAN bus and print it to the console. This demo is using the Linux [SocketCAN framework](https://www.kernel.org/doc/html/latest/networking/can.html).
 
 {% include content/io4edge/quick-start/intro1.md %}
 * CANbus with at least one CAN device
