@@ -38,7 +38,7 @@ Want to have a quick look to the examples? See our [Github repository](https://g
 #### Connect to the Analog Input function
 
 To access the Analog Inputs, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
-* As a service address: `S101-IUO01-USB-EXT-1-analogInTypeA1`
+* As a service address: `{{ page.example_device_name }}-analogInTypeA1`
 * As a IP/Port: `192.168.201.1:10000`
 
 We need this client variable for all further access methods.

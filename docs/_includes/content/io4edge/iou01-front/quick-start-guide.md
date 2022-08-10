@@ -3,6 +3,8 @@ In this quick-start guide we will run demo programs to stimulate the {{ page.pro
 * A laboratory Power Supply capable of supplying 5V..24V/200mA.
 
 {% include content/io4edge/quick-start/intro2.md %}
+
+{% if is_iou %}
 | Service Name                              | Description            |
 | ----------------------------------------- | ---------------------- |
 | {{ mdns_service_address }}                | Core function          |
@@ -10,14 +12,23 @@ In this quick-start guide we will run demo programs to stimulate the {{ page.pro
 | {{ mdns_service_address }}-analogInTypeA1 | Analog Input channel 1 |
 | {{ mdns_service_address }}-analogInTypeA2 | Analog Input channel 2 |
 
-{% include content/io4edge/quick-start/intro3.md %}
+We need this service address in the demo programs to address the module, for example to address the binary I/O function, we would use `{{ page.example_device_name }}-binaryIoTypeA`.
 
+{% include content/io4edge/quick-start/intro3.md %}
+If your {{ page.product_name }} is in the slot next to the CPU, the output should be:
+```
++ usb_ext_1 IPv4 {{ mdns_service_address }}                          _io4edge-core._tcp   local
++ usb_ext_1 IPv4 {{ mdns_service_address }}-binaryIoTypeA            _io4edge_binaryIoTypeA._tcp local
++ usb_ext_1 IPv4 {{ mdns_service_address }}-analogInTypeA2           _io4edge_analogInTypeA._tcp local
++ usb_ext_1 IPv4 {{ mdns_service_address }}-analogInTypeA1           _io4edge_analogInTypeA._tcp local
+```
+{% endif %}
 
 ## Binary I/O Demo
 
 {% assign example_name="blinky" %}
 {% assign example_path="binaryIoTypeA" %}
-{% assign example_service_name = full_product_name | append: "-USB-EXT-1-binaryIoTypeA" %}
+{% assign example_service_name = page.example_device_name | append: "-binaryIoTypeA" %}
 
 The Binary I/O demo will stimulate the binary outputs of the {{ page.product_name }} one after another. Please supply the binary I/O groups with 24V, so when the output switch turns on, the binary I/O pin has 24V, which in turn illuminates the corresponding LED.
 
@@ -30,6 +41,7 @@ Plug a mating connector to the two top connectors of the {{ page.product_name }}
 {% include content/io4edge/iou01-front/mating-connectors.md %}
 
 Connect the `CI` and `CO` pins to your laboratory power supply which is set to a voltage of 24V (up to 110V).
+
 **Warning** Caution, voltages over 60V are dangerou! If voltages above 60 V DC are used, ensure that all necessary protective measures are taken and that only qualified personnel is using the equipment.
 {: .notice--warning}
 
@@ -48,7 +60,7 @@ You should see now the 4 LEDs of the binary I/O running.
 ## Analog Input Demo
 {% assign example_name="stream" %}
 {% assign example_path="analogInTypeA" %}
-{% assign example_service_ext="analogInTypeA1" %}
+{% assign example_service_name = page.example_device_name | append: "-analogInTypeA1" %}
 
 The Analog Input demo will sample one analog input of the {{ page.product_name }} for 10 seconds, with the sample rate you specify on the command line. The sampled values are printed.
 
@@ -66,7 +78,7 @@ Connect the `0V` and `Uin1` pins to your laboratory power supply which is set to
 {% include content/io4edge/io4edge-go-example.md %}
 
 ```bash
-/data/{{example_name}} {{ full_product_name }}-USB-EXT-1-{{ example_service_ext }} 400 | more
+/data/{{example_name}} {{ example_service_name }} 400 | more
 ```
 You should see now the sampled values together with the timestamp:
 ```
