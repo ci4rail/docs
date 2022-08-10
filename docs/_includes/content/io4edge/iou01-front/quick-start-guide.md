@@ -5,22 +5,26 @@ In this quick-start guide we will run demo programs to stimulate the {{ page.pro
 {% include content/io4edge/quick-start/intro2.md %}
 
 {% if is_iou %}
-| Service Name                              | Description            |
-| ----------------------------------------- | ---------------------- |
-| {{ mdns_service_address }}                | Core function          |
-| {{ mdns_service_address }}-binaryIoTypeA  | Binary I/O function    |
-| {{ mdns_service_address }}-analogInTypeA1 | Analog Input channel 1 |
-| {{ mdns_service_address }}-analogInTypeA2 | Analog Input channel 2 |
+| Service Name                                  | Description            |
+| --------------------------------------------- | ---------------------- |
+| {{ page.example_device_name }}                | Core function          |
+| {{ page.example_device_name }}-binaryIoTypeA  | Binary I/O function    |
+| {{ page.example_device_name }}-analogInTypeA1 | Analog Input channel 1 |
+| {{ page.example_device_name }}-analogInTypeA2 | Analog Input channel 2 |
 
 We need this service address in the demo programs to address the module, for example to address the binary I/O function, we would use `{{ page.example_device_name }}-binaryIoTypeA`.
 
 {% include content/io4edge/quick-start/intro3.md %}
 If your {{ page.product_name }} is in the slot next to the CPU, the output should be:
 ```
-+ usb_ext_1 IPv4 {{ mdns_service_address }}                          _io4edge-core._tcp   local
-+ usb_ext_1 IPv4 {{ mdns_service_address }}-binaryIoTypeA            _io4edge_binaryIoTypeA._tcp local
-+ usb_ext_1 IPv4 {{ mdns_service_address }}-analogInTypeA2           _io4edge_analogInTypeA._tcp local
-+ usb_ext_1 IPv4 {{ mdns_service_address }}-analogInTypeA1           _io4edge_analogInTypeA._tcp local
+S101-IOU01-USB-EXT-1, 192.168.201.1, S101-IOU01, <serial-number>
++-----------------------------+-------------------------------------+-------+
+|        SERVICE TYPE         |            SERVICE NAME             | PORT  |
++-----------------------------+-------------------------------------+-------+
+| _io4edge_analogInTypeA._tcp | S101-IOU01-USB-EXT-1-analogInTypeA1 | 10000 |
+| _io4edge_analogInTypeA._tcp | S101-IOU01-USB-EXT-1-analogInTypeA2 | 10001 |
+| _io4edge_binaryIoTypeA._tcp | S101-IOU01-USB-EXT-1-binaryIoTypeA  | 10002 |
++-----------------------------+-------------------------------------+-------+
 ```
 {% endif %}
 

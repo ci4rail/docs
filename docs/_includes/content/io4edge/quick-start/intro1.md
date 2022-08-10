@@ -3,12 +3,10 @@
   {% assign is_mio = true %}
   {% assign example_exec_dir = "." %}
   {% assign target_name ="target machine" %}
-  {% assign mdns_service_address = "my-given-service-name" %}
 {% else %}
   {% assign is_iou = true %}
   {% assign example_exec_dir = "/data" %}
   {% assign target_name ="Moducop" %}
-  {% assign mdns_service_address = full_product_name | append: "-USB-EXT-1" %}
 {% endif %}
 
 ## Prerequisites

@@ -6,7 +6,7 @@ ssh root@<moducop-ip>
 
 Once logged in into the Moducop Shell:
 ```bash
-avahi-browse -at | grep io4edge
+io4edge-cli scan -f
 ```
 {% endif %}
 {% if is_mio %}

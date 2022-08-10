@@ -1,7 +1,7 @@
 ---
 title: IOU04 - CAN & Serial Interfaces
 excerpt: IOU04 - CAN & Serial Interfaces Introduction.
-last_modified_at: 2022-08-09
+last_modified_at: 2022-08-10
 
 custom_next: /edge-solutions/moducop/io-modules/iou04/quick-start-guide
 product_name: IOU04
@@ -11,8 +11,7 @@ type: io-module
 
 Welcome to the {{ page.product_name }} documentation.
 
-[TODO]: # (Better picture)
-![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou04/product_in_moducop.svg' | relative_url }}){: style="width: 80%"}
+![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou04/product-in-moducop.png' | relative_url }}){: style="width: 50%"}
 
 
 {{ page.product_name }} is a serial and CAN interface extension unit for edge applications in rail & busses.
