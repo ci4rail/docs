@@ -5,7 +5,7 @@ Bus Configuration must be set once to tell the {{ page.product_name }} about the
 In this example, we assume your
 * Bitrate is 125 kBit
 * Sampling Point is 62.5%
-* Synchroization Jump Width is 1
+* Synchronization Jump Width is 1
 * Listen only mode is off (i.e. Normal operation)
 
 Configure the device. You specify a string that has the form `bitrate:sampling-point/1000:sjw:listen-only`
