@@ -46,11 +46,11 @@ We copy the binary to the `/data` folder of ModuCop, as this is a writeable, whe
 
 
 {% if is_iou %}
-```console
+```bash
 scp {{ example_name }} root@<target-ip>:/data
 ```
 {% else %}
-```console
+```bash
 scp {{ example_name }} <target-ip>:/~
 ```
 {% endif %}

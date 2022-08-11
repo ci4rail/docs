@@ -3,11 +3,25 @@
 
 In this demo, we'll demonstrate how to receive data from a CAN bus and print it to the console. This demo is using the Linux [SocketCAN framework](https://www.kernel.org/doc/html/latest/networking/can.html).
 
-{% include content/io4edge/quick-start/intro1.md %}
+## Prerequisites
+
+### Hardware
+{% if is_iou %}
+* A Moducop Edge Computer with a {{ page.product_name }} installed
+* A development PC (Windows or Linux), connected via Network to the Moducop{% else %}
+* A target machine running Linux that is in the same network as your {{ page.product_name }}
+* A development PC (Windows or Linux), connected via Network to the target machine{% endif %}
 * CANbus with at least one CAN device
 * Cable to connect the CAN device with the {{ page.product_name }}
 
-{% include content/io4edge/quick-start/intro2.md %}
+{% if is_iou %}
+
+### Determine the Service Address of your {{ page.product_name }}
+Io4Edge Devices are usually addressed by their service address, which is a name in the network.
+
+The {{ page.product_name }}'s service name depends on the ModuCop's slot and is usually
+`{{ full_product_name }}-USB-EXT-<slot-number>[-<function>]`, i.e. if the {{ page.product_name }} is in the slot next to ModuCops CPU01, we have the following service names:
+{% endif %}
 {% if is_iou %}
 | Service Name                        | Description   |
 | ----------------------------------- | ------------- |
@@ -29,27 +43,3 @@ S101-IOU04-USB-EXT-1, 192.168.201.1, S101-IOU04, <serial-number>
 +---------------------+---------------------------+-------+
 ```
 {% endif %}
-
-{% assign example_name="streamDump" %}
-{% assign example_path="canL2" %}
-{% assign example_service_name = page.example_device_name | append: "-can" %}
-
-{% include content/io4edge/iou04-front/can-config-connect.md %}
-
-### Demo Software
-{% include content/io4edge/io4edge-go-example.md %}
-
-```bash
-{{ example_exec_dir }}/{{example_name}} {{ example_service_name }}
-```
-
-Now you should see all frames that are sent on the CAN bus
-
-**TODO**
-```
-Started stream
-got stream data with 0 samples
-got stream data with 0 samples
-got stream data with 0 samples
-got stream data with 0 samples
-```

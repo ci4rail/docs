@@ -44,13 +44,17 @@ S101-IOU04-USB-EXT-1, 192.168.201.1, S101-IOU04, <serial-number>
 {{ example_exec_dir }}/{{example_name}} {{ example_service_name }}
 ```
 
-Now you should see all frames that are sent on the CAN bus
+Now you should see all frames that are sent on the CAN bus. Example:
 
-**TODO**
 ```
 Started stream
-got stream data with 0 samples
-got stream data with 0 samples
-got stream data with 0 samples
-got stream data with 0 samples
+got stream data with 3 samples
+  @56036918665 us: ID:7ff DATA:22 33 44  ERROR:CAN_NO_ERROR STATE:CAN_OK
+  @56037270984 us: ID:123 DATA:22 33 44  ERROR:CAN_NO_ERROR STATE:CAN_OK
+  @56037462740 us: ID:456 DATA:22 33 44  ERROR:CAN_NO_ERROR STATE:CAN_OK
+got stream data with 3 samples
+  @56038232385 us: ID:222 DATA:22 33 44  ERROR:CAN_NO_ERROR STATE:CAN_OK
+  @56038422757 us: ID:334 DATA:22 33 44  ERROR:CAN_NO_ERROR STATE:CAN_OK
+  @56038632969 us: ID:555 DATA:22 33 44  ERROR:CAN_NO_ERROR STATE:CAN_OK
+...
 ```
