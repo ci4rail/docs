@@ -153,5 +153,5 @@ data = ser.read(10)
 print("data: {}".format(data))
 
 ```
-**WARNING** pyserial with RFC2217 does not support the proprietary extension to set the COM port into half duplex mode. Therefore half-duplex mode is not supported.
-{: .notice--warning}
+**NOTE** pyserial with RFC2217 does not support the proprietary extension to set the COM port into half duplex mode. Therefore half-duplex mode is not supported.
+{: .notice--info}
