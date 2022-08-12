@@ -2,8 +2,6 @@
 main:
   - title: Quick-Start Guide
     navitems:
-      - title: EdgeFarm
-        url: /edgefarm/quick-start-guide/
       - title: ModuCop
         url: /edge-solutions/moducop/quick-start-guide/
       - title: ModuSio
