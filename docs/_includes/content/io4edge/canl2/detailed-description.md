@@ -1,125 +1,155 @@
+{% assign example_service_name = page.example_device_name | append: "-can" %}
 ### Features
 
+* ISO 11898 CANBus Interface, up to 1MBit/s
+* Usable for direct I/O or as data logger with multiple data streams.
+* SocketCAN Support
+* Standard and Extended Frame Support
+* RTR Frame Support
+* Optional Listen Only Mode
+* One Acceptance Mask/Filter
 
-TBD
 ### Connection
 
-TBD
-Each analogue I/O group has its own connector:
+Connection is done via 9-pin DSub plug:
 
-![Binary I/O Groups Pricnciple]({{ '/user-docs/images/edge-solutions/moducop/io-modules/analogintypea/conn.svg' | relative_url }})
+| Pin | Symbol  | Description                |
+| --- | ------- | -------------------------- |
+| 1   | -       | Not connected              |
+| 2   | CAN_L   | CAN Signal (dominant low)  |
+| 3   | GND_ISO | CAN Ground                 |
+| 4   | -       | Not connected              |
+| 5   | SHIELD  | Shield                     |
+| 6   | GND_ISO | CAN Ground                 |
+| 7   | CAN_H   | CAN Signal (dominant high) |
+| 8   | -       | Not connected              |
+| 9   | -       | Not connected              |
 
-| Pin | Symbol | Description          |
-| --- | ------ | -------------------- |
-| 1   | +24V   | Sensor supply output |
-| 2   | Uin    | Voltage Input        |
-| 3   | Iin    | Current Input        |
-| 4   | 0V     | Measurement Ground   |
 
-{% include content/io4edge/iou01-front/mating-connectors.md %}
+### Using the io4edge API to access CAN Function
 
-### Using the io4edge API to access the Analog Inputs
+If you haven't installed yet the io4edge client software, install it now as [described here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#getdemosoftware).
 
-If you haven't installed yet the io4edge client software, install it now as [described here]({{ page.url | append: "../quick-start-guide" | relative_url }}#getdemosoftware).
+Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/canL2)
 
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/analogInTypeA)
+#### Connect to the CAN Function
 
-#### Connect to the Analog Input function
-
-To access the Analog Inputs, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
-* As a service address: `S101-IUO01-USB-EXT-1-analogInTypeA1`
-* As a IP/Port: `192.168.201.1:10000`
+To access the CAN Function, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
+* As a service address: `{{ example_service_name }}`
+* As a IP/Port: e.g. `192.168.201.1:10002`
 
 We need this client variable for all further access methods.
 
 ```go
 import (
-  time
-  log "github.com/sirupsen/logrus"
-
-  anain "github.com/ci4rail/io4edge-client-go/analogintypea"
-  "github.com/ci4rail/io4edge-client-go/functionblock"
+	"fmt"
+	"os"
+	"time"
+	"github.com/ci4rail/io4edge-client-go/canl2"
+	fspb "github.com/ci4rail/io4edge_api/canL2/go/canL2/v1alpha1"
 )
 
 func main() {
-    c, err := anain.NewClientFromUniversalAddress("S101-IUO01-USB-EXT-1-analogInTypeA1", time.Second)
-    if err != nil {
-        log.Fatalf("Failed to create anain client: %v\n", err)
-    }
+  const timeout = 0 // use default timeout
+
+	c, err := canl2.NewClientFromUniversalAddress({{ example_service_name }}, timeout)
+	if err != nil {
+		log.Fatalf("Failed to create canl2 client: %v\n", err)
+	}
 }
 ```
 
-### Set the Sampling Rate
+#### Bus Configuration
 
-The sample rate is by default set to 300Hz. To change it to a higher value, use
+There are two ways to configure the CAN function:
 
-```go
-  // set sampleRate to 1000 Hz
-  if err := c.UploadConfiguration(anain.WithSampleRate(uint32(1000))); err != nil {
-    log.Fatalf("Failed to set configuration: %v\n", err)
-  }
-```
+* Using a peristent parameter that is stored in the flash of the {{ page.product_name }}, as described [here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration).
+* Temporarily, via the io4edge CANL2 API, as shown below
 
-This setting remains active until you change it again or restart the device.
+##### Temporary Bus Configuration
 
-### Reading Input Value {#readinputvalue}
+Bus Configuration can be set via `UploadConfiguration`. All settings remains active until you change it again or restart the device.
 
-To read the current value of the analog input:
+When the device is restarted, it will apply the persistent configuration stored in flash, or - if no persistent configuration is available, will keep the CAN controller disabled.
 
 ```go
-  val, err := c.Value()
+	err = c.UploadConfiguration(
+		canl2.WithBitRate(125000),
+		canl2.WithSamplePoint(0.625),
+		canl2.WithSJW(1),
+		canl2.WithListenOnly(false),
+	)
 ```
 
-Where `val` is a floating point number reflecting the current value, from -1.0..+1.0, corresponding to the full scale.
+#### Receiving CAN Data
 
-For voltage measurement, a value of `-1.0` corresponds to -10V, and `+1.0` corresponds to +10V.
+To receive data from the CANbus, the API provides functions to start a *Stream*.
 
-For current measurement, a value of `-1.0` corresponds to -20mA, and `+1.0` corresponds to +20mA.
-
-Note that the value is updated internally with the configured sample rate. If high accuracy is required, set the sample rate to the lowest sample rate (300Hz).
-
-### Streamed Sampling
-
-In data logger applications, you may want to record the waveform on the analog input.
-
-Therefore the API provides functions to start a *Stream*.
-
+Without any parameters, the stream receives all CAN frames:
 ```go
 // start stream
 err = c.StartStream()
 ```
 
-Then, *Samples* are generated with the configured sample rate in the stream, each sample contains:
+Then, *Samples* are generated. Each sample contains:
 * A timestamp of the sample
-* Measured value
+* The CAN frame (may be missing in case of bus state changes or error events)
+* The CANBus state (Ok, error passive or bus off)
+* Error events (currently: receive buffer overrungs)
 
 For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
 To read samples from the stream:
 
 ```go
-  for {
-    // read next bucket from stream
-    sd, err := c.ReadStream(time.Second * 1)
+	for {
+		// read next bucket from stream
+		sd, err := c.ReadStream(time.Second * 5)
 
-    if err != nil {
-      log.Errorf("ReadStreamData failed: %v\n", err)
-    } else {
-      samples := sd.FSData.GetSamples()
-      fmt.Printf("got stream data seq=%d ts=%d\n", sd.Sequence, sd.DeliveryTimestamp)
+		if err != nil {
+			log.Printf("ReadStreamData failed: %v\n", err)
+		} else {
+			samples := sd.FSData.Samples
+			fmt.Printf("got stream data with %d samples\n", len(samples))
 
-      for i, sample := range samples {
-        fmt.Printf("  #%d: ts=%d %.4f\n", i, sample.Timestamp, sample.Value)
-      }
-    }
+			for _, s := range samples {
+				fmt.Printf("  %s\n", dumpSample(s))
+			}
+		}
   }
-```
-`sample.Value` is as described in [the section above](#readinputvalue)
 
+func dumpSample(sample *fspb.Sample) string {
+	var s string
+
+	s = fmt.Sprintf("@%010d us: ", sample.Timestamp)
+	if sample.IsDataFrame {
+		f := sample.Frame
+		s += "ID:"
+		if f.ExtendedFrameFormat {
+			s += fmt.Sprintf("%08x", f.MessageId)
+		} else {
+			s += fmt.Sprintf("%03x", f.MessageId)
+		}
+		if f.RemoteFrame {
+			s += " R"
+		}
+		s += " DATA:"
+		for _, b := range f.Data {
+			s += fmt.Sprintf("%02x ", b)
+		}
+		s += " "
+	}
+	s += "ERROR:" + sample.Error.String()
+	s += " STATE:" + sample.ControllerState.String()
+
+	return s
+}
+
+```
 
 **NOTE:** At the moment, timestamps are expressed in micro seconds relative to the start of the {{ page.product_name }}. Future client libraries will map the time to the host's time domain
 {: .notice--warning}
 
-#### Controlling the Stream
+##### Controlling the Stream
 
 It is possible to fine-tune the stream behavior to the application needs:
 
@@ -132,24 +162,89 @@ Configure a keep alive interval, then you get a bucket latest after the configur
   )
 ```
 
-Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. For high sample rates, it is advisable to use higher numbers to reduce the load of the host and the device.
+Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. This means, the bucket is sent when at least 25 samples are available.
 
-If number of buckets per sample is changed, the number of buffered samples for this stream in the device must be changed accordingly. As a rule of thumb, `Buffered Samples` should be two times the number of samples in the bucket.
+If you want low latency on the received data, you can change the number of samples per bucket to 1. Then the bucket is sent already with the first frame that arrives. However, subsequent buckets may contain more samples, if already more samples are in the internal buffer.
+
+Furthermore, you can configure the number of buffered samples. Select a higher number if your receive process is slow to avoid buffer overruns.
+
 
 ```go
   // configure stream to send the bucket at least once a second
-  // configure the samples per bucket to 100
+  // configure the samples per bucket to 1
   // configure the buffered samples to 200
   err = c.StartStream(
     functionblock.WithKeepAliveInterval(1000),
-    functionblock.WithBucketSamples(100),
+    functionblock.WithBucketSamples(1),
     functionblock.WithBufferedSamples(200),
   )
 ```
+
+If you don't want to receive all CAN identifiers, you can specify an acceptance code and mask that is applied to each received frame. The filter algorithm is `pass_filter = (code & mask) == (received_frame_id & mask)`.
+The same filter is applied to extended frames and standard frames.
+
+```go
+  // apply a filter. Frames with an identifier of 0x1xx pass the filter, other frames are filtered out
+  err = c.StartStream(
+    code := 0x100
+    mask := 0x700
+    canl2.WithFilter(code, mask),
+  )
+```
+
+#### Error Indications and Bus State
+
+TODO
+
+### Sending CAN Data
+
+To send CAN data, prepare a batch of frames to be sent and call `SendFrames`.
+
+```go
+    // prepare batch of 10 frames
+    frames := []*fspb.Frame{}
+
+    for j := 0; j < 10; j++ {
+			f := &fspb.Frame{
+				MessageId:           uint32(0x100 + (i & 0xFF)),
+				Data:                []byte{},
+				ExtendedFrameFormat: *extended,
+				RemoteFrame:         *rtr,
+			}
+			len := j % 8
+			for k := 0; k < len; k++ {
+				f.Data = append(f.Data, byte(j))
+			}
+
+			frames = append(frames, f)
+		}
+    // send frames at once
+		err = c.SendFrames(frames)
+
+		if err != nil {
+			log.Printf("Send failed: %v\n", err)
+		}
+
+```
+If you want a high send throughput, it is important *not* to call `SendFrames` with only a single frame. If you do so, overhead of the transmission to the io4edge will reduce your send bandwith.
+
+The maximum number of frames you can send with one batch is `31`.
+
+You can't send frames and `SendFrames` will return an error in the following scenarios:
+
+| Condition                       | Error Code              |
+| ------------------------------- | ----------------------- |
+| No CANbus Configuration applied | UNSPECIFIC_ERROR        |
+| Configured for listen only mode | UNSPECIFIC_ERROR        |
+| Firmware Update in progress     | TEMPORARILY_UNAVAILABLE |
+| Transmit buffer full            | TEMPORARILY_UNAVAILABLE |
+| CANBus State is BUS OFF         | HW_FAULT                |
+
+In case the firmware's transmit buffer is full, the firmware will send *none* of the frames and return TEMPORARILY_UNAVAILABLE error. Therefore you can retry later with the same set of frames.
+
+### Bus Off Handling
 
 #### Multiple Clients
 
 It is possible to have multiple clients active at the same time. For example:
 One client reads the current value of the analog channel, another client reads the stream
-
-Note that all clients use the same sampling rate on a particular analog channel.

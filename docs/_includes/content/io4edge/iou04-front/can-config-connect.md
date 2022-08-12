@@ -1,4 +1,4 @@
-## Bus Configuration
+## Bus Configuration {#busconfiguration}
 
 Bus Configuration must be set once to tell the {{ page.product_name }} about the CAN parameters. This configuration is saved *persistently* in the device. You only need to perform this configuration step once, it survives reboots and power cycles.
 
