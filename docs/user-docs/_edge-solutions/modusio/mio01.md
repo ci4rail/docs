@@ -1,7 +1,7 @@
 ---
 title: MIO01 - Rail Compliant Discrete I/O
 excerpt: MIO01 - Rail Compliant Discrete I/O Introduction.
-last_modified_at: 2022-03-21
+last_modified_at: 2022-08-12
 
 custom_next: /edge-solutions/modusio/mio01/quick-start-guide
 product_name: MIO01
@@ -26,8 +26,7 @@ Welcome to the {{ page.product_name }} documentation
 * Galvanic isolation of all inputs and outputs
 * EN 50155 compliant
 
-[TODO]: # (link to io4edeg common page)
-{{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all Io4Edge devices.
+{{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all [Io4Edge devices]({{ '/edge-solutions/io4edge' | relative_url }}).
 
 ## Detailed Technical Specification
 

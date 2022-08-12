@@ -1,7 +1,7 @@
 ---
 title: IOU04 - CAN & Serial Interfaces
 excerpt: IOU04 - CAN & Serial Interfaces Introduction.
-last_modified_at: 2022-08-10
+last_modified_at: 2022-08-12
 
 custom_next: /edge-solutions/moducop/io-modules/iou04/quick-start-guide
 product_name: IOU04
@@ -28,11 +28,8 @@ Welcome to the {{ page.product_name }} documentation.
 * Galvanic isolation of all inputs and outputs
 * EN 50155 compliant
 
-[TODO]: # (link to io4edge common page)
-{{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all Io4Edge devices.
+{{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all [Io4Edge devices]({{ '/edge-solutions/io4edge' | relative_url }}).
 
 ## Detailed Technical Specification
 
-[TODO]: # (INSERT DATA SHEET)
-
-Please refer to the [Data Sheet](https://www.ci4rail.com/wp-content/uploads/2022/04/IOU04_DS_en.pdf)
+(Coming Soon)

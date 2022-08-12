@@ -14,6 +14,8 @@ ModuSio devices are Class 2 (3,84–6,49 W) PoE powered devices. Connect the Mod
 
 ![PoE connection]({{ '/user-docs/images/edge-solutions/modusio/modusio-poe.svg' | relative_url }}){: style="width: 100%"}
 
+The green LED on the {{ page.product_name }} is flashing to indicate power is ok and firmware is up and running.
+
 {% include content/modusio/quick-start/initial-config.md %}
 
 #### Select Ethernet as Host Interface
@@ -41,6 +43,8 @@ You can ignore the message: `Can't set wifi-ssid: ESP_ERR_NVS_NOT_FOUND`. This i
 When using Wifi, supply the ModuSio by a power supply, capable of delivering 12V..24VDC, 5W. Use contacts 5+6 and 7+8 to supply the power. Polarity doesn't matter.
 
 ![Wifi connection]({{ '/user-docs/images/edge-solutions/modusio/modusio-wifi.svg' | relative_url }}){: style="width: 100%"}
+
+The green LED on the {{ page.product_name }} is flashing to indicate power is ok and firmware is up and running.
 
 {% include content/modusio/quick-start/initial-config.md %}
 

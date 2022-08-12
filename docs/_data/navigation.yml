@@ -7,7 +7,7 @@ main:
       - title: ModuCop
         url: /edge-solutions/moducop/quick-start-guide/
       - title: ModuSio
-        url: /edge-solutions/modusio/overview
+        url: /edge-solutions/modusio
   - title: "User Manual"
     navitems:
       - title: EdgeFarm
