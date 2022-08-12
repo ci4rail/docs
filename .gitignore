@@ -1,2 +1,5 @@
 #dobi build tool
-.dobi
+*.dobi
+#drawio backup files
+*.dtmp
+*.bkp
