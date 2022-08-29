@@ -182,10 +182,10 @@ Furthermore, you can configure the number of buffered samples. Select a higher n
   // configure low latency mode
   // configure the buffered samples to 200
   err = c.StartStream(
-			canl2.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
-			canl2.WithFBStreamOption(functionblock.WithBucketSamples(25)),
-			canl2.WithFBStreamOption(functionblock.WithLowLatencyMode(true))
-			canl2.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
+      canl2.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
+      canl2.WithFBStreamOption(functionblock.WithBucketSamples(25)),
+      canl2.WithFBStreamOption(functionblock.WithLowLatencyMode(true))
+      canl2.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
   )
 ```
 
@@ -246,7 +246,7 @@ To send CAN data, prepare a batch of frames to be sent and call `SendFrames`.
     }
 
 ```
-If you want a high send throughput, it is important *not* to call `SendFrames` with only a single frame. If you do so, overhead of the transmission to the io4edge will reduce your send bandwith.
+If you want a high send throughput, it is important *not* to call `SendFrames` with only a single frame. If you do so, overhead of the transmission to the io4edge will reduce your send bandwidth.
 
 The maximum number of frames you can send with one batch is `31`.
 
