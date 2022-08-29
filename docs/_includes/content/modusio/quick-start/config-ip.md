@@ -19,11 +19,11 @@ config> reboot
 ```
 
 ##### Setup Static IP
-To use a static IP address, configure the IP-Address, Gateway and Network Mask using the `static-ip` command. The three parameters have to be specified as a single string, separated by colons (`:`), `<ip>:<gateway>:<netmask`>`.
+To use a static IP address, configure the IP-Address, Gateway and Network Mask using the `static-ip` command. The three parameters have to be specified as a single string, separated by colons (`:`), `<ip>:<netmask>:<gateway>`>`.
 
 ```
-config> static-ip 192.168.1.56:192.168.1.1:255.255.255.0
-Setting static-ip to '192.168.1.56:192.168.1.1:255.255.255.0'
+config> static-ip 192.168.1.56:255.255.255.0:192.168.1.1
+Setting static-ip to '192.168.1.56:255.255.255.0:192.168.1.1'
 A 'reboot' is required to activate the new setting!
 ```
 Activate the changes:

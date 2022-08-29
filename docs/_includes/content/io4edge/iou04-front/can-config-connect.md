@@ -4,7 +4,7 @@ Bus Configuration must be set once to tell the {{ page.product_name }} about the
 
 In this example, we assume your
 * Bitrate is 125 kBit
-* Sampling Point is 62.5%
+* Sampling Point is 0.625 (62.5%)
 * Synchronization Jump Width is 1
 * Listen only mode is off (i.e. Normal operation)
 
@@ -13,7 +13,17 @@ Configure the device. You specify a string that has the form `bitrate:sampling-p
 On your {{target_name}}, run:
 ```bash
 io4edge-cli -d {{ page.example_device_name }} set-parameter can-config 125000:625:1:0
+# Restart to apply parameters
+io4edge-cli -d {{ page.example_device_name }} restart
 ```
+
+{% if is_mio %}
+Alternatively, you can define the CAN configuration via the `SERVICE` interface and the config menu:
+```
+config> can-config 125000:625:1:0
+config> reboot
+```
+{% endif %}
 
 ### Connecting
 

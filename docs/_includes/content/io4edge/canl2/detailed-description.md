@@ -52,7 +52,7 @@ import (
 func main() {
   const timeout = 0 // use default timeout
 
-  c, err := canl2.NewClientFromUniversalAddress({{ example_service_name }}, timeout)
+  c, err := canl2.NewClientFromUniversalAddress("{{ example_service_name }}", timeout)
   if err != nil {
     log.Fatalf("Failed to create canl2 client: %v\n", err)
   }
@@ -90,6 +90,13 @@ Without any parameters, the stream receives all CAN frames:
 // start stream
 err = c.StartStream()
 ```
+Missing parameters to ´StartStrem` will take default values:
+* Filter off (let all CAN frames pass through)
+* Maximum samples per bucket: 25
+* Buffered Samples: 50
+* Keep Alive Interval: 1000ms
+* Low Latency Mode: off
+
 
 In the stream the firmware generates *Buckets*, where each Bucket contains a number of *Samples*. Each sample contains:
 * A timestamp of the sample
@@ -158,25 +165,27 @@ Configure a keep alive interval, then you get a bucket latest after the configur
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
+    fspb.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
   )
 ```
 
 Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. This means, the bucket is sent when at least 25 samples are available.
 
-If you want low latency on the received data, you can change the number of samples per bucket to 1. Then the bucket is sent already with the first frame that arrives. However, subsequent buckets may contain more samples, if already more samples are in the internal buffer.
+If you want low latency on the received data, you can enable the "low latency" mode. In this mode, samples are sent as soon as possibles after they have been received. This means that the buckets contain 1..<samples-per-bucket> samples.
 
 Furthermore, you can configure the number of buffered samples. Select a higher number if your receive process is slow to avoid buffer overruns.
 
 
 ```go
   // configure stream to send the bucket at least once a second
-  // configure the samples per bucket to 1
+  // configure the maximum samples per bucket to 25
+  // configure low latency mode
   // configure the buffered samples to 200
   err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
-    functionblock.WithBucketSamples(1),
-    functionblock.WithBufferedSamples(200),
+			canl2.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
+			canl2.WithFBStreamOption(functionblock.WithBucketSamples(25)),
+			canl2.WithFBStreamOption(functionblock.WithLowLatencyMode(true))
+			canl2.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
   )
 ```
 
@@ -185,9 +194,9 @@ The same filter is applied to extended frames and standard frames.
 
 ```go
   // apply a filter. Frames with an identifier of 0x1xx pass the filter, other frames are filtered out
+  code := 0x100
+  mask := 0x700
   err = c.StartStream(
-    code := 0x100
-    mask := 0x700
     canl2.WithFilter(code, mask),
   )
 ```
@@ -257,7 +266,7 @@ In case the firmware's transmit buffer is full, the firmware will send *none* of
 
 When the CAN controller detects serious communication problems, it enters "Bus off" state. In this state, the CAN controller cannot communicate anymore with the bus.
 
-When bus off state is entered, The firmware waits 3 seconds and the resets the CAN controller.
+When bus off state is entered, The firmware waits 3 seconds and then resets the CAN controller.
 
 ##### Multiple Clients
 
