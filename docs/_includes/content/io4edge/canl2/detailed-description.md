@@ -90,7 +90,7 @@ Without any parameters, the stream receives all CAN frames:
 // start stream
 err = c.StartStream()
 ```
-Missing parameters to ´StartStrem` will take default values:
+Missing parameters to ´StartStream` will take default values:
 * Filter off (let all CAN frames pass through)
 * Maximum samples per bucket: 25
 * Buffered Samples: 50
