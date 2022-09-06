@@ -102,6 +102,7 @@ End Image Tab
 -->
 {% endif %}
 
+
 #### Using Half Duplex Mode with ttynvt
 
 Half duplex mode must be used with the RS485/RS422 signals on the connector. In half duplex mode, two or more participants share the Rx/Tx lines. Only one participant is allowed to drive the Tx data.
@@ -155,3 +156,13 @@ print("data: {}".format(data))
 ```
 **NOTE** pyserial with RFC2217 does not support the proprietary extension to set the COM port into half duplex mode. Therefore half-duplex mode is not supported.
 {: .notice--info}
+
+
+### Considerations when running with Handshaking enabled
+
+The COM port supports hardware (CTS/RTS) and software (XON/XOFF) handshaking for flow control. A receiver may stop the sender by de-asserting CTS or sending an XOFF character.
+
+However, be aware about the following behaviour:
+When the {{ page.product_name }} is the sender and the connected receiver forces the transmission to stop, the {{ page.product_name }} may hang until the transmission is re-enabled again by the receiver. Even if you stop the transmitting process, the firmware will not accept any new connection request until its transmit buffer gets empty.
+
+If you run into such a situation and the receiver will never re-enable the transmission (for example because you have selected hardware handshake but you haven't connected CTS), you must restart the {{ page.product_name }}, for example using the `io4edge-cli`.
