@@ -32,6 +32,7 @@ S101-IOU01-USB-EXT-1, 192.168.201.1, S101-IOU01, <serial-number>
 
 {% assign example_name="blinky" %}
 {% assign example_path="binaryIoTypeA" %}
+{% assign example_service_ext="binaryIoTypeA" %}
 {% assign example_service_name = page.example_device_name | append: "-binaryIoTypeA" %}
 
 The Binary I/O demo will stimulate the binary outputs of the {{ page.product_name }} one after another. Please supply the binary I/O groups with 24V, so when the output switch turns on, the binary I/O pin has 24V, which in turn illuminates the corresponding LED.
@@ -64,6 +65,7 @@ You should see now the 4 LEDs of the binary I/O running.
 ## Analog Input Demo
 {% assign example_name="stream" %}
 {% assign example_path="analogInTypeA" %}
+{% assign example_service_ext="analogInTypeA" %}
 {% assign example_service_name = page.example_device_name | append: "-analogInTypeA1" %}
 
 The Analog Input demo will sample one analog input of the {{ page.product_name }} for 10 seconds, with the sample rate you specify on the command line. The sampled values are printed.

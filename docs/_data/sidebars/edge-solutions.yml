@@ -64,6 +64,13 @@ sidebar:
                   url: /edge-solutions/moducop/io-modules/iou04/quick-start-guide/
                 - title: Detailed-Description
                   url: /edge-solutions/moducop/io-modules/iou04/detailed-description/
+            - title: IOU07 - Digital I/O
+              url: /edge-solutions/moducop/io-modules/iou07/
+              navitems:
+                - title: Quick-Start-Guide
+                  url: /edge-solutions/moducop/io-modules/iou07/quick-start-guide/
+                - title: Detailed-Description
+                  url: /edge-solutions/moducop/io-modules/iou07/detailed-description/
     - title: ModuSio
       url: /edge-solutions/modusio/
       navitems:
