@@ -226,7 +226,7 @@ Configure a keep alive interval, then you get a bucket latest after the configur
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
+    binio.WithFBStreamOption(funcfunctionblock.WithKeepAliveInterval(1000)),
   )
 ```
 
@@ -236,8 +236,8 @@ Configure the number of samples per bucket. By default, a bucket contains max. 2
   // configure stream to send the bucket at least once a second
   // configure the bucket to contain only one sample, so each transition is immediately send
   err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
-    functionblock.WithBucketSamples(1),
+    binio.WithFBStreamOption(functionblock.WithKeepAliveInterval(1000)),
+    binio.WithFBStreamOption((functionblock.WithBucketSamples(1)),
   )
 ```
 

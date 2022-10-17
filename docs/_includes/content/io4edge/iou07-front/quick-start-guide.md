@@ -41,10 +41,9 @@ Plug a mating connector to the two top connectors of the {{ page.product_name }}
 
 {% include content/io4edge/iou07-front/mating-connectors.md %}
 
-Connect the `24V` and `GND` pins to your laboratory power supply which is set to a voltage of 18..36V.
+Connect the `+` and `-` pins of the first I/O group to your laboratory power supply which is set to a voltage of 18..36V.
 
-TODO
-![Connection for Binary I/O Demo]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou01/iou01-qs-binio.svg' | relative_url }})
+![Connection for Binary I/O Demo]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou07/iou07-qs.svg' | relative_url }})
 
 ### Demo Software
 {% include content/io4edge/io4edge-go-example.md %}
@@ -53,4 +52,4 @@ TODO
 {{ example_exec_dir }}/{{example_name}} {{ example_service_name }}
 ```
 
-You should see now the 4 LEDs of the binary I/O running.
+You should see now the first 4 LEDs of the {{page.product_name}} running.

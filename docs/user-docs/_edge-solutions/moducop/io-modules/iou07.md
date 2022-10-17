@@ -1,7 +1,7 @@
 ---
 title: IOU07 - Digital I/O Extension
 excerpt: IOU07 - 16 Channel Digital I/O Extension
-last_modified_at: 2022-10-16
+last_modified_at: 2022-10-17
 
 custom_next: /edge-solutions/moducop/io-modules/iou07/quick-start-guide
 product_name: IOU07
@@ -11,11 +11,10 @@ type: io-module
 
 Welcome to the {{ page.product_name }} documentation.
 
-TODO
-![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou04/product-in-moducop.png' | relative_url }}){: style="width: 50%"}
+![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou07/product-in-moducop.png' | relative_url }}){: style="width: 50%"}
 
 
-{{ page.product_name }} is a serial and CAN interface extension unit for edge applications in rail & busses.
+{{ page.product_name }} is a digital I/O extension unit for edge applications in rail & busses.
 
 # Features
 
