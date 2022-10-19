@@ -1,4 +1,4 @@
-In this quick-start guide we will run demo programs to stimulate the {{ page.product_name }}'s binary I/Os.
+In this quick-start guide we will run a demo program to stimulate the {{ page.product_name }}'s binary I/Os.
 {% include content/io4edge/quick-start/intro1.md %}
 * A laboratory Power Supply capable of supplying 5V..24V/200mA.
 
@@ -37,7 +37,7 @@ You will see a running light on the 4 LEDs.
 
 ### Connecting
 
-Plug a mating connector to the two top connectors of the {{ page.product_name }}.
+Plug a mating connector to the top connector of the {{ page.product_name }}.
 
 {% include content/io4edge/iou07-front/mating-connectors.md %}
 
