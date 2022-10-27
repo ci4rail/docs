@@ -4,9 +4,11 @@ In this quick-start guide we will run demo programs that dump the frames on the 
 {% include content/io4edge/quick-start/intro1.md %}
 For MVB Demo:
 * MVB bus with at least a Master and a Slave
+
 For CAN Demo:
 * CANbus with at least two CAN devices
 * Cable to connect the CAN device with the {{ page.product_name }}
+
 {% include content/io4edge/quick-start/intro2.md %}
 
 {% if is_iou %}
@@ -35,7 +37,7 @@ S101-IOU03-USB-EXT-1, 192.168.201.1, S103-IOU01, <serial-number>
 
 {% assign example_name="stream" %}
 {% assign example_path="mvbSniffer" %}
-{% assign example_service_ext="mvbSniffer" %}
+{% assign example_service_ext="-mvbSniffer" %}
 {% assign example_service_name = page.example_device_name | append: example_service_ext %}
 
 The MVB loop demo will use the {{ page.product_name }} internal MVB frame generator to simulate frames on the MVB. The generated frames do not leave the {{ page.product_name }}. They are internally looped back in the  {{ page.product_name }}.

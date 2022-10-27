@@ -88,6 +88,13 @@ sidebar:
               url: /edge-solutions/modusio/mio01/quick-start-guide/
             - title: Detailed-Description
               url: /edge-solutions/modusio/mio01/detailed-description/
+        - title: MIO03 - MVB/CAN Sniffer
+          url: /edge-solutions/modusio/mio03/
+          navitems:
+            - title: Quick-Start-Guide
+              url: /edge-solutions/modusio/mio03/quick-start-guide/
+            - title: Detailed-Description
+              url: /edge-solutions/modusio/mio03/detailed-description/
         - title: MIO04 - CAN & Serial Interfaces
           url: /edge-solutions/modusio/mio04/
           navitems:

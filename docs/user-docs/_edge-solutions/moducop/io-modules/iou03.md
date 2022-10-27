@@ -26,6 +26,4 @@ Welcome to the {{ page.product_name }} documentation.
 
 {{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all [Io4Edge devices]({{ '/edge-solutions/io4edge' | relative_url }}).
 
-## Detailed Technical Specification
-
-(Coming Soon)
+Find more detailed informtion in the [Data Sheet](https://www.ci4rail.com/wp-content/uploads/2021/10/IOU03_DS_en.pdf)
