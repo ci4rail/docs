@@ -12,7 +12,7 @@ In this demo, we'll demonstrate how to receive data from a CAN bus and print it 
 
 {% if is_mio %}
 
-**WARNING** This documentation assumes that ModuCop is your target. Users of other Linux machines: Please install our Open Source [socketcan-io4edge](https://github.com/ci4rail/socketcan-io4edge/tree/initial) solution on your target.
+**WARNING** This documentation assumes that ModuCop is your target. Users of other Linux machines: Please install our Open Source [socketcan-io4edge](https://github.com/ci4rail/socketcan-io4edge) solution on your target.
 {: .notice--warning}
 
 {% endif %}
@@ -60,7 +60,7 @@ The virtual socket CAN network must be named according to {{ page.product_name }
 
 * Service Name `S101-IOU04-USB-EXT-1-can` -> vcan name `vcanS101xxEXT-1`
 * Service Name `123456789012-can` -> vcan name `vcan1234xx89012`
-* Service Name `MIO04-1-can` -> vcan name `{{ page.socketcan_name }}`
+* Service Name `MIO04-1-can` -> vcan name `vcanMIO04-1`
 
 
 Now, create a virtual socketCAN network. On your {{ target_name }}, execute:
