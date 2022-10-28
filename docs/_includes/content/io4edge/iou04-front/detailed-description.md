@@ -51,4 +51,4 @@ In RS485/RS422 mode, please add termination resistors to the end of the line. Th
 
 ## CANBus Interface
 The {{ page.product_name }} has one CANBus interfaces, labelled `CAN`.
-{% include content/io4edge/canl2/detailed-description.md %}
+{% include content/io4edge/canl2/detailed-description.md listenonly="false" %}

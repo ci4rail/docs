@@ -1,7 +1,7 @@
 ---
 title: MIO01 - Rail Compliant Discrete I/O
-excerpt: MIO01 - Rail Compliant Discrete I/O Introduction.
-last_modified_at: 2022-08-12
+excerpt: MIO01 - Rail Compliant Discrete I/O.
+last_modified_at: 2022-10-28
 
 custom_next: /edge-solutions/modusio/mio01/quick-start-guide
 product_name: MIO01

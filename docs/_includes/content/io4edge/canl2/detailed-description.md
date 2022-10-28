@@ -1,3 +1,8 @@
+
+<!---
+Pass the following parameters in the include directive:
+- listenonly: "true" or "false"
+--->
 {% assign example_service_name = page.example_device_name | append: "-can" %}
 ### Features
 
@@ -77,7 +82,7 @@ When the device is restarted, it will apply the persistent configuration stored 
     canl2.WithBitRate(125000),
     canl2.WithSamplePoint(0.625),
     canl2.WithSJW(1),
-    canl2.WithListenOnly(false),
+    {% if inclue.listenonly == "false" %}canl2.WithListenOnly(false),{% else %}canl2.WithListenOnly(true),{% endif %}
   )
 ```
 
@@ -217,6 +222,7 @@ Bus States can be:
 * `ControllerState_CAN_ERROR_PASSIVE` - CAN controller is "Error Passive"
 * `ControllerState_CAN_BUS_OFF` - CAN controller is bus off
 
+ {% if inclue.listenonly == "false" %}
 #### Sending CAN Data
 
 To send CAN data, prepare a batch of frames to be sent and call `SendFrames`.
@@ -261,6 +267,7 @@ You can't send frames and `SendFrames` will return an error in the following sce
 | CANBus State is BUS OFF         | HW_FAULT                |
 
 In case the firmware's transmit buffer is full, the firmware will send *none* of the frames and return TEMPORARILY_UNAVAILABLE error. Therefore you can retry later with the same set of frames.
+{% endif %}
 
 #### Bus Off Handling
 
@@ -271,7 +278,7 @@ When bus off state is entered, The firmware waits 3 seconds and then resets the 
 ##### Multiple Clients
 
 It is possible to have multiple clients active at the same time. For example:
-One client sends data, a second client receiving a stream with a specific filter and a third client receiving a stream with a different filter.
+{% if inclue.listenonly == "false" %}One client sends data, a second {% else %}One {%endif %} client receiving a stream with a specific filter and a another client receiving a stream with a different filter.
 
 
 ### Using SocketCAN
