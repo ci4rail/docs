@@ -20,21 +20,24 @@ Features:
 
 ### Connection
 
-The MVB sniffer has two 9-pin D-Sub connectors, internally connected 1:1 with the following pinout. One connector is a plug, the second is a socket.
+The MVB sniffer has two 9-pin D-Sub connectors, internally connected 1:1 with the following pinout. One connector is a plug, the second is a socket. The pinout is compliant with the MVB standard IEC61375-3-1.
 
 
-| Pin | Symbol    | Description                                       |
-| --- | --------- | ------------------------------------------------- |
-| 1   | A.Data_P  | positive wire Line_A                              |
-| 2   | A.Data_N  | negative wire Line_A                              |
-| 3   | TXE       | not used / just passed through to other connector |
-| 4   | B.Data_P  | positive wire Line_B                              |
-| 5   | B.Data_N  | negative wire Line_B                              |
-| 6   | A.Bus_GND | not used / just passed through to other connector |
-| 7   | B.Bus_GND | not used / just passed through to other connector |
-| 8   | A.Bus_5V  | not used / just passed through to other connector |
-| 9   | B.Bus_5V  | not used / just passed through to other connector |
+| Pin | Symbol    | Description                                                               |
+| --- | --------- | ------------------------------------------------------------------------- |
+| 1   | A.Data_P  | positive wire Line_A                                                      |
+| 2   | A.Data_N  | negative wire Line_A                                                      |
+| 3   | TXE       | not connected to the MVB Sniffer / just passed through to other connector |
+| 4   | B.Data_P  | positive wire Line_B                                                      |
+| 5   | B.Data_N  | negative wire Line_B                                                      |
+| 6   | A.Bus_GND | not connected to the MVB Sniffer / just passed through to other connector |
+| 7   | B.Bus_GND | not connected to the MVB Sniffer / just passed through to other connector |
+| 8   | A.Bus_5V  | not connected to the MVB Sniffer / just passed through to other connector |
+| 9   | B.Bus_5V  | not connected to the MVB Sniffer / just passed through to other connector |
 
+
+**WARNING:** If the gender of your MVB cables don't match to the {{ page.product_name }}'s connectors, don't use gender changers! Most gender changers will swap pins, so that Line_A and Line_B and the polarities are swapped. This will lead to a non-working MVB Sniffer and/or non-working bus!
+{: .notice--warning}
 
 ### Functional Description
 
@@ -84,7 +87,7 @@ import (
 func main() {
   const timeout = 0 // use default timeout
 
-  c, err := canl2.NewClientFromUniversalAddress({{ example_service_name }}, timeout)
+  c, err := canl2.NewClientFromUniversalAddress("{{ example_service_name }}", timeout)
   if err != nil {
     log.Fatalf("Failed to create client: %v\n", err)
   }
@@ -213,24 +216,26 @@ Configure a keep alive interval, then you get a bucket latest after the configur
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
+    mvbsniffer.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
   )
 ```
 
 Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. This means, the bucket is sent when at least 25 samples are available.
 
-If you want low latency on the received data, you can change the number of samples per bucket to 1. Then the bucket is sent already with the first frame that arrives. However, subsequent buckets may contain more samples, if already more samples are in the internal buffer.
+If you want low latency on the received data, you can enable the "low latency" mode. In this mode, samples are sent as soon as possibles after they have been received. This means that the buckets contain 1..<samples-per-bucket> samples.
 
 Furthermore, you can configure the number of buffered samples. Select a higher number if your receive process is slow to avoid buffer overruns.
 
 
 ```go
   // configure stream to send the bucket at least once a second
-  // configure the samples per bucket to 1
+  // configure the maximum samples per bucket to 100
+  // configure low latency mode
   // configure the buffered samples to 200
   err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
-    functionblock.WithBucketSamples(1),
-    functionblock.WithBufferedSamples(200),
+      mvbsniffer.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
+      mvbsniffer.WithFBStreamOption(functionblock.WithBucketSamples(100)),
+      mvbsniffer.WithFBStreamOption(functionblock.WithLowLatencyMode(true))
+      mvbsniffer.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
   )
 ```

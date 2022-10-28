@@ -2,6 +2,7 @@
 <!---
 Pass the following parameters in the include directive:
 - listenonly: "true" or "false"
+- connector: the connector description
 --->
 {% assign example_service_name = page.example_device_name | append: "-can" %}
 ### Features
@@ -11,24 +12,12 @@ Pass the following parameters in the include directive:
 * SocketCAN Support
 * Standard and Extended Frame Support
 * RTR Frame Support
-* Optional Listen Only Mode
+* {% if inclue.listenonly == "false" %}Optional{% else %}Fixed{% endif %} Listen Only Mode
 * One Acceptance Mask/Filter
 
 ### Connection
 
-Connection is done via 9-pin DSub plug:
-
-| Pin | Symbol  | Description                |
-| --- | ------- | -------------------------- |
-| 1   | -       | Not connected              |
-| 2   | CAN_L   | CAN Signal (dominant low)  |
-| 3   | GND_ISO | CAN Ground                 |
-| 4   | -       | Not connected              |
-| 5   | SHIELD  | Shield                     |
-| 6   | GND_ISO | CAN Ground                 |
-| 7   | CAN_H   | CAN Signal (dominant high) |
-| 8   | -       | Not connected              |
-| 9   | -       | Not connected              |
+{{ include.connector }}
 
 
 ### Using the io4edge API to access CAN Function
@@ -170,7 +159,7 @@ Configure a keep alive interval, then you get a bucket latest after the configur
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
-    fspb.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
+    canl2.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
   )
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: IOU04 - CAN & Serial Interfaces
-excerpt: IOU04 - CAN & Serial Interfaces Introduction.
-last_modified_at: 2022-08-12
+excerpt: IOU04 - CAN & Serial Interfaces.
+last_modified_at: 2022-10-28
 
 custom_next: /edge-solutions/moducop/io-modules/iou04/quick-start-guide
 product_name: IOU04
