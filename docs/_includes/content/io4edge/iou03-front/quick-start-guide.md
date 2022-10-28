@@ -40,7 +40,7 @@ S101-IOU03-USB-EXT-1, 192.168.201.1, S103-IOU01, <serial-number>
 {% assign example_service_ext="-mvbSniffer" %}
 {% assign example_service_name = page.example_device_name | append: example_service_ext %}
 
-The MVB loop demo will use the {{ page.product_name }} internal MVB frame generator to simulate frames on the MVB. The generated frames do not leave the {{ page.product_name }}. They are internally looped back in the  {{ page.product_name }}.
+The MVB loop demo will use the {{ page.product_name }} internal MVB frame generator to simulate frames on the MVB, you don't need to connect anything to the MVB connectors. The generated frames do not leave the {{ page.product_name }}. They are internally looped back in the  {{ page.product_name }}.
 
 The demo then dumps the *simulated* received frames to the console.
 
@@ -54,14 +54,14 @@ The demo then dumps the *simulated* received frames to the console.
 You should see an output like this:
 ```
 Started stream
-dt=0 addr=000123, kProcessData32Bit, data=01 02 03 04 ,
-dt=288 addr=000456, kProcessData16Bit, data=aa bb ,
-dt=877 addr=000123, kProcessData32Bit, data=01 02 03 04 ,
-dt=288 addr=000456, kProcessData16Bit, data=aa bb ,
-dt=877 addr=000123, kProcessData32Bit, data=01 02 03 04 ,
-dt=288 addr=000456, kProcessData16Bit, data=aa bb ,
-dt=877 addr=000123, kProcessData32Bit, data=01 02 03 04 ,
-dt=288 addr=000456, kProcessData16Bit, data=aa bb ,
+dt=0 addr=000123, kProcessData32Bit, data=01 02 03 04
+dt=288 addr=000456, kProcessData16Bit, data=aa bb
+dt=877 addr=000123, kProcessData32Bit, data=01 02 03 04
+dt=288 addr=000456, kProcessData16Bit, data=aa bb
+dt=877 addr=000123, kProcessData32Bit, data=01 02 03 04
+dt=288 addr=000456, kProcessData16Bit, data=aa bb
+dt=877 addr=000123, kProcessData32Bit, data=01 02 03 04
+dt=288 addr=000456, kProcessData16Bit, data=aa bb
 ...
 ```
 
@@ -119,7 +119,7 @@ got stream data with 3 samples
 
 
 
-## SocketCAN Demo
+## SocketCAN Demo {#socketcandemo}
 
 In this demo, we'll demonstrate how to receive data from a CAN bus and print it to the console. This demo is using the Linux [SocketCAN framework](https://www.kernel.org/doc/html/latest/networking/can.html).
 

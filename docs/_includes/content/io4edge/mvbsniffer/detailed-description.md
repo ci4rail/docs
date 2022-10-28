@@ -14,7 +14,7 @@ Features:
 * Timestamping of received data with microsecond resolution
 * Capturing of all MVB frame types (FCodes)
 * Per stream filtering of MVB frames by address and FCode
-* Can capture up to 20000 MVB frames per second
+* Can capture up to 20000 MVB telegrams per second
 * Built-in MVB frame generator for internal self test
 
 

@@ -3,6 +3,8 @@
 Pass the following parameters in the include directive:
 - listenonly: "true" or "false"
 - connector: the connector description
+- link_to_static_busconfiguration
+- link_to_socketcan_qs
 --->
 {% assign example_service_name = page.example_device_name | append: "-can" %}
 ### Features
@@ -57,7 +59,7 @@ func main() {
 
 There are two ways to configure the CAN function:
 
-* Using a peristent parameter that is stored in the flash of the {{ page.product_name }}, as described [here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration).
+* Using a peristent parameter that is stored in the flash of the {{ page.product_name }}, as described [here]({{ link_to_static_busconfiguration }}).
 * Temporarily, via the io4edge CANL2 API, as shown below
 
 ##### Temporary Bus Configuration
@@ -278,7 +280,7 @@ The {{ page.product_name }} can be integrated into SocketCAN using the `socketca
 
 ![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/io4edge/socketcan-io4edge.svg' | relative_url }}){: style="width: 80%"}
 
-**NOTE:** When using SocketCAN, you must configure the CAN Controller persistently as shown here {{ page.product_name }}, as described [here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration).
+**NOTE:** When using SocketCAN, you must configure the CAN Controller persistently as shown here {{ page.product_name }}, as described [here]({{ link_to_static_busconfiguration }}).
 {: .notice--warning}
 
-In Ci4Rail Linux Images, the `socketcan-io4edge` gateway is started automatically by `socketcan-io4edge-runner` which detects available io4edge devices with CAN support and start an instance of the `socketcan-io4edge` gateway, if the corresponding virtual can instance exists. For an example, see [here]({{ page.url | append: "../quick-start-socketcan" | relative_url }}).
+In Ci4Rail Linux Images, the `socketcan-io4edge` gateway is started automatically by `socketcan-io4edge-runner` which detects available io4edge devices with CAN support and start an instance of the `socketcan-io4edge` gateway, if the corresponding virtual can instance exists. For an example, see [here]({{ link_to_socketcan_qs }}).
