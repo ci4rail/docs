@@ -13,7 +13,7 @@ Connection is done via 9-pin DSub plug. On the same connector, two RS485 sniffer
 | 3   | GND_ISO     | CAN Ground                 |
 | 4   | RS485_B_RX+ | Not used by CAN Interface  |
 | 5   | SHIELD      | Shield                     |
-| 6   | RS485_B_RX- | Not used by CAN Interface  |
+| 6   | RS485_A_RX- | Not used by CAN Interface  |
 | 7   | CAN_H       | CAN Signal (dominant high) |
 | 8   | -           | Not connected              |
 | 9   | RS485_B_RX- | Not used by CAN Interface  |
