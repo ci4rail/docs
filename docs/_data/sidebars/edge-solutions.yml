@@ -25,11 +25,11 @@ sidebar:
               url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
               navitems:
                 - title: via Ethernet
-                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/ethernet/
+                  url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/ethernet/
                 - title: via Wi-Fi
-                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/wifi/
+                  url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/wifi/
                 - title: via LTE
-                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/lte/
+                  url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/lte/
         - title: Introduction
           url: /edge-solutions/moducop/introduction/
           navitems:
@@ -38,7 +38,7 @@ sidebar:
             - title: Mechanical Outline
               url: /edge-solutions/moducop/introduction/mech-outline/
         - title: Mounting & Installation
-          url: /edge-solutions/moducop/mount-install/
+          url: /edge-solutions/moducop/mounting-installation/
           navitems:
             - title: Mounting Options
               url: /edge-solutions/moducop/mounting-installation/mounting-options/

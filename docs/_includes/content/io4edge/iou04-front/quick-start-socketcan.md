@@ -12,7 +12,7 @@ In this demo, we'll demonstrate how to receive data from a CAN bus and print it 
 
 {% if is_mio %}
 
-**WARNING** This documentation assumes that ModuCop is your target. Users of other Linux machines: Please install our Open Source [socketcan-io4edge](https://github.com/ci4rail/socketcan-io4edge/tree/initial) solution on your target.
+**WARNING** This documentation assumes that ModuCop is your target. Users of other Linux machines: Please install our Open Source [socketcan-io4edge](https://github.com/ci4rail/socketcan-io4edge) solution on your target.
 {: .notice--warning}
 
 {% endif %}
