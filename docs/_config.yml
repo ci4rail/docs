@@ -298,7 +298,7 @@ defaults:
       read_time: false
       comments: false # do not enable comments
       show_date: false # do not show date on page
-      show_last_updated: true # option only available on layout: single
+      show_last_updated: false # option only available on layout: single
       share: false
       related: false
       toc: true
@@ -316,7 +316,7 @@ defaults:
       read_time: false
       comments: false # do not enable comments
       show_date: false # do not show date on page
-      show_last_updated: true # option only available on layout: single
+      show_last_updated: false # option only available on layout: single
       share: false
       related: false
       toc: true
@@ -334,7 +334,7 @@ defaults:
       read_time: false
       comments: false # do not enable comments
       show_date: false # do not show date on page
-      show_last_updated: true # option only available on layout: single
+      show_last_updated: false # option only available on layout: single
       share: false
       related: false
       toc: true
@@ -351,7 +351,7 @@ defaults:
       read_time: false
       comments: false # do not enable comments
       show_date: false # do not show date on page
-      show_last_updated: true # option only available on layout: single
+      show_last_updated: false # option only available on layout: single
       share: false
       related: false
       toc: true
