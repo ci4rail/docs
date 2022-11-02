@@ -18,3 +18,7 @@ repos:
         entry: .pre-commit-scripts/update-last_modified.sh
         exclude: docs/user-docs/_drafts/how-to-write-documentation.md
         language: "script"
+      - id: check-broken-links
+        name: Check for broken links in HTML
+        entry: .pre-commit-scripts/check-broken-links.sh
+        language: "script"
