@@ -54,7 +54,7 @@ To access the {{ page.product_name }} via socketCAN, we create a virtual socketC
 
 The virtual socket CAN network must be named according to {{ page.product_name }} CAN Interface service name. E.g. if the service name is `MYDEV-can`, the virtual socketCAN device must be named `vcanMYDEV` (without -can). Because network interface names can have only max. 15 characters, but service names can be longer, there is a rule to map longer service names to socketCAN device names:
 
-`vcan<first-4-chars-of-instance-name>xx<last-5-chars-of-instance-name>`
+`vcan<first-4-chars-of-service-name>xx<last-5-chars-of-service-name>`
 
  Examples:
 

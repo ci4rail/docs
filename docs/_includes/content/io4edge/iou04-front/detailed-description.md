@@ -75,5 +75,9 @@ Connection is done via 9-pin DSub plug:
 {{ page.url | append: "../quick-start-socketcan" | relative_url }}
 {% endcapture %}
 
+{% capture link_to_getdemosoftware %}
+{{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#getdemosoftware
+{% endcapture %}
+
 The {{ page.product_name }} has one CANBus interfaces, labelled `CAN`.
-{% include content/io4edge/canl2/detailed-description.md listenonly="false" connector=canbus_connector link_to_static_busconfiguration=link_to_static_busconfiguration link_to_socketcan_qs=link_to_socketcan_qs %}
+{% include content/io4edge/canl2/detailed-description.md listenonly="false" connector=canbus_connector link_to_static_busconfiguration=link_to_static_busconfiguration link_to_socketcan_qs=link_to_socketcan_qs link_to_getdemosoftware=link_to_getdemosoftware %}

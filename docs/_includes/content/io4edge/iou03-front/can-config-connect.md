@@ -10,10 +10,23 @@ In this example, we assume your
 
 Configure the device. You specify a string that has the form `bitrate:sampling-point/1000:sjw:listen-only`
 
+**Warning** Always set the listen-only flag to `1` on the {{ page.product_name }}. Otherwise the device may try to send ACKs on the bus and this might result in incorrect behavior also on the receiver side.
+{: .notice--warning}
+
+
 On your {{target_name}}, run:
 ```bash
 io4edge-cli -d {{ page.example_device_name }} set-parameter can-config 125000:625:1:1
 ```
+
+{% if is_mio %}
+Alternatively, you can define the CAN configuration via the `SERVICE` interface and the config menu:
+```
+config> can-config 125000:625:1:0
+config> reboot
+```
+{% endif %}
+
 
 #### Connecting
 

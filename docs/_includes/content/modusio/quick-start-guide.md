@@ -52,8 +52,8 @@ The green LED on the {{ page.product_name }} is flashing to indicate power is ok
 
 Configure the device for Wifi operation. You need the Access Point's Name (SSID) and a password.
 ```
-config> wifi-ssid my-access-point-name
-config> wifi-pw my-secret-password
+config> wifi-ssid <my-access-point-name>
+config> wifi-pw <my-secret-password>
 ```
 **WARNING:** It is not possible to connect to Access Points that don't require a password.
 {: .notice--warning}

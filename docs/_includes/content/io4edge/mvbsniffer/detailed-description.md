@@ -1,5 +1,6 @@
 <!---
 Pass the following parameters in the include directive:
+- link_to_getdemosoftware
 --->
 {% assign example_service_name = page.example_device_name | append: "-mvbSniffer" %}
 ### Features
@@ -59,7 +60,7 @@ Multiple applications may be connected simultaneously to the same MVB sniffer, e
 
 ### Using the io4edge API to access the MVB Sniffer
 
-If you haven't installed yet the io4edge client software, install it now as [described here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#getdemosoftware).
+If you haven't installed yet the io4edge client software, install it now as [described here]({{ link_to_getdemosoftware }}).
 
 Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/mvbSniffer)
 

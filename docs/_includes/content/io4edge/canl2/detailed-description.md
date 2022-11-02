@@ -5,6 +5,7 @@ Pass the following parameters in the include directive:
 - connector: the connector description
 - link_to_static_busconfiguration
 - link_to_socketcan_qs
+- link_to_getdemosoftware
 --->
 {% assign example_service_name = page.example_device_name | append: "-can" %}
 ### Features
@@ -24,7 +25,7 @@ Pass the following parameters in the include directive:
 
 ### Using the io4edge API to access CAN Function
 
-If you haven't installed yet the io4edge client software, install it now as [described here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#getdemosoftware).
+If you haven't installed yet the io4edge client software, install it now as [described here]({{ link_to_getdemosoftware }}).
 
 Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/canL2)
 

@@ -1,5 +1,9 @@
 ## MVB Sniffer
-{% include content/io4edge/mvbsniffer/detailed-description.md %}
+{% capture link_to_getdemosoftware %}
+{{ page.url | append: "../quick-start-guide" | relative_url }}#getdemosoftware
+{% endcapture %}
+
+{% include content/io4edge/mvbsniffer/detailed-description.md link_to_getdemosoftware=link_to_getdemosoftware%}
 
 ## CANBus Interface
 
@@ -29,4 +33,4 @@ Connection is done via 9-pin DSub plug. On the same connector, two RS485 sniffer
 
 
 The {{ page.product_name }} has one CANBus interfaces, labelled `FB LO`.
-{% include content/io4edge/canl2/detailed-description.md listenonly="true" connector=canbus_connector link_to_static_busconfiguration=link_to_static_busconfiguration link_to_socketcan_qs=link_to_socketcan_qs %}
+{% include content/io4edge/canl2/detailed-description.md listenonly="true" connector=canbus_connector link_to_static_busconfiguration=link_to_static_busconfiguration link_to_socketcan_qs=link_to_socketcan_qs link_to_getdemosoftware=link_to_getdemosoftware %}
