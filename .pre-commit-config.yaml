@@ -22,3 +22,4 @@ repos:
         name: Check for broken links in HTML
         entry: .pre-commit-scripts/check-broken-links.sh
         language: "script"
+        pass_filenames: false
