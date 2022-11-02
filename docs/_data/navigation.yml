@@ -1,24 +1,26 @@
 # main links
 main:
-  - title: Quick-Start Guide
+  - title: Product Documentation
     navitems:
       - title: ModuCop
         url: /edge-solutions/moducop/quick-start-guide/
       - title: ModuSio
         url: /edge-solutions/modusio
-  - title: "User Manual"
-    navitems:
-      - title: EdgeFarm
-        url: /edgefarm/overview/
-      - title: Edge Solutions
-        url: /edge-solutions/overview/
+      - title: ModuCop I/O Modules
+        url: /edge-solutions/moducop/io-modules
+  #    - title: "User Manual"
+  #   navitems:
+  #     - title: EdgeFarm
+  #       url: /edgefarm/overview/
+  #     - title: Edge Solutions
+  #       url: /edge-solutions/overview/
   # - title: "Video-Section"
   #   url: /video-section/
   - title: "Data Sheets"
     external_url: https://www.ci4rail.com/news/downloads/
   - title: "Ci4Rail Homepage"
     external_url: https://www.ci4rail.com/
-  - title: "News"
-    url: /news/
-  - title: "Contact"
-    url: "#contact"
+  # - title: "News"
+  #   url: /news/
+  # - title: "Contact"
+  #   url: "#contact"

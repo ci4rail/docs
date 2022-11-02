@@ -1,7 +1,7 @@
 ---
 title: Connect ModuCop to Internet using Wifi
 excerpt: Connect ModuCop to Internet using Wifi
-last_modified_at: 2021-07-28
+last_modified_at: 2022-11-01
 
 custom_previous: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
 ---

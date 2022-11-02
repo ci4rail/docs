@@ -31,9 +31,9 @@ Click on the `+` in the top right to open a new terminal for e.g. git actions li
 
 The source control panel opens and enables to execute almost every git action to be done with help of a GUI. The red marked button on the top right enables to view the git graph and e.g. check out existing branches or view current position.
 
-### On Windows
+### With Local Jekyll Windows/Linux/WSL
 
-Preconditions:
+Preconditions for Windows:
 * Install Jekyll: See [install instructions](https://jekyllrb.com/docs/installation/windows/).
 
 Start server locally:
@@ -67,28 +67,7 @@ This fix is included in latest `Gemfile`.
 Run `bundle update` in `docs` folder before starting jekyll page.
 
 
-### On Linux or WSL
-
-Preconditions:
-* Install docker: See [install instructions](https://docs.docker.com/engine/install/).
-
-Start server locally:
-```bash
-./dobi.sh run-jekyll-page
-```
-
-or run jekyll environment interactive:
-```bash
-./dobi.sh run-jekyll-interactive
-bundle update &&
-bundle exec jekyll serve --host=0.0.0.0 --drafts
-```
-
 Visit `http://localhost:4000/` to see webside.
-
-> Note: View the [example page](docs/user-docs/_drafts/example.md) on `http://localhost:4000/example/` for impression how to design a side and how it will look like.
-
-> Note: On github pages, the website is build without `--drafts` option. This ensures, that files placed in `docs/user-docs/_drafts/` are not generated into the public website, as these are intendet to only be drafts and not published.
 
 
 ## Pre-Commit Hooks

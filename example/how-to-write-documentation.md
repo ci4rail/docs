@@ -1,7 +1,7 @@
 ---
 title: "How to Write Documentation"
 excerpt: "See how to write documentation."
-last_modified_at: 2021-07-22
+last_modified_at: 2022-11-01
 ---
 The repository contains a lot of stuff, but only a few directories are required for documentation adaptions:
 ```
@@ -79,7 +79,7 @@ Each documentation file has a YAML front matter at the top, eg.:
 ---
 title: Connecting to ModuCop's Linux Terminal
 excerpt: How to get access to the Shell to configure ModuCop
-last_modified_at: 2021-07-22
+last_modified_at: 2022-11-01
 
 custom_previous: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
 custom_next: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
@@ -130,7 +130,7 @@ The next step is to add a front matter at the top of the file:
 ---
 title: Demonstration Page
 excerpt: This is a page for demonstration.
-last_modified_at: 2021-07-22
+last_modified_at: 2022-11-01
 ---
 ```
 
@@ -204,7 +204,7 @@ The next step is to add a front matter at the top of the landing page file:
  ---
 title: Demonstration Menu
 excerpt: This is a menu for demonstration.
-last_modified_at: 2021-07-22
+last_modified_at: 2022-11-01
  ---
 ```
 

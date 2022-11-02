@@ -32,7 +32,12 @@
     {% assign i = i | plus: 1 %}
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       {% assign path = path | append: crumb | append: '/' %}
-      <a href="{{ path | downcase | replace: '%20', '-' | prepend: path_type | prepend: crumb_path | relative_url }}"
+      {% if crumb == "edge-solutions" or crumb == "edgefarm" %}
+      {% assign landing_page_path = 'overview/' %}
+      {% else %}
+      {% assign landing_page_path = '' %}
+      {% endif %}
+      <a href="{{ path | append: landing_page_path | downcase | replace: '%20', '-' | prepend: path_type | prepend: crumb_path | relative_url }}"
         itemprop="item"><span itemprop="name">{{ crumb | replace: '-', ' ' | replace: '%20', ' ' | capitalize
           }}</span></a>
       <meta itemprop="position" content="{{ i }}" />
