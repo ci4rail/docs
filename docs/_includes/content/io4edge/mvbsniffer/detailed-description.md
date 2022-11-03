@@ -205,29 +205,21 @@ func telegramToString(t *mvbpb.Telegram) string {
 }
 ```
 
-**NOTE:** At the moment, timestamps are expressed in micro seconds relative to the start of the {{ page.product_name }}. Future client libraries will map the time to the host's time domain
-{: .notice--warning}
+{% include content/io4edge/functionblock/timestamp.md %}
 
 ##### Controlling the Stream
 
-It is possible to fine-tune the stream behavior to the application needs:
-
-Configure a keep alive interval, then you get a bucket latest after the configured interval, regardless whether the bucket is full or not:
-
+{% capture example_keep_alive %}
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
     mvbsniffer.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
   )
 ```
-
-Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. This means, the bucket is sent when at least 25 samples are available.
-
-If you want low latency on the received data, you can enable the "low latency" mode. In this mode, samples are sent as soon as possibles after they have been received. This means that the buckets contain 1..<samples-per-bucket> samples.
-
-Furthermore, you can configure the number of buffered samples. Select a higher number if your receive process is slow to avoid buffer overruns.
+{% endcapture %}
 
 
+{% capture example_all_options %}
 ```go
   // configure stream to send the bucket at least once a second
   // configure the maximum samples per bucket to 100
@@ -240,3 +232,6 @@ Furthermore, you can configure the number of buffered samples. Select a higher n
       mvbsniffer.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
   )
 ```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}

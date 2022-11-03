@@ -127,25 +127,20 @@ To read samples from the stream:
 `sample.Value` is as described in [the section above](#readinputvalue)
 
 
-**NOTE:** At the moment, timestamps are expressed in micro seconds relative to the start of the {{ page.product_name }}. Future client libraries will map the time to the host's time domain
-{: .notice--warning}
+{% include content/io4edge/functionblock/timestamp.md %}
 
 #### Controlling the Stream
 
-It is possible to fine-tune the stream behavior to the application needs:
-
-Configure a keep alive interval, then you get a bucket latest after the configured interval, regardless whether the bucket is full or not:
-
+{% capture example_keep_alive %}
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
     functionblock.WithKeepAliveInterval(1000),
   )
 ```
+{% endcapture %}
 
-Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. For high sample rates, it is advisable to use higher numbers to reduce the load of the host and the device.
-
-If number of buckets per sample is changed, the number of buffered samples for this stream in the device must be changed accordingly. As a rule of thumb, `Buffered Samples` should be two times the number of samples in the bucket.
+{% capture example_all_options %}
 
 ```go
   // configure stream to send the bucket at least once a second
@@ -157,6 +152,10 @@ If number of buckets per sample is changed, the number of buffered samples for t
     functionblock.WithBufferedSamples(200),
   )
 ```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=false %}
+
 
 #### Multiple Clients
 

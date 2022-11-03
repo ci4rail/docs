@@ -12,8 +12,8 @@ example_device_name: MIO03-1
 
 Please note the following restrictions with MIO03 Revision 0:
 
-* Do not connect USB Service interface when you want to use the CAN interface!
-* Wifi performance is not ideal and will be improved in coming revisons
+* You cannot use MVB, CAN or RS485 interface while the USB SERVICE interface is connected! Remove the USB SERVICE interface before using the other interfaces.
+* Wifi performance is not ideal and will be improved in coming revisons.
 
 {% endcapture %}
 <div class="notice--info">

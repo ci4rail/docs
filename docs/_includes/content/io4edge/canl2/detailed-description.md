@@ -60,12 +60,12 @@ func main() {
 
 There are two ways to configure the CAN function:
 
-* Using a peristent parameter that is stored in the flash of the {{ page.product_name }}, as described [here]({{ link_to_static_busconfiguration }}).
+* Using a persistent parameter that is stored in the flash of the {{ page.product_name }}, as described [here]({{ link_to_static_busconfiguration }}).
 * Temporarily, via the io4edge CANL2 API, as shown below
 
 ##### Temporary Bus Configuration
 
-Bus Configuration can be set via `UploadConfiguration`. All settings remains active until you change it again or restart the device.
+Bus Configuration can be set via `UploadConfiguration`. All settings remain active until you change it again or restart the device.
 
 When the device is restarted, it will apply the persistent configuration stored in flash, or - if no persistent configuration is available - will keep the CAN controller disabled.
 
@@ -98,7 +98,7 @@ Missing parameters to ´StartStream` will take default values:
 In the stream the firmware generates *Buckets*, where each Bucket contains a number of *Samples*. Each sample contains:
 * A timestamp of the sample
 * The CAN frame (may be missing in case of bus state changes or error events)
-* The CANBus state (Ok, error passive or bus off)
+* The CAN Bus state (Ok, error passive or bus off)
 * Error events (currently: receive buffer overruns)
 
 For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
@@ -150,29 +150,22 @@ func dumpSample(sample *fspb.Sample) string {
 
 ```
 
-**NOTE:** At the moment, timestamps are expressed in micro seconds relative to the start of the {{ page.product_name }}. Future client libraries will map the time to the host's time domain
-{: .notice--warning}
+{% include content/io4edge/functionblock/timestamp.md %}
+
 
 ##### Controlling the Stream
 
-It is possible to fine-tune the stream behavior to the application needs:
-
-Configure a keep alive interval, then you get a bucket latest after the configured interval, regardless whether the bucket is full or not:
-
+{% capture example_keep_alive %}
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
     canl2.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
   )
 ```
-
-Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. This means, the bucket is sent when at least 25 samples are available.
-
-If you want low latency on the received data, you can enable the "low latency" mode. In this mode, samples are sent as soon as possibles after they have been received. This means that the buckets contain 1..<samples-per-bucket> samples.
-
-Furthermore, you can configure the number of buffered samples. Select a higher number if your receive process is slow to avoid buffer overruns.
+{% endcapture %}
 
 
+{% capture example_all_options %}
 ```go
   // configure stream to send the bucket at least once a second
   // configure the maximum samples per bucket to 25
@@ -185,6 +178,10 @@ Furthermore, you can configure the number of buffered samples. Select a higher n
       canl2.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
   )
 ```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+
 
 If you don't want to receive all CAN identifiers, you can specify an acceptance code and mask that is applied to each received frame. The filter algorithm is `pass_filter = (code & mask) == (received_frame_id & mask)`.
 The same filter is applied to extended frames and standard frames.
