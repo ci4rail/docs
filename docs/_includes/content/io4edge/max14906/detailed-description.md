@@ -54,8 +54,6 @@ In case you want to use a pin as input, you can
 * monitor a switch to that is connected to supply
 * monitor a voltage source, referenced to ground
 
-It is not possible to monitor a switch that is connected to ground.
-
 The switching level of the input is 6.7V to 8V, with 1.2V hysteresis.
 
 ![Use Inputs]({{ '/user-docs/images/edge-solutions/io4edge/max14906/use-case-inputs.svg' | relative_url }})
@@ -157,7 +155,7 @@ To ensure that outputs are turned off in such cases, the firmware implements a w
     }
 ```
 
-With that setting, the host must periodically set each of the enabled channels to the *active* value (the opposite of the *inactive* value) within 2 seconds. If the host does not set the channel within the watchdog timeout, the firmware sets back the channel to its *initial* value..
+With that setting, the host must periodically set each of the enabled channels to the *active* value (the opposite of the *inactive* value) within 2 seconds. If the host does not set the channel within the watchdog timeout, the firmware sets back the channel to its *initial* value.
 
 #### Overcurrent and Overload Handling
 
@@ -171,7 +169,7 @@ Overcurrent and overload conditions are reported via the diagnostic values retur
 
 The API provides two methods to read the current state of the pins:
 * Get value of a single pin
-* Get value of multipe pins
+* Get value of multiple pins
 
 ```go
     // read state of first channel
@@ -196,7 +194,9 @@ The diagnostic value(s) contain a bit mask with the following flags:
 
 In data logger applications, you may want to record changes of the channels.
 
-Therefore the API provides functions to start a *Stream*. At stream creation, you select the channels which you want to monitor for changes.
+Therefore, the API provides functions to start a *Stream*. At stream creation, you select the channels which you want to monitor for changes.
+
+The {{ page.product_name }} samples the channel values at a rate of 1.25kHz, so the timestamps are accurate to 800us.
 
 ```go
 // start stream, watch for changes on first two channels
