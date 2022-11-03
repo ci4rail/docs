@@ -62,13 +62,13 @@ $ ttynvt -f -E -M <major-number> -m <minor-number> -S <device-ip-address>:<port-
 
 Parameters:
 
-| Parameter         | Description                                                                                             |
-| ----------------- | ------------------------------------------------------------------------------------------------------- |
-| major number      | The major number that ttynvt uses for the device. Select a number that is not yet in use in your system |
-| minor number      | Provide a new minor number for each device. Select a number between 1 and 255                           |
-| device-ip-address | The IP address of your {{ page.product_name }}                                                          |
-| port-number       | The port number in your {{ page.product_name }} associated with the COM port                            |
-| tty-devicename    | The name to create for the device. E.g. `tty{{ page.example_device_name }}-com1`                        |
+| Parameter         | Description                                                                                                                                    |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| major number      | The major number identifies the driver associated with the device. Select for the ttynvt driver a number that is not yet in use in your system |
+| minor number      | Provide a new minor number for each device. Select a number between 1 and 255                                                                  |
+| device-ip-address | The IP address of your {{ page.product_name }}                                                                                                 |
+| port-number       | The port number in your {{ page.product_name }} associated with the COM port                                                                   |
+| tty-devicename    | The name to create for the device. E.g. `tty{{ page.example_device_name }}-com1`                                                               |
 
 To find the IP address and Port, ensure `avahi` and `avahi-utils` are installed on host and run `avahi-browse`. Example:
 
