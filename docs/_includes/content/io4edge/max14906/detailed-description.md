@@ -69,7 +69,7 @@ Want to have a quick look to the examples? See our [Github repository](https://g
 
 To access the binary I/Os, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Examples:
 * As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
-* As a IP/Port: `192.168.201.1:10002`
+* As an IP/Port: `192.168.201.1:10000`
 
 We need this client variable for all further access methods.
 
