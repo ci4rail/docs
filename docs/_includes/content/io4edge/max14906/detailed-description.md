@@ -178,17 +178,22 @@ The API provides two methods to read the current state of the pins:
     // diag returns the diagnostic value
     value, diag, err := c.Input(0)
 
-    // read state of all channels.
-    // values contains then a bit mask with the state of each input
-    // diag is a list of diagnostic values, one for each channel
-    values, diag, err = c.AllInputs()
-
     // check for channel diagnostics
     if diag&uint32(biniopb.ChannelDiag_CurrentLimit) != 0 {
       // channel is in current limit state
     }
     if diag&uint32(biniopb.ChannelDiag_NoSupplyVoltage) != 0 {
       // channel's group has no supply voltage
+    }
+
+    // read state of all channels.
+    // values contains then a bit mask with the state of each input
+    // diag is a list of diagnostic values, one for each channel
+    values, diag, err := c.AllInputs()
+
+    // check for diagnostics of second channel 
+    if diag[1]&uint32(biniopb.ChannelDiag_CurrentLimit) != 0 {
+      // channel is in current limit state
     }
 
 ```
