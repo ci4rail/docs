@@ -12,7 +12,7 @@ In this demo, we'll demonstrate how to receive data from a CAN bus and print it 
 
 {% if is_mio %}
 
-**WARNING** This documentation assumes that ModuCop is your target. Users of other Linux machines: Please install our Open Source [socketcan-io4edge](https://github.com/ci4rail/socketcan-io4edge/tree/initial) solution on your target.
+**WARNING** This documentation assumes that ModuCop is your target. Users of other Linux machines: Please install our Open Source [socketcan-io4edge](https://github.com/ci4rail/socketcan-io4edge) solution on your target.
 {: .notice--warning}
 
 {% endif %}
@@ -54,13 +54,13 @@ To access the {{ page.product_name }} via socketCAN, we create a virtual socketC
 
 The virtual socket CAN network must be named according to {{ page.product_name }} CAN Interface service name. E.g. if the service name is `MYDEV-can`, the virtual socketCAN device must be named `vcanMYDEV` (without -can). Because network interface names can have only max. 15 characters, but service names can be longer, there is a rule to map longer service names to socketCAN device names:
 
-`vcan<first-4-chars-of-instance-name>xx<last-5-chars-of-instance-name>`
+`vcan<first-4-chars-of-service-name>xx<last-5-chars-of-service-name>`
 
  Examples:
 
 * Service Name `S101-IOU04-USB-EXT-1-can` -> vcan name `vcanS101xxEXT-1`
 * Service Name `123456789012-can` -> vcan name `vcan1234xx89012`
-* Service Name `MIO04-1-can` -> vcan name `{{ page.socketcan_name }}`
+* Service Name `MIO04-1-can` -> vcan name `vcanMIO04-1`
 
 
 Now, create a virtual socketCAN network. On your {{ target_name }}, execute:

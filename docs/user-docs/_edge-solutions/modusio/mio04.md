@@ -1,7 +1,7 @@
 ---
 title: MIO04 - CAN & Serial Interfaces
-excerpt: MIO04 - IP based remote serial & CAN interface unit for edge applications in rail system - Introduction.
-last_modified_at: 2022-08-12
+excerpt: MIO04 - IP based remote serial & CAN interface unit for edge applications in rail system.
+last_modified_at: 2022-10-28
 
 custom_next: /edge-solutions/modusio/mio04/quick-start-guide
 product_name: MIO04

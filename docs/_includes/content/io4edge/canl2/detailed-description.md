@@ -1,3 +1,12 @@
+
+<!---
+Pass the following parameters in the include directive:
+- listenonly: "true" or "false"
+- connector: the connector description
+- link_to_static_busconfiguration
+- link_to_socketcan_qs
+- link_to_getdemosoftware
+--->
 {% assign example_service_name = page.example_device_name | append: "-can" %}
 ### Features
 
@@ -6,29 +15,17 @@
 * SocketCAN Support
 * Standard and Extended Frame Support
 * RTR Frame Support
-* Optional Listen Only Mode
+* {% if inclue.listenonly == "false" %}Optional{% else %}Fixed{% endif %} Listen Only Mode
 * One Acceptance Mask/Filter
 
 ### Connection
 
-Connection is done via 9-pin DSub plug:
-
-| Pin | Symbol  | Description                |
-| --- | ------- | -------------------------- |
-| 1   | -       | Not connected              |
-| 2   | CAN_L   | CAN Signal (dominant low)  |
-| 3   | GND_ISO | CAN Ground                 |
-| 4   | -       | Not connected              |
-| 5   | SHIELD  | Shield                     |
-| 6   | GND_ISO | CAN Ground                 |
-| 7   | CAN_H   | CAN Signal (dominant high) |
-| 8   | -       | Not connected              |
-| 9   | -       | Not connected              |
+{{ include.connector }}
 
 
 ### Using the io4edge API to access CAN Function
 
-If you haven't installed yet the io4edge client software, install it now as [described here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#getdemosoftware).
+If you haven't installed yet the io4edge client software, install it now as [described here]({{ link_to_getdemosoftware }}).
 
 Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/canL2)
 
@@ -63,12 +60,12 @@ func main() {
 
 There are two ways to configure the CAN function:
 
-* Using a peristent parameter that is stored in the flash of the {{ page.product_name }}, as described [here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration).
+* Using a persistent parameter that is stored in the flash of the {{ page.product_name }}, as described [here]({{ link_to_static_busconfiguration }}).
 * Temporarily, via the io4edge CANL2 API, as shown below
 
 ##### Temporary Bus Configuration
 
-Bus Configuration can be set via `UploadConfiguration`. All settings remains active until you change it again or restart the device.
+Bus Configuration can be set via `UploadConfiguration`. All settings remain active until you change it again or restart the device.
 
 When the device is restarted, it will apply the persistent configuration stored in flash, or - if no persistent configuration is available - will keep the CAN controller disabled.
 
@@ -77,7 +74,7 @@ When the device is restarted, it will apply the persistent configuration stored 
     canl2.WithBitRate(125000),
     canl2.WithSamplePoint(0.625),
     canl2.WithSJW(1),
-    canl2.WithListenOnly(false),
+    {% if inclue.listenonly == "false" %}canl2.WithListenOnly(false),{% else %}canl2.WithListenOnly(true),{% endif %}
   )
 ```
 
@@ -101,7 +98,7 @@ Missing parameters to ´StartStream` will take default values:
 In the stream the firmware generates *Buckets*, where each Bucket contains a number of *Samples*. Each sample contains:
 * A timestamp of the sample
 * The CAN frame (may be missing in case of bus state changes or error events)
-* The CANBus state (Ok, error passive or bus off)
+* The CAN Bus state (Ok, error passive or bus off)
 * Error events (currently: receive buffer overruns)
 
 For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
@@ -153,29 +150,22 @@ func dumpSample(sample *fspb.Sample) string {
 
 ```
 
-**NOTE:** At the moment, timestamps are expressed in micro seconds relative to the start of the {{ page.product_name }}. Future client libraries will map the time to the host's time domain
-{: .notice--warning}
+{% include content/io4edge/functionblock/timestamp.md %}
+
 
 ##### Controlling the Stream
 
-It is possible to fine-tune the stream behavior to the application needs:
-
-Configure a keep alive interval, then you get a bucket latest after the configured interval, regardless whether the bucket is full or not:
-
+{% capture example_keep_alive %}
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
-    fspb.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
+    canl2.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
   )
 ```
-
-Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. This means, the bucket is sent when at least 25 samples are available.
-
-If you want low latency on the received data, you can enable the "low latency" mode. In this mode, samples are sent as soon as possibles after they have been received. This means that the buckets contain 1..<samples-per-bucket> samples.
-
-Furthermore, you can configure the number of buffered samples. Select a higher number if your receive process is slow to avoid buffer overruns.
+{% endcapture %}
 
 
+{% capture example_all_options %}
 ```go
   // configure stream to send the bucket at least once a second
   // configure the maximum samples per bucket to 25
@@ -188,6 +178,10 @@ Furthermore, you can configure the number of buffered samples. Select a higher n
       canl2.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
   )
 ```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+
 
 If you don't want to receive all CAN identifiers, you can specify an acceptance code and mask that is applied to each received frame. The filter algorithm is `pass_filter = (code & mask) == (received_frame_id & mask)`.
 The same filter is applied to extended frames and standard frames.
@@ -217,6 +211,7 @@ Bus States can be:
 * `ControllerState_CAN_ERROR_PASSIVE` - CAN controller is "Error Passive"
 * `ControllerState_CAN_BUS_OFF` - CAN controller is bus off
 
+ {% if inclue.listenonly == "false" %}
 #### Sending CAN Data
 
 To send CAN data, prepare a batch of frames to be sent and call `SendFrames`.
@@ -261,6 +256,7 @@ You can't send frames and `SendFrames` will return an error in the following sce
 | CANBus State is BUS OFF         | HW_FAULT                |
 
 In case the firmware's transmit buffer is full, the firmware will send *none* of the frames and return TEMPORARILY_UNAVAILABLE error. Therefore you can retry later with the same set of frames.
+{% endif %}
 
 #### Bus Off Handling
 
@@ -271,7 +267,7 @@ When bus off state is entered, The firmware waits 3 seconds and then resets the 
 ##### Multiple Clients
 
 It is possible to have multiple clients active at the same time. For example:
-One client sends data, a second client receiving a stream with a specific filter and a third client receiving a stream with a different filter.
+{% if inclue.listenonly == "false" %}One client sends data, a second {% else %}One {%endif %} client receiving a stream with a specific filter and a another client receiving a stream with a different filter.
 
 
 ### Using SocketCAN
@@ -282,7 +278,7 @@ The {{ page.product_name }} can be integrated into SocketCAN using the `socketca
 
 ![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/io4edge/socketcan-io4edge.svg' | relative_url }}){: style="width: 80%"}
 
-**NOTE:** When using SocketCAN, you must configure the CAN Controller persistently as shown here {{ page.product_name }}, as described [here]({{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration).
+**NOTE:** When using SocketCAN, you must configure the CAN Controller persistently as shown here {{ page.product_name }}, as described [here]({{ link_to_static_busconfiguration }}).
 {: .notice--warning}
 
-In Ci4Rail Linux Images, the `socketcan-io4edge` gateway is started automatically by `socketcan-io4edge-runner` which detects available io4edge devices with CAN support and start an instance of the `socketcan-io4edge` gateway, if the corresponding virtual can instance exists. For an example, see [here]({{ page.url | append: "../quick-start-socketcan" | relative_url }}).
+In Ci4Rail Linux Images, the `socketcan-io4edge` gateway is started automatically by `socketcan-io4edge-runner` which detects available io4edge devices with CAN support and start an instance of the `socketcan-io4edge` gateway, if the corresponding virtual can instance exists. For an example, see [here]({{ link_to_socketcan_qs }}).

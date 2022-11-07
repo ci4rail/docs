@@ -25,11 +25,11 @@ sidebar:
               url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/
               navitems:
                 - title: via Ethernet
-                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/ethernet/
+                  url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/ethernet/
                 - title: via Wi-Fi
-                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/wifi/
+                  url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/wifi/
                 - title: via LTE
-                  url: /edge-solutions/moducop/quick-start-guide/connect-internet/lte/
+                  url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/lte/
         - title: Introduction
           url: /edge-solutions/moducop/introduction/
           navitems:
@@ -38,7 +38,7 @@ sidebar:
             - title: Mechanical Outline
               url: /edge-solutions/moducop/introduction/mech-outline/
         - title: Mounting & Installation
-          url: /edge-solutions/moducop/mount-install/
+          url: /edge-solutions/moducop/mounting-installation/
           navitems:
             - title: Mounting Options
               url: /edge-solutions/moducop/mounting-installation/mounting-options/
@@ -57,6 +57,13 @@ sidebar:
                   url: /edge-solutions/moducop/io-modules/iou01/quick-start-guide/
                 - title: Detailed-Description
                   url: /edge-solutions/moducop/io-modules/iou01/detailed-description/
+            - title: IOU03 - MVB/CAN Sniffer
+              url: /edge-solutions/moducop/io-modules/iou03/
+              navitems:
+                - title: Quick-Start-Guide
+                  url: /edge-solutions/moducop/io-modules/iou03/quick-start-guide/
+                - title: Detailed-Description
+                  url: /edge-solutions/moducop/io-modules/iou03/detailed-description/
             - title: IOU04 - CAN & Serial Interfaces
               url: /edge-solutions/moducop/io-modules/iou04/
               navitems:
@@ -64,6 +71,13 @@ sidebar:
                   url: /edge-solutions/moducop/io-modules/iou04/quick-start-guide/
                 - title: Detailed-Description
                   url: /edge-solutions/moducop/io-modules/iou04/detailed-description/
+            - title: IOU07 - Digital I/O
+              url: /edge-solutions/moducop/io-modules/iou07/
+              navitems:
+                - title: Quick-Start-Guide
+                  url: /edge-solutions/moducop/io-modules/iou07/quick-start-guide/
+                - title: Detailed-Description
+                  url: /edge-solutions/moducop/io-modules/iou07/detailed-description/
     - title: ModuSio
       url: /edge-solutions/modusio/
       navitems:
@@ -74,6 +88,13 @@ sidebar:
               url: /edge-solutions/modusio/mio01/quick-start-guide/
             - title: Detailed-Description
               url: /edge-solutions/modusio/mio01/detailed-description/
+        - title: MIO03 - MVB/CAN Sniffer
+          url: /edge-solutions/modusio/mio03/
+          navitems:
+            - title: Quick-Start-Guide
+              url: /edge-solutions/modusio/mio03/quick-start-guide/
+            - title: Detailed-Description
+              url: /edge-solutions/modusio/mio03/detailed-description/
         - title: MIO04 - CAN & Serial Interfaces
           url: /edge-solutions/modusio/mio04/
           navitems:

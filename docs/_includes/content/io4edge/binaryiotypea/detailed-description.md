@@ -214,32 +214,36 @@ To read samples from the stream:
   }
 ```
 
-**NOTE:** At the moment, timestamps are expressed in micro seconds relative to the start of the {{ page.product_name }}. Future client libraries will map the time to the host's time domain
-{: .notice--info}
+{% include content/io4edge/functionblock/timestamp.md %}
 
 #### Controlling the Stream
 
-It is possible to fine-tune the stream behavior to the application needs:
-
-Configure a keep alive interval, then you get a bucket latest after the configured interval, regardless whether the bucket is full or not:
-
+{% capture example_keep_alive %}
 ```go
   // configure stream to send the bucket at least once a second
   err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
+    binio.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
   )
 ```
+{% endcapture %}
 
-Configure the number of samples per bucket. By default, a bucket contains max. 25 samples. This can be changed:
 
+{% capture example_all_options %}
 ```go
   // configure stream to send the bucket at least once a second
-  // configure the bucket to contain only one sample, so each transition is immediately send
+  // configure the maximum samples per bucket to 25
+  // configure low latency mode
+  // configure the buffered samples to 200
   err = c.StartStream(
-    functionblock.WithKeepAliveInterval(1000),
-    functionblock.WithBucketSamples(1),
+      binio.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
+      binio.WithFBStreamOption(functionblock.WithBucketSamples(25)),
+      binio.WithFBStreamOption(functionblock.WithLowLatencyMode(true))
+      binio.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
   )
 ```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
 
 #### Multiple Clients
 

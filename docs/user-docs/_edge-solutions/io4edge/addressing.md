@@ -15,10 +15,12 @@ io4edge devices are always connected to the host via network, either via
 
 ## IP Address Assignment
 
-All io4edge devices receive their IP address via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol), so you need a DHCP server in your network to which the io4edge device is connected to. A fixed IP address assignment is not planned.
+Io4edge devices typically receive their IP address via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol), so you need a DHCP server in your network to which the io4edge device is connected to. 
 
 **Notice** On Moducop, a DHCP is already installed and setup in the Yocto image. However, this DHCP server is only responsible to assign a IP address for io4edge devices within the ModuCop. If further devices are connected via Ethernet/Wifi, still a DHCP server must be in the network.
 {: .notice}
+
+Some Io4edge devices, currently ModuSio devices can be configured to use static IP addresses instead of using DHCP. If static IP addresses are used, no DHCP is required. 
 
 ## How to Address a Specific Device from the Host
 
@@ -33,7 +35,7 @@ The base service addresses of ModuCop I/O Modules are assigned in the factory - 
 * `MODULE_TYPE` - I/O Module type, e.g. `IOU01`
 * `SLOT_NUMBER` - Slot number, starting with `1` for the slot next to the CPU module.
 
-So when you have an IOU01 module in slot, the service addresses would start with `S101-IOU01-USB-EXT-1`.
+So when you have an IOU01 module in slot 1, the service addresses would start with `S101-IOU01-USB-EXT-1`.
 
 ### Addressing WLAN and Ethernet Based io4edge Modules
 

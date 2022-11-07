@@ -50,5 +50,34 @@ In RS485/RS422 mode, please add termination resistors to the end of the line. Th
 {% include content/io4edge/ttynvt/detailed-description.md %}
 
 ## CANBus Interface
+
+{% capture canbus_connector %}
+Connection is done via 9-pin DSub plug:
+
+| Pin | Symbol  | Description                |
+| --- | ------- | -------------------------- |
+| 1   | -       | Not connected              |
+| 2   | CAN_L   | CAN Signal (dominant low)  |
+| 3   | GND_ISO | CAN Ground                 |
+| 4   | -       | Not connected              |
+| 5   | SHIELD  | Shield                     |
+| 6   | GND_ISO | CAN Ground                 |
+| 7   | CAN_H   | CAN Signal (dominant high) |
+| 8   | -       | Not connected              |
+| 9   | -       | Not connected              |
+{% endcapture %}
+
+{% capture link_to_static_busconfiguration %}
+{{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration
+{% endcapture %}
+
+{% capture link_to_socketcan_qs %}
+{{ page.url | append: "../quick-start-socketcan" | relative_url }}
+{% endcapture %}
+
+{% capture link_to_getdemosoftware %}
+{{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#getdemosoftware
+{% endcapture %}
+
 The {{ page.product_name }} has one CANBus interfaces, labelled `CAN`.
-{% include content/io4edge/canl2/detailed-description.md %}
+{% include content/io4edge/canl2/detailed-description.md listenonly="false" connector=canbus_connector link_to_static_busconfiguration=link_to_static_busconfiguration link_to_socketcan_qs=link_to_socketcan_qs link_to_getdemosoftware=link_to_getdemosoftware %}

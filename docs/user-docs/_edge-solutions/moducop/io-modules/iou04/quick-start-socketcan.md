@@ -1,9 +1,9 @@
 ---
 title: IOU04 Quick-Start-Guide / SocketCAN Demo
 excerpt: Quick startup with IOU04 extension module
-last_modified_at: 2022-08-11
+last_modified_at: 2022-11-01
 
-custom_next: /edge-solutions/modusio/IOU04/detailed-description/
+custom_next: /edge-solutions/moducop/io-modules/iou04/detailed-description/
 product_name: IOU04
 article_group: S101
 example_device_name: S101-IOU04-USB-EXT-1

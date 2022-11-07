@@ -1,7 +1,7 @@
 ---
 title: IOU01 - Rail Compliant Discrete I/O
-excerpt: IOU01 - Rail Compliant Discrete I/O Introduction.
-last_modified_at: 2022-08-12
+excerpt: IOU01 - Rail Compliant Discrete I/O.
+last_modified_at: 2022-10-28
 
 custom_next: /edge-solutions/moducop/io-modules/iou01/quick-start-guide
 product_name: IOU01
@@ -27,6 +27,4 @@ Welcome to the {{ page.product_name }} documentation.
 
 {{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all [Io4Edge devices]({{ '/edge-solutions/io4edge' | relative_url }}).
 
-## Detailed Technical Specification
-
-Please refer to the [Data Sheet](https://www.ci4rail.com/wp-content/uploads/2021/10/IOU01_DS_en.pdf)
+Find more detailed informtion in the [Data Sheet](https://www.ci4rail.com/wp-content/uploads/2021/10/IOU01_DS_en.pdf)

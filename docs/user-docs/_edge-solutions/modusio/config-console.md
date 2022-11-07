@@ -21,7 +21,26 @@ Enter the COM port number from the Windows Device Manager in `Serial Line`, set 
 {% include content/tab/entry-end.md %}
 {% include content/tab/entry-start.md %}
 
-TODO
+The ModuSio Service Interface will be recognized as a serial device and will be named `/dev/ttyUSB<NUMBER>`. To find out the number, check the output of `dmesg`:
+
+```bash
+dmesg | grep ttyUSB
+...
+... cp210x converter now attached to ttyUSB0
+...
+```
+
+Start a terminal program on the computer and connect it with the `ttyUSB<NUMBER>` device. The following examples are shown for `picocom`:
+
+```bash
+$ picocom /dev/ttyUSB0 -b 115200
+...
+Terminal ready
+
+config>
+```
+
+To leave picocom, type `CTRL-A`, followed by `CTRL-X`.
 
 {% include content/tab/entry-end.md %}
 {% include content/tab/end.md %}
