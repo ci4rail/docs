@@ -9,9 +9,12 @@ layout: default
 {% endif %}
 
 {% if page.url != "/" and site.breadcrumbs %}
+{% if page.url contains "user-docs" %}
+{% else %}
 {% unless paginator %}
 {% include breadcrumbs.html %}
 {% endunless %}
+{% endif %}
 {% endif %}
 
 <div id="main" role="main">

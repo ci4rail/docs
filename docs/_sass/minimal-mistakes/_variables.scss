@@ -15,25 +15,21 @@ $indent-var: 1.3em !default;
 /* system typefaces */
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
-// Fonts
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-
-$poppins: 'Poppins';
 $arial: Arial;
 
 // Link fonts to different sections
 // default font
 $global-font-family: $arial !default;
 // font in header
-$masthead-font-family: $poppins !default;
+$masthead-font-family: $arial !default;
 // change font of landing page to poppings, landing page uses splash layout.
-$splash-font-family: $poppins !default;
+$splash-font-family: $arial !default;
 // change font of landing page to poppins, landing page uses header image.
-$header-image-font-family: $poppins !default;
+$header-image-font-family: $arial !default;
 // font in footer
-$footer-font-family: $poppins !default;
+$footer-font-family: $arial !default;
 // text displayed in search window
-$search-window-font-family: $poppins !default;
+$search-window-font-family: $arial !default;
 // font for page content in documentation/video pages and posts
 $page-content-font-family: $arial !default;
 // captions
@@ -43,11 +39,11 @@ $header-font-family: $arial !default;
 // Sidebar on the left side of documentation/video pages
 $sidebar-font-family: $arial !default;
 // buttons
-$butons-font-family: $poppins !default;
+$butons-font-family: $arial !default;
 // TOC showed on the right of documentation/video pages
 $toc-font-family: $arial !default;
 // forms font
-$forms-font-family: $poppins !default;
+$forms-font-family: $arial !default;
 // breadcrumbs font
 $breadcrumbs-font-family: $arial !default;
 // pagination
@@ -100,7 +96,7 @@ $text-color: $dark-gray !default;
 $muted-text-color: mix(#fff, $text-color, 20%) !default;
 $border-color: $lighter-ci4rail-brown !default;
 $form-background-color: $lighter-gray !default;
-$footer-background-color: rgba(0,0,0,0.7) !default;
+$footer-background-color: rgba(0, 0, 0, 0.7) !default;
 $footer-background-image: "/assets/images/footer-background.jpg" !default;
 
 $primary-color: #6f777d !default;
