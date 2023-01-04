@@ -60,28 +60,16 @@ The switching level of the input is 6.7V to 8V, with 1.2V hysteresis.
 
 
 ### Using the io4edge API to access the Binary I/Os
-{% include content/tabv2/start.md tabs="go, python" %}
 
+{% include content/tab/start.md tabs="go, python" instance="client" %}
+{% include content/tab/entry-start.md %}
 <!--- GO START --->
-First, [install the io4edge client library]({{ '/edge-solutions/io4edge/go-client' | relative_url }}).
+If you haven't installed yet the io4edge client software, install it now as [described here]({{ page.url | append: "../quick-start-guide" | relative_url }}#getdemosoftware).
 
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/binaryIoTypeC).
-
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
-First, [install the io4edge client library]({{ '/edge-solutions/io4edge/python-client' | relative_url }}).
-
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-python/tree/main/examples/binaryiotypec).
-
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
+Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/binaryIoTypeC)
 
 #### Connect to the binary I/O function
 
-{% include content/tabv2/start.md tabs="go, python" %}
-
-<!--- GO START --->
 To access the binary I/Os, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Examples:
 * As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
 * As an IP/Port: `192.168.201.1:10000`
@@ -103,32 +91,10 @@ func main() {
     }
 }
 ```
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
-To access the binary I/Os, create a *Client* and save it to the variable `binio_client`. Pass as address either a service address or an ip address with port. Examples:
-* As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
-* As an IP/Port: `192.168.201.1:10000`
-
-We need this client variable for all further access methods.
-
-```python
-
-import io4edge_client.binaryiotypec as binio
-import io4edge_client.functionblock as fb
-
-def main():
-  binio_client = binio.Client(address)
-```
-
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
 
 #### Configure the binary I/Os
-The binary I/Os can be configured as input or output. The default configuration is input.
 
-{% include content/tabv2/start.md tabs="go, python" %}
-<!--- GO START --->
+The binary I/Os can be configured as input or output. The default configuration is input.
 
 With the `UploadConfiguration` method, you can change the configuration of the binary I/Os. The configuration is a list of `ChannelConfig` structs. Each struct contains the channel number, the channel mode and its *initial* value. The channel number is 0-based. The channel mode is either `ChannelMode_BINARYIOTYPEC_OUTPUT_PUSH_PULL` or `ChannelMode_BINARYIOTYPEC_INPUT_TYPE_1_3`.
 
@@ -151,27 +117,6 @@ For example, to configure channel 0..3 as output and leave the rest of the chann
     log.Fatalf("Failed to upload configuration: %v\n", err)
   }
 ```
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
-With the `upload_configuration` method, you can change the configuration of the binary I/Os. For each channel you want to change, pass the channel number, the channel mode and its *initial* value. The channel number is 0-based. The channel mode is either `BINARYIOTYPEC_OUTPUT_PUSH_PULL` or `BINARYIOTYPEC_INPUT_TYPE_1_3`.
-
-Channels that are not specified are not changed.
-
-For example, to configure channel 0..3 as output and leave the rest of the channels unchanged, use the following code:
-
-```python
-    config = binio.Pb.ConfigurationSet()
-    for channel in range(4):
-        config.channelConfig.add(
-            channel=channel,
-            mode=binio.Pb.ChannelMode.BINARYIOTYPEC_OUTPUT_PUSH_PULL,
-            initialValue=False,
-        )
-    binio_client.upload_configuration(config)
-```
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
 
 #### Controlling Output Values
 
@@ -179,8 +124,6 @@ The API provides two methods to control channel output values
 * Control a single pin
 * Control multiple pins
 
-{% include content/tabv2/start.md tabs="go, python" %}
-<!--- GO START --->
 Control a single pin:
 ```go
     // output high value on first channel
@@ -202,32 +145,6 @@ The `SetOuput` and `SetAllOutputs` methods return an error if
 * the channel's group has no power
 
 The actual pin state of channels configured as outputs can be read back using the `Input` and `AllInputs` methods below.
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
-Control a single pin:
-```python
-    # output high value on first channel
-    binio_client.set_output(0, True)
-```
-
-Control multiple pins using a bit mask. The second parameter to `set_all_outputs` is a mask that specifies which channels are affected:
-```python
-    # set first binary output to high, set second output to low, don't change other channels
-    binio_client.set_all_outputs(0x1, 0x3)
-
-    # set first 4 channels to low, don't change other channels
-    binio_client.set_all_outputs(0x0, 0xf)
-```
-
-The `set_output` and `set_all_outputs` methods raise a `RuntimeErrpr` if
-* the channel number is out of range
-* a channel that shall receive a new output value is configured as input
-* the channel's group has no power
-
-The actual pin state of channels configured as outputs can be read back using the `input` and `all_inputs` methods below.
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
 
 #### Output Watchdog
 
@@ -235,26 +152,13 @@ By default, the outputs keep their commanded state forever, even if the host pro
 
 To ensure that outputs are turned off in such cases, the firmware implements a watchdog functionality. The watchdog can be enabled per channel and the watchdog timeout is configurable (but is the same for all channels).
 
-{% include content/tabv2/start.md tabs="go, python" %}
-<!--- GO START --->
 ```go
     // set 2 seconds watchdog on first channel, but not on other channels
     if err := c.UploadConfiguration(binio.WithOutputWatchdog(0x1, 2000)); err != nil {
       log.Fatalf("Failed to set configuration: %v\n", err)
     }
 ```
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
-```python
-    config = binio.Pb.ConfigurationSet()
-    config.outputWatchdogMask = 0x1 # enable watchdog for channel 0
-    config.outputWatchdogTimeout = 2000
-    config.changeOutputWatchdog = True
-    binio_client.upload_configuration(config)
-```
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
+
 With that setting, the host must periodically set each of the enabled channels to the *active* value (the opposite of the *inactive* value) within 2 seconds. If the host does not set the channel within the watchdog timeout, the firmware sets back the channel to its *initial* value.
 
 #### Overcurrent and Overload Handling
@@ -263,15 +167,7 @@ The channel outputs are overcurrent and overload protected. In case an overcurre
 
 In addition, the binary outputs detect thermal overload condition. In this case the channel is disabled until the channel's temperature falls below a certain threshold, then the channels output is activated again.
 
-{% include content/tabv2/start.md tabs="go, python" %}
-<!--- GO START --->
 Overcurrent and overload conditions are reported via the diagnostic values returned by the `Input` and `AllInputs` method.
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
-Overcurrent and overload conditions are reported via the diagnostic values returned by the `input` and `all_inputs` method.
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
 
 #### Reading Inputs and Channel Diagnostics
 
@@ -279,8 +175,6 @@ The API provides two methods to read the current state of the pins:
 * Get value of a single pin
 * Get value of multiple pins
 
-{% include content/tabv2/start.md tabs="go, python" %}
-<!--- GO START --->
 ```go
     // read state of first channel
     // value will be true, if the level is above the input switching threshold
@@ -304,6 +198,7 @@ The API provides two methods to read the current state of the pins:
     if diag[1]&uint32(biniopb.ChannelDiag_CurrentLimit) != 0 {
       // channel is in current limit state
     }
+
 ```
 
 The diagnostic value(s) contain a bit mask with the following flags:
@@ -313,48 +208,13 @@ The diagnostic value(s) contain a bit mask with the following flags:
 * `ChannelDiag_SupplyUndervoltage`: The channel's supply voltage is below the minimum voltage	(<17V)
 * `ChannelDiag_SupplyOvervoltage`: The channel's supply voltage is above the maximum voltage (>43V). However, this flag is never set as long as the hardware isn't damaged.
 
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
-```python
-    # read state of first channel
-    # state will be true, if the level is above the input switching threshold
-    # diag returns the diagnostic value
-    state, diag = binio_client.input(0)
-
-    # check for channel diagnostics
-    if diag&binio.Pb.ChannelDiag.NoSupplyVoltage != 0:  TODO
-      # channel's group has no supply voltage
-
-    # read state of all channels.
-    # all.inputs contains then a bit mask with the state of each input
-    # all.diag is a list of diagnostic values, one for each channel
-    all = binio_client.all_inputs()
-    for channel in range(n_channels):
-        state = 1 if all.inputs & (1 << channel) else 0
-        print("  Ch%d state=%d diag=0x%x" % (channel, state, all.diag[channel]))
-```
-
-The diagnostic value(s) contain a bit mask with the following flags:
-* `NoSupplyVoltage`: The channel's group has no power
-* `CurrentLimit`: The channel is in current limit mode
-* `Overload`: The channel is in overload mode
-* `SupplyUndervoltage`: The channel's supply voltage is below the minimum voltage	(<17V)
-* `SupplyOvervoltage`: The channel's supply voltage is above the maximum voltage (>43V). However, this flag is never set as long as the hardware isn't damaged.
-
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
-
-#### Input Transient Recording
+### Input Transient Recording
 
 In data logger applications, you may want to record changes of the channels.
 
 Therefore, the API provides functions to start a *Stream*. At stream creation, you select the channels which you want to monitor for changes.
 
 The {{ page.product_name }} samples the channel values at a rate of 1.25kHz, so the timestamps are accurate to 800us.
-
-{% include content/tabv2/start.md tabs="go, python" %}
-<!--- GO START --->
 
 ```go
 // start stream, watch for changes on first two channels
@@ -393,9 +253,172 @@ To read samples from the stream:
     }
   }
 ```
+
+{% include content/io4edge/functionblock/timestamp.md %}
+
+#### Controlling the Stream
+
+{% capture example_keep_alive %}
+```go
+  // configure stream to send the bucket at least once a second
+  err = c.StartStream(
+    binio.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
+  )
+```
+{% endcapture %}
+
+
+{% capture example_all_options %}
+```go
+  // configure stream to send the bucket at least once a second
+  // configure the maximum samples per bucket to 25
+  // configure low latency mode
+  // configure the buffered samples to 200
+  err = c.StartStream(
+      binio.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
+      binio.WithFBStreamOption(functionblock.WithBucketSamples(25)),
+      binio.WithFBStreamOption(functionblock.WithLowLatencyMode(true))
+      binio.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
+  )
+```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+
 <!--- GO END --->
-{% include content/tabv2/next.md %}
+{% include content/tab/entry-end.md %}
+
+
 <!--- PYTHON START --->
+{% include content/tab/entry-start.md %}
+#### Connect to the binary I/O function
+
+To access the binary I/Os, create a *Client* and save it to the variable `binio_client`. Pass as address either a service address or an ip address with port. Examples:
+* As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
+* As an IP/Port: `192.168.201.1:10000`
+
+We need this client variable for all further access methods.
+
+```python
+
+import io4edge_client.binaryiotypec as binio
+import io4edge_client.functionblock as fb
+
+def main():
+  binio_client = binio.Client(address)
+```
+#### Configure the binary I/Os
+
+The binary I/Os can be configured as input or output. The default configuration is input.
+
+With the `upload_configuration` method, you can change the configuration of the binary I/Os. For each channel you want to change, pass the channel number, the channel mode and its *initial* value. The channel number is 0-based. The channel mode is either `BINARYIOTYPEC_OUTPUT_PUSH_PULL` or `BINARYIOTYPEC_INPUT_TYPE_1_3`.
+
+Channels that are not specified are not changed.
+
+For example, to configure channel 0..3 as output and leave the rest of the channels unchanged, use the following code:
+
+```python
+    config = binio.Pb.ConfigurationSet()
+    for channel in range(4):
+        config.channelConfig.add(
+            channel=channel,
+            mode=binio.Pb.ChannelMode.BINARYIOTYPEC_OUTPUT_PUSH_PULL,
+            initialValue=False,
+        )
+    binio_client.upload_configuration(config)
+```
+
+#### Controlling Output Values
+
+The API provides two methods to control channel output values
+* Control a single pin
+* Control multiple pins
+
+Control a single pin:
+```python
+    # output high value on first channel
+    binio_client.set_output(0, True)
+```
+
+Control multiple pins using a bit mask. The second parameter to `set_all_outputs` is a mask that specifies which channels are affected:
+```python
+    # set first binary output to high, set second output to low, don't change other channels
+    binio_client.set_all_outputs(0x1, 0x3)
+
+    # set first 4 channels to low, don't change other channels
+    binio_client.set_all_outputs(0x0, 0xf)
+```
+
+The `set_output` and `set_all_outputs` methods raise a `RuntimeErrpr` if
+* the channel number is out of range
+* a channel that shall receive a new output value is configured as input
+* the channel's group has no power
+
+The actual pin state of channels configured as outputs can be read back using the `input` and `all_inputs` methods below.
+
+#### Output Watchdog
+
+By default, the outputs keep their commanded state forever, even if the host program has terminated or crashed.
+
+To ensure that outputs are turned off in such cases, the firmware implements a watchdog functionality. The watchdog can be enabled per channel and the watchdog timeout is configurable (but is the same for all channels).
+
+```python
+    config = binio.Pb.ConfigurationSet()
+    config.outputWatchdogMask = 0x1 # enable watchdog for channel 0
+    config.outputWatchdogTimeout = 1000
+    config.changeOutputWatchdog = True
+    binio_client.upload_configuration(config)
+```
+
+With that setting, the host must periodically set each of the enabled channels to the *active* value (the opposite of the *inactive* value) within 2 seconds. If the host does not set the channel within the watchdog timeout, the firmware sets back the channel to its *initial* value.
+
+#### Overcurrent and Overload Handling
+
+The channel outputs are overcurrent and overload protected. In case an overcurrent condition is detected on one output, the channel limits the current to its maximum (300mA for high side switch, 200mA for low side switch).
+
+In addition, the binary outputs detect thermal overload condition. In this case the channel is disabled until the channel's temperature falls below a certain threshold, then the channels output is activated again.
+
+Overcurrent and overload conditions are reported via the diagnostic values returned by the `input` and `all_inputs` method.
+
+#### Reading Inputs and Channel Diagnostics
+
+The API provides two methods to read the current state of the pins:
+* Get value of a single pin
+* Get value of multiple pins
+
+```python
+    # read state of first channel
+    # state will be true, if the level is above the input switching threshold
+    # diag returns the diagnostic value
+    state, diag = binio_client.input(0)
+
+    # check for channel diagnostics
+    if diag&binio.Pb.ChannelDiag.NoSupplyVoltage != 0:  TODO
+      # channel's group has no supply voltage
+
+    # read state of all channels.
+    # all.inputs contains then a bit mask with the state of each input
+    # all.diag is a list of diagnostic values, one for each channel
+    all = binio_client.all_inputs()
+    for channel in range(n_channels):
+        state = 1 if all.inputs & (1 << channel) else 0
+        print("  Ch%d state=%d diag=0x%x" % (channel, state, all.diag[channel]))
+```
+
+The diagnostic value(s) contain a bit mask with the following flags:
+* `NoSupplyVoltage`: The channel's group has no power
+* `CurrentLimit`: The channel is in current limit mode
+* `Overload`: The channel is in overload mode
+* `SupplyUndervoltage`: The channel's supply voltage is below the minimum voltage	(<17V)
+* `SupplyOvervoltage`: The channel's supply voltage is above the maximum voltage (>43V). However, this flag is never set as long as the hardware isn't damaged.
+
+### Input Transient Recording
+
+In data logger applications, you may want to record changes of the channels.
+
+Therefore, the API provides functions to start a *Stream*. At stream creation, you select the channels which you want to monitor for changes.
+
+The {{ page.product_name }} samples the channel values at a rate of 1.25kHz, so the timestamps are accurate to 800us.
 
 ```python
     # start stream, watch for changes on first two channels
@@ -428,15 +451,11 @@ To read samples from the stream:
         for sample in stream_data.samples:
             print(" Time=%d Inputs=0x%x Valid=0x%x" % (sample.timestamp, sample.values, sample.value_valid))
 ```
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
 
 {% include content/io4edge/functionblock/timestamp.md %}
 
 #### Controlling the Stream
 
-{% include content/tabv2/start.md tabs="go, python" %}
-<!--- GO START --->
 {% capture example_keep_alive %}
 ```go
   // configure stream to send the bucket at least once a second
@@ -464,12 +483,10 @@ To read samples from the stream:
 
 {% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
 
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
 
 <!--- PYTHON END --->
-{% include content/tabv2/end.md %}
+{% include content/tab/entry-end.md %}
+{% include content/tab/end.md %}
 
 #### Multiple Clients
 
