@@ -5,7 +5,6 @@ Pass the following parameters in the include directive:
 - connector: the connector description
 - link_to_static_busconfiguration
 - link_to_socketcan_qs
-- link_to_getdemosoftware
 --->
 {% assign example_service_name = page.example_device_name | append: "-can" %}
 ### Features
@@ -25,12 +24,13 @@ Pass the following parameters in the include directive:
 
 ### Using the io4edge API to access CAN Function
 
-If you haven't installed yet the io4edge client software, install it now as [described here]({{ link_to_getdemosoftware }}).
-
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/canL2)
+{% include content/io4edge/functionblock/install-client.md example_name="canL2" %}
 
 #### Connect to the CAN Function
 
+{% include content/tabv2/start.md tabs="go, python" %}
+
+<!--- GO START --->
 To access the CAN Function, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
 * As a service address: `{{ example_service_name }}`
 * As a IP/Port: e.g. `192.168.201.1:10002`
@@ -55,6 +55,24 @@ func main() {
   }
 }
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+To access the binary I/Os, create a *Client* and save it to the variable `can_client`. Pass as address either a service address or an ip address with port. Examples:
+* As a service address: `{{ example_service_name }}`
+* As an IP/Port: `192.168.201.1:10000`
+
+We need this client variable for all further access methods.
+
+```python
+import io4edge_client.canl2 as canl2
+import io4edge_client.functionblock as fb
+
+def main():
+  can_client = canl2.Client("{{ example_service_name }}")
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 #### Bus Configuration
 
@@ -65,23 +83,54 @@ There are two ways to configure the CAN function:
 
 ##### Temporary Bus Configuration
 
-Bus Configuration can be set via `UploadConfiguration`. All settings remain active until you change it again or restart the device.
+When applying a configuration via the API, the configuration is only active until the next restart of the device. The configuration is not stored in flash. When the device is restarted, it will apply the persistent configuration stored in flash, or - if no persistent configuration is available - will keep the CAN controller disabled.
 
-When the device is restarted, it will apply the persistent configuration stored in flash, or - if no persistent configuration is available - will keep the CAN controller disabled.
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
+
+Bus Configuration can be set via `UploadConfiguration`.
 
 ```go
   err = c.UploadConfiguration(
     canl2.WithBitRate(125000),
     canl2.WithSamplePoint(0.625),
     canl2.WithSJW(1),
-    {% if inclue.listenonly == "false" %}canl2.WithListenOnly(false),{% else %}canl2.WithListenOnly(true),{% endif %}
+    {% if include.listenonly == "false" %}canl2.WithListenOnly(false),{% else %}canl2.WithListenOnly(true),{% endif %}
   )
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+Bus Configuration can be set via `upload_configuration`.
 
+Note: The sample point is given as a thousandth of a percent, e.g. 625 for 62.5%.
+
+```python
+    can_client.upload_configuration(
+        canl2.Pb.ConfigurationSet(
+            baud=125000,
+            samplePoint=625,
+            sjw=1,
+            listenOnly={% if include.listenonly == "false" %}False{% else %}True{% endif %},
+        )
+    )
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 #### Receiving CAN Data
 
 To receive data from the CANbus, the API provides functions to start a *Stream*.
 
+In the stream the firmware generates *Buckets*, where each Bucket contains a number of *Samples*. Each sample contains:
+* A timestamp of the sample
+* The CAN frame (may be missing in case of bus state changes or error events)
+* The CAN Bus state (Ok, error passive or bus off)
+* Error events (currently: receive buffer overruns)
+
+For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
+
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 Without any parameters, the stream receives all CAN frames:
 ```go
 // start stream
@@ -93,16 +142,6 @@ Missing parameters to ´StartStream` will take default values:
 * Buffered Samples: 50
 * Keep Alive Interval: 1000ms
 * Low Latency Mode: off
-
-
-In the stream the firmware generates *Buckets*, where each Bucket contains a number of *Samples*. Each sample contains:
-* A timestamp of the sample
-* The CAN frame (may be missing in case of bus state changes or error events)
-* The CAN Bus state (Ok, error passive or bus off)
-* Error events (currently: receive buffer overruns)
-
-For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
-To read samples from the stream:
 
 ```go
   for {
@@ -149,12 +188,72 @@ func dumpSample(sample *fspb.Sample) string {
 }
 
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+```python
+    # start stream, accept all frames
+    stream_start = canl2.Pb.StreamControlStart(
+        acceptanceCode=0, acceptanceMask=0
+    )
 
+    can_client.start_stream(
+        stream_start,
+        fb.Pb.StreamControlStart(
+            bucketSamples=100,
+            keepaliveInterval=1000,
+            bufferedSamples=200,
+            low_latency_mode=False,
+        ),
+    )
+
+    while True:
+        try:
+            generic_stream_data, stream_data = can_client.read_stream(timeout=3)
+        except TimeoutError:
+            print("Timeout while reading stream")
+            continue
+
+        print(
+            "Received %d samples, seq=%d" % (len(stream_data.samples), generic_stream_data.sequence)
+        )
+
+        for sample in stream_data.samples:
+            print(sample_to_str(sample))
+
+
+def sample_to_str(sample):
+    ret_val = "%10d us: " % sample.timestamp
+    if sample.isDataFrame:
+        frame = sample.frame
+        ret_val += "ID:"
+        if frame.extendedFrameFormat:
+            ret_val += "%08X" % frame.messageId
+        else:
+            ret_val += "%03X" % frame.messageId
+        if frame.remoteFrame:
+            ret_val += " R"
+        ret_val += " DATA:"
+        for i in range(len(frame.data)):
+            ret_val += "%02X " % frame.data[i]
+        ret_val += " "
+
+    ret_val += "ERROR: " + canl2.Pb._ERROREVENT.values_by_number[sample.error].name
+    ret_val += (
+        " STATE: "
+        + canl2.Pb._CONTROLLERSTATE.values_by_number[sample.controllerState].name
+    )
+    return ret_val
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 {% include content/io4edge/functionblock/timestamp.md %}
 
 
 ##### Controlling the Stream
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 {% capture example_keep_alive %}
 ```go
   // configure stream to send the bucket at least once a second
@@ -194,6 +293,34 @@ The same filter is applied to extended frames and standard frames.
     canl2.WithFilter(code, mask),
   )
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+{% capture example_all_options %}
+
+If you don't want to receive all CAN identifiers, you can specify an acceptance code and mask that is applied to each received frame. The filter algorithm is `pass_filter = (code & mask) == (received_frame_id & mask)`.
+The same filter is applied to extended frames and standard frames.
+
+```python
+    # apply a filter. Frames with an identifier of 0x1xx pass the filter, other frames are filtered out
+    stream_start = canl2.Pb.StreamControlStart(
+        acceptanceCode=0x100, acceptanceMask=0x700
+    )
+
+    can_client.start_stream(
+        stream_start,
+        fb.Pb.StreamControlStart(
+            bucketSamples=100,
+            keepaliveInterval=1000,
+            bufferedSamples=200,
+            low_latency_mode=args.lowlatency,
+        ),
+    )
+```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options describe_low_latency=true %}
+
 
 ##### Error Indications and Bus State
 
@@ -211,7 +338,7 @@ Bus States can be:
 * `ControllerState_CAN_ERROR_PASSIVE` - CAN controller is "Error Passive"
 * `ControllerState_CAN_BUS_OFF` - CAN controller is bus off
 
- {% if inclue.listenonly == "false" %}
+ {% if include.listenonly == "false" %}
 #### Sending CAN Data
 
 To send CAN data, prepare a batch of frames to be sent and call `SendFrames`.

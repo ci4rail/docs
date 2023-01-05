@@ -60,6 +60,7 @@ The switching level of the input is 6.7V to 8V, with 1.2V hysteresis.
 
 
 ### Using the io4edge API to access the Binary I/Os
+
 {% include content/io4edge/functionblock/install-client.md example_name="binaryIoTypeC" %}
 
 #### Connect to the binary I/O function
