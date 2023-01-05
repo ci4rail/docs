@@ -180,7 +180,7 @@ func dumpSample(sample *fspb.Sample) string {
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-go.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
 
 
 If you don't want to receive all CAN identifiers, you can specify an acceptance code and mask that is applied to each received frame. The filter algorithm is `pass_filter = (code & mask) == (received_frame_id & mask)`.

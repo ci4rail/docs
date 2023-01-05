@@ -60,22 +60,7 @@ The switching level of the input is 6.7V to 8V, with 1.2V hysteresis.
 
 
 ### Using the io4edge API to access the Binary I/Os
-{% include content/tabv2/start.md tabs="go, python" %}
-
-<!--- GO START --->
-First, [install the io4edge client library]({{ '/edge-solutions/io4edge/go-client' | relative_url }}).
-
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/binaryIoTypeC).
-
-<!--- GO END --->
-{% include content/tabv2/next.md %}
-<!--- PYTHON START --->
-First, [install the io4edge client library]({{ '/edge-solutions/io4edge/python-client' | relative_url }}).
-
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-python/tree/main/examples/binaryiotypec).
-
-<!--- PYTHON END --->
-{% include content/tabv2/end.md %}
+{% include content/io4edge/functionblock/install-client.md example_name="binaryIoTypeC" %}
 
 #### Connect to the binary I/O function
 
@@ -388,9 +373,6 @@ To read samples from the stream:
         log.Printf("sample %d: relTs=%10dus values=b%016b valid=b%016b", i, sample.Timestamp-firstTs, sample.Values, sample.ValueValid)
       }
     }
-    if time.Since(start) > time.Second*time.Duration(*runtime) {
-      break
-    }
   }
 ```
 <!--- GO END --->
@@ -462,11 +444,27 @@ To read samples from the stream:
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-go.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
 
 <!--- GO END --->
 {% include content/tabv2/next.md %}
 <!--- PYTHON START --->
+
+{% capture example_all_options %}
+```python
+    binio_client.start_stream(
+        binio.Pb.StreamControlStart(channelFilterMask=0x0003),
+        fb.Pb.StreamControlStart(
+            bucketSamples=25,
+            keepaliveInterval=1000,
+            bufferedSamples=50,
+            low_latency_mode=True,
+        ),
+    )
+```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options describe_low_latency=true %}
 
 <!--- PYTHON END --->
 {% include content/tabv2/end.md %}

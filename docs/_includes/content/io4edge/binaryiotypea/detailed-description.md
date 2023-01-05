@@ -243,7 +243,7 @@ To read samples from the stream:
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-go.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
 
 #### Multiple Clients
 
