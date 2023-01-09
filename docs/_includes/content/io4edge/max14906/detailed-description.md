@@ -66,7 +66,6 @@ The switching level of the input is 6.7V to 8V, with 1.2V hysteresis.
 #### Connect to the binary I/O function
 
 {% include content/tabv2/start.md tabs="go, python" %}
-
 <!--- GO START --->
 To access the binary I/Os, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Examples:
 * As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
