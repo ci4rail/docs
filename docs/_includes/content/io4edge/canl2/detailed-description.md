@@ -343,8 +343,6 @@ Bus States can be:
 <!--- GO END --->
 {% include content/tabv2/next.md %}
 <!--- PYTHON START --->
-TODO: Verify codes!
-
 Error events can be:
 * `canl2.Pb.ErrorEvent.CAN_NO_ERROR` - no event
 * `canl2.Pb.ErrorEvent.CAN_RX_QUEUE_FULL` - either the CAN controller dropped a frame or the stream buffer was full
@@ -445,7 +443,7 @@ When the CAN controller detects serious communication problems, it enters "Bus o
 
 When bus off state is entered, The firmware waits 3 seconds and then resets the CAN controller.
 
-##### Multiple Clients
+#### Multiple Clients
 
 It is possible to have multiple clients active at the same time. For example:
 {% if inclue.listenonly == "false" %}One client sends data, a second {% else %}One {%endif %} client receiving a stream with a specific filter and a another client receiving a stream with a different filter.
