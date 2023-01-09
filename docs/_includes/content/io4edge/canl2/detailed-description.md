@@ -320,12 +320,14 @@ The same filter is applied to extended frames and standard frames.
 {% endcapture %}
 
 {% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options describe_low_latency=true %}
-
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 ##### Error Indications and Bus State
-
 The samples in the stream contain also error events and the current bus state.
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 Error events can be:
 * `ErrorEvent_CAN_NO_ERROR` - no event
 * `ErrorEvent_CAN_RX_QUEUE_FULL` - either the CAN controller dropped a frame or the stream buffer was full
@@ -338,8 +340,30 @@ Bus States can be:
 * `ControllerState_CAN_ERROR_PASSIVE` - CAN controller is "Error Passive"
 * `ControllerState_CAN_BUS_OFF` - CAN controller is bus off
 
- {% if include.listenonly == "false" %}
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+TODO: Verify codes!
+
+Error events can be:
+* `canl2.Pb.ErrorEvent.CAN_NO_ERROR` - no event
+* `canl2.Pb.ErrorEvent.CAN_RX_QUEUE_FULL` - either the CAN controller dropped a frame or the stream buffer was full
+
+Each sample contains also the bus state. When the bus state changes, a sample without a CAN frame may be generated.
+Furthermore, client method `ctrl_state` may be used to query the current status.
+
+Bus States can be:
+* `canl2.Pb.ControllerState.CAN_OK` - CAN controller is "Error Active"
+* `canl2.Pb.ControllerState.CAN_ERROR_PASSIVE` - CAN controller is "Error Passive"
+* `canl2.Pb.ControllerState.CAN_BUS_OFF` - CAN controller is bus off
+
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
+
+{% if include.listenonly == "false" %}
 #### Sending CAN Data
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 
 To send CAN data, prepare a batch of frames to be sent and call `SendFrames`.
 
@@ -349,10 +373,10 @@ To send CAN data, prepare a batch of frames to be sent and call `SendFrames`.
 
     for j := 0; j < 10; j++ {
       f := &fspb.Frame{
-        MessageId:           uint32(0x100 + (i & 0xFF)),
+        MessageId:           uint32(0x100),
         Data:                []byte{},
-        ExtendedFrameFormat: *extended,
-        RemoteFrame:         *rtr,
+        ExtendedFrameFormat: false,
+        RemoteFrame:         false,
       }
       len := j % 8
       for k := 0; k < len; k++ {
@@ -374,6 +398,36 @@ The maximum number of frames you can send with one batch is `31`.
 
 You can't send frames and `SendFrames` will return an error in the following scenarios (status codes for go can be found [here](https://github.com/ci4rail/io4edge_api/blob/main/io4edge/go/functionblock/v1alpha1/io4edge_functionblock.pb.go))
 
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+
+To send CAN data, prepare a batch of frames to be sent and call `send_frames`.
+
+```python
+  frames = []
+  for msg in range(10):
+      frames.append(
+          canl2.Pb.Frame(
+              messageId=0x100,
+              data=bytes([msg for _ in range(msg % 8)]),
+              extendedFrameFormat=False,
+              remoteFrame=False,
+          )
+      )
+  can_client.send_frames(frames)
+```
+
+If you want a high send throughput, it is important *not* to call `send_frames` with only a single frame. If you do so, overhead of the transmission to the io4edge will reduce your send bandwidth.
+
+The maximum number of frames you can send with one batch is `31`.
+
+You can't send frames and `send_frames` will return an error in the following scenarios)
+
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
+
+
 | Condition                       | Error Code              |
 | ------------------------------- | ----------------------- |
 | No CANbus Configuration applied | UNSPECIFIC_ERROR        |
@@ -382,7 +436,7 @@ You can't send frames and `SendFrames` will return an error in the following sce
 | Transmit buffer full            | TEMPORARILY_UNAVAILABLE |
 | CANBus State is BUS OFF         | HW_FAULT                |
 
-In case the firmware's transmit buffer is full, the firmware will send *none* of the frames and return TEMPORARILY_UNAVAILABLE error. Therefore you can retry later with the same set of frames.
+In case the firmware's transmit buffer is full, the firmware will send *none* of the frames and return TEMPORARILY_UNAVAILABLE error. Therefore, you can retry later with the same set of frames.
 {% endif %}
 
 #### Bus Off Handling
