@@ -230,6 +230,8 @@ In the stream the firmware generates *Buckets*, where each Bucket contains a num
 
 To read samples from the stream:
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 ```go
   ...
   prevTs := uint64(0)
@@ -279,10 +281,51 @@ func telegramToString(t *mvbpb.Telegram) string {
   return s
 }
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+```python
+    while True:
+        try:
+            generic_stream_data, telegrams = mvb_client.read_stream(timeout=3)
+        except TimeoutError:
+            print("Timeout while reading stream")
+            continue
 
+        print(
+            "Received %d telegrams, seq=%d"
+            % (len(telegrams.entry), generic_stream_data.sequence)
+        )
+        for telegram in telegrams.entry:
+            if telegram.state != mvb.TelegramPb.Telegram.State.kSuccessful:
+                if telegram.state & mvb.TelegramPb.Telegram.State.kTimedOut:
+                    print("No slave frame has been received to a master frame")
+                if telegram.state & mvb.TelegramPb.Telegram.State.kMissedMVBFrames:
+                    print(
+                        "one or more MVB frames are lost in the device since the last telegram"
+                    )
+                if telegram.State & mvb.TelegramPb.Telegram.State.kMissedMVBFrames:
+                    print("one or more telegrams are lost")
+            print(telegram_to_str(telegram))
+
+
+def telegram_to_str(telegram):
+    ret_val = "addr=%03x, " % telegram.address
+    ret_val += "%s" % mvb.TelegramPb._TELEGRAM_TYPE.values_by_number[telegram.type].name
+    if len(telegram.data) > 0:
+        ret_val += ", data="
+        for b in telegram.data:
+            ret_val += "%02x " % b
+    return ret_val
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 {% include content/io4edge/functionblock/timestamp.md %}
 
 ##### Controlling the Stream
+
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 
 {% capture example_keep_alive %}
 ```go
@@ -309,4 +352,29 @@ func telegramToString(t *mvbpb.Telegram) string {
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common-go.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-go.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=false %}
+
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+
+{% capture example_all_options %}
+```python
+    stream_start = mvb.Pb.StreamControlStart()
+    stream_start.filter.add(f_code_mask=0x0FFF, include_timedout_frames=False)
+
+    mvb_client.start_stream(
+        stream_start,
+        fb.Pb.StreamControlStart(
+            bucketSamples=100,
+            keepaliveInterval=1000,
+            bufferedSamples=200,
+            low_latency_mode=False,
+        ),
+    )
+```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options describe_low_latency=false %}
+
+<!--- PYTHON END --->

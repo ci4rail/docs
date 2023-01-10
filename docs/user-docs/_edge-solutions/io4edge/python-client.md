@@ -25,3 +25,9 @@ For example:
 ```bash
 docker run --network=host <your image>
 ```
+
+## Using io4edge Python Client Library on ModuCop
+
+When using Ci4Rail Yocto images, such as the images for ModuCop, you can't install the io4edge-client python library directly into the root file system, as it is write-protected. Build a docker container with your application and the io4edge-client library and then run this container on ModuCop.
+
+For development purposes, you can use vscode remote ssh and vscode devcontainer. Detailed instructions are available on request.
