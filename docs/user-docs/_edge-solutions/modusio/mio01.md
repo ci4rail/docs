@@ -27,7 +27,3 @@ Welcome to the {{ page.product_name }} documentation
 * EN 50155 compliant
 
 {{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all [Io4Edge devices]({{ '/edge-solutions/io4edge' | relative_url }}).
-
-## Detailed Technical Specification
-
-COMING SOON.
