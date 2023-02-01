@@ -11,8 +11,7 @@ type: modusio-module
 
 Welcome to the {{ page.product_name }} documentation
 
-![{{ page.product_name }} frontal view]({{ '/user-docs/images/edge-solutions/modusio/mio01/product_frontal.png' | relative_url }})
-{: style="width: 20%"}
+![{{ page.product_name }} frontal view]({{ '/user-docs/images/edge-solutions/modusio/mio01/product_frontal.png' | relative_url }}){: style="width: 15%"}
 
 {{ page.product_name }} is a binary & analogue input/output module with Ethernet and WLAN connectivity for edge applications in rail & busses.
 

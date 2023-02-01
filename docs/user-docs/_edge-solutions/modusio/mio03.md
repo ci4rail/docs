@@ -11,7 +11,7 @@ type: modusio-module
 
 Welcome to the {{ page.product_name }} documentation.
 
-![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/modusio/mio03/product_frontal.png' | relative_url }}){: style="width: 20%"}
+![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/modusio/mio03/product_frontal.png' | relative_url }}){: style="width: 15%"}
 
 
 {{ page.product_name }} is a non-retroactive MVB/CAN sniffer module with Ethernet and WLAN connectivity for edge applications in rail systems.
