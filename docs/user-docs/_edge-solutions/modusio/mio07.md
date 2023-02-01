@@ -11,7 +11,7 @@ type: modusio-module
 
 Welcome to the {{ page.product_name }} documentation
 
-![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/modusio/mio07/product.png' | relative_url }}){: style="width: 100%"}
+![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/modusio/mio07/product_frontal.png' | relative_url }}){: style="width: 15%"}
 
 
 {{ page.product_name }} is a binary input/output module module with Ethernet and WLAN connectivity for edge applications in railway and automotive systems.
