@@ -102,6 +102,13 @@ sidebar:
               url: /edge-solutions/modusio/mio04/quick-start-guide/
             - title: Detailed-Description
               url: /edge-solutions/modusio/mio04/detailed-description/
+        - title: MIO07 - 16 Channel Binary I/O
+          url: /edge-solutions/modusio/mio07/
+          navitems:
+            - title: Quick-Start-Guide
+              url: /edge-solutions/modusio/mio07/quick-start-guide/
+            - title: Detailed-Description
+              url: /edge-solutions/modusio/mio07/detailed-description/
 
     - title: io4edge
       url: /edge-solutions/io4edge/

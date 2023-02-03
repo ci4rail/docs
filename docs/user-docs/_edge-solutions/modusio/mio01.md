@@ -11,7 +11,7 @@ type: modusio-module
 
 Welcome to the {{ page.product_name }} documentation
 
-![{{ page.product_name }} frontal view]({{ '/user-docs/images/edge-solutions/modusio/mio01/frontal.png' | relative_url }})
+![{{ page.product_name }} frontal view]({{ '/user-docs/images/edge-solutions/modusio/mio01/product_frontal.png' | relative_url }}){: style="width: 15%"}
 
 {{ page.product_name }} is a binary & analogue input/output module with Ethernet and WLAN connectivity for edge applications in rail & busses.
 
@@ -27,7 +27,3 @@ Welcome to the {{ page.product_name }} documentation
 * EN 50155 compliant
 
 {{ page.product_name }} is an Io4Edge device, and therefore supports the features common to all [Io4Edge devices]({{ '/edge-solutions/io4edge' | relative_url }}).
-
-## Detailed Technical Specification
-
-COMING SOON.

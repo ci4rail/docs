@@ -60,12 +60,12 @@ Multiple applications may be connected simultaneously to the same MVB sniffer, e
 
 ### Using the io4edge API to access the MVB Sniffer
 
-If you haven't installed yet the io4edge client software, install it now as [described here]({{ link_to_getdemosoftware }}).
-
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/mvbSniffer)
+{% include content/io4edge/functionblock/install-client.md example_name="mvbSniffer" %}
 
 #### Connect to the MVB Sniffer Function
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 To access the MVB Sniffer Function, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
 * As a service address: `{{ example_service_name }}`
 * As a IP/Port: e.g. `192.168.201.1:10000`
@@ -94,6 +94,24 @@ func main() {
   }
 }
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+To access the MVB Sniffer Function, create a *Client* and save it to the variable `mvb_client`. Pass as address either a service address or an ip address with port. Examples:
+* As a service address: `{{ example_service_name }}`
+* As an IP/Port: `192.168.201.1:10000`
+
+We need this client variable for all further access methods.
+
+```python
+import io4edge_client.mvbsniffer as mvb
+import io4edge_client.functionblock as fb
+
+def main():
+  mvb_client = mvb.Client(address)
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 #### Receiving MVB Telegrams
 
@@ -101,6 +119,9 @@ func main() {
 To receive telegrams from the MVB, the API provides functions to start a *Stream*. When starting the stream, you can specify a filter to receive only telegrams that match the filter criteria.
 
 The following code shows a typical filter setting: Receive all frames with all FCodes, but no timed out frames.
+
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 
 ```go
   // start stream
@@ -119,6 +140,25 @@ The following code shows a typical filter setting: Receive all frames with all F
     log.Errorf("StartStream failed: %v\n", err)
   }
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+```python
+    stream_start = mvb.Pb.StreamControlStart()
+    stream_start.filter.add(f_code_mask=0x0FFF, include_timedout_frames=False)
+
+    mvb_client.start_stream(
+        stream_start,
+        fb.Pb.StreamControlStart(
+            bucketSamples=100,
+            keepaliveInterval=1000,
+            bufferedSamples=200,
+            low_latency_mode=False,
+        ),
+    )
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 The filter algorithm for MVB addresses is `pass_filter = (Address & Mask) == (Received_Address & Mask)`.
 
@@ -126,6 +166,8 @@ The filter algorithm for FCode is `pass_filter = (FCodeMask & (1<<Received_FCode
 
 You can combine up to 4 filters in one stream. If a telegram matches any filter, it is passed to the stream. This example defines two filters:
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 ```go
   // start stream
   err = c.StartStream(
@@ -137,7 +179,7 @@ You can combine up to 4 filters in one stream. If a telegram matches any filter,
       IncludeTimedoutFrames: false,
     }),
     mvbsniffer.WithFilterMask(mvbsniffer.FilterMask{
-      // receive any telegram, except timed out frames
+      // receive only FCode 15 telegrams with address 0x01xx
       FCodeMask:             0x8000,  // matches FCode 15
       Address:               0x0100,  // matches addresses 0x01xx
       Mask:                  0xFF00,
@@ -147,6 +189,39 @@ You can combine up to 4 filters in one stream. If a telegram matches any filter,
     mvbsniffer.WithFBStreamOption(functionblock.WithBufferedSamples(200)),
   )
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+```python
+    stream_start = mvb.Pb.StreamControlStart()
+    # receive only process data telegram, at any address
+    stream_start.filter.add(
+      f_code_mask=0x001F,
+      address=0x0000,
+      mask=0x0000,
+      include_timedout_frames=False
+    )
+    # receive only FCode 15 telegrams with address 0x01xx
+    stream_start.filter.add(
+      f_code_mask=0x8000,
+      address=0x0100,
+      mask=0xFF00,
+      include_timedout_frames=False
+    )
+
+    mvb_client.start_stream(
+        stream_start,
+        fb.Pb.StreamControlStart(
+            bucketSamples=100,
+            keepaliveInterval=1000,
+            bufferedSamples=200,
+            low_latency_mode=False,
+        ),
+    )
+```
+
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 ##### Receive Telegrams
 
@@ -155,6 +230,8 @@ In the stream the firmware generates *Buckets*, where each Bucket contains a num
 
 To read samples from the stream:
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 ```go
   ...
   prevTs := uint64(0)
@@ -204,20 +281,51 @@ func telegramToString(t *mvbpb.Telegram) string {
   return s
 }
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+```python
+    while True:
+        try:
+            generic_stream_data, telegrams = mvb_client.read_stream(timeout=3)
+        except TimeoutError:
+            print("Timeout while reading stream")
+            continue
 
+        print(
+            "Received %d telegrams, seq=%d"
+            % (len(telegrams.entry), generic_stream_data.sequence)
+        )
+        for telegram in telegrams.entry:
+            if telegram.state != mvb.TelegramPb.Telegram.State.kSuccessful:
+                if telegram.state & mvb.TelegramPb.Telegram.State.kTimedOut:
+                    print("No slave frame has been received to a master frame")
+                if telegram.state & mvb.TelegramPb.Telegram.State.kMissedMVBFrames:
+                    print(
+                        "one or more MVB frames are lost in the device since the last telegram"
+                    )
+                if telegram.State & mvb.TelegramPb.Telegram.State.kMissedMVBFrames:
+                    print("one or more telegrams are lost")
+            print(telegram_to_str(telegram))
+
+
+def telegram_to_str(telegram):
+    ret_val = "addr=%03x, " % telegram.address
+    ret_val += "%s" % mvb.TelegramPb._TELEGRAM_TYPE.values_by_number[telegram.type].name
+    if len(telegram.data) > 0:
+        ret_val += ", data="
+        for b in telegram.data:
+            ret_val += "%02x " % b
+    return ret_val
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 {% include content/io4edge/functionblock/timestamp.md %}
 
 ##### Controlling the Stream
 
-{% capture example_keep_alive %}
-```go
-  // configure stream to send the bucket at least once a second
-  err = c.StartStream(
-    mvbsniffer.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
-  )
-```
-{% endcapture %}
-
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 
 {% capture example_all_options %}
 ```go
@@ -234,4 +342,29 @@ func telegramToString(t *mvbpb.Telegram) string {
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-go.md example_all_options=example_all_options describe_low_latency=false %}
+
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+
+{% capture example_all_options %}
+```python
+    stream_start = mvb.Pb.StreamControlStart()
+    stream_start.filter.add(f_code_mask=0x0FFF, include_timedout_frames=False)
+
+    mvb_client.start_stream(
+        stream_start,
+        fb.Pb.StreamControlStart(
+            bucketSamples=100,
+            keepaliveInterval=1000,
+            bufferedSamples=200,
+            low_latency_mode=False,
+        ),
+    )
+```
+{% endcapture %}
+
+{% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options describe_low_latency=false %}
+
+<!--- PYTHON END --->

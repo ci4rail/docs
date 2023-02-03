@@ -218,16 +218,6 @@ To read samples from the stream:
 
 #### Controlling the Stream
 
-{% capture example_keep_alive %}
-```go
-  // configure stream to send the bucket at least once a second
-  err = c.StartStream(
-    binio.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
-  )
-```
-{% endcapture %}
-
-
 {% capture example_all_options %}
 ```go
   // configure stream to send the bucket at least once a second
@@ -243,7 +233,7 @@ To read samples from the stream:
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-go.md example_all_options=example_all_options describe_low_latency=true %}
 
 #### Multiple Clients
 
