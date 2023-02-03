@@ -353,7 +353,7 @@ For each transition, a *Sample* is generated in the stream, each sample contains
 * The value of all channels specified by `ChannelFilterMask` at the time of the transition.
 * A bit mask that indicates if the corresponding channel value is valid. (channels not in `ChannelFilterMask` are always flagged invalid).
 
-For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
+For efficiency, multiple samples are gathered and sent as one *Bucket* to the host.
 To read samples from the stream:
 
 ```go
