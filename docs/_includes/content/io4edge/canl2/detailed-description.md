@@ -254,15 +254,6 @@ def sample_to_str(sample):
 
 {% include content/tabv2/start.md tabs="go, python" %}
 <!--- GO START --->
-{% capture example_keep_alive %}
-```go
-  // configure stream to send the bucket at least once a second
-  err = c.StartStream(
-    canl2.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
-  )
-```
-{% endcapture %}
-
 
 {% capture example_all_options %}
 ```go
@@ -279,7 +270,7 @@ def sample_to_str(sample):
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common-go.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-go.md example_all_options=example_all_options describe_low_latency=true %}
 
 
 If you don't want to receive all CAN identifiers, you can specify an acceptance code and mask that is applied to each received frame. The filter algorithm is `pass_filter = (code & mask) == (received_frame_id & mask)`.

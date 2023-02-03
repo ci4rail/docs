@@ -223,7 +223,8 @@ To ensure that outputs are turned off in such cases, the firmware implements a w
 {% include content/tabv2/start.md tabs="go, python" %}
 <!--- GO START --->
 ```go
-    // set 2 seconds watchdog on first channel, but not on other channels
+    // set 2 seconds watchdog on first channel, but not on other channels.
+    // The first parameter is a bit mask that specifies the channels that are affected.
     if err := c.UploadConfiguration(binio.WithOutputWatchdog(0x1, 2000)); err != nil {
       log.Fatalf("Failed to set configuration: %v\n", err)
     }
@@ -233,6 +234,7 @@ To ensure that outputs are turned off in such cases, the firmware implements a w
 <!--- PYTHON START --->
 ```python
     config = binio.Pb.ConfigurationSet()
+    # outputWatchdogMask is a bit mask that specifies the channels that are affected.
     config.outputWatchdogMask = 0x1 # enable watchdog for channel 0
     config.outputWatchdogTimeout = 2000
     config.changeOutputWatchdog = True
@@ -348,8 +350,8 @@ err = c.StartStream(binio.WithChannelFilterMask(0x3))
 
 For each transition, a *Sample* is generated in the stream, each sample contains:
 * A timestamp of the transition
-* The value of all channels at the time of the transition (with the exception of the channels that are filtered out)
-* A bit mask that indicates if the corresponding channel value is valid
+* The value of all channels specified by `ChannelFilterMask` at the time of the transition.
+* A bit mask that indicates if the corresponding channel value is valid. (channels not in `ChannelFilterMask` are always flagged invalid).
 
 For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
 To read samples from the stream:
@@ -395,10 +397,10 @@ To read samples from the stream:
 
 For each transition, a *Sample* is generated in the stream, each sample contains:
 * A timestamp of the transition
-* The value of all channels at the time of the transition (with the exception of the channels that are filtered out)
-* A bit mask that indicates if the corresponding channel value is valid
+* The value of all channels specified by `ChannelFilterMask` at the time of the transition.
+* A bit mask that indicates if the corresponding channel value is valid. (channels not in `ChannelFilterMask` are always flagged invalid).
 
-For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
+For efficiency, multiple samples are gathered and sent as one *Bucket* to the host.
 To read samples from the stream:
 
 ```python
@@ -419,15 +421,6 @@ To read samples from the stream:
 
 {% include content/tabv2/start.md tabs="go, python" %}
 <!--- GO START --->
-{% capture example_keep_alive %}
-```go
-  // configure stream to send the bucket at least once a second
-  err = c.StartStream(
-    binio.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
-  )
-```
-{% endcapture %}
-
 
 {% capture example_all_options %}
 ```go
@@ -444,7 +437,7 @@ To read samples from the stream:
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common-go.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-go.md example_all_options=example_all_options describe_low_latency=true %}
 
 <!--- GO END --->
 {% include content/tabv2/next.md %}

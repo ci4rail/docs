@@ -327,16 +327,6 @@ def telegram_to_str(telegram):
 {% include content/tabv2/start.md tabs="go, python" %}
 <!--- GO START --->
 
-{% capture example_keep_alive %}
-```go
-  // configure stream to send the bucket at least once a second
-  err = c.StartStream(
-    mvbsniffer.WithFBStreamOption(functionblock.WithKeepaliveInterval(1000)),
-  )
-```
-{% endcapture %}
-
-
 {% capture example_all_options %}
 ```go
   // configure stream to send the bucket at least once a second
@@ -352,7 +342,7 @@ def telegram_to_str(telegram):
 ```
 {% endcapture %}
 
-{% include content/io4edge/functionblock/stream-common-go.md example_keep_alive=example_keep_alive example_all_options=example_all_options describe_low_latency=false %}
+{% include content/io4edge/functionblock/stream-common-go.md example_all_options=example_all_options describe_low_latency=false %}
 
 <!--- GO END --->
 {% include content/tabv2/next.md %}
