@@ -8,8 +8,8 @@ The examples are written in programming language [Go](https://go.dev/), we downl
 
 Clone the repository containing the examples to a folder of your choise (here `myworkdir`)
 
-{% include content/tab/start.md tabs="Windows, Linux" instance="pre" %}
-{% include content/tab/entry-start.md %}
+{% include content/tabv2/start.md tabs="Windows, Linux" instance="pre" %}
+<!--- Linux Start --->
 
 ```powershell
 c:
@@ -18,9 +18,9 @@ git clone https://github.com/ci4rail/io4edge-client-go.git
 cd io4edge-client-go
 ```
 
-{% include content/tab/entry-end.md %}
-
-{% include content/tab/entry-start.md %}
+<!--- Linux End --->
+{% include content/tabv2/next.md %}
+<!--- Windows Start --->
 
 ```bash
 cd ~/myworkdir
@@ -28,9 +28,8 @@ git clone https://github.com/ci4rail/io4edge-client-go.git
 cd io4edge-client-go
 ```
 
-{% include content/tab/entry-end.md %}
-{% include content/tab/end.md %}
-
+<!--- Windows End --->
+{% include content/tabv2/end.md %}
 
 
 {% if is_iou %}
