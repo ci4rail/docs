@@ -20,7 +20,7 @@
 
 Each analogue I/O group has its own connector:
 
-![Binary I/O Groups Pricnciple]({{ '/user-docs/images/edge-solutions/moducop/io-modules/analogintypea/conn.svg' | relative_url }})
+![Analog Connector]({{ '/user-docs/images/edge-solutions/moducop/io-modules/analogintypea/conn.svg' | relative_url }})
 
 | Pin | Symbol | Description          |
 | --- | ------ | -------------------- |
@@ -71,7 +71,7 @@ func main() {
 <!--- GO END --->
 {% include content/tabv2/next.md %}
 <!--- PYTHON START --->
-To access the binary I/Os, create a *Client* and save it to the variable `binio_client`. Pass as address either a service address or an ip address with port. Examples:
+To access the analog inputs, create a *Client* and save it to the variable `ana_client`. Pass as address either a service address or an ip address with port. Examples:
 * As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
 * As an IP/Port: `192.168.201.1:10000`
 
