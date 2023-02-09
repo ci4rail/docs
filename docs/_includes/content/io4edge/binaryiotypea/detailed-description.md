@@ -68,9 +68,7 @@ This example shows how you can use one pin of a group as input and the other pin
 
 ### Using the io4edge API to access the Binary I/Os
 
-If you haven't installed yet the io4edge client software, install it now as [described here]({{ page.url | append: "../quick-start-guide" | relative_url }}#getdemosoftware).
-
-Want to have a quick look to the examples? See our [Github repository](https://github.com/ci4rail/io4edge-client-go/tree/main/examples/binaryIoTypeA)
+{% include content/io4edge/functionblock/install-client.md example_name="binaryIoTypeA" %}
 
 #### Connect to the binary I/O function
 
