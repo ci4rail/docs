@@ -14,22 +14,21 @@ The {{ page.product_name }} has a binary I/O function block with 4 channels, cor
 * Configurable output watchdog, to reset outputs in case host application crashed
 * Max. Input Frequency: 50Hz
 * Max. Output Frequency: 50Hz
-* Can drive capacitive loads up to 470µF
 
-![Binary I/O Groups Pricnciple]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/groups-principle.svg' | relative_url }})
+![Binary I/O Groups Principle]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/groups-principle.svg' | relative_url }})
 
 ### Connection
 
 Each binary I/O group has its own connector:
 
-![Binary I/O Groups Pricnciple]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/conn.svg' | relative_url }})
+![Binary I/O Groups Principle]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/conn.svg' | relative_url }})
 
 | Pin | Symbol | Description                                     |
 | --- | ------ | ----------------------------------------------- |
-| 1   | CO     | Common Voltage connected to the output switches |
+| 1   | CI     | Common Reference voltage for inputs             |
 | 2   | IO1/3  | First I/O pin of the group                      |
 | 3   | IO2/4  | Second I/O pin of the group                     |
-| 4   | CI     | Common Reference voltage for inputs             |
+| 4   | CO     | Common Voltage connected to the output switches |
 
 {% include content/io4edge/iou01-front/mating-connectors.md %}
 
@@ -47,13 +46,16 @@ Load may be connected to ground (high side switch) or to supply (low side switch
 #### Using Inputs
 
 In case you want to use a pin as input, you can select whether the input needs to be driven to high or low.
-The switching threshold of the input is ~11V.
+The switching threshold of the input is ~10V with a hysteresis of ~200mV.
 
 ![Use Inputs]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/use-case-inputs.svg' | relative_url }})
 
 #### Controlling a DC Motor
 
 This example shows how you can control a DC Motor in both directions:
+
+**Warning** When changing direction, open the currently closed contacts first, ensure they are open before closing the complementary switch (brake before make)!
+{: .notice--warning}
 
 ![DC Motor Application]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/use-case-motor.svg' | relative_url }})
 
@@ -72,8 +74,11 @@ Want to have a quick look to the examples? See our [Github repository](https://g
 
 #### Connect to the binary I/O function
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
+
 To access the binary I/Os, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Examples:
-* As a service address: `{{ page.example_device_name }}-binaryIoTypeA`
+* As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
 * As a IP/Port: `192.168.201.1:10002`
 
 We need this client variable for all further access methods.
@@ -92,13 +97,86 @@ func main() {
     }
 }
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+To access the binary I/Os, create a *Client* and save it to the variable `binio_client`. Pass as address either a service address or an ip address with port. Examples:
+* As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
+* As an IP/Port: `192.168.201.1:10002`
 
-### Controlling Output Switches
+We need this client variable for all further access methods.
+
+```python
+
+import io4edge_client.binaryiotypea as binio
+import io4edge_client.functionblock as fb
+
+def main():
+  binio_client = binio.Client(address)
+```
+
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
+
+#### Configure the binary I/Os
+
+The following attributes can be configured:
+* Output watchdog
+* Input fritting
+
+You don't need to configure the direction of the channels: As long as you don't activate the output switch, the channel is an input.
+
+##### Output Watchdog
+By default, the outputs keep their commanded state forever, even if the host program has terminated or crashed.
+
+To ensure that outputs are turned off in such cases, the firmware implements a watchdog functionality. The watchdog can be enabled per pin and the watchdog timeout is configurable (but is the same for all pins).
+
+When you enable the watchdog and set the timeout to 2000, the host must periodically set the switch to "on" within 2 seconds. If it fails to do so, the firmware turns off the output.
+
+##### Fritting
+
+The current drawn by the input circuitry is 0.5mA. To avoid contact corrosion, it is advisable to draw a higher current from time to time. Therefore, the {{ page.product_name }} supports an optional fritting pulse that applies a 10mA pulse for 10ms each second.
+
+##### Apply the configuration
+
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
+The go API allows to configure each attribute individually, for example:
+
+Set 2 seconds watchdog on output0, but not on other outputs:
+```go
+    if err := c.UploadConfiguration(binio.WithOutputWatchdog(0x1, 2000)); err != nil {
+      log.Fatalf("Failed to set configuration: %v\n", err)
+    }
+```
+Enable fritting for all inputs:
+```go
+
+    if err := c.UploadConfiguration(binio.WithInputFritting(0xf); err != nil {
+      log.Fatalf("Failed to set configuration: %v\n", err)
+    }
+```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+
+Enable fritting on channel #1, #2, #3 and #4, enable watchdog on channel #1 and #2 and set the watchdog timeout to 2 seconds:
+```python
+    config = binio.Pb.ConfigurationSet(outputFrittingMask=0xf,
+                                       outputWatchdogMask=0x3,
+                                       outputWatchdogTimeout=2000)
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
+
+#### Controlling Output Switches
 
 The API provides two methods to control output switches
 * Control a single pin
 * Control multiple pins
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 Control a single pin:
 ```go
     // switch on binary output #1
@@ -113,21 +191,26 @@ Control multiple pins using a bit mask. The second parameter to `SetAllOutputs` 
     // switch off all outputs
     err := c.SetAllOutputs(0x0, 0xf)
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
 
-#### Output Watchdog
+Control a single pin:
+```python
+    # switch on binary output #1
+    binio_client.set_output(0, True)
+```
+Control multiple pins using a bit mask. The second parameter to `set_all_outputs` is a mask that specifies which outputs are affected:
+```python
+    # switch on binary output #1, turn off output #2, don't change output #3 and #4
+    binio_client.set_all_outputs(0x1, 0x3)
 
-By default, the outputs keep their commanded state forever, even if the host program has terminated or crashed.
-
-To ensure that outputs are turned off in such cases, the firmware implements a watchdog functionality. The watchdog can be enabled per pin and the watchdog timeout is configurable (but is the same for all pins).
-
-```go
-    // set 2 seconds watchdog on output0, but not on other outputs
-    if err := c.UploadConfiguration(binio.WithOutputWatchdog(0x1, 2000)); err != nil {
-      log.Fatalf("Failed to set configuration: %v\n", err)
-    }
+    # switch off all outputs
+    binio_client.set_all_outputs(0x0, 0xf)
 ```
 
-With that setting, the host must periodically set the switch to "on" within 2 seconds. If it fails to do so, the firmware turns off the output.
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 #### Overcurrent Protection
 
@@ -139,18 +222,30 @@ If after approx. 50ms the overcurrent condition still remains, ALL outputs enter
 
 Application may clear the error state (in case application knows that the root cause of the error vanished):
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 ```go
     err := c.ExitErrorState()
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+```python
+    binio_client.exit_error_state()
+```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 This tells the binary output controller to try again. It does however not wait if the recovery was successful or not.
 
-### Reading Inputs
+#### Reading Inputs
 
 The API provides two methods to read the current state of the pins:
 * Get value of a single pin
-* Get value of multipe pins
+* Get value of multiple pins
 
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 ```go
     // read state of I/O #1
     // value will be true, if the level is above the input switching threshold
@@ -160,25 +255,31 @@ The API provides two methods to read the current state of the pins:
     // values contains then a bit mask with the state of each input
     values, err = c.AllInputs(0x3)
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+```python
+    # read state of I/O #1
+    # value will be true, if the level is above the input switching threshold
+    value = binio_client.input(0)
 
-#### Fritting
-
-The current drawn by the input circuitry is 0.5mA. To avoid contact corrosion, it is advisable to draw a higher current from time to time. Therefore, the {{ page.product_name }} supports an optional fritting pulse that applies a 10mA pulse for 10ms each second.
-
-Fritting pulse is disabled by default. To enable it:
-```go
-    // enable fritting for all inputs
-    if err := c.UploadConfiguration(binio.WithInputFritting(0xf); err != nil {
-      log.Fatalf("Failed to set configuration: %v\n", err)
-    }
+    # read state of I/O #1 and #2.
+    # values contains then a bit mask with the state of each input
+    values = binio_client.all_inputs(0x3)
 ```
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
-### Input Transient Recording
+#### Input Transient Recording
 
 In data logger applications, you may want to record changes of the inputs.
 
-Therefore the API provides functions to start a *Stream*. At stream creation, you select the pins which you want to monitor for changes.
+Therefore, the API provides functions to start a *Stream*. At stream creation, you select the pins which you want to monitor for changes.
 
+The {{ page.product_name }} samples the channel values at a rate of 100Hz, so the timestamps are accurate to 10ms.
+
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 ```go
 // start stream, watch for changes on I/O #1 and 2
 err = c.StartStream(binio.WithChannelFilterMask(0x3))
@@ -193,7 +294,7 @@ For each transition, a *Sample* is generated in the stream, each sample contains
 * The pin that changed
 * New value of the pin
 
-For efficiency, multiple samples are gathered are sent as one *Bucket* to the host.
+For efficiency, multiple samples are gathered and sent as one *Bucket* to the host.
 To read samples from the stream:
 
 ```go
@@ -213,10 +314,55 @@ To read samples from the stream:
     }
   }
 ```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+{% capture example_all_options_py %}
+```python
+    # start stream, watch for changes on I/O #1 and 2
+    binio_client.start_stream(
+        binio.Pb.StreamControlStart(channelFilterMask=0x3),
+        fb.Pb.StreamControlStart(
+            bucketSamples=25,
+            keepaliveInterval=1000,
+            bufferedSamples=50,
+            low_latency_mode=True,
+        ),
+    )
+```
+{% endcapture %}
+
+{{ example_all_options_py }}
+
+For each transition, a *Sample* is generated in the stream, each sample contains:
+* A timestamp of the transition
+* The pin that changed
+* New value of the pin
+
+For efficiency, multiple samples are gathered and sent as one *Bucket* to the host.
+To read samples from the stream:
+
+```python
+    while True:
+        generic_stream_data, stream_data = binio_client.read_stream()
+        print(
+            f"Received stream data {generic_stream_data.deliveryTimestampUs}, {generic_stream_data.sequence}"
+        )
+        for sample in stream_data.samples:
+            print(" Channel %d -> %d" % (sample.channel, sample.value))
+```
+
+
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 {% include content/io4edge/functionblock/timestamp.md %}
 
 #### Controlling the Stream
+
+
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
 
 {% capture example_all_options %}
 ```go
@@ -234,6 +380,16 @@ To read samples from the stream:
 {% endcapture %}
 
 {% include content/io4edge/functionblock/stream-common-go.md example_all_options=example_all_options describe_low_latency=true %}
+
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+
+
+{% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options_py describe_low_latency=true %}
+
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 #### Multiple Clients
 
