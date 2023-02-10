@@ -241,7 +241,7 @@ To read samples from the stream:
 <!--- GO END --->
 {% include content/tabv2/next.md %}
 <!--- PYTHON START --->
-{% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options_py describe_low_latency=true %}
+{% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options_py describe_low_latency=false %}
 
 <!--- PYTHON END --->
 {% include content/tabv2/end.md %}
