@@ -12,13 +12,13 @@ Welcome to the {{ page.product_name }} documentation.
 
 ![{{ page.product_name }} integrated in ModuCop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou01/iou01-in-moducop.png' | relative_url }})
 
-{{ page.product_name }} is a binary I/O and analogue input extension unit for edge applications in rail & busses.
+{{ page.product_name }} is a binary I/O and analog input extension unit for edge applications in rail & busses.
 
 # Features
 
 * 1 slot (7 HP) extension unit for ModuCop Edge Computer
 * 2x2 digital inputs / outputs (selectable) via 4-pin spring terminal; 24V..110V (nom), load on ground or load on supply
-* 2x analogue input via 4-pin spring terminal; Voltage (+/-10V) or current (4..20mA) measurement
+* 2x analog input via 4-pin spring terminal; Voltage (+/-10V) or current (4..20mA) measurement
   * 24V supply to external sensor
 * Usable for direct I/O or as data logger with multiple data streams.
 * Galvanic isolation of all inputs and outputs

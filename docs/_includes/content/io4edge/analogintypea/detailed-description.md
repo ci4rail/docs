@@ -18,7 +18,7 @@
 
 ### Connection
 
-Each analogue I/O group has its own connector:
+Each analog I/O group has its own connector:
 
 ![Analog Connector]({{ '/user-docs/images/edge-solutions/moducop/io-modules/analogintypea/conn.svg' | relative_url }})
 
@@ -48,7 +48,7 @@ Or in other words, your signal must not have frequency components higher than ha
 <!--- GO START --->
 To access the Analog Inputs, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
 * As a service address: `{{ page.example_device_name }}-analogInTypeA1`
-* As a IP/Port: `192.168.201.1:10000`
+* As an IP/Port: `192.168.201.1:10000`
 
 We need this client variable for all further access methods.
 

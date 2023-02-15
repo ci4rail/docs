@@ -14,6 +14,7 @@ The {{ page.product_name }} has a binary I/O function block with 4 channels, cor
 * Configurable output watchdog, to reset outputs in case host application crashed
 * Max. Input Frequency: 50Hz
 * Max. Output Frequency: 50Hz
+* Max. Inductive Load: 20 mH
 
 ![Binary I/O Groups Principle]({{ '/user-docs/images/edge-solutions/moducop/io-modules/binaryiotypea/groups-principle.svg' | relative_url }})
 
@@ -77,7 +78,7 @@ This example shows how you can use one pin of a group as input and the other pin
 
 To access the binary I/Os, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Examples:
 * As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
-* As a IP/Port: `192.168.201.1:10002`
+* As an IP/Port: `192.168.201.1:10002`
 
 We need this client variable for all further access methods.
 
