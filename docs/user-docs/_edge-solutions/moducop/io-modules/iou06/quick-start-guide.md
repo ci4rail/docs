@@ -16,13 +16,13 @@ For most functions, you need the service address of the {{ page.product_name }}.
 {% include content/io4edge/quick-start/prepare.md %}
 {% include content/io4edge/quick-start/determine-service-address.md %}
 {% if is_iou %}
-| Service Name                        | Description                      | Port  |
-| ----------------------------------- | -------------------------------- | ----- |
-| {{ page.example_device_name }}      | Core function                    | 9999  |
-| {{ page.example_device_name }}-ibis | IBIS                             | 10000 |
-| {{ page.example_device_name }}-com  | COM (mutally exclusive with CAN) | 10001 |
-| {{ page.example_device_name }}-can  | CAN (mutally exclusive with COM) | 10001 |
-| {{ page.example_device_name }}-gpio | Binary Outputs                   | 10002 |
+| Service Name                        | Description                       | Port  |
+| ----------------------------------- | --------------------------------- | ----- |
+| {{ page.example_device_name }}      | Core function                     | 9999  |
+| {{ page.example_device_name }}-ibis | IBIS                              | 10000 |
+| {{ page.example_device_name }}-com  | COM (mutually exclusive with CAN) | 10001 |
+| {{ page.example_device_name }}-can  | CAN (mutually exclusive with COM) | 10001 |
+| {{ page.example_device_name }}-gpio | Binary Outputs                    | 10002 |
 {% include content/io4edge/quick-start/intro3.md %}
 {% endif %}
 

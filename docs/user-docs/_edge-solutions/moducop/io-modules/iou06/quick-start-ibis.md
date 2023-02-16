@@ -1,6 +1,6 @@
 ---
 title: IOU06 Quick-Start-Guide / IBIS Demo
-excerpt: Quick startup with IOU06 extension module
+excerpt: IOU06 extension module IBIS Quick Start
 last_modified_at: 2022-08-10
 
 custom_next: /edge-solutions/moducop/io-modules/iou06/quick-start-can-io4edge/

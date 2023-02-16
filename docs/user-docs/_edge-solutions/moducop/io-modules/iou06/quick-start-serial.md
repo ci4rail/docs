@@ -1,18 +1,17 @@
 ---
-title: IOU04 Quick-Start-Guide / Serial Demo
-excerpt: Quick startup with IOU04 extension module
-last_modified_at: 2022-08-10
+title: IOU06 Quick-Start-Guide / Serial Demo
+excerpt: IOU06 extension module COM port demo
 
-custom_next: /edge-solutions/moducop/io-modules/iou04/detailed-description/
-product_name: IOU04
+custom_next: /edge-solutions/moducop/io-modules/iou06/detailed-description/
+product_name: IOU06
 article_group: S101
-example_device_name: S101-IOU04-USB-EXT-1
+example_device_name: S101-IOU06-USB-EXT-1
 
 ---
 
 # Serial Port Demo
 
-In this demo, we'll demonstrate how to connect an application on ModuCop with a {{ page.product_name }} COM port. We'll use a cable to loop the RS232 transmit pin to the receive pin, so that we'll get all characters back that are sent to the COM port.
+In this demo, we'll demonstrate how to connect an application on ModuCop with a {{ page.product_name }} COM port. We'll use a cable to loop the RS422/485 transmit pins to the receive pins, so that we'll get all characters back that are sent to the COM port.
 
 Preparation Steps:
 * Connect a PC and ModuCopto the same network, e.g. by using an Ethernet Switch or a Wifi Access Point
@@ -22,24 +21,33 @@ Preparation Steps:
 
 ModuCop's linux image is configured to detected COM Ports of io4edge devices automatically.
 
-For each detected COM port, a linux device `/dev/tty<device-ID>-com<port>` is created. For example, if your {{ page.product_name }} device ID is `{{ page.example_device_name }}`, you'll find the following tty devices:
+For each detected COM port, a linux device `/dev/tty<device-ID>-com` is created. For example, if your {{ page.product_name }} device ID is `{{ page.example_device_name }}`, you'll find the following tty device:
 
 ```bash
 root@moducop-cpu01: ~# ls -l /dev/tty{{ page.example_device_name }}*
-crw-rw---- 1 root dialout 199, 3 Jul 28 13:33 /dev/tty{{ page.example_device_name }}-com1
-crw-rw---- 1 root dialout 199, 4 Jul 28 13:33 /dev/tty{{ page.example_device_name }}-com2
+crw-rw---- 1 root dialout 199, 3 Jul 28 13:33 /dev/tty{{ page.example_device_name }}-com
 ```
 
-### Function Test
-Now, let's make a hardware loop between the RS232 transmit and receive pin of the COM1 RS232 interface. Connect pin 2 and 3 of the COM ports D-Sub connector:
+If you don't see this device, but you see a `-can` device, you have to clear the CAN configuration, in order to activate the COM port.
 
-![COM Loop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou04/iou04-qs-com-loop.svg' | relative_url }}){: style="width: 10%"}
+On your ModuCop, run:
+```bash
+io4edge-cli -d {{ page.example_device_name }} set-parameter can-config ""
+# Restart to apply parameters
+io4edge-cli -d {{ page.example_device_name }} restart
+```
+
+
+### Function Test
+Now, let's make a hardware loop between the RS422/485 transmit pins to the receive pins of the COM1 RS232 interface. Connect pin 1 to 4 and 6 to 9 of the CAN/COM port D-Sub connector:
+
+![COM Loop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/qs-com-loop.svg' | relative_url }}){: style="width: 10%"}
 
 Start the `minicom` terminal program on ModuCop:
 ```bash
 root@moducop-cpu01: ~# minicom -D /dev/tty{{ page.example_device_name }}-com1 -b 115200
 ```
-Because we haven't connected hardware flow control lines, we have to tell minicom not to use hardware flow control:
+Because we don't have hardware flow control lines, we have to tell minicom not to use hardware flow control:
 * Press `CTRL-A` followed by `O` (O like Omega)
 ```
 
@@ -61,7 +69,7 @@ Then hardware flow control should be off:
 ```
 F - Hardware Flow Control : No
 ```
-Press two times `ESC` and you are back in the main screeen of minicom.
+Press two times `ESC` and you are back in the main screen of minicom.
 
 Now type some character, and you should see that the characters are echoed back, due to the hardware loop we have created!
 
@@ -70,7 +78,7 @@ Welcome to minicom 2.7.1
 
 OPTIONS: I18n
 Compiled on Apr 18 2017, 09:55:23.
-Port /dev/tty{{ page.example_device_name }}-com1, 13:45:27
+Port /dev/tty{{ page.example_device_name }}-com, 13:45:27
 
 Press CTRL-A Z for help on special keys
 

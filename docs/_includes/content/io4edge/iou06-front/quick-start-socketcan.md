@@ -11,7 +11,7 @@ In this demo, we'll demonstrate how to receive data from a CAN bus and print it 
 
 
 
-{% include content/io4edge/iou04-front/can-config-connect.md %}
+{% include content/io4edge/iou06-front/can-config-connect.md %}
 
 ### Create a socketCAN instance
 
@@ -23,7 +23,7 @@ The virtual socket CAN network must be named according to {{ page.product_name }
 
  Examples:
 
-* Service Name `S101-IOU04-USB-EXT-1-can` -> vcan name `vcanS101xxEXT-1`
+* Service Name `S101-IOU06-USB-EXT-1-can` -> vcan name `vcanS101xxEXT-1`
 * Service Name `123456789012-can` -> vcan name `vcan1234xx89012`
 * Service Name `MIO04-1-can` -> vcan name `vcanMIO04-1`
 
