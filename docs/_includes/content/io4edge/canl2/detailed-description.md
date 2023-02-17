@@ -2,7 +2,7 @@
 <!---
 Pass the following parameters in the include directive:
 - listenonly: "true" or "false"
-- connector: the connector description
+- connector: the connector description (optional)
 - link_to_static_busconfiguration
 - link_to_socketcan_qs
 --->
@@ -17,10 +17,12 @@ Pass the following parameters in the include directive:
 * {% if inclue.listenonly == "false" %}Optional{% else %}Fixed{% endif %} Listen Only Mode
 * One Acceptance Mask/Filter
 
+{% if include.connector != blank %}
 ### Connection
 
 {{ include.connector }}
 
+{% endif %}
 
 ### Using the io4edge API to access CAN Function
 

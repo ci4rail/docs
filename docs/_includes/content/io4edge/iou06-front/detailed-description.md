@@ -23,9 +23,11 @@ Pin functionality as viewed from {{ page.product_name }}:
 | 9   | COM_RX- | RS485 negative receive line  |
 
 
-### COM Features
+## COM Interface
 
-* RS232 or RS485-full-duplex or RS485-half-duplex
+### Features
+
+* RS485-full-duplex or RS485-half-duplex
 * Virtual tty support using [RFC2217](https://datatracker.ietf.org/doc/html/rfc2217)
 * Appears as a standard tty device on Linux hosts
 * Baudrates up to 460800 Baud
@@ -48,22 +50,6 @@ In RS485/RS422 mode, please add termination resistors to the end of the line. Th
 
 ## CANBus Interface
 
-{% capture canbus_connector %}
-Connection is done via 9-pin DSub plug:
-
-| Pin | Symbol  | Description                |
-| --- | ------- | -------------------------- |
-| 1   | -       | Not connected              |
-| 2   | CAN_L   | CAN Signal (dominant low)  |
-| 3   | GND_ISO | CAN Ground                 |
-| 4   | -       | Not connected              |
-| 5   | SHIELD  | Shield                     |
-| 6   | GND_ISO | CAN Ground                 |
-| 7   | CAN_H   | CAN Signal (dominant high) |
-| 8   | -       | Not connected              |
-| 9   | -       | Not connected              |
-{% endcapture %}
-
 {% capture link_to_static_busconfiguration %}
 {{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration
 {% endcapture %}
@@ -72,6 +58,37 @@ Connection is done via 9-pin DSub plug:
 {{ page.url | append: "../quick-start-socketcan" | relative_url }}
 {% endcapture %}
 
+{% include content/io4edge/canl2/detailed-description.md listenonly="false"  link_to_static_busconfiguration=link_to_static_busconfiguration link_to_socketcan_qs=link_to_socketcan_qs %}
 
-The {{ page.product_name }} has one CANBus interfaces, labelled `CAN`.
-{% include content/io4edge/canl2/detailed-description.md listenonly="false" connector=canbus_connector link_to_static_busconfiguration=link_to_static_busconfiguration link_to_socketcan_qs=link_to_socketcan_qs %}
+## IBIS Interface
+
+The {{ page.product_name }} has an IBIS interface in the middle D-Sub Connector.
+
+### Connection
+
+IBIS port connector on {{ page.product_name }}:
+
+| Pin | Symbol | Description                        |
+| --- | ------ | ---------------------------------- |
+| 1   | U-     | Supply GND                         |
+| 2   | -      | don't connect                      |
+| 3   | -      | don't connect                      |
+| 4   | Tx     | IBIS Master Send (`Aufrufbus`)     |
+| 5   | U+     | Supply +24V (input)                |
+| 6   | -      | don't connect                      |
+| 7   | -      | don't connect                      |
+| 8   | Rx     | IBIS Master Receive (`Antwortbus`) |
+| 9   | -      | don't connect                      |
+
+
+Typical connection:
+
+![IBIS Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/ibis-conn.svg' | relative_url }}){: style="width: 20%"}
+
+### IBIS Master
+
+The IBIS master appears as a serial device on the Linux host and its device name is {{ page.example_device_name }}-ibis.
+
+### Binary Outputs
+
+TODO
