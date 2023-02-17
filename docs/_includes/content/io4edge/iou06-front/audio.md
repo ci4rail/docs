@@ -46,7 +46,7 @@ pcm.out1_dmix {
 
 pcm.out2_dmix {
   type dmix
-  ipc_key 5678
+  ipc_key 1234
   slave io4edge_audio
   bindings.0 1
 }
