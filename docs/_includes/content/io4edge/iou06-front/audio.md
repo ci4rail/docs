@@ -28,7 +28,6 @@ pcm.in {
 
 pcm_slave.io4edge_audio {
   pcm "hw:0,0"
-  rate 48000
   channels 2
 }
 
@@ -60,7 +59,7 @@ pcm.in_dsnoop {
 }
 ```
 
-**Information** The `ipc_key` parameter is used to identify the shared memory segment. It must be the same for all audio devices that should be connected to each other. The `bindings.0 0` parameter is used to specify the channel that should be used for the device. The first channel is 0, the second channel is 1. A detailed description of the configuration can be found on the official [Alsa Website](https://www.alsa-project.org/wiki/Asoundrc).
+**Information** The `ipc_key` parameter is used to identify the shared memory segment. It must be the same for all audio devices that should be connected to each other. The `bindings.0 0` parameter is used to specify the channel that should be used for the device. The first channel is 0, the second channel is 1. A detailed description for the `asound.conf`, including the available plugins (e.g. dmix or dsnoop) can be found on the official [Alsa Website](https://www.alsa-project.org/wiki/Asoundrc).
 {: .notice--info}
 
 #### Stereo Output
@@ -72,6 +71,8 @@ root@moducop-cpu01: ~# aplay -D out_stereo /path/to/file.wav
 ```
 
 #### Mono Outputs (Left Channel/Right Channel)
+
+The asound.conf file contains two additional definitions for the left and right output channel to use them as separate mono outputs.
 
 To use the left channel output, the following commands can be used:
 
