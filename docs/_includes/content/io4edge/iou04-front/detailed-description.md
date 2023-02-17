@@ -47,7 +47,7 @@ In RS485/RS422 mode, please add termination resistors to the end of the line. Th
 {: .notice--info}
 
 
-{% include content/io4edge/ttynvt/detailed-description.md %}
+{% include content/io4edge/ttynvt/detailed-description.md single_port="false" example_port_ext="com1" example_port_num="10000" have_hwhandshake="true" %}
 
 ## CANBus Interface
 
