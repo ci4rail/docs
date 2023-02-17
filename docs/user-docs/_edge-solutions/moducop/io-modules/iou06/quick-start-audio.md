@@ -23,23 +23,23 @@ In this demo, we'll show how to use the audio interface of the IOU06 extension m
 
 This chapter describes how to play a WAV file on the audio output interface of th IOU06 without the need of any specific configuration.
 
-### Connecting the Audio Interface
+### Connecting the Audio Interface to a Speaker
 
 ![Audio Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/audio-out-conn.svg' | relative_url }}){: style="width: 30%"}
 
 ### Copy a WAV File to the Moducop
 
-Connect a PC and ModuCop to the same network, e.g. by using an Ethernet Switch or a Wifi Access Point and copy a WAV file to the ModuCop:
+Connect a PC and Moducop to the same network, e.g. by using an Ethernet Switch or a Wifi Access Point and copy a WAV file to the Moducop:
 
 ```bash
-scp /path/to/file.wav root@<moducop-ip>:/path/to/file.wav
+scp /path/to/file.wav root@<moducop-ip>:~/file.wav
 ```
 ### Playing the WAV File
 
 Then login into the Moducop via ssh and use the aplay command to play it:
 
 ```bash
-root@moducop-cpu01: ~# aplay -D hw:0,0 /path/to/file.wav
+root@moducop-cpu01: ~# aplay -D hw:0,0 ~/file.wav
 ```
 
 This command will play the file on the first subdevice of the first audio card (hw:0,0).
@@ -58,13 +58,13 @@ card 0: CODEC [USB AUDIO  CODEC], device 0: USB Audio [USB Audio]
 
 This chapter describes how to loop back the audio output to the audio input of the IOU06 without any specific configuration.
 
-### Connecting the Audio Interface
+### Connecting Loops to the Audio Interface
 
 ![Audio Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/audio-in-conn.svg' | relative_url }}){: style="width: 30%"}
 
 ### Record the Audio Output
 
-Copy a WAV file to the ModuCop as described in Chapter [Copy a WAV File to the Moducop](#copy-a-wav-file-to-the-moducop).
+Copy a WAV file to the ModuCop as described in chapter [Copy a WAV File to the Moducop](#copy-a-wav-file-to-the-moducop).
 
 **Attention** The WAV file must have only one channel (mono), because only one channel of the audio output interface is connected to the audio input interface.
 {: .notice--warning}
@@ -72,7 +72,7 @@ Copy a WAV file to the ModuCop as described in Chapter [Copy a WAV File to the M
 Then login into the Moducop via ssh and use the arecord command to record the audio output:
 
 ```bash
-root@moducop-cpu01: ~# arecord -D hw:0,0 -f S16_LE /path/to/record-file.wav
+root@moducop-cpu01: ~# arecord -D hw:0,0 -f S16_LE ~/record-file.wav
 ```
 
 The arecord command will record the audio input of the first subdevice of the first audio card (hw:0,0) and save it to the file.wav file.
@@ -83,5 +83,13 @@ The arecord command will record the audio input of the first subdevice of the fi
 In another terminal, play the WAV file:
 
 ```bash
-root@moducop-cpu01: ~# aplay -D hw:0,0 /path/to/play-file.wav
+root@moducop-cpu01: ~# aplay -D hw:0,0 ~/file.wav
+```
+
+### Playing the Recorded Audio File
+
+To play the recorded audio file, connect a speaker as described in chapter [Connecting the Audio Interface to a Speaker](#connecting-the-audio-interface-to-a-speaker) and use the aplay command:
+
+```bash
+root@moducop-cpu01: ~# aplay -D hw:0,0 ~/record-file.wav
 ```
