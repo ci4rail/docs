@@ -68,7 +68,7 @@ Multiple applications may be connected simultaneously to the same MVB sniffer, e
 <!--- GO START --->
 To access the MVB Sniffer Function, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Example:
 * As a service address: `{{ example_service_name }}`
-* As a IP/Port: e.g. `192.168.201.1:10000`
+* As an IP/Port: e.g. `192.168.201.1:10000`
 
 We need this client variable for all further access methods.
 

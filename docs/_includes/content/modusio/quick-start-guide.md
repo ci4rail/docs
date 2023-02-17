@@ -14,7 +14,7 @@ ModuSio devices are Class 2 (3,84–6,49 W) PoE powered devices. Connect the Mod
 
 ![PoE connection]({{ '/user-docs/images/edge-solutions/modusio/modusio-poe.svg' | relative_url }}){: style="width: 100%"}
 
-The green LED on the {{ page.product_name }} is flashing to indicate power is ok and firmware is up and running.
+The green LED on the {{ page.product_name }} is turned on to indicate power is ok and firmware is up and running.
 
 {% include content/modusio/quick-start/initial-config.md %}
 
@@ -44,7 +44,7 @@ When using Wifi, supply the ModuSio by a power supply, capable of delivering 12V
 
 ![Wifi connection]({{ '/user-docs/images/edge-solutions/modusio/modusio-wifi.svg' | relative_url }}){: style="width: 100%"}
 
-The green LED on the {{ page.product_name }} is flashing to indicate power is ok and firmware is up and running.
+The green LED on the {{ page.product_name }} is turned on to indicate power is ok and firmware is up and running.
 
 {% include content/modusio/quick-start/initial-config.md %}
 

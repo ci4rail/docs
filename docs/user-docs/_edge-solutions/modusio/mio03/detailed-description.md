@@ -20,4 +20,13 @@ Please note the following restrictions with MIO03 Revision 0:
   {{ notice-text | markdownify }}
 </div>
 
+## Port Reference Table
+
+In case you want to address the services of the {{ page.product_name }} via IP:Port, you can use the following table to find the correct port number:
+
+| Port  | Function    |
+| ----- | ----------- |
+| 10000 | MVB Sniffer |
+| 10002 | CAN Sniffer |
+
 {% include content/io4edge/iou03-front/detailed-description.md %}

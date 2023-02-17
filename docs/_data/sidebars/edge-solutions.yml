@@ -37,6 +37,8 @@ sidebar:
               url: /edge-solutions/moducop/introduction/specification/
             - title: Mechanical Outline
               url: /edge-solutions/moducop/introduction/mech-outline/
+            - title: Interfaces
+              url: /edge-solutions/moducop/introduction/interfaces/
         - title: Mounting & Installation
           url: /edge-solutions/moducop/mounting-installation/
           navitems:

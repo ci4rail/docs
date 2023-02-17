@@ -92,3 +92,7 @@ The IBIS master appears as a serial device on the Linux host and its device name
 ### Binary Outputs
 
 TODO
+=======
+
+The {{ page.product_name }} has one CANBus interfaces, labelled `CAN`.
+{% include content/io4edge/canl2/detailed-description.md listenonly="false" connector=canbus_connector link_to_static_busconfiguration=link_to_static_busconfiguration link_to_socketcan_qs=link_to_socketcan_qs %}

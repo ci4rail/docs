@@ -1,6 +1,6 @@
 In this quick-start guide we will run demo programs to stimulate the {{ page.product_name }}'s binary I/Os and to read values from the analog inputs.
 {% include content/io4edge/quick-start/intro1.md %}
-* A laboratory Power Supply capable of supplying 5V..24V/200mA.
+* A laboratory Power Supply capable of supplying 24V/200mA.
 
 {% include content/io4edge/quick-start/intro2.md %}
 
@@ -47,7 +47,7 @@ Plug a mating connector to the two top connectors of the {{ page.product_name }}
 
 Connect the `CI` and `CO` pins to your laboratory power supply which is set to a voltage of 24V (up to 110V).
 
-**Warning** Caution, voltages over 60V are dangerou! If voltages above 60 V DC are used, ensure that all necessary protective measures are taken and that only qualified personnel is using the equipment.
+**Warning** Voltages over 60V are dangerous! If voltages above 60 V DC are used, ensure that all necessary protective measures are taken and that only qualified personnel is using the equipment.
 {: .notice--warning}
 
 
