@@ -33,33 +33,33 @@ pcm_slave.io4edge_audio {
 
 pcm.out_dmix {
   type dmix
-  ipc_key 4242
+  ipc_key 4321
   slave io4edge_audio
 }
 
 pcm.out1_dmix {
   type dmix
-  ipc_key 4242
+  ipc_key 1234
   slave io4edge_audio
   bindings.0 0
 }
 
 pcm.out2_dmix {
   type dmix
-  ipc_key 4242
+  ipc_key 5678
   slave io4edge_audio
   bindings.0 1
 }
 
 pcm.in_dsnoop {
   type dsnoop
-  ipc_key 4242
+  ipc_key 7890
   slave io4edge_audio
   bindings.0 0
 }
 ```
 
-**Information** The `ipc_key` parameter is used to identify the shared memory segment. It must be the same for all audio devices that should be connected to each other. The `bindings.0 0` parameter is used to specify the channel that should be used for the device. The first channel is 0, the second channel is 1. A detailed description for the `asound.conf`, including the available plugins (e.g. dmix or dsnoop) can be found on the official [Alsa Website](https://www.alsa-project.org/wiki/Asoundrc).
+**Information** The `ipc_key` parameter is used to identify the shared memory segment. It should be unique for each definition. The `bindings.0 0` parameter is used to specify the channel that should be used for the device. The first channel is 0, the second channel is 1. A detailed description for the `asound.conf`, including the available plugins (e.g. dmix or dsnoop) can be found on the official [Alsa Website](https://www.alsa-project.org/wiki/Asoundrc).
 {: .notice--info}
 
 #### Stereo Output
