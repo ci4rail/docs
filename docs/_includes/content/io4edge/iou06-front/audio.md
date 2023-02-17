@@ -59,7 +59,7 @@ pcm.in_dsnoop {
 }
 ```
 
-**Information** The `ipc_key` parameter is used to identify the shared memory segment. It should be unique for each definition. The `bindings.0 0` parameter is used to specify the channel that should be used for the device. The first channel is 0, the second channel is 1. A detailed description for the `asound.conf`, including the available plugins (e.g. dmix or dsnoop) can be found on the official [Alsa Website](https://www.alsa-project.org/wiki/Asoundrc).
+**Information** The `ipc_key` parameter is used to identify the shared memory segment. The `bindings.0 0` parameter is used to specify the channel that should be used for the device. The first channel is 0, the second channel is 1. A detailed description for the `asound.conf`, including the available plugins (e.g. dmix or dsnoop) can be found on the official [Alsa Website](https://www.alsa-project.org/wiki/Asoundrc).
 {: .notice--info}
 
 #### Stereo Output
