@@ -2,7 +2,7 @@
 title: IOU06 Quick-Start-Guide / Serial Demo
 excerpt: IOU06 extension module COM port demo
 
-custom_next: /edge-solutions/moducop/io-modules/iou06/detailed-description/
+custom_next: /edge-solutions/moducop/io-modules/iou06/quick-start-audio
 product_name: IOU06
 article_group: S101
 example_device_name: S101-IOU06-USB-EXT-1

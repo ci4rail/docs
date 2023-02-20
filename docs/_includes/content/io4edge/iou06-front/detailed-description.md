@@ -89,6 +89,22 @@ Typical connection:
 
 The IBIS master appears as a serial device on the Linux host and its device name is {{ page.example_device_name }}-ibis.
 
-### Binary Outputs
+## Audio / Binary Outputs Interfaces
 
-TODO
+The {{ page.product_name }} has a shared Audio/Binary Outputs interface on the very bottom D-Sub Connector. Both interfaces can be used at the same time.
+
+### Connection
+
+| Pin | Symbol      | Description                    |
+| --- | ----------- | ------------------------------ |
+| 1   | LINE_IN+    | Audio Input Plus Pole          |
+| 2   | LINE_OUT_R- | Right Audio Channel Minus Pole |
+| 3   | LINE_OUT_L+ | Left Audio Channel Plus Pole   |
+| 4   | BIN_OUT2    | Binary Output 2                |
+| 5   | BIN_OUT1    | Binary Output 1                |
+| 6   | LINE_IN-    | Audio Input Minus Pole         |
+| 7   | LINE_OUT_R+ | Right Audio Channel Plus Pole  |
+| 8   | LINE_OUT_L- | Left Audio Channel Minus Pole  |
+| 9   | COMMON_GND  | Binary Output Common Ground    |
+
+{% include content/io4edge/iou06-front/audio.md %}
