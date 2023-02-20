@@ -21,7 +21,7 @@ In this demo, we'll show how to use the audio interface of the IOU06 extension m
 
 ## Play a WAV File
 
-This chapter describes how to play a WAV file on the audio output interface of th IOU06 without the need of any specific configuration.
+This chapter describes how to play a WAV file on the audio output interface of the IOU06 without the need of any specific configuration.
 
 ### Connecting the Audio Interface to a Speaker
 
