@@ -41,7 +41,7 @@
         </tr>
     </thead>
 
-    {% assign pages = collection.docs | sort: 'last_modified' | reverse %}
+    {% assign pages = collection.docs %}
     {% for page in pages %}
     {% if page.url contains url and page.url != url %}
     {% if type %}

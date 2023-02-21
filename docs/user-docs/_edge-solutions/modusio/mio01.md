@@ -1,6 +1,6 @@
 ---
 title: MIO01 - Rail Compliant Discrete I/O
-excerpt: MIO01 - Rail Compliant Discrete I/O.
+excerpt: MIO01 - IP based remote rail compliant discrete I/O.
 
 custom_next: /edge-solutions/modusio/mio01/quick-start-guide
 product_name: MIO01

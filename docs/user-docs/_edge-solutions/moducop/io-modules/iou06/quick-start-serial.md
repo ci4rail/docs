@@ -2,7 +2,7 @@
 title: IOU06 Quick-Start-Guide / Serial Demo
 excerpt: IOU06 extension module COM port demo
 
-custom_next: /edge-solutions/moducop/io-modules/iou06/detailed-description/
+custom_next: /edge-solutions/moducop/io-modules/iou06/quick-start-audio
 product_name: IOU06
 article_group: S101
 example_device_name: S101-IOU06-USB-EXT-1
@@ -41,7 +41,7 @@ io4edge-cli -d {{ page.example_device_name }} restart
 ### Function Test
 Now, let's make a hardware loop between the RS422/485 transmit pins to the receive pins of the COM1 RS232 interface. Connect pin 1 to 4 and 6 to 9 of the CAN/COM port D-Sub connector:
 
-![COM Loop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/qs-com-loop.svg' | relative_url }}){: style="width: 10%"}
+![COM Loop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/qs-com-loop.svg' | relative_url }}){: style="width: 20%"}
 
 Start the `minicom` terminal program on ModuCop:
 ```bash
