@@ -87,7 +87,7 @@ Typical connection:
 
 ### IBIS Master
 
-The IBIS master appears as a serial device on the Linux host and its device name is {{ page.example_device_name }}-ibis.
+The IBIS master appears as a serial device on the Linux host and its device name is `/dev/tty{{ page.example_device_name }}-ibis`, when the IOU06 is the first IO-Module.
 
 ## Audio / Binary Outputs Interfaces
 
@@ -108,3 +108,9 @@ The {{ page.product_name }} has a shared Audio/Binary Outputs interface on the v
 | 9   | COMMON_GND  | Binary Output Common Ground    |
 
 {% include content/io4edge/iou06-front/audio.md %}
+
+## Binary Outputs
+
+The {{ page.product_name }} has two binary outputs. The outputs are low side switching, so the load shall be connected to the positive supply voltage. The outputs are galvanically isolated from the rest of the IO-Module.
+
+Detailed description will be added soon.

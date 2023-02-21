@@ -46,3 +46,5 @@ For most functions, you need the service address of the {{ page.product_name }}.
 * [Audio Demo]({{ '/edge-solutions/moducop/io-modules/iou06/quick-start-audio' | relative_url }})
 
 ## Binary Outputs
+
+(will be added soon)
