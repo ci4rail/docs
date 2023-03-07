@@ -368,3 +368,4 @@ def telegram_to_str(telegram):
 {% include content/io4edge/functionblock/stream-common-python.md example_all_options=example_all_options describe_low_latency=false %}
 
 <!--- PYTHON END --->
+{% include content/tabv2/end.md %}
