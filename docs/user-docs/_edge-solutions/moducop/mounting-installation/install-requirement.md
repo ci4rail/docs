@@ -9,6 +9,18 @@ custom_next: /edge-solutions/moducop/mounting-installation/install-guide/
 
 This section gives installation requirements and guidance on how ModuCop has to be installed to enable proper and safe operation.
 
+> The following instructions apply to models declared according to IEC 62368-1!
+{: .notice--info}
+
+- Persons
+  - Installation only in area with restricted access.
+  - Installation and maintenance only by skilled persons.
+  - Operation only by instructed persons.
+
+- Electrical
+  - All-pole mains switch in accordance with Annex L shall be incorporated in the electrical installation of the building to the equipment.
+  - The insulation of the protective earthing conductor shall be green-and-yellow, the minimum conductor size is 1 mm<sup>2</sup>.
+{: .notice--info}
 
 ## Electrical Installation Requirements 
 
@@ -21,9 +33,10 @@ The following table describes the requirements to the fuse depending on the nomi
 
 |Nominal Voltage |Required Fuse|
 |:--------------:|:-----------:|
-|24V DC | 2.5A medium time-lag|
-|36V DC| 1.6A medium time-lag|
-|110V DC | 1A medium time-lag|
+|12 V DC | 5 A medium time-lag|
+|24 V DC | 2.5 A medium time-lag|
+|36 V DC| 1.6 A medium time-lag|
+|110 V DC | 1 A medium time-lag|
 
 
 ### Earthing
