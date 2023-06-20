@@ -4,11 +4,11 @@ The {{ page.product_name }} has a shared CAN/COM interface on the topmost D-Sub 
 
 ### Connection
 
-CAN/COM port connector on {{ page.product_name }} (Layout0):
+CAN/COM port connector on {{ page.product_name }} (Review 0):
 
 ![CAN/COM Port Connector]({{ '/user-docs/images/connectors/dsub9-female-horizontal.png' | relative_url }}){: style="width: 30%"}
 
-CAN/COM port connector on {{ page.product_name }} (Layout1):
+CAN/COM port connector on {{ page.product_name }} (Review 1):
 
 ![CAN/COM Port Connector]({{ '/user-docs/images/connectors/d-sub9-plug-horizontal.svg' | relative_url }}){: style="width: 30%"}
 
@@ -37,12 +37,12 @@ Pin functionality as viewed from {{ page.product_name }}:
 * Baudrates up to 460800 Baud
 * Galvanic Isolation between the COM port and other ports
 
-### Typical Connection Examples (Layout0)
+### Typical Connection Examples (Review 0)
 
 ![COM Port Connector]({{ 'user-docs/images/edge-solutions/moducop/io-modules/iou06/com-layout0-conn.svg' | relative_url }}){: style="width: 60%"}
 
 
-### Typical Connection Examples (Layout1)
+### Typical Connection Examples (Review 1)
 ![COM Port Connector]({{ 'user-docs/images/edge-solutions/moducop/io-modules/iou06/com-layout1-conn.svg' | relative_url }}){: style="width: 60%"}
 
 Important Notes:
@@ -62,10 +62,10 @@ In RS485/RS422 mode, please add termination resistors to the end of the line. Th
 {{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration
 {% endcapture %}
 
-### Typical Connection Examples (Layout0)
+### Typical Connection Examples (Review 0)
 ![CANBus Port Connector]({{ 'user-docs/images/edge-solutions/moducop/io-modules/iou06/can-layout0-conn.svg' | relative_url }}){: style="width: 30%"}
 
-### Typical Connection Examples (Layout1)
+### Typical Connection Examples (Review 1)
 ![CANBus Port Connector]({{ 'user-docs/images/edge-solutions/moducop/io-modules/iou06/can-layout1-conn.svg' | relative_url }}){: style="width: 30%"}
 
 {% capture link_to_socketcan_qs %}
@@ -95,14 +95,14 @@ IBIS port connector on {{ page.product_name }}:
 | 9   | -          | don't connect                      |
 
 
-Note: The IBIS Slave function is only available in Layout 1
+Note: The IBIS Slave function is only available in Review 1
 {: .notice--info}
 
 ### Typical IBIS Master connection:
 
 ![IBIS Master Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/ibis-master-conn.svg' | relative_url }}){: style="width: 20%"}
 
-### Typical IBIS Slave connection (Only available in Layout1):
+### Typical IBIS Slave connection (Only available in Review 1):
 ![IBIS Master Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/ibis-slave-conn.svg' | relative_url }}){: style="width: 20%"}
 
 ### IBIS Interface
@@ -137,14 +137,15 @@ The {{ page.product_name }} has two binary outputs. The outputs are low side swi
 ### Features
 
 The {{ page.product_name }} has a binary output function block providing:
-* 2 galvanically isolated channels.
-* Each pin can be only used as a binray output.
+* 2 galvanically isolated channels from the rest of the IOU6-Module.
+* Each pin can be only used as a binary output.
 * Supply voltage of both channels may be between 12VDC and 36VDC.
 * Switching capability of each pin is 100mA
+* Overcurrent/Overload protection
 
 ### Typical Connection Examples
 
-![Binary Output Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/binout-conn.svg' | relative_url }}){: style="width: 20%"}
+![Binary Output Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/use-case-iou06-output.svg' | relative_url }}){: style="width: 40%"}
 
 ### Use Cases
 
@@ -173,6 +174,8 @@ Control multiple pins using a bit mask. The second parameter to `SetAllOutputs` 
 The `SetOuput` and `SetAllOutputs` methods return an error if the channel number is out of range
 
 <!--- GO END --->
+**Information** On Revision 0 `high` value will not allow current to flow through the circuit and vise versa.
+{: .notice--info}
 {% include content/tabv2/next.md %}
 <!--- PYTHON START --->
 Control a single pin:
@@ -193,6 +196,9 @@ Control multiple pins using a bit mask. The second parameter to `set_all_outputs
 The `set_output` and `set_all_outputs` methods raise a `RuntimeErrpr` if the channel number is out of range
 
 <!--- PYTHON END --->
+**Information** On Revision 0 `high` value will not allow current to flow through the circuit and vise versa.
+{: .notice--info}
+
 {% include content/tabv2/end.md %}
 
 #### Overcurrent and Overload Handling

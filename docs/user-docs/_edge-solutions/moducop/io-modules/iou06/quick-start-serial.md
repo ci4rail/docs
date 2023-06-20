@@ -41,10 +41,10 @@ io4edge-cli -d {{ page.example_device_name }} restart
 ### Function Test
 Now, let's make a hardware loop between the RS422/485 transmit pins to the receive pins of the COM1 RS232 interface. Connect pin 1 to 4 and 6 to 9 of the CAN/COM port D-Sub connector:
 
-### Layout 0
+### Review 0
 ![COM Loop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/qs-com-layout0-loop.svg' | relative_url }}){: style="width: 20%"}
 
-### Layout 1
+### Review 1
 ![COM Loop]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/qs-com-layout1-loop.svg' | relative_url }}){: style="width: 20%"}
 
 Start the `minicom` terminal program on ModuCop:
