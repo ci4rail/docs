@@ -203,5 +203,3 @@ The `set_output` and `set_all_outputs` methods raise a `RuntimeErrpr` if the cha
 
 #### Overcurrent and Overload Handling
 The Binary outputs are overcurrent and overload protected. In case an overcurrent condition is detected on one channel, the channel is disabled. The channel is activated again only after the overcurrent condition is no longer present, and the circuit has to be restarted.
-
-<!-- Both the IBIS Master, and IBIS Slave appear as a serial device on the Linux host and its device name is `/dev/tty{{ page.example_device_name }}-ibis`, when the IOU06 is the first IO-Module. -->
