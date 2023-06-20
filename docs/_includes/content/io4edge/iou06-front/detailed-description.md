@@ -196,7 +196,7 @@ Control multiple pins using a bit mask. The second parameter to `set_all_outputs
 The `set_output` and `set_all_outputs` methods raise a `RuntimeErrpr` if the channel number is out of range
 
 <!--- PYTHON END --->
-**Information** On Revision 0 `high` value will not allow current to flow through the circuit and vise versa.
+**Information** On Revision 0: `high` value will not allow current to flow through the circuit and vise versa.
 {: .notice--info}
 
 {% include content/tabv2/end.md %}
