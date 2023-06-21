@@ -12,7 +12,7 @@ example_device_name: S101-IOU06-USB-EXT-1
 
 ## IBIS Quick Start
 
-The {{ page.product_name }}'s IBIS master appears as a serial port to the ModuCop. This section only explains how to find the tty device for IBIS. A simple demo isn't possible, because it's a IBIS master only. Therefore, you must attach it to one or more slave devices or a slave simulator, and you need a piece of code that implements the IBIS protocol (for example [pyFIS](https://github.com/Mezgrman/pyFIS)).
+The {{ page.product_name }}'s IBIS master appears as a serial port to the ModuCop. This section only explains how to find the tty device for IBIS. A simple demo isn't possible, because it's a IBIS master or IBIS Slave only. Therefore, you must attach it to one or more slave devices or a slave simulator, and you need a piece of code that implements the IBIS protocol (for example [pyFIS](https://github.com/Mezgrman/pyFIS)).
 
 Preparation Steps:
 * Connect a PC and ModuCopto the same network, e.g. by using an Ethernet Switch or a Wifi Access Point

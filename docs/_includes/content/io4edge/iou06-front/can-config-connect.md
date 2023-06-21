@@ -25,8 +25,14 @@ config> reboot
 ```
 {% endif %}
 
-### Connecting
+### Connecting (Rev. 0)
 
-![CAN Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/can-conn.svg' | relative_url }}){: style="width: 30%"}
+![CAN Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/can-layout0-conn.svg' | relative_url }}){: style="width: 30%"}
+
+Connect CAN_L, CAN_H and GND_ISO to the CAN bus. Be sure to have correct termination of 120R at each end of the line.
+
+### Connecting (Rev. 1)
+
+![CAN Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/can-layout1-conn.svg' | relative_url }}){: style="width: 30%"}
 
 Connect CAN_L, CAN_H and GND_ISO to the CAN bus. Be sure to have correct termination of 120R at each end of the line.

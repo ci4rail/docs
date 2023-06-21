@@ -12,13 +12,18 @@ Welcome to the {{ page.product_name }} documentation.
 
 ![{{ page.product_name }} product view]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/product-in-moducop.png' | relative_url }}){: style="width: 50%"}
 
+Picture indicates IO06 Revision 0
+{: .notice--info}
+
 
 {{ page.product_name }} is a communication extension unit for trams & busses. It upgrades ModuCop Edge Computer to a full-featured OBU (onboard unit) by adding often desired interfaces in bus and tram applications.
 
 # Features
 
 * 1 slot (7 HP) extension unit for ModuCop Edge Computer
-* 1 IBIS Master
+* 1 IBIS Master, shared DSub with IBIS Slave
+  * Appears as a standard tty device on Linux hosts
+* 1 IBIS Slave, shared DSub with IBIS Master
   * Appears as a standard tty device on Linux hosts
 * 1 ISO 11898 CANBus Interface, up to 1MBit/s
   * Usable for direct I/O or as data logger with multiple data streams.

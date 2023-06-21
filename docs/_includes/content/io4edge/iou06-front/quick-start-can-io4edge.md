@@ -2,7 +2,7 @@
 
 In this demo, we'll demonstrate how to receive data from a CAN bus and print it to the console. This demo directly accesses the {{ page.product_name }} CAN interface via the Io4Edge API.
 
-**Warning** On the the {{ page.product_name }}, the CAN and COM ports **cannot be used at the same time**. To enable CAN, set a *persistent* [bus configuration]({{ '#busconfiguration' }}). If you want to use the COM ports, remove the persistent bus configuration.
+**Warning** On the {{ page.product_name }}, the CAN and COM ports **cannot be used at the same time**. To enable CAN, set a *persistent* [bus configuration]({{ '#busconfiguration' }}). If you want to use the COM ports, remove the persistent bus configuration.
 {: .notice--warning}
 
 
