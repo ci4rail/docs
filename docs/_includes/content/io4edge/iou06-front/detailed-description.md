@@ -149,7 +149,55 @@ The {{ page.product_name }} has a binary output function block providing:
 
 ![Binary Output Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/use-case-iou06-output.svg' | relative_url }}){: style="width: 40%"}
 
-### Use Cases
+### Using the io4edge API to access the Binary I/Os
+
+{% include content/io4edge/functionblock/install-client.md example_name="binaryIoTypeB" %}
+
+#### Connect to the binary I/O function
+
+{% include content/tabv2/start.md tabs="go, python" %}
+<!--- GO START --->
+To access the binary I/Os, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Examples:
+* As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
+* As an IP/Port: `192.168.201.1:10000`
+
+We need this client variable for all further access methods.
+
+```go
+import (
+	"os"
+	"time"
+
+	log "github.com/sirupsen/logrus"
+	binio "github.com/ci4rail/io4edge-client-go/binaryiotypeb"
+)
+
+func main() {
+	c, err = binio.NewClientFromUniversalAddress(address, timeout)
+	if err != nil {
+		log.Fatalf("Failed to create binio client: %v\n", err)
+	}
+}
+```
+<!--- GO END --->
+{% include content/tabv2/next.md %}
+<!--- PYTHON START --->
+To access the binary I/Os, create a *Client* and save it to the variable `binio_client`. Pass as address either a service address or an ip address with port. Examples:
+* As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
+* As an IP/Port: `192.168.201.1:10000`
+
+We need this client variable for all further access methods.
+
+```python
+import io4edge_client.binaryiotypeb as binio
+import io4edge_client.functionblock as fb
+
+def main():
+  binio_client = binio.Client(address)
+```
+
+<!--- PYTHON END --->
+{% include content/tabv2/end.md %}
 
 #### Controlling Output Values
 
@@ -161,36 +209,35 @@ The API provides two methods to control channel output values
 <!--- GO START --->
 Control a single pin:
 ```go
-    // output high value on first channel
+    // Turn first channel on
     err = c.SetOutput(0, true)
-    // Reset output value on the first channel
+    // Turn first channel off
     err = c.SetOutput(0, false)
 ```
 
 Control multiple pins using a bit mask. The second parameter to `SetAllOutputs` is a mask that specifies which channels are affected:
 ```go
-    // set first binary output to high, set second binary output to low.
+    // Turn first channel on, and turn the second channel off
     err := c.SetAllOutputs(0x1, 0x3)
 ```
 
 The `SetOuput` and `SetAllOutputs` methods return an error if the channel number is out of range
 
 <!--- GO END --->
-**Information** On Revision 0 `high` value will not allow current to flow through the circuit and vise versa.
-{: .notice--info}
+
 {% include content/tabv2/next.md %}
 <!--- PYTHON START --->
 Control a single pin:
 ```python
-    # output high value on first channel
+    # Turn first channel on
     binio_client.set_output(0, True)
-    # output low value on second channel
+    # Turn first channel off
     binio_client.set_output(1, False)
 ```
 
 Control multiple pins using a bit mask. The second parameter to `set_all_outputs` is a mask that specifies which channels are affected:
 ```python
-    # set first binary output to high, set second output to low.
+    # Turn first channel on, and turn the second channel off
     binio_client.set_all_outputs(0x1, 0x3)
 
 ```
@@ -198,8 +245,6 @@ Control multiple pins using a bit mask. The second parameter to `set_all_outputs
 The `set_output` and `set_all_outputs` methods raise a `RuntimeErrpr` if the channel number is out of range
 
 <!--- PYTHON END --->
-**Information** On Revision 0: `high` value will not allow current to flow through the circuit and vise versa.
-{: .notice--info}
 
 {% include content/tabv2/end.md %}
 
