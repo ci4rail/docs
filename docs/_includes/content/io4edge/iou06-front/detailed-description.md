@@ -4,11 +4,11 @@ The {{ page.product_name }} has a shared CAN/COM interface on the topmost D-Sub 
 
 ### Connection
 
-CAN/COM port connector on {{ page.product_name }} (Review 0):
+CAN/COM port connector on {{ page.product_name }} (Rev. 0):
 
 ![CAN/COM Port Connector]({{ '/user-docs/images/connectors/dsub9-female-horizontal.png' | relative_url }}){: style="width: 30%"}
 
-CAN/COM port connector on {{ page.product_name }} (Review 1):
+CAN/COM port connector on {{ page.product_name }} (Rev. 1):
 
 ![CAN/COM Port Connector]({{ '/user-docs/images/connectors/d-sub9-plug-horizontal.svg' | relative_url }}){: style="width: 30%"}
 
@@ -37,12 +37,12 @@ Pin functionality as viewed from {{ page.product_name }}:
 * Baudrates up to 460800 Baud
 * Galvanic Isolation between the COM port and other ports
 
-### Typical Connection Examples (Review 0)
+### Typical Connection Examples (Rev. 0)
 
 ![COM Port Connector]({{ 'user-docs/images/edge-solutions/moducop/io-modules/iou06/com-layout0-conn.svg' | relative_url }}){: style="width: 60%"}
 
 
-### Typical Connection Examples (Review 1)
+### Typical Connection Examples (Rev. 1)
 ![COM Port Connector]({{ 'user-docs/images/edge-solutions/moducop/io-modules/iou06/com-layout1-conn.svg' | relative_url }}){: style="width: 60%"}
 
 Important Notes:
@@ -62,10 +62,10 @@ In RS485/RS422 mode, please add termination resistors to the end of the line. Th
 {{ page.url | append: "../quick-start-can-io4edge" | relative_url }}#busconfiguration
 {% endcapture %}
 
-### Typical Connection Examples (Review 0)
+### Typical Connection Examples (Rev. 0)
 ![CANBus Port Connector]({{ 'user-docs/images/edge-solutions/moducop/io-modules/iou06/can-layout0-conn.svg' | relative_url }}){: style="width: 30%"}
 
-### Typical Connection Examples (Review 1)
+### Typical Connection Examples (Rev. 1)
 ![CANBus Port Connector]({{ 'user-docs/images/edge-solutions/moducop/io-modules/iou06/can-layout1-conn.svg' | relative_url }}){: style="width: 30%"}
 
 {% capture link_to_socketcan_qs %}
@@ -95,20 +95,22 @@ IBIS port connector on {{ page.product_name }}:
 | 9   | -          | don't connect                      |
 
 
-Note: The IBIS Slave function is only available in Review 1
+Note: The IBIS Slave function is only available in Rev. 1
 {: .notice--info}
 
 ### Typical IBIS Master connection:
 
 ![IBIS Master Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/ibis-master-conn.svg' | relative_url }}){: style="width: 20%"}
 
-### Typical IBIS Slave connection (Only available in Review 1):
-![IBIS Master Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/ibis-slave-conn.svg' | relative_url }}){: style="width: 20%"}
+### Typical IBIS Slave connection (Only available in Rev. 1):
+![IBIS Master Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/ibis-slave-conn.svg' | relative_url }}){: style="width: 30%"}
 
 ### IBIS Interface
 
-Both the IBIS Master, and IBIS Slave appear as a serial device on the Linux host and its device name is `/dev/tty{{ page.example_device_name }}-ibis`, when the IOU06 is the first IO-Module.
+Both the IBIS Master, and IBIS Slave appear as a serial device on the Linux host and its device name is `/dev/tty{{ page.example_device_name }}-ibis`, when the {{ page.product_name }} is the first IO-Module.
 
+**Warning** On the {{ page.product_name }}, the IBIS Master and IBIS Slave **cannot be used at the same time**. Only one system should be connected and used on the {{ page.product_name }}.
+{: .notice--warning}
 
 ## Audio / Binary Outputs Interfaces
 
@@ -202,4 +204,4 @@ The `set_output` and `set_all_outputs` methods raise a `RuntimeErrpr` if the cha
 {% include content/tabv2/end.md %}
 
 #### Overcurrent and Overload Handling
-The Binary outputs are overcurrent and overload protected. In case an overcurrent condition is detected on one channel, the channel is disabled. The channel is activated again only after the overcurrent condition is no longer present, and the circuit has to be restarted.
+The Binary outputs are overcurrent and overload protected. In case an overcurrent condition is detected on one channel, the channel is disabled. To recover from the situation, remove the load completely to allow a relaxing time for the {{ page.product_name }} to function again.

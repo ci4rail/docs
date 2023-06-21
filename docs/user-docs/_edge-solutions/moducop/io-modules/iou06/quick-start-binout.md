@@ -43,20 +43,16 @@ S101-IOU01-USB-EXT-1, 192.168.201.1, S101-IOU01, <serial-number>
 
 ## Binary I/O Demo
 
-{% assign example_name="blinky" %}
+{% assign example_name="set_outputs" %}
 {% assign example_path="gpio" %}
 {% assign example_service_ext="gpio" %}
 {% assign example_service_name = page.example_device_name | append: "-gpio" %}
 
-The Binary output demo will stimulate the binary outputs of the {{ page.product_name }}. Please connect separate loads to the binary  e.g. 100Ohm resistance, so when the output switch turns on, the binary output will act as a switch, closing the circuit, allowing current to flow through the load.
+The Binary output demo will stimulate the binary outputs of the {{ page.product_name }}. Please connect separate loads to the binary  e.g. 1000Ohm resistance, so when the output switch turns on, the binary output will act as a switch, closing the circuit, allowing current to flow through the load.
 
 
 
 ### Connecting
-
-Plug a mating connector to the top connector of the {{ page.product_name }}.
-
-{% include content/io4edge/iou01-front/mating-connectors.md %}
 
 Connect the binary output pins `BIN_OUT1` & `BIN_OUT2` to different loads, which are supplied with 24V. Connect the ground to the Common Ground pin `COMMON_GND`
 
