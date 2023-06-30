@@ -9,29 +9,6 @@ custom_next: /edge-solutions/moducop/mounting-installation/
 
 This section guides you through the process of installation planning and execution.
 
-# Installation Locations
-The ModuCop Edge Computer has been designed to be installed inside vehicles like buses, trams or trains with limited environmental exposure.
-
-
-## Installation in Buses
-For installation in automotive environment, installation location has to be chosen to avoid moist, liquids and dust exposure above the limit of specified ingress protection IP20.
-
-## Installation in Railway Rolling Stock
-For installation in railway vehicles, equipment location is defined according to EN50155:
-
-|Location acc. EN50155 |Definition|Examples|
-|:--- |:--- |:--- |
-|Loc 1 | closed electrical operating area | interior vehicle cubicle (weather protected); exterior vehicle cubicle (weather-protected) either under-frame or upper-roof|
-|Loc 2 | cabin and interiors | passenger vehicle compartment and driver cabin |
-
-> Do not install ModuCop in other vehicle locations as specified!
-{: .notice--warning}
-
-> Please use Ci4Rail's accessories for mounting
-{: .notice--info}
-
-
-# Installation Guidance
 
 ## Installation to Wall
 Make sure, you are using the correct accessory for wall mounting depending on your ModuCop configuration. For example, a 6-slot ModuCop must be mounted with the corresponding 6-slot wall mount brackets.
