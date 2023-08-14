@@ -29,6 +29,14 @@ feature_row:
     url: /edge-solutions/overview/
     btn_label: "Learn More"
     btn_class: "btn--primary"
+  - image_path: assets/images/lyve-logo.png
+    alt: "LYVE"
+    title: "LYVE - Localize Your Vehicle"
+    width: 70%
+    excerpt: "You want to know exactly? No compromises in the accuracy of the localization of equipped vehicles and assets, seamlessly indoors and outdoors."
+    url: /lyve/overview/
+    btn_label: "Learn More"
+    btn_class: "btn--primary"
 ---
 
 {% include feature_row %}

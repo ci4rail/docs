@@ -1,0 +1,35 @@
+sidebar:
+  title: LYVE
+  navitems:
+    - title: Overview
+      url: /lyve/overview/
+ #   - title: For Your Safety
+ #     url: /edge-solutions/for-your-safety/
+    - title: Lyve tracelets
+      url: /lyve/lyve-tracelets/
+      navitems:
+        - title: SIO02 - WLAN Tracelet
+          url: /lyve/lyve-tracelets/sio02/
+          navitems:
+            - title: Quick-Start-Guide
+              url: /lyve/lyve-tracelets/sio02/quick-start-guide/
+            - title: Detailed-Description
+              url: /lyve/lyve-tracelets/sio02/detailed-description/
+        - title: SIO03 - Ethernet Tracelet
+          url: /lyve/lyve-tracelets/sio03/
+          navitems:
+ #           - title: Quick-Start-Guide
+ #             url: /lyve/lyve-tracelets/sio03/quick-start-guide/
+ #           - title: Detailed-Description
+ #             url: /lyve/lyve-tracelets/sio03/detailed-description/
+ #       - title: Mounting & Installation
+ #         url: /lyve-tracelets/mounting-installation/
+    - title: Lyve Infrastructure Components
+      url: /lyve/lyve-infra/
+      navitems:
+        - title: Satlets
+          url: /lyve/lyve-infra/satlet/
+        - title: Satlet-Monitor
+          url: /lyve/lyve-infra/satlet-monitor/
+        - title: Edge Device
+          url: /edge-solutions/moducop/introduction/
