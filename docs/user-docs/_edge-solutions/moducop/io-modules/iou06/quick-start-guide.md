@@ -47,4 +47,4 @@ For most functions, you need the service address of the {{ page.product_name }}.
 
 ## Binary Outputs
 
-(will be added soon)
+* [Binary Out Demo]({{ '/edge-solutions/moducop/io-modules/iou06/quick-start-binout' | relative_url }})

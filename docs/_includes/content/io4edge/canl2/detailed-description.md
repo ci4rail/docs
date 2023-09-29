@@ -60,7 +60,7 @@ func main() {
 <!--- GO END --->
 {% include content/tabv2/next.md %}
 <!--- PYTHON START --->
-To access the binary I/Os, create a *Client* and save it to the variable `can_client`. Pass as address either a service address or an ip address with port. Examples:
+To access the CAN Function, create a *Client* and save it to the variable `can_client`. Pass as address either a service address or an ip address with port. Examples:
 * As a service address: `{{ example_service_name }}`
 * As an IP/Port: `192.168.201.1:10000`
 

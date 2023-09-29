@@ -3,7 +3,7 @@ title: IOU06 Quick-Start-Guide / Audio Demo
 excerpt: Quick startup with IOU06 extension module
 last_modified_at: 2022-08-10
 
-custom_next: /edge-solutions/moducop/io-modules/iou06/detailed-description/
+custom_next: /edge-solutions/moducop/io-modules/iou06/quick-start-binout/
 product_name: IOU06
 article_group: S101
 example_device_name: S101-IOU06-USB-EXT-1
