@@ -1,9 +1,8 @@
 ---
 title: Mechanical Outline
 excerpt: ModuCop Mechanical Dimensions.
-last_modified_at: 2022-11-01
 
-custom_next: /edge-solutions/moducop/introduction/interfaces
+custom_next: /edge-solutions/moducop/general/interfaces
 ---
 
 # Dimensions
