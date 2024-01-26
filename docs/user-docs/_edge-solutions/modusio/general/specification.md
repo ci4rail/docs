@@ -2,7 +2,7 @@
 title: Specification
 excerpt: Technical Specification of ModuSios.
 
-custom_next: /edge-solutions/moducop/general/mech-outline/
+custom_next: /edge-solutions/moducop/general/interfaces/
 ---
 
 This page contains the technical specification common to all ModuSios.

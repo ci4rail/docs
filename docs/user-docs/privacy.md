@@ -2,7 +2,7 @@
 title: Privacy Policy
 ---
 
-## Hosting 
+## Hosting
 
 Our Hoster collects the following data in so-called log files, which your browser transmits:
 
@@ -43,4 +43,3 @@ The data processing controller on this website is:
     90441 Nürnberg
     Phone: +49 911 47713370
     E-mail: info@ci4rail.com
-

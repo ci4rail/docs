@@ -11,7 +11,7 @@ WELCOME to the ModuCop user documentation.
 
 Our ModuCop is a modular flexible space saving edge computer
 * Based on powerful ARM Cortex A53 quad core
-* Modular and intelligent I/O units 
+* Modular and intelligent I/O units
 * Various connectivity to meet any train interface or operate as a standalone device
   * Category: "Interfaces" to communicate with subsystems
   * Category: "Data Logger" to non-retroactively listen only

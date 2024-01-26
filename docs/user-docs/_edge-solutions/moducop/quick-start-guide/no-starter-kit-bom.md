@@ -14,4 +14,3 @@ If you don't have a ModuCop Starter kit, you need the following items:
 * LTE Antenna and Nano-SIM Card (If you want to use LTE)
 * Wi-Fi Antenna (If you want to use Wi-Fi)
 * GPS Antenna (If you want to use GPS)
-

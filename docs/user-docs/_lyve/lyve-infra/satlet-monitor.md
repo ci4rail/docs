@@ -8,7 +8,7 @@ WELCOME to the UWB Satlet Monitor Documentation Section.
 
 # Introduction
 
-The IP65 gateway monitors the system status of the UWB satlets and infrastructure and makes the data collected in the process available on the network.  
+The IP65 gateway monitors the system status of the UWB satlets and infrastructure and makes the data collected in the process available on the network.
 
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/satlet.png' | relative_url }})
 
@@ -21,4 +21,3 @@ The IP65 gateway monitors the system status of the UWB satlets and infrastructur
 
 
 # Further details comming soon
-

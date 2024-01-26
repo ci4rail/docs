@@ -32,6 +32,6 @@ The polarity doesn't actually mattern, as the ModuSio has an iternal rectifier.
 
 The Service Connector is a USB type C connector. It provides access to a Silicon Labs CP2102N UART to USB converter. The UART is connected to the ModuSio's console.
 
-It is possible to power the ModuSio via the Service Connector. The ModuSio will be powered by the USB 5V supply. 
+It is possible to power the ModuSio via the Service Connector. The ModuSio will be powered by the USB 5V supply.
 
 Powering the ModuSio via the Service Connector is only intended for provisioning and testing purposes. It is not intended for permanent operation.
