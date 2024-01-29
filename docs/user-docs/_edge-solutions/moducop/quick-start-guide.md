@@ -10,10 +10,10 @@ custom_next: /edge-solutions/moducop/quick-start-guide/no-starter-kit-bom/
 
 > Congratulations: You made the right decision on deciding for Ci4Rail's products. Welcome to the user documentation.
 
-This section gives you guidance to get started in less then 30 minutes. 
+This section gives you guidance to get started in less then 30 minutes.
 You can expect all necessary information on equipment and a step by step walk-through to make your first experience with ***ModuCop***.
 
-> We understand, that your are very excited and eager to start working with our products. Nevertheless, please take some time to **carefully read** our page [**For your Safety**]({{ '../edge-solutions/for-your-safety' | relative_url }}). 
+> We understand, that your are very excited and eager to start working with our products. Nevertheless, please take some time to **carefully read** our page [**For your Safety**]({{ '../edge-solutions/for-your-safety' | relative_url }}).
 
 
 Done? Really? OK, then let's get started!

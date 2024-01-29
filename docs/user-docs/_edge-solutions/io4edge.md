@@ -22,6 +22,7 @@ io4edge is the family name for I/O modules that are connected to the host via ne
 io4edge device are supported by open source host libraries for the following programming languages:
 * Go: [io4edge-client-go](https://github.com/ci4rail/io4edge-client-go)
 * Python: [io4edge-client-python](https://github.com/ci4rail/io4edge-client-python)
+* C : [io4edge-client-c](https://github.com/ci4rail/io4edge-client-c)
 
 ## io4edge Devices
 

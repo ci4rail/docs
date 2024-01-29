@@ -12,4 +12,11 @@ ModuSio expands existing systems with missing interfaces and sensors by simply i
 
 ![ModuSio Intro]({{ '/user-docs/images/edge-solutions/modusio/modusio_teaser.png' | relative_url }}){: style="width: 60%"}
 
+## General Info
+
+- See [here]({{ '/edge-solutions/modusio/general' | relative_url }}) for more info on ModuSio modules in general.
+
+## ModuSio Modules
+
+{% include pages_table.html headline_link="ModuSio Modules" type="modusio-module" %}
 {% include pages_table.html headline_link="IO-Module" type="modusio-module" %}

@@ -12,7 +12,7 @@ In this section you will unpack your ModuCop and get ready to connect and power 
 # Unpack ModuCop
 * Remove ModuCop from its packaging and check the delivered equipment for completeness.
 * Check ModuCop and the delivered equipment for any visible damage. In case of any shipping damage or inconsistencies between the contents and the original order, contact Ci4Rail for help and information.
-* Please do not dispose of the original packaging. Keep original packaging for storage and future transport. 
+* Please do not dispose of the original packaging. Keep original packaging for storage and future transport.
 
 # Check the Delivered Equipment
 If you have ordered ModuCop including the Starter kit (ACS01), the content consists of:
@@ -22,7 +22,7 @@ If you have ordered ModuCop including the Starter kit (ACS01), the content consi
 3. GPS antenna (active)
 4. Ethernet cables with CAT 6 modular couplers
 5. LTE antenna
-6. Wi-Fi antenna 
+6. Wi-Fi antenna
 
 ![ModuCop with ACS01]({{ '/user-docs/images/moducop/quick-start-guide/moducop-with-acs01-numbered.jpg' | relative_url }}){: style="width: 50%"}
 

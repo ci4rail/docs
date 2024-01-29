@@ -15,12 +15,12 @@ io4edge devices are always connected to the host via network, either via
 
 ## IP Address Assignment
 
-Io4edge devices typically receive their IP address via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol), so you need a DHCP server in your network to which the io4edge device is connected to. 
+Io4edge devices typically receive their IP address via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol), so you need a DHCP server in your network to which the io4edge device is connected to.
 
 **Notice** On Moducop, a DHCP is already installed and setup in the Yocto image. However, this DHCP server is only responsible to assign a IP address for io4edge devices within the ModuCop. If further devices are connected via Ethernet/Wifi, still a DHCP server must be in the network.
 {: .notice}
 
-Some Io4edge devices, currently ModuSio devices can be configured to use static IP addresses instead of using DHCP. If static IP addresses are used, no DHCP is required. 
+Some Io4edge devices, currently ModuSio devices can be configured to use static IP addresses instead of using DHCP. If static IP addresses are used, no DHCP is required.
 
 ## How to Address a Specific Device from the Host
 

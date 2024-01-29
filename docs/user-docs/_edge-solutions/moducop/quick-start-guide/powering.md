@@ -11,7 +11,7 @@ In this section you will connect your ModuCop to the power supply and all releva
 
 # Connections
 {% capture notice-text %}
-**Notice** 
+**Notice**
 
 * The earth connection has to be made first and disconnected last.
 * The last connection made is the power wiring.
@@ -26,7 +26,7 @@ In this section you will connect your ModuCop to the power supply and all releva
 * Connect the Wi-Fi antenna with the "WLAN1" connector.
 * Connect the GPS antenna with the "GNSS" connector.
 * Connect the Ethernet cable with the "Ethernet 1" connector.
-* Connect the DC power supply cable (M12 connector) with ModuCop's power input. 
+* Connect the DC power supply cable (M12 connector) with ModuCop's power input.
 
 **Notice** In case you don't use the power cable of the Starter kit, please refer to the [user manual]({{ '/edge-solutions/moducop/quick-start-guide/powering' | relative_url }}) for the pinning of the Power Input.
 {: .notice}
@@ -42,7 +42,3 @@ In this section you will connect your ModuCop to the power supply and all releva
 
 # Achievements in this Section
 Great! ModuCop is now properly connected and powered. Now you can begin establishing the communication.
-
-
-
-

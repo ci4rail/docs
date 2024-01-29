@@ -8,7 +8,7 @@ WELCOME to the UWB Satlet Documentation Section.
 
 # Introduction
 
-The IP65 satlet provides highly synchronous ultra-wideband (UWB) positioning signals using the reverse TDOA method, allowing compatible UWB receivers to position themselves with up to 30m accuracy. 
+The IP65 satlet provides highly synchronous ultra-wideband (UWB) positioning signals using the reverse TDOA method, allowing compatible UWB receivers to position themselves with up to 30m accuracy.
 
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/satlet.png' | relative_url }})
 
@@ -22,4 +22,3 @@ The IP65 satlet provides highly synchronous ultra-wideband (UWB) positioning sig
 
 
 # Further details comming soon
-
