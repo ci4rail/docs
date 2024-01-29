@@ -25,12 +25,12 @@ Mating connector: M12 8-pin X-coded, plug.
 | 7   | V2     | Power Supply Input, Line2 (connected with Pin8) |
 | 8   | V2     | Power Supply Input, Line2 (connected with Pin7) |
 
-In case of a 24V power supply, you can connect the positive voltage to Pin 5/6 and the GND to Pin 7/8.
-The polarity doesn't actually mattern, as the ModuSio has an iternal rectifier.
+To supply the ModuSio via V1/V2, you can connect the positive voltage to Pin 5/6 and the GND to Pin 7/8.
+The polarity doesn't actually matter, as the ModuSio has an internal rectifier.
 
 ## Service Connector
 
-The Service Connector is a USB type C connector. It provides access to a Silicon Labs CP2102N UART to USB converter. The UART is connected to the ModuSio's console.
+The Service Connector is a USB type C connector. It provides access to a Silicon Labs CP2102N UART to USB converter. The UART is connected to the ModuSio's console with a baudrate of 115200.
 
 It is possible to power the ModuSio via the Service Connector. The ModuSio will be powered by the USB 5V supply.
 
