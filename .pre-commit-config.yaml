@@ -12,6 +12,7 @@ repos:
           )$
       - id: check-yaml
       - id: check-added-large-files
+        args: [--maxkb=2000]
   - repo: local
     hooks:
       # It doesn't work, because it does not update last-modified date when an included file has been changed
