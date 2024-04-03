@@ -158,7 +158,7 @@ The {{ page.product_name }} has a binary output function block providing:
 {% include content/tabv2/start.md tabs="go, python" %}
 <!--- GO START --->
 To access the binary I/Os, create a *Client* and save it to the variable `c`. Pass as address either a service address or an ip address with port. Examples:
-* As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
+* As a service address: `{{ page.example_device_name }}-binio`
 * As an IP/Port: `192.168.201.1:10000`
 
 We need this client variable for all further access methods.
@@ -175,7 +175,7 @@ import (
 func main() {
 	c, err = binio.NewClientFromUniversalAddress(address, timeout)
 	if err != nil {
-		log.Fatalf("Failed to create binio client: %v\n", err)
+		log.Fatalf("Failed to create binio client: %v\n", err
 	}
 }
 ```
@@ -183,7 +183,7 @@ func main() {
 {% include content/tabv2/next.md %}
 <!--- PYTHON START --->
 To access the binary I/Os, create a *Client* and save it to the variable `binio_client`. Pass as address either a service address or an ip address with port. Examples:
-* As a service address: `{{ page.example_device_name }}-{{ example_service_ext }}`
+* As a service address: `{{ page.example_device_name }}-binio`
 * As an IP/Port: `192.168.201.1:10000`
 
 We need this client variable for all further access methods.
@@ -242,7 +242,7 @@ Control multiple pins using a bit mask. The second parameter to `set_all_outputs
 
 ```
 
-The `set_output` and `set_all_outputs` methods raise a `RuntimeErrpr` if the channel number is out of range
+The `set_output` and `set_all_outputs` methods raise a `RuntimeError` if the channel number is out of range
 
 <!--- PYTHON END --->
 
