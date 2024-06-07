@@ -1,12 +1,12 @@
 ---
 title: Lyve Tracelets
 excerpt: Lyve Tracelet User Manual
-last_modified_at: 2023-08-11
+last_modified_at: 2024-06-07
 ---
 
 WELCOME to the LYVE Tracelet user documentation.
 
-![Lyve Tracelet]({{ '/user-docs/images/lyve/lyve-traclets.png' | relative_url }})
+![Lyve Tracelet]({{ '/user-docs/images/lyve/lyve-tracelets-overview.png' | relative_url }})
 
 
 Tracelets are the vehicle components in our localization solution.

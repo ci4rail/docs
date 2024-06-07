@@ -18,10 +18,10 @@ sidebar:
         - title: SIO03 - Ethernet Tracelet
           url: /lyve/lyve-tracelets/sio03/
           navitems:
-    #           - title: Quick-Start-Guide
-    #             url: /lyve/lyve-tracelets/sio03/quick-start-guide/
-    #           - title: Detailed-Description
-    #             url: /lyve/lyve-tracelets/sio03/detailed-description/
+               - title: Quick-Start-Guide
+                 url: /lyve/lyve-tracelets/sio03/quick-start-guide/
+               - title: Detailed-Description
+                 url: /lyve/lyve-tracelets/sio03/detailed-description/
     #       - title: Mounting & Installation
     #         url: /lyve-tracelets/mounting-installation/
     - title: Lyve Infrastructure Components

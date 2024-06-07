@@ -10,7 +10,7 @@ WELCOME to the SIO02 WLAN based tracelet.
 
 The SIO02 is the autonomous vehicle component (tracelet) of our localization solution LYVE. By means of sensor data fusion, SIO02 enables high-precision self-positioning in buses, trains or other powered assets with only one tracelet per vehicle. SIO02 transmits the position information via WLAN to the land-side infrastructure or to further equipment inside the vehicles.
 
-![Lyve Tracelet]({{ '/user-docs/images/lyve/sio02-main.png' | relative_url }})
+![Lyve Tracelet]({{ '/user-docs/images/lyve/sio02-main.png' | relative_url }}){: style="width: 50%"}
 
 ## Product Features:
 

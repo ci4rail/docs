@@ -1,12 +1,12 @@
 ---
 title: Lyve Infrastructure Components
 excerpt: Lyve Infrastructure Components User Manual
-last_modified_at: 2023-08-11
+last_modified_at: 2024-06-07
 ---
 
 WELCOME to the LYVE infrastructure user documentation.
 
-![Lyve Tracelet]({{ '/user-docs/images/lyve/lyve-infra.png' | relative_url }})
+![Lyve Tracelet]({{ '/user-docs/images/lyve/lyve-setup.png' | relative_url }})
 
 
 bla
