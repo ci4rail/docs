@@ -55,8 +55,8 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Ignition                               | On State: Input high: 5,2 V (min) or open |
 |                                        | Standby State (after delay ~3 sec): Input low: 3,6 V (max) |
 | **Maintenance**                        |
-| Firmware update                        | Via USB, WLAN |
-| Management                             | Via io4edge protocol, see https://docs.ci4rail.com/edge-solutions/io4edge/ |
+| Firmware update                        | Via USB, LAN |
+| Management                             | Via io4edge protocol, see [io4edge protocol]({{ '/edge-solutions/io4edge' | relative_url }}) |
 | **Electrical**                         |
 | Power Supply                           | Power-over-Ethernet (PoE PD) class 1 |
 |                                        | 12V, 24V (nom.) acc. to ISO 7637-2:2011 via M12 8p A-Coded |
@@ -91,7 +91,7 @@ The product offers an M12-8pin A-coded connector for shared power and service in
 ## M12-8pin A-coded, socket:
 * alt. power supply 12V / 24V DC (nom)
 * Ignition
-* Wheeltic Input
+* Wheeltick Input
 * USB-Service Interface
 
 Mating connector: M12 8-pin A-coded, plug.
@@ -144,12 +144,14 @@ The Tracelet has the following dimensions
 
 # Mounting & Installation
 
-The tracelet has to be mounted with clear view to GNSS satellites as well as UWB satlet infrastructure.
+The tracelets have to be mounted with clear view to GNSS satellites as well as UWB satlet infrastructure.
 We recommend mounting on roof of vehicle.
 
 Mounting depends on the given conditions per vehicle. Depending on the mounting conditions, specific mounting brackets might be available. Contact Ci4Rail for specific designs of mounting brackets
 
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/SIO02_model_halterung.png' | relative_url }})
+
+(Picture shows SIO02 but is also valid for SIO03 - mounting is identical)
 
 
  In some cases, a snow cover might be useful.
@@ -162,6 +164,8 @@ Mounting is done by M5 mounting bolts, lock washers and nuts as shown in the fol
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/SIO02_montage_seite.png' | relative_url }})
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/SIO02_montage_top.png' | relative_url }})
 
+(Pictures shows SIO02 but is also valid for SIO03 - mounting is identical)
+
 
 
 
@@ -173,3 +177,5 @@ The Tracelet has to be mounted with an angle of 0° to ground
 The Tracelet has to be oriented with the M12 connector towards vehicle back (Cab B).
 
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/SIO02_montage_orientierung.png' | relative_url }})
+
+(Picture shows SIO02 but is also valid for SIO03 - mounting is identical)

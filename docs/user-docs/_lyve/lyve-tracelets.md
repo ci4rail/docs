@@ -16,8 +16,8 @@ The position is calculated in the in-vehicle tracelet using sensor fusion of var
 
 | LYVE Components                         | Description      |
 | --------------------------------------- | ---------------- |
-| [SIO02]({{ '/lyve/lyve-tracelets/sio02/'     | relative_url }}) | Tracelet with WLAN interface                            |
-| [SIO03]({{ '/lyve/lyve-tracelets/sio03/'     | relative_url }}) | Tracelet with Ethernet interface (comming soon)         |
+| [SIO02]({{ '/lyve/lyve-tracelets/sio02/'     | relative_url }}) | Tracelet with WLAN interface     |
+| [SIO03]({{ '/lyve/lyve-tracelets/sio03/'     | relative_url }}) | Tracelet with Ethernet interface |
 
 
 Ready to start? Check our [Quick-Start-Guide]({{ '/lyve/lyve-tracelets/sio02/quick-start-guide' | relative_url }}).
