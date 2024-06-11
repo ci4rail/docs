@@ -1,37 +1,40 @@
 ---
-title: SIO02 Detailed Description
-excerpt: Detailed Description of the SIO02 functionality
+title: SIO03 Detailed Description
+excerpt: Detailed Description of the SIO03 functionality
 last_modified_at: 2024-06-07
 
-product_name: SIO02
+product_name: SIO03
 article_group: S103
-example_device_name: SIO02-1
+example_device_name: SIO03-1
 ---
 
 
 
-![Lyve Tracelet]({{ '/user-docs/images/lyve/sio02-main.png' | relative_url }}){: style="width: 50%"}
+![Lyve Tracelet]({{ '/user-docs/images/lyve/sio03-main.png' | relative_url }}){: style="width: 50%"}
 
 
 
 ## Features
-- Onboard position calculation < 1m accuracy
+- Seamless positioning from various sensor sources; < 1m accuracy
 - UWB receiver IEEE 802.15.4-2015;
 - GNSS/RTK multiband GNSS receiver
 - Inertial Measurement Unit (IMU)
-- Wheeltick counter according to IEC 16844-2
-- Voltage input 9…36V DC (24V nom.); Ignition
+- Speed Pulse Signal according to IEC 16844-2
+- 100MBit/s Ethernet, PoE PD class 1
+- Alt. power input 9…36V DC (12/24V nom.); Ignition
+- USB service interface
 - Monitoring and remote maintenance (e.g. OTA update of firmware)
-- EN 50155 and E1 qualified
+- Designed for use in Rail (EN 50155) and Buses (E-Mark)
 
 ## Introduction
-The UWB/RTK precise positioning module SIO02 is a member of the KYT Sensor family by Ci4Rail and can work as a standalone device as well as in combination with ModuCop MEC0x.
+The UWB/RTK precise positioning module SIO03 is a member of the KYT Sensor family by Ci4Rail and can work as a standalone device as well as in combination with ModuCop MEC0x.
 
-For highly precise positioning in public transport and rail car depots, stations, tunnels etc. or even indoor, a single sensor source is not sufficient. To provide precise localization, SIO02 combines the technologies UWB (ultra wide band), GNSS/RTK (Real-Time-Kinematik) and additional speed pulse input signal. Whereas UWB works indoors using a cost sensitive satlet infrastructure, the GNSS/RTK technology provides high precision positioning information without additional infrastructure outdoors. The speed pulse input signal supports identification of distance traveled and movement direction. Specific movement models within an IMU (Inertial Measurement Unit) allow smooth seamless real-time positioning.
+For highly precise positioning in public transport and rail car depots, stations, tunnels etc. or even indoor, a single sensor source is not sufficient. To provide precise localization, SIO03 combines the technologies UWB (ultra wide band), GNSS/RTK (Real-Time-Kinematik) and additional speed pulse input signal.
 
-The positioning information is transferred to the landside using WLAN interface. SIO02 requires only one cable connection for power input, ignition function and tacho input.
-The SIO02 product describes the vehicle component and does not cover stationary equipment like UWB satlets.
+Whereas UWB works indoors using a cost sensitive satlet infrastructure, the GNSS/RTK technology provides high precision positioning information without additional
+infrastructure outdoors. The speed pulse input signal supports identification of distance traveled and movement direction. Specific movement models within an IMU (Inertial  Measurement Unit) allow smooth seamless real-time positioning.
 
+The positioning information is transferred to in-vehicle subsystems via Ethernet interface. The SIO03 product represents the vehicle component and does not cover stationary equipment like UWB satlets.
 
 
 ## Detailed Technical Specification
@@ -39,8 +42,8 @@ The SIO02 product describes the vehicle component and does not cover stationary 
 | Feature                                | Value                  |
 | :------------------------------------- | :---------------------:|
  **Interfaces**                          |
-| Communication Interface                | WLAN IEEE 802.11b/g/n |
-| Service Interface                      | USB 2.0 via M12 8p X-Coded |
+| Communication Interface                | 100MBit/s Ethernet via M12 D-Coded |
+| Service Interface                      | USB 2.0 via M12 8p A-Coded |
 | Positioning Indoor                     | UWB IEEE 802.15.4-2015 |
 | Positioning Outdoor                    | Multi-band GNSS/RTK |
 |                                        | GPS/QZSS (L1C/A L2C) |
@@ -52,9 +55,11 @@ The SIO02 product describes the vehicle component and does not cover stationary 
 | Ignition                               | On State: Input high: 5,2 V (min) or open |
 |                                        | Standby State (after delay ~3 sec): Input low: 3,6 V (max) |
 | **Maintenance**                        |
-| Firmware update                        | Via USB, WLAN |
+| Firmware update                        | Via USB, LAN |
+| Management                             | Via io4edge protocol, see [io4edge protocol]({{ '/edge-solutions/io4edge' | relative_url }}) |
 | **Electrical**                         |
-| Power Supply                           | 12V, 24V (nom.) acc. to ISO 7637-2:2011 via M12 8p X-Coded |
+| Power Supply                           | Power-over-Ethernet (PoE PD) class 1 |
+|                                        | 12V, 24V (nom.) acc. to ISO 7637-2:2011 via M12 8p A-Coded |
 | Power Consumption                      | Operation typ. < 3 W |
 |                                        | Standby State < 0,1 W |
 | **Mechanics**                          |  |  |  |
@@ -80,33 +85,47 @@ The SIO02 product describes the vehicle component and does not cover stationary 
 
 # Connections
 
-SIO02 is connected by only one interface connector. However, several interfaces are available on this female M12 (8pin; x-coded) connector
-* Power Supply 12V / 24V DC (nom)
-*	Ignition
-* Wheeltic Input
--	USB-Service Interface
+SIO03 provides two M12 interface connectors for roboust and IP protected connections.
+The product offers an M12-8pin A-coded connector for shared power and service interfaces as well as an M12-4pin D-coded Ethernet interface connector.
 
+## M12-8pin A-coded, socket:
+* alt. power supply 12V / 24V DC (nom)
+* Ignition
+* Wheeltick Input
+* USB-Service Interface
 
+Mating connector: M12 8-pin A-coded, plug.
 
-Type: M12 8-pin x-coded, socket.
-
-Mating connector: M12 8-pin x-coded, plug.
-
-![Lyve Tracelet]({{ '/user-docs/images/moducop/user-manual/m12_8_socket_M285-00005-02.png' | relative_url }}){: style="width: 50%"}
+![Lyve Tracelet]({{ '/user-docs/images/connectors/M12-8pol-A-female-pinning.png' | relative_url }}){: style="width: 50%"}
 
 
 
 | Pin | Symbol | Description                                             |
 | --- | ------ | ------------------------------------------------------- |
-| 1   | IGN    | Ignition Input                                          |
-| 2   | WT     | Wheeltic input                                          |
-| 3   | USB+   | USB Dataline + |
+| 1   | V_IN   | 12/24V Power Supply Input |
+| 2   | WT     | Wheeltic input |
+| 3   | IGN    | Ignition |
 | 4   | USB-   | USB Dataline - |
 | 5   | GND    | Ground                                                  |
 | 6   | GND    | Ground                                                  |
 | 7   | V_USB  | USB Power Supply Input |
-| 8   | V_IN   | 12/24V Power Supply Input |
+| 8   | USB+   | USB Dataline + |
 
+## M12-4pin D-coded, socket:
+* 100 MBit/s Ethernet; Power Over Ethernet
+
+Mating connector: M12 4-pin DA-coded, plug.
+
+![Lyve Tracelet]({{ '/user-docs/images/connectors/M12-4pol-D-female-pinning.png' | relative_url }}){: style="width: 50%"}
+
+
+
+| Pin | Symbol | Description                                             |
+| --- | ------ | ------------------------------------------------------- |
+| 1   | TxD+   | CT (PoE)|
+| 2   | RxD+   | CT (PoE)|
+| 3   | TxD-   | CR (PoE)|
+| 4   | RxD-   | CR (PoE)|
 
 
 # Mechanical Outline
@@ -120,17 +139,19 @@ The Tracelet has the following dimensions
 | Height | 48 mm |
 
 
-![Lyve Tracelet]({{ '/user-docs/images/lyve/sio02_all.png' | relative_url }})
+![Lyve Tracelet]({{ '/user-docs/images/lyve/sio03-all.png' | relative_url }})
 
 
 # Mounting & Installation
 
-The tracelet has to be mounted with clear view to GNSS satellites as well as UWB satlet infrastructure.
+The tracelets have to be mounted with clear view to GNSS satellites as well as UWB satlet infrastructure.
 We recommend mounting on roof of vehicle.
 
 Mounting depends on the given conditions per vehicle. Depending on the mounting conditions, specific mounting brackets might be available. Contact Ci4Rail for specific designs of mounting brackets
 
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/SIO02_model_halterung.png' | relative_url }})
+
+(Picture shows SIO02 but is also valid for SIO03 - mounting is identical)
 
 
  In some cases, a snow cover might be useful.
@@ -143,6 +164,8 @@ Mounting is done by M5 mounting bolts, lock washers and nuts as shown in the fol
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/SIO02_montage_seite.png' | relative_url }})
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/SIO02_montage_top.png' | relative_url }})
 
+(Pictures shows SIO02 but is also valid for SIO03 - mounting is identical)
+
 
 
 
@@ -154,3 +177,5 @@ The Tracelet has to be mounted with an angle of 0° to ground
 The Tracelet has to be oriented with the M12 connector towards vehicle back (Cab B).
 
 ![Lyve Tracelet]({{ '/user-docs/images/lyve/SIO02_montage_orientierung.png' | relative_url }})
+
+(Picture shows SIO02 but is also valid for SIO03 - mounting is identical)
