@@ -95,7 +95,7 @@ IBIS port connector on {{ page.product_name }}:
 | 9   | -          | don't connect                      |
 
 
-Note: The IBIS Slave function is only available in Rev. 1
+Note: The IBIS Slave function is only available in IOU06 Rev. 2!
 {: .notice--info}
 
 ### Typical IBIS Master connection:
@@ -107,7 +107,12 @@ Note: The IBIS Slave function is only available in Rev. 1
 
 ### IBIS Interface
 
-Both the IBIS Master, and IBIS Slave appear as a serial device on the Linux host and its device name is `/dev/tty{{ page.example_device_name }}-ibis`, when the {{ page.product_name }} is the first IO-Module.
+Both the IBIS Master, and IBIS Slave appear as a serial device on the Linux host.
+Use device name
+* `/dev/tty{{ page.example_device_name }}-ibis` for master operation
+* `/dev/tty{{ page.example_device_name }}-ibisslv` for slave operation
+
+when the {{ page.product_name }} is the first IO-Module.
 
 **Warning** On the {{ page.product_name }}, the IBIS Master and IBIS Slave **cannot be used at the same time**. Only one system should be connected and used on the {{ page.product_name }}.
 {: .notice--warning}
