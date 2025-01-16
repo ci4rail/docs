@@ -4,13 +4,6 @@ excerpt: "See how to use this documentation."
 last_modified_at: 2022-11-01
 
 feature_row:
-  - image_path: /user-docs/images/drafts/orange-cloud.jpg
-    alt: "EdgeFarm"
-    title: "EdgeFarm"
-    excerpt: "Use EdgeFarm to manage get an overview of devices, develop own edge or cloud modules and deploy them to your devices. Analayse the data provided from the devices."
-    url: /user-manual/edgefarm/
-    btn_label: "Learn More"
-    btn_class: "btn--primary"
   - image_path: /user-docs/images/drafts/photo.png
     alt: "ModuCop"
     title: "ModuCop"
@@ -35,10 +28,6 @@ gallery:
     image_path: /user-docs/images/drafts/photo.png
     alt: "alternative description 2 if image not found"
     title: "Image 2 title caption"
-  - url: /user-manual/edgefarm/
-    image_path: /user-docs/images/drafts/orange-cloud.jpg
-    alt: "alternative description 3 if image not found"
-    title: "Image 3 title caption"
 ---
 
 This example documentation file shows how different formatting can be established in this template. Some formatting is usual [markdown syntax](#general-markdown-usage), but some [template specific formatting](#jekyll-template-specific) is possible. In addition, some topics can be done in [both ways](#markdown-and-template-specific). Have a look at the [raw file on github](https://raw.githubusercontent.com/ci4rail/docs/main/docs/user-docs/_drafts/example.md) to see how this page is implemented.

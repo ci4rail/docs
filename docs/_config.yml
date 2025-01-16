@@ -103,12 +103,6 @@ author:
     - label: "Ci4Rail"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ci4rail"
-    - label: "EdgeFarm"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/edgefarm"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/company/ci4rail/"
 
 # Site Footer
 footer:
@@ -123,9 +117,6 @@ footer:
     - label: "Ci4Rail"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ci4rail"
-    - label: "EdgeFarm"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/edgefarm"
   address:
     postal_code: "90441"
     place: "Nürnberg"
@@ -144,9 +135,6 @@ collections:
   video-categories:
     output: true
     permalink: /video-section/:path/
-  edgefarm:
-    permalink: /:collection/:path/
-    output: true
   edge-solutions:
     permalink: /:collection/:path/
     output: true
@@ -291,24 +279,6 @@ defaults:
       feedback: false
       pagination: true
       # classes: wide If this is inserted, it is also applied to the drafts
-    # _edgefarm
-  - scope:
-      path: ""
-      type: edgefarm
-    values:
-      layout: single
-      author_profile: false
-      read_time: false
-      comments: false # do not enable comments
-      show_date: false # do not show date on page
-      show_last_updated: false # option only available on layout: single
-      share: false
-      related: false
-      toc: true
-      toc_sticky: true
-      sidebar: edgefarm
-      feedback: true
-      pagination: false # do not show previous/next buttons in docs
     # _lyve
   - scope:
       path: ""

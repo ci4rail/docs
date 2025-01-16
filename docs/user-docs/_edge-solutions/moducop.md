@@ -16,7 +16,6 @@ Our ModuCop is a modular flexible space saving edge computer
   * Category: "Interfaces" to communicate with subsystems
   * Category: "Data Logger" to non-retroactively listen only
 * Life-time managed Yocto linux microservices platform incl. docker container runtime for multiple applications
-* Fully integrated in Ci4Rail's IoT platform EdgeFarm
 
 
 Ready to start? Check our [Quick-Start-Guide]({{ '/edge-solutions/moducop/quick-start-guide' | relative_url }}).

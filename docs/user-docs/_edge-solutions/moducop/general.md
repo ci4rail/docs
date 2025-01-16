@@ -15,7 +15,7 @@ MEC01 features an ARM Quad Core offering the computing power to host additional 
 
 In addition, a variety of wireless connectivity is provided, enabling both a connection to the cloud and a connection to wireless sensor technology in a vehicle.
 
-The edge computer comes as ONE platform, differencing only by application specific power supply and custom configurations. ModuCop is available with various software functionality based on Linux operating system (LMP) and is integrated seamlessly in Ci4Rails EdgeFarm cloud services.
+The edge computer comes as ONE platform, differencing only by application specific power supply and custom configurations. ModuCop is available with various software functionality based on Linux operating system (LMP) and is integrated seamlessly in Ci4Rails cloud services.
 
 ![ModuCop Edge Computer]({{ '/user-docs/images/edge-solutions/moducop/ModuCop_10c.png' | relative_url }})
 
