@@ -10,14 +10,6 @@ main:
         url: /edge-solutions/moducop/io-modules
       - title: Lyve
         url: /lyve/overview
-  #    - title: "User Manual"
-  #   navitems:
-  #     - title: EdgeFarm
-  #       url: /edgefarm/overview/
-  #     - title: Edge Solutions
-  #       url: /edge-solutions/overview/
-  # - title: "Video-Section"
-  #   url: /video-section/
   - title: "Data Sheets"
     external_url: https://www.ci4rail.com/news/downloads/
   - title: "Ci4Rail Homepage"

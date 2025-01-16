@@ -32,7 +32,7 @@
     {% assign i = i | plus: 1 %}
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       {% assign path = path | append: crumb | append: '/' %}
-      {% if crumb == "edge-solutions" or crumb == "edgefarm" %}
+      {% if crumb == "edge-solutions" %}
       {% assign landing_page_path = 'overview/' %}
       {% else %}
       {% assign landing_page_path = '' %}
