@@ -102,7 +102,7 @@ Note: The IBIS Slave function is only available in IOU06 Rev. 2!
 
 ![IBIS Master Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/ibis-master-conn.svg' | relative_url }}){: style="width: 20%"}
 
-### Typical IBIS Slave connection (Only available in Rev. 1):
+### Typical IBIS Slave connection (Only available in Rev. 2):
 ![IBIS Master Connection]({{ '/user-docs/images/edge-solutions/moducop/io-modules/iou06/ibis-slave-conn.svg' | relative_url }}){: style="width: 30%"}
 
 ### IBIS Interface
