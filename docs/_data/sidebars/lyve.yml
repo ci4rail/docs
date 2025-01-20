@@ -22,6 +22,13 @@ sidebar:
                  url: /lyve/lyve-tracelets/sio03/quick-start-guide/
                - title: Detailed-Description
                  url: /lyve/lyve-tracelets/sio03/detailed-description/
+        - title: SIO04-99 - GNSS Onboard Unit
+          url: /lyve/lyve-tracelets/sio04-99/
+          navitems:
+               - title: Quick-Start-Guide
+                 url: /lyve/lyve-tracelets/sio04-99/quick-start-guide/
+               - title: Detailed-Description
+                 url: /lyve/lyve-tracelets/sio04-99/detailed-description/
     #       - title: Mounting & Installation
     #         url: /lyve-tracelets/mounting-installation/
     - title: Lyve Infrastructure Components
