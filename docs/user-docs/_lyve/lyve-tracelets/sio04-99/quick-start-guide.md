@@ -16,6 +16,15 @@ When the {{ page.product_name }} is connected to the host via Ethernet, the powe
 * Power-Over-Ethernet
 * Power Input
 
+In any case, establish a USB connection to the device. From the power connector, connect the following pins to an USB-A connector:
+
+```
+7 - V_USB - USB Power Supply Input
+4 - USB-
+8 - USB+
+5 - GND
+```
+
 ### Supply via Power over Ethernet
 {{ page.product_name }} is a Class 1 PoE powered device. Connect the to a PoE source that can supply class 1 devices.
 
@@ -24,12 +33,12 @@ When the {{ page.product_name }} is connected to the host via Ethernet, the powe
 
 ### Supply via Power Input
 
-Use a power supply capable of delivering 12V..24VDC, 5W. Use contacts 5+6 and 7+8 to supply the power. Polarity doesn't matter.
+Use a power supply capable of delivering 12V..24VDC, 5W. Use contacts 1 and 6 to supply the power.
 
-![Wifi connection]({{ '/user-docs/images/lyve/sio04-99-powerin.svg' | relative_url }}){: style="width: 100%"}
+![Powerin connection]({{ '/user-docs/images/lyve/sio04-99-powerin.svg' | relative_url }}){: style="width: 100%"}
 
 
-## Initial Device Configuration
+## Initial Configuration
 
 For initial configuration, connect the USB-Serial Console interface to a computer as shown above and start a terminal program. See [Instructions]({{ '/edge-solutions/modusio/config-console' | relative_url }}) for details.
 
@@ -71,7 +80,7 @@ Activate the changes:
 config> reboot
 ```
 
-##### Setup Static IP
+#### Setup Static IP
 To use a static IP address, configure the IP-Address, Gateway and Network Mask using the `static-ip` command. The three parameters have to be specified as a single string, separated by colons (`:`), `<ip>:<netmask>:<gateway>`.
 
 ```
@@ -84,7 +93,7 @@ Activate the changes:
 config> reboot
 ```
 
-##### Connection Test
+#### Connection Test
 
 Now try to test the connection using `ping` from a computer in the same network as your device. Use the device ID of your device and append `.local`.
 ```

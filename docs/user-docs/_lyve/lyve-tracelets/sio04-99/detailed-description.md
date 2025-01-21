@@ -17,7 +17,7 @@ infrastructure outdoors. The speed pulse input signal supports identification of
 The positioning information is transferred to in-vehicle subsystems via Ethernet interface.
 
 
-## Detailed Technical Specification
+## Specification
 
 | Feature                       |                                            Value                                            |
 | :---------------------------- | :-----------------------------------------------------------------------------------------: |
@@ -63,12 +63,12 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 
 
 
-# Connections
+## Connections
 
 SIO04-99 provides two M12 interface connectors for roboust and IP protected connections.
 The product offers an M12-8pin A-coded connector for shared power and service interfaces as well as an M12-4pin D-coded Ethernet interface connector.
 
-## M12-8pin A-coded, socket:
+### M12-8pin A-coded, socket
 * alt. power supply 12V / 24V DC (nom)
 * Ignition
 * Wheeltick Input
@@ -76,7 +76,7 @@ The product offers an M12-8pin A-coded connector for shared power and service in
 
 Mating connector: M12 8-pin A-coded, plug.
 
-![Lyve Tracelet]({{ '/user-docs/images/connectors/M12-8pol-A-female-pinning.png' | relative_url }}){: style="width: 50%"}
+![Lyve Tracelet]({{ '/user-docs/images/connectors/M12-8pol-A-female-pinning.png' | relative_url }}){: style="width: 20%"}
 
 | Pin | Symbol | Description               |
 | --- | ------ | ------------------------- |
@@ -89,12 +89,12 @@ Mating connector: M12 8-pin A-coded, plug.
 | 7   | V_USB  | USB Power Supply Input    |
 | 8   | USB+   | USB Dataline +            |
 
-## M12-4pin D-coded, socket:
+### M12-4pin D-coded, socket
 * 100 MBit/s Ethernet; Power Over Ethernet
 
 Mating connector: M12 4-pin DA-coded, plug.
 
-![Lyve Tracelet]({{ '/user-docs/images/connectors/M12-4pol-D-female-pinning.png' | relative_url }}){: style="width: 50%"}
+![Lyve Tracelet]({{ '/user-docs/images/connectors/M12-4pol-D-female-pinning.png' | relative_url }}){: style="width: 20%"}
 
 
 
@@ -106,7 +106,7 @@ Mating connector: M12 4-pin DA-coded, plug.
 | 4   | RxD-   | CR (PoE)    |
 
 
-# Mechanical Outline
+## Mechanical Outline
 
 The product has the following dimensions
 
@@ -117,10 +117,106 @@ The product has the following dimensions
 | Height    | 111.5 mm |
 
 
-# Mounting & Installation
+## Mounting & Installation
 
 TODO
 
 ## Installation Requirements
 
 TODO
+
+## Functional Description
+
+After power on, the device uses its configuration parameters to configure its GNSS receiver.
+It will then periodically send its acquired position in a "position message" to the "localization server" (which may be your application). This message contains the WGS84 coordinates and many other parameters known to the device, such as quality metrics. The position message is sent always, even if no GNSS fix has been achieved.
+
+To achieve high precision, the GNSS RTK receiver must be fed with correction data using a network connection to the correction data server.
+
+Optionally, the device can be configured to apply "GNSS sensor fusion". In this mode, the device uses a dynamic model of the vehicle, integrated IMU, and the external wheeltick to further improve the precision, especially in cases with bad GNSS receiption conditions. GNSS sensor fusion however requires additional configuration of the device.
+
+Optionally, the device may be configured to connect to a NTP (network time protocol) server. It uses the NTP time to timestamp its messages in case no time from GNSS is available.
+
+![Functional Interface Diagram]({{ '/user-docs/images/lyve/sio04-99-functional.svg' | relative_url }}){: style="width: 70%"}
+
+
+### Position Messages
+
+The device sends position messages to the address configured with the parameter `loc-srv`, which must be the host address (name or IP address) plus the port, e.g. `192.168.0.88:11002`.
+
+The rate of the transmission can be configured from 1 to 4 Hz, using the parameters `gnss-rate` and `fuse-rate`, which should be set to the same value, e.g. `3` for 3 positions per second.
+
+#### Tranmission Protocol
+
+The protocol to transfer position messages is UDP with application level acknowledgement. The device is the client and initiates the communication.
+
+Client datagram:
+
+* UDP header
+* sequence number (4 byte, little endian)
+* payload (serialized protobuf data)
+
+Server datagram (ACK)
+
+* UDP header
+* sequence number (4 byte, little endian)
+
+![Functional Interface Diagram]({{ '/user-docs/images/lyve/tracelet-udp.svg' | relative_url }}){: style="width: 50%"}
+
+#### Message Content
+
+The message payload is encoded using [Protobuf](https://protobuf.dev/). The message is described [here](https://github.com/ci4rail/io4edge_api/blob/tracelet_metrics/tracelet/proto/v1/tracelet.proto). In this repository, there are also pre-compiled protobuf definitions for several programming languages.
+
+Notes:
+
+* the `traceled_id` is reflecting the `device_id` configuration parameter.
+* the device is not supporting UWB for indoor positioning, so the UWB related fields are missing in the message.
+* the `direction` field is currently unsupported
+
+
+### RTK Correction Data
+
+RTK corection data is required to achieve high accuracy. Correction data may come from:
+
+* from NTRIP service providers, delivering RTCM correction data, such as [Sapos](https://sapos.de/) or [rtk2go](http://rtk2go.com/).
+* from UBLOX [pointperfect](https://www.u-blox.com/en/product/pointperfect), delivering SPARTN correction data.
+* from a local RTK Base station + self hosted NTRIP server.
+
+In any case, the device needs to be able to reach the server and the address and credentials must be configured using `ntrip-caster` and `ntrip-credentials` parameter.
+
+In the position message, the metric `ntrip_is_connected` will reflect whether connect to the server has succeeded.
+
+The GNSS fix type will change to `4` (RTK Fix) or `5`(RTK Float) when correction data is available. `5` means that correction data is available but can't be applied.
+
+
+### Using GNSS Sensor Fusion
+
+In GNSS Sensor Fusion mode, the device uses a dynamic model of the vehicle, integrated IMU, and optionally the external wheeltick to further improve the precision, especially in cases with bad GNSS receiption conditions.
+
+To enable GNSS Sensor Fusion mode generally:
+
+* Configure the type of vehicle in parameter `dynmodel` to `rail` for railway vehicles, like trains or trams
+* Configure the [alignment](#mount-alg) of the IMU to the vehicle
+* Configure the [lever arms](#lever-arms)
+* Configure the [wheeltick](#wt)
+* set the `dr` configuration parameter to `on`.
+
+#### Lever Arms {#lever-arms}
+
+##### IMU to Vehicle Rotation Point
+
+![Functional Interface Diagram]({{ '/user-docs/images/lyve/railvehicle-vrp.png' | relative_url }}){: style="width: 50%"}
+
+#### IMU Mount Alignment {#mount-alg}
+
+#### Wheel Tick {#wt}
+
+
+### Ignition Signal
+
+### Device Configuration
+
+#### Setting Parameters via USB Console
+
+#### Setting Parameters via Network
+
+#### Parameters
