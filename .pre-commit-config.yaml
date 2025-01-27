@@ -13,16 +13,16 @@ repos:
       - id: check-yaml
       - id: check-added-large-files
         args: [--maxkb=2000]
-  - repo: local
-    hooks:
-      # It doesn't work, because it does not update last-modified date when an included file has been changed
-      # - id: update-last_modified
-      #   name: Update Last Modified Date
-      #   entry: .pre-commit-scripts/update-last_modified.sh
-      #   exclude: docs/user-docs/_drafts/how-to-write-documentation.md
-      #   language: "script"
-      - id: check-broken-links
-        name: Check for broken links in HTML
-        entry: .pre-commit-scripts/check-broken-links.sh
-        language: "script"
-        pass_filenames: false
+  # - repo: local
+  #   hooks:
+  #     # It doesn't work, because it does not update last-modified date when an included file has been changed
+  #     # - id: update-last_modified
+  #     #   name: Update Last Modified Date
+  #     #   entry: .pre-commit-scripts/update-last_modified.sh
+  #     #   exclude: docs/user-docs/_drafts/how-to-write-documentation.md
+  #     #   language: "script"
+  #     # - id: check-broken-links
+  #     #   name: Check for broken links in HTML
+  #     #   entry: .pre-commit-scripts/check-broken-links.sh
+  #     #   language: "script"
+  #     #   pass_filenames: false

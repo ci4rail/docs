@@ -13,23 +13,18 @@ Latest version (main branch) is published on: [docs.ci4rail.com](https://docs.ci
 
 ## Run theme
 
-### With Gitpod
+### With Devcontainer
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ci4rail/docs)
+In VsCode, press F1 and "Dev Containers: Clone Repository in Container Volume" and select this repository.
 
-This opens ci4rail docs in a Visual Studio Code environment and runs the template automatically on startup.
+Open a `zsh` terminal and run:
+```
+make
+```
 
-Click on the button on the top right to open the preview in a own browser window:
-![Open Preview in Browser](readme-images/open-in-browser.png)
+This starts jekyll server.
 
-Current logs of the website can be viewed in the terminal automatically opened:
-![Terminals](readme-images/terminal.png)
-
-Click on the `+` in the top right to open a new terminal for e.g. git actions like `git commit`. For git actions also VS Code Editor can be used. Therefore click on the red marked symbol in the sidebar:
-
-![Terminals](readme-images/git.png)
-
-The source control panel opens and enables to execute almost every git action to be done with help of a GUI. The red marked button on the top right enables to view the git graph and e.g. check out existing branches or view current position.
+Visit `http://localhost:4000/` to see webside.
 
 ### With Local Jekyll Windows/Linux/WSL
 
