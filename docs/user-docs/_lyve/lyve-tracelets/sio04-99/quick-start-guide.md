@@ -33,7 +33,7 @@ In any case, establish a USB connection to the device. From the power connector,
 
 ### Supply via Power Input
 
-Use a power supply capable of delivering 12V..24VDC, 5W. Use contacts 1 and 6 to supply the power.
+Use a power supply capable of delivering 12V..24VDC, 5W. Use contacts 1 and 6 to supply the power. Connect IGN to V_IN (1) to enable the device.<>
 
 ![Powerin connection]({{ '/user-docs/images/lyve/sio04-99-powerin.svg' | relative_url }}){: style="width: 100%"}
 

@@ -1,7 +1,6 @@
 ---
 title: SIO04-99 Detailed Description
 excerpt: Detailed Description of the SIO04-99 functionality
-last_modified_at: 2024-06-07
 
 product_name: SIO04-99
 article_group: S103
@@ -33,7 +32,7 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Speed Pulse Signal            |                   acc. to IEC 16844-2 (input high: 4,8V; input low: 2,2V)                   |
 | Ignition                      |                          On State: Input high: 5,2 V (min) or open                          |
 |                               |                 Standby State (after delay ~3 sec): Input low: 3,6 V (max)                  |
-| Antenna                       |                                            TODO                                             |
+| Antenna                       |                                            TODO:                                            |
 | **Maintenance**               |
 | Firmware update               |                                        Via USB, LAN                                         |
 | Management                    |          Via io4edge protocol, see [io4edge protocol]({{ '/edge-solutions/io4edge'          | relative_url }}) |
@@ -59,7 +58,7 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Safety                        | EN 50155:2017; EN 50153:2014+A1:2017; EN 50124-1:2017; EN 62368-1:2016; EN ISO 13732-1:2008 |
 | Fire & Smoke                  |                               EN 45545-2:2013 + A1:2015; HL3                                |
 | Useful Life                   |                             20 years (EN 50155:2017, class L4)                              |
-| Certifications                |                                CE / UN ECE R10 (E-Mark) TODO                                |
+| Certifications                |                               CE / UN ECE R10 (E-Mark) TODO:                                |
 
 
 
@@ -119,11 +118,11 @@ The product has the following dimensions
 
 ## Mounting & Installation
 
-TODO
+TODO:
 
 ## Installation Requirements
 
-TODO
+TODO:
 
 ## Functional Description
 
@@ -169,8 +168,9 @@ The message payload is encoded using [Protobuf](https://protobuf.dev/). The mess
 Notes:
 
 * the `traceled_id` is reflecting the `device_id` configuration parameter.
-* the device is not supporting UWB for indoor positioning, so the UWB related fields are missing in the message.
+* the device is not supporting UWB for indoor positioning, so the UWB related fields are missing in the message. The `fused` sub-message should be ignored, as it would only make sense in combination with UWB.
 * the `direction` field is currently unsupported
+* `speed` and `mileage` are calculated from the wheeltick input. They remain 0 if no wheeltick is connected.
 
 
 ### RTK Correction Data
@@ -202,16 +202,52 @@ To enable GNSS Sensor Fusion mode generally:
 
 #### Lever Arms {#lever-arms}
 
-##### IMU to Vehicle Rotation Point
+The dynamic model for sensor fusion requires the configuration of two lever arms:
 
-![Functional Interface Diagram]({{ '/user-docs/images/lyve/railvehicle-vrp.png' | relative_url }}){: style="width: 50%"}
+* the lever arm from the GNSS antenna to the vehicle rotation point (VRP)
+* the lever arm from the IMU to the VRP
+
+The VRP is defined as the point where the vehicle rotates around. For a train, this is the center between two bogies.
+
+The configuration parameters are:
+* `imu2vrp_x`, `imu2vrp_y`, `imu2vrp_z` for the IMU to VRP lever arm
+* `imu2ant_x`, `imu2ant_y`, `imu2ant_z` for the IMU to GNSS antenna lever arm
+
+All parameters are specified in centimeters.
+
+Here is a typical example for a train. The values are not to scale:
+
+![Lever ARM example]({{ '/user-docs/images/lyve/railvehicle-vrp.svg' | relative_url }}){: style="width: 100%"}
 
 #### IMU Mount Alignment {#mount-alg}
 
+If sensor fusion is enabled, the alignment of the IMU to the vehicle is important.
+
+The axes of the device are defined as follows:
+
+![Mount Alignment]({{ '/user-docs/images/lyve/sio04-99-mntalg.svg' | relative_url }}){: style="width: 30%"}
+
+If the IMU is not aligned 1:1 there are two possibilities:
+* auto-alignment: the device will try to determine the alignment automatically. This is the default. Set the `ubx_mntalg` parameter to an empty string to enable auto-alignment.
+* manual alignment: the alignment can be configured using the `ubx_mntalg` parameter. The value is a 3-tuple, specifying yaw (0..360), pitch (-90..90), and roll (-180..180) in degrees, e.g. `0:0:0` for no alignment.
+
+For more information, refer to the [UBlox Integration Manual](https://content.u-blox.com/sites/default/files/ZED-F9R_Integrationmanual_UBX-20039643.pdf)
+
 #### Wheel Tick {#wt}
 
+If the vehicles wheeltick signal is connected to the device, the wheeltick signal can be used to improve the precision of the positioning. The wheeltick signal is a signal that is generated by the vehicle and reflects the distance traveled by the vehicle. The wheeltick signal is used to correct the GNSS positioning, especially in cases where the GNSS signal is weak or not available.
+
+The wheeltick signal is connected to the device on the `WT` and `GND` pins of the M12-8pin A-coded connector. The signal should have an amplitude of >=4.8V (max 36V) when high and <=2.2V when low.
+
+The number of ticks per km must be configured using the `tacho_k` parameter.
+
+To enable wheel tick usage, set `ubx_wt_dir` to `1:0:0:0`. To disable wheeltick usage (if you don't have a wheeltick), set it to `0:0:0:0`.
 
 ### Ignition Signal
+
+The ignition signal (IGN) is used only when the device is supplied via Power Input (V_IN). When the device is powered via PoE or USB, the ignition signal is not used.
+
+IGN must be active (high) to power on the device. The device will power off after a delay of 5 seconds when the IGN signal goes low.
 
 ### Device Configuration
 
