@@ -1,22 +1,23 @@
 ---
-title: SIO04 Quick Start Guide
+title: SIO04-99 Quick Start Guide
 excerpt: First steps to work with SIO04-99
 
 product_name: SIO04-99
 article_group: S103
 example_device_name: SIO04-1
+custom_next: /lyve/lyve-tracelets/sio04-99/detailed-description/
 ---
 
-This guide shows how to setup intially the {{ page.product_name }}, i.e. supply it with power and connect it
+This guide shows how to setup initially the {{ page.product_name }}, i.e. supply it with power and connect it
 to a PC using a serial over USB console to perform initial configuration.
 
 ## Establishing Host Connection and Power
 
-When the {{ page.product_name }} is connected to the host via Ethernet, the power may be provided via
+The power may be provided via
 * Power-Over-Ethernet
 * Power Input
 
-In any case, establish a USB connection to the device. From the power connector, connect the following pins to an USB-A connector:
+In any case, establish a USB connection to the device, so that we can enter the initial device parameters. From the power connector, connect the following pins to an USB-A connector:
 
 ```
 7 - V_USB - USB Power Supply Input
@@ -33,7 +34,7 @@ In any case, establish a USB connection to the device. From the power connector,
 
 ### Supply via Power Input
 
-Use a power supply capable of delivering 12V..24VDC, 5W. Use contacts 1 and 6 to supply the power. Connect IGN to V_IN (1) to enable the device.<>
+Use a power supply capable of delivering 12V..24VDC, 5W. Use contacts 1 and 6 to supply the power. Connect IGN to V_IN (1) to enable the device.
 
 ![Powerin connection]({{ '/user-docs/images/lyve/sio04-99-powerin.svg' | relative_url }}){: style="width: 100%"}
 
@@ -49,7 +50,7 @@ config>
 ```
 
 ### Configure Device ID
-To identify the device in the network, configure a device ID. This ID is used as the network hostname and as a prefix to identify the services provided by the device.
+To identify the device in the network, configure a device ID. This ID is used as the network hostname and is used as the `tracelet_id` in the position messages.
 
 Each device in the network shall have a unique name. The name shall consist only of alphanumeric characters, `-` and `_`. Avoid blanks and special characters.
 
@@ -116,8 +117,3 @@ I (18614) ubx_config: PVAT LAT: 49.430953, LONG: 11.071027, HEIGHT: 370.866000, 
 ```
 
 After one minute, the fix type `FIX: ` should be at least `3` (which indicates a DGPS fix). As we haven't yet configured a RTK correction service, this is the maximum fix type we can achieve.
-
-Next steps:
-* Configure RTK correction service, see TODO
-* Configure localization server address, see TODO
-* Configure GNSS sensor fusion, i.e. dead reckoning support, see TODO

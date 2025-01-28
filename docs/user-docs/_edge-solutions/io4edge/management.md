@@ -190,7 +190,7 @@ config> reboot
 {% include content/tab/end.md %}
 After restarting the device, it can take up to 30 seconds until the device is available again.
 
-## Parameter Configuration
+## Parameter Configuration {#parameter-configuration}
 
 Some io4edge devices support configuration of parameters. The parameters are stored in the device and are available after a restart.
 

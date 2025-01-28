@@ -10,11 +10,12 @@ example_device_name: SIO04-99-1
 ## Introduction
 The GNSS RTK precise positioning module SIO04-99 is a member of the KYT Sensor family by Ci4Rail and can work as a standalone device as well as in combination with ModuCop MEC0x.
 
-The GNSS/RTK technology provides high precision positioning information without additional
-infrastructure outdoors. The speed pulse input signal supports identification of distance traveled and movement direction. Specific movement models within an IMU (Inertial  Measurement Unit) allow smooth seamless real-time positioning.
+The GNSS/RTK technology provides high precision positioning information. The speed pulse input signal and the integrated IMU together with specific movement models allow for precise positioning even in areas with poor GNSS reception.
 
 The positioning information is transferred to in-vehicle subsystems via Ethernet interface.
 
+**NOTE:** The SIO04-99 is a temporary prototyping unit. It will be subsituted by the "real" SIO04 when available.
+{: .notice--warning}
 
 ## Specification
 
@@ -32,7 +33,7 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Speed Pulse Signal            |                   acc. to IEC 16844-2 (input high: 4,8V; input low: 2,2V)                   |
 | Ignition                      |                          On State: Input high: 5,2 V (min) or open                          |
 |                               |                 Standby State (after delay ~3 sec): Input low: 3,6 V (max)                  |
-| Antenna                       |                                            TODO:                                            |
+| Antenna                       |                       External GNSS Antenna supporting L1 and L2 band                       |
 | **Maintenance**               |
 | Firmware update               |                                        Via USB, LAN                                         |
 | Management                    |          Via io4edge protocol, see [io4edge protocol]({{ '/edge-solutions/io4edge'          | relative_url }}) |
@@ -45,8 +46,7 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Dimensions (w/o mounting acc) |                                       Width: 110.0 mm                                       |
 |                               |                                       Depth: 98.0 mm                                        |
 |                               |                                       Height: 48.0 mm                                       |
-| Mounting                      |    Flexible Mounting via integrated mounting holes or vehicle specific mounting adapter     |
-|                               |     Horizontal mounting on vehicle roof with connector in backwards or CAB B direction      |
+| Mounting                      |            Flexible Mounting: Wall mount, mounting as 19" cassette, or DIN Rail             |
 | Ingress Protection            |                                            IP40                                             |
 | **Environmental**             |
 | Operating                     |                               -40…+70°C (EN 50155:2021 - OT4)                               |
@@ -58,7 +58,7 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Safety                        | EN 50155:2017; EN 50153:2014+A1:2017; EN 50124-1:2017; EN 62368-1:2016; EN ISO 13732-1:2008 |
 | Fire & Smoke                  |                               EN 45545-2:2013 + A1:2015; HL3                                |
 | Useful Life                   |                             20 years (EN 50155:2017, class L4)                              |
-| Certifications                |                               CE / UN ECE R10 (E-Mark) TODO:                                |
+| Certifications                |                                             TBD                                             |
 
 
 
@@ -116,14 +116,6 @@ The product has the following dimensions
 | Height    | 111.5 mm |
 
 
-## Mounting & Installation
-
-TODO:
-
-## Installation Requirements
-
-TODO:
-
 ## Functional Description
 
 After power on, the device uses its configuration parameters to configure its GNSS receiver.
@@ -171,6 +163,7 @@ Notes:
 * the device is not supporting UWB for indoor positioning, so the UWB related fields are missing in the message. The `fused` sub-message should be ignored, as it would only make sense in combination with UWB.
 * the `direction` field is currently unsupported
 * `speed` and `mileage` are calculated from the wheeltick input. They remain 0 if no wheeltick is connected.
+* The `metrics` sub-message contains many quality metrics. This sub-message is generated only every 3 seconds, so the metrics are not present in every message.
 
 
 ### RTK Correction Data
@@ -231,17 +224,26 @@ If the IMU is not aligned 1:1 there are two possibilities:
 * auto-alignment: the device will try to determine the alignment automatically. This is the default. Set the `ubx_mntalg` parameter to an empty string to enable auto-alignment.
 * manual alignment: the alignment can be configured using the `ubx_mntalg` parameter. The value is a 3-tuple, specifying yaw (0..360), pitch (-90..90), and roll (-180..180) in degrees, e.g. `0:0:0` for no alignment.
 
-For more information, refer to the [UBlox Integration Manual](https://content.u-blox.com/sites/default/files/ZED-F9R_Integrationmanual_UBX-20039643.pdf)
+For more information, refer to the [UBlox Integration Manual](https://content.u-blox.com/sites/default/files/ZED-F9R_Integrationmanual_UBX-20039643.pdf).
 
 #### Wheel Tick {#wt}
 
 If the vehicles wheeltick signal is connected to the device, the wheeltick signal can be used to improve the precision of the positioning. The wheeltick signal is a signal that is generated by the vehicle and reflects the distance traveled by the vehicle. The wheeltick signal is used to correct the GNSS positioning, especially in cases where the GNSS signal is weak or not available.
 
-The wheeltick signal is connected to the device on the `WT` and `GND` pins of the M12-8pin A-coded connector. The signal should have an amplitude of >=4.8V (max 36V) when high and <=2.2V when low.
+The wheeltick signal is connected to the device on the `WT` and `GND` pins of the M12-8pin A-coded connector. The signal should have a voltage of >=4.8V (max 36V) when high and <=2.2V when low.
 
 The number of ticks per km must be configured using the `tacho_k` parameter.
 
 To enable wheel tick usage, set `ubx_wt_dir` to `1:0:0:0`. To disable wheeltick usage (if you don't have a wheeltick), set it to `0:0:0:0`.
+
+#### Checking the Sensor Fusion Status
+
+When sensor fusion is enabled for the first time, it takes a while until the device has collected enough data to use the IMU and wheeltick for sensor fusion.
+The position message `metrics.ubx_sensor_fusion_status_enum` reflects the status of the sensor fusion calibration:
+* `0` means that the sensor fusion is not yet calibrated
+* `1` means that the sensor fusion is calibrated and is using the IMU and wheeltick for positioning.
+* `2` means "suspended", i.e. the sensor fusion is not used for positioning because the device has detected inconsistencies in the data.
+* `3` means "disabled", i.e. the sensor fusion is disabled (when the `dr` parameter is set to `off`).
 
 ### Ignition Signal
 
@@ -251,8 +253,52 @@ IGN must be active (high) to power on the device. The device will power off afte
 
 ### Device Configuration
 
+The device parameters mentioned above can be configured either via USB console or via network.
+
+All parameters are stored in the device's non-volatile memory and are persistent across reboots.
+After changing a parameter, the device must be rebooted to apply the new configuration. This can be done by entering `reboot` in the USB console or by sending a restart command via the network.
+{: .notice--info}
+
 #### Setting Parameters via USB Console
+
+The device can be configured via the USB console. [Connect the device to a computer using a USB cable]({{'/lyve/lyve-tracelets/sio04-99/quick-start-guide' | relative_url}}) and start a terminal program. You should see some log messages of the device.
+Press ENTER and the device will present a `config>` prompt. Enter the commands to configure the device.
+
+For example, to enable sensor fusion, you would enter:
+
+```
+config> dr on
+```
+
+Enter `help` to see a list of all available commands. Note that some commands are for development and testing purposes only.
+{: .notice--info}
+
+
+More info: [General Device Configuration of io4edge devices]({{'/edge-solutions/io4edge/management#parameter-configuration' | relative_url}})
 
 #### Setting Parameters via Network
 
+To set parameters via network, use the io4edge-cli tool, This [page]({{'/edge-solutions/io4edge/management' | relative_url}}) describes how to download and use this tool.
+
 #### Parameters
+
+The following table lists the user relevant parameters of the device:
+
+
+| Parameter                       | Description                                                                                                        | Default      | Example                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------ | ----------------------- |
+| device-id                       | Use to identify the device in the network and used for `traceled_id` in the position message                       | ""           | SIO04-99-1              |
+| loc-srv                         | Address of the localization server to send position messages to                                                    | ""           | 192.168.0.88:11002      |
+| ntp-srv                         | Address of the NTP server to get time from                                                                         | pool.ntp.org | pool.ntp.org            |
+| ntrip-caster                    | Address of the NTRIP caster to get correction data from (host:port:mountpoint)                                     | ""           | rtk2go.com:2101:LAU01DE |
+| ntrip-credentials               | Credentials for the NTRIP caster (username:password)                                                               | ""           | info@ci4rail.com:none   |
+| gnss-rate                       | Rate of GNSS position messages in Hz, 1..4Hz                                                                       | 1            | 3                       |
+| fuse-rate                       | Rate of fused position messages in Hz, 1..4Hz. Set it to the same value as `gnss-rate                              | 1            | 3                       |
+| fuse-origin                     | Note relevant for this device, but MUST BE SET TO A NON-EMPTY VALUE. Otherwise, no position messages are generated | ""           | 0:0:0                   |
+| dr                              | Enable GNSS sensor fusion                                                                                          | on           | on                      |
+| dynmodel                        | Dynamic model of the vehicle (rail, automotive)                                                                    | automotive   | rail                    |
+| ubx_mntalg                      | Manual alignment of the IMU to the vehicle (yaw:pitch:roll). If parameter is not set, use auto mount alignment     | ""           | -90:0:0                 |
+| imu2vrp_x, imu2vrp_y, imu2vrp_Z | Lever arm from IMU to VRP in cm                                                                                    | 0            | 100                     |
+| imu2ant_x, imu2ant_y, imu2ant_z | Lever arm from IMU to GNSS antenna in cm                                                                           | 0            | 100                     |
+| tacho_k                         | Number of ticks per km for the wheeltick signal                                                                    | 0            | 1000                    |
+| ubx_wt_dir                      | Enable wheeltick usage (1:0:0:0) or disable wheeltick usage (0:0:0:0)                                              | 0:0:0:0      | 1:0:0:0                 |
