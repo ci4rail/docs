@@ -129,6 +129,8 @@ The rate of the transmission can be configured from 1 to 4 Hz, using the paramet
 
 The protocol to transfer position messages is UDP with application level acknowledgement. The device is the client and initiates the communication.
 
+A python example for a server receiving the position messages is [here](https://github.com/ci4rail/tracelet_host.git).
+
 Client datagram:
 
 * UDP header
