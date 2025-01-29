@@ -14,10 +14,11 @@ The position is calculated in the in-vehicle tracelet using sensor fusion of var
 
 
 
-| LYVE Components                         | Description      |
-| --------------------------------------- | ---------------- |
-| [SIO02]({{ '/lyve/lyve-tracelets/sio02/'     | relative_url }}) | Tracelet with WLAN interface     |
-| [SIO03]({{ '/lyve/lyve-tracelets/sio03/'     | relative_url }}) | Tracelet with Ethernet interface |
+| LYVE Components                                | Description      |
+| ---------------------------------------------- | ---------------- |
+| [SIO02]({{ '/lyve/lyve-tracelets/sio02/'       | relative_url }}) | UWB/GNSS Tracelet with WLAN interface, integrated antennas    |
+| [SIO03]({{ '/lyve/lyve-tracelets/sio03/'       | relative_url }}) | UWB/GNSS Tracelet with Ethernet interface, integrated antennas|
+| [SIO04-99]({{ '/lyve/lyve-tracelets/sio04-99/' | relative_url }}) | GNSS onboard unit with Ethernet interface, external Antenna |
 
 
 Ready to start? Check our [Quick-Start-Guide]({{ '/lyve/lyve-tracelets/sio02/quick-start-guide' | relative_url }}).

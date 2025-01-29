@@ -16,6 +16,7 @@ io4edge is the family name for I/O modules that are connected to the host via ne
   * Firmware Identification
   * Inventory Data
   * Device Reboot
+  * Parameter Configuration
 
 ### Open Source Client Libraries
 
@@ -28,4 +29,5 @@ io4edge device are supported by open source host libraries for the following pro
 
 * [Moducop I/Os]({{ '/edge-solutions/moducop/io-modules' | relative_url }})
 * [ModuSio]({{ '/edge-solutions/modusio' | relative_url }})
+* [Tracelets]({{ '/edge-solutions/lyve/lyve-tracelets' | relative_url }})
 * Onboard Microcontrollers, such as the I/O controller on our ModuCop CPU01

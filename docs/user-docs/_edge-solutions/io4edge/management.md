@@ -12,6 +12,7 @@ All io4edge devices support Device Management over Network for
   * Firmware Identification
   * Inventory Data
   * Device Reboot
+  * Parameter Configuration
 
 ## io4edge-cli
 Although the device management functions can be used through the API provided by the [Go client library](https://github.com/ci4rail/io4edge-client-go), the easiest way is to use the `io4edge-cli` tool.
@@ -188,3 +189,56 @@ config> reboot
 {% include content/tab/entry-end.md %}
 {% include content/tab/end.md %}
 After restarting the device, it can take up to 30 seconds until the device is available again.
+
+## Parameter Configuration {#parameter-configuration}
+
+Some io4edge devices support configuration of parameters. The parameters are stored in the device and are available after a restart.
+
+
+{% include content/tab/start.md tabs="io4edge-cli, Device-Console" instance="4" %}
+{% include content/tab/entry-start.md %}
+
+Get a parameter value:
+```bash
+$ io4edge-cli -d SIO02-1 get-parameter dynmodel
+```
+
+Set a parameter value:
+```bash
+$ io4edge-cli -d SIO02-1 set-parameter dynmodel automotive
+```
+
+Alternatively, multiple parameters can be set at once from a yaml file:
+```yaml
+# parameters.yaml
+dynmodel: automotive
+ntrip-caster: caster.example.com:2101
+```
+
+```bash
+$ io4edge-cli -d SIO02-1 set-parameter -f parameters.yaml
+```
+
+{% include content/tab/entry-end.md %}
+
+
+{% include content/tab/entry-start.md %}
+On WLAN/Ethernet io4edge devices, you can get/set device parameters via the USB attached SERVICE interface:
+
+Usually, the commands to get and set parameters are simply the name of the parameter
+
+Set a parameter value:
+```
+config> dynmodel
+automotive
+```
+
+Set a parameter value:
+```
+config> dynmodel automotive
+```
+
+{% include content/tab/entry-end.md %}
+{% include content/tab/end.md %}
+
+Typically, you must restart the device to apply the new parameter settings.
