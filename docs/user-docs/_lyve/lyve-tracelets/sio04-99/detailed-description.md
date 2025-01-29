@@ -43,9 +43,9 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Power Consumption             |                                    Operation typ. < 3 W                                     |
 |                               |                                    Standby State < 0,1 W                                    |
 | **Mechanics**                 |                                                                                             |
-| Dimensions (w/o mounting acc) |                                       Width: 110.0 mm                                       |
-|                               |                                       Depth: 98.0 mm                                        |
-|                               |                                       Height: 48.0 mm                                       |
+| Dimensions (w/o mounting acc) |                                       Width: 71.0 mm                                       |
+|                               |                                       Depth: 61.2 mm                                        |
+|                               |                                       Height: 111.5 mm                                       |
 | Mounting                      |            Flexible Mounting: Wall mount, mounting as 19" cassette, or DIN Rail             |
 | Ingress Protection            |                                            IP40                                             |
 | **Environmental**             |
@@ -103,17 +103,6 @@ Mating connector: M12 4-pin D-coded, plug.
 | 2   | RxD+   | CT (PoE)    |
 | 3   | TxD-   | CR (PoE)    |
 | 4   | RxD-   | CR (PoE)    |
-
-
-## Mechanical Outline
-
-The product has the following dimensions
-
-| Dimension | Value    |
-| --------- | -------- |
-| Width     | 70.6 mm  |
-| Depth     | 80.0 mm  |
-| Height    | 111.5 mm |
 
 
 ## Functional Description
@@ -197,8 +186,8 @@ To enable GNSS Sensor Fusion mode generally:
 
 The dynamic model for sensor fusion requires the configuration of two lever arms:
 
-* the lever arm from the GNSS antenna to the vehicle rotation point (VRP)
-* the lever arm from the IMU to the VRP
+* the lever arm from the GNSS antenna to the IMU (the IMU inside the device)
+* the lever arm from the IMU to the vehicle rotation point (VRP)
 
 The VRP is defined as the point where the vehicle rotates around. For a train, this is the center between two bogies.
 
