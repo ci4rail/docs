@@ -33,7 +33,7 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Speed Pulse Signal            |                   acc. to IEC 16844-2 (input high: 4,8V; input low: 2,2V)                   |
 | Ignition                      |                          On State: Input high: 5,2 V (min) or open                          |
 |                               |                 Standby State (after delay ~3 sec): Input low: 3,6 V (max)                  |
-| Antenna                       |                       External GNSS Antenna supporting L1 and L2 band                       |
+| Antenna                       |        External GNSS Antenna supporting L1 and L2 band, 3V supply voltage, max 60mA         |
 | **Maintenance**               |
 | Firmware update               |                                        Via USB, LAN                                         |
 | Management                    |          Via io4edge protocol, see [io4edge protocol]({{ '/edge-solutions/io4edge'          | relative_url }}) |
@@ -91,7 +91,7 @@ Mating connector: M12 8-pin A-coded, plug.
 ### M12-4pin D-coded, socket
 * 100 MBit/s Ethernet; Power Over Ethernet
 
-Mating connector: M12 4-pin DA-coded, plug.
+Mating connector: M12 4-pin D-coded, plug.
 
 ![Lyve Tracelet]({{ '/user-docs/images/connectors/M12-4pol-D-female-pinning.png' | relative_url }}){: style="width: 20%"}
 
