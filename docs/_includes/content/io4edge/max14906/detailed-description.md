@@ -37,7 +37,7 @@ Each binary I/O group has its own connector with the following pinout:
 | 5   | IO4    | Fourth I/O pin of the group |
 | 6   | -      | Supply Voltage Ground       |
 
-{% include content/io4edge/iou01-front/mating-connectors.md %}
+{% include content/io4edge/iou07-front/mating-connectors.md %}
 
 ### Use Cases
 
