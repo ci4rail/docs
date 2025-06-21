@@ -30,6 +30,11 @@ sidebar:
                   url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/wifi/
                 - title: via LTE
                   url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/lte/
+        - title: Yocto BSP Manual
+          url: /edge-solutions/moducop/yocto-bsp-manual/
+          navitems:
+            - title: Core Concepts
+              url: /edge-solutions/moducop/yocto-bsp-manual/concept/
         - title: General Information
           url: /edge-solutions/moducop/general/
           navitems:

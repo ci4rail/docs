@@ -1,7 +1,6 @@
 ---
 title: ModuCop General
 excerpt: ModuCop General.
-last_modified_at: 2021-11-08
 
 custom_next: /edge-solutions/moducop/general/specification/
 
