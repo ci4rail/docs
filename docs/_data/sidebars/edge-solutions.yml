@@ -37,6 +37,8 @@ sidebar:
               url: /edge-solutions/moducop/yocto-bsp-manual/concept/
             - title: Mender Integration
               url: /edge-solutions/moducop/yocto-bsp-manual/mender/
+            - title: Console
+              url: /edge-solutions/moducop/yocto-bsp-manual/console/
         - title: General Information
           url: /edge-solutions/moducop/general/
           navitems:

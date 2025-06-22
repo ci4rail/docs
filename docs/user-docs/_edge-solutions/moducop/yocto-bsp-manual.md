@@ -20,8 +20,6 @@ This documentation is valid for the Image versions 2.x and higher, which are bas
   * Setting hostname
   * Creating a systemd service
 * BSP Functions
-   * Kernel?
-   * USB Serial Console
    * Network Interfaces
      * Ethernet
      * WiFi
