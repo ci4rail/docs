@@ -25,17 +25,18 @@ You can also run `docker compose`, which calls `podman-compose` under the hood, 
 
 All container images and volumes are stored in the data partition, which is writable. This allows you to install and update applications without modifying the root filesystem. The root filesystem remains read-only, ensuring that the system is secure and stable.
 
+TODO: Add examples
+
 ## Disk Partitioning
 
 ModuCop uses a specific disk partitioning scheme to separate the root filesystem from the data partition. This allows for easy updates and custom configurations without affecting the core system.
 The disk is partitioned into the following partitions:
 
 * **Boot Partition**: Contains the `boot.scr` boot script, which is executed by u-boot during the boot process.
-* **Root Partition A**: Contains the root filesystem, which is read-only and can be updated via OTA updates.
-* **Root Partition B**: Contains the root filesystem, which is read-only and can be updated via OTA updates.
+* **Root Partition A** and **Root Partition B**: Contains the root filesystem, which is read-only and can be updated via OTA updates. Only one of the two roofs partitions is active at a time, the other one is used for updates. After the update, the system will boot from the updated root partition. This allows for seamless updates without significant downtime.
+
 * **Data Partition**: Contains all custom configurations, container images, and volumes. This partition is writable and allows you to store your custom data without affecting the root filesystem.
 
-Only one of the two roofs partitions is active at a time, the other one is used for updates. After the update, the system will boot from the updated root partition. This allows for seamless updates without significant downtime.
 
 ## Rootfs Overlays
 

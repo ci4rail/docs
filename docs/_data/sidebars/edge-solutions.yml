@@ -35,6 +35,8 @@ sidebar:
           navitems:
             - title: Core Concepts
               url: /edge-solutions/moducop/yocto-bsp-manual/concept/
+            - title: Mender Integration
+              url: /edge-solutions/moducop/yocto-bsp-manual/mender/
         - title: General Information
           url: /edge-solutions/moducop/general/
           navitems:

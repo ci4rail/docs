@@ -14,7 +14,6 @@ This documentation is valid for the Image versions 2.x and higher, which are bas
 
 ## Contents
 
-* Rootfs OTA update
 * Container runtime
 * Custom adaptions
   * Setting password for root user
@@ -38,3 +37,4 @@ This documentation is valid for the Image versions 2.x and higher, which are bas
    * Scheduled Reboot
    * Time Synchronization
    * Tailscale VPN
+ * Troubleshooting
