@@ -1,7 +1,7 @@
 ---
 title: Pre-Built Yocto Images
 excerpt: Pre-Built Yocto Images for ModuCop Edge Computer
-
+order: 25
 custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
 custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
 ---

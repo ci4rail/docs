@@ -145,6 +145,7 @@ collections:
     permalink: /:collection/:path/
     output: true
 
+
 # Reading Files
 include:
   - .htaccess

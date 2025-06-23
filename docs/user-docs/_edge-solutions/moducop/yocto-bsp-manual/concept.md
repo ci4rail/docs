@@ -1,7 +1,7 @@
 ---
 title: Concepts
 excerpt: Concepts of the ModuCop Yocto BSP
-
+order: 10
 custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
 custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
 ---
@@ -55,6 +55,7 @@ The following directories are overlayed by default:
 | `/var/spool` |                                                | tmpfs         |
 
 Furthermore, some directories are temporary and are mounted as `tmpfs` to avoid writing to the flash memory:
+
 | Directory       | Description                                                   | Destination |
 | --------------- | ------------------------------------------------------------- | ----------- |
 | `/var/volatile` | Contains volatile data that is not persistent across reboots. | tmpfs       |

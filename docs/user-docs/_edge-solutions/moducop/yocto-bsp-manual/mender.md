@@ -1,7 +1,7 @@
 ---
 title: Mender Integration
 excerpt: Using Mender for OTA updates and remote management of the ModuCop.
-
+order: 30
 custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
 custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
 ---

@@ -1,7 +1,8 @@
 ---
 title: Console
 excerpt: How to use the USB serial console of the ModuCop
-
+order: 40
+category: yocto-bsp-manual
 custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
 custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
 ---

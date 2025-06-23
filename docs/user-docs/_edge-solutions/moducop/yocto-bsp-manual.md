@@ -11,14 +11,19 @@ The manual does not describe how to build the images, instead it describes how t
 
 This documentation is valid for the Image versions 2.x and higher, which are based on Yocto 5.x (Scarthgap) and Linux kernel 6.6.54. *Scarthgap* is the latest [LTS version of Yocto](https://wiki.yoctoproject.org/wiki/Releases), which is supported until 2028.
 
-
 ## Contents
 
+<ul>
+  {% assign subpages = site.edge-solutions
+    | where_exp: "p", "p.path contains 'yocto-bsp-manual/'"
+    | sort: "order" %}
+  {% for p in subpages %}
+    <li><a href="{{ p.url }}">{{ p.title }}</a><br><small>{{ p.excerpt }}</small></li>
+  {% endfor %}
+</ul>
+
 * Container runtime
-* Custom adaptions
-  * Setting password for root user
-  * Setting hostname
-  * Creating a systemd service
+
 * BSP Functions
    * Network Interfaces
      * Ethernet
