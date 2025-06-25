@@ -22,7 +22,7 @@ echo "root:mynewpassword" | chpasswd
 
 ## Changing the hostname
 
-By default, the hostname is set to `MEC01-<first-part-ofserial number>`. You can change it like this:
+By default, the hostname is set to `MEC0[12]-<first-part-ofserial number>`. You can change it like this:
 
 ```bash
 hostnamectl set-hostname MyNewHostname

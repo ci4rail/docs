@@ -101,7 +101,7 @@ Verify the IP address you have received from the mobile provider:
 ...
 cdc-wdm0: connected to lte
         "cdc-wdm0"
-        gsm (qmi_wwan, option1), hw, iface wwan0, mtu 1500
+        gsm (qmi_wwan, option1), hw, iface wwu1u1i5, mtu 1500
         inet4 <YOUR-IP>
         route4 100.70.25.32/28
         route4 0.0.0.0/0
@@ -116,7 +116,7 @@ Now try to ping a server on the Internet.
 To ensure that you ping over mobile network, specify the LTE device with the `-I` option. This ensures that the ping uses the LTE interface and not your local Ethernet for the Internet access.
 
 ```bash
-root@moducop-cpu01:~# ping -I wwan0 -c 4 www.wikipedia.com
+root@moducop-cpu01:~# ping -I wwu1u1i5 -c 4 www.wikipedia.com
 ```
 You should see a result like this:
 ```

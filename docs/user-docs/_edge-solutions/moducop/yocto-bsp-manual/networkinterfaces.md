@@ -6,13 +6,13 @@ custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
 custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
 ---
 
-The ModuCop Edge Computer MEC01 provides several network interfaces to connect to the outside world. This section describes how to use these interfaces.
+The ModuCop Edge Computer MEC01/02 provides several network interfaces to connect to the outside world. This section describes how to use these interfaces.
 
 ## Ethernet
 
-ModuCop MEC01 provides two Ethernet interfaces, labelled ETH1 and ETH2 on the front panel.
+ModuCop provides two Ethernet interfaces, labelled ETH1 and ETH2 on the front panel.
 
-In some variants of the MEC01, the ETH2 interface is not populated.
+In some variants of the ModuCop, the ETH2 interface is not populated.
 {: .notice--warning}
 
 Both are 1Gbit Ethernet interfaces, which can be used to connect to a network switch or router. The interfaces are configured via NetworkManager, which is the default network management tool in the ModuCop Yocto BSP.
@@ -35,13 +35,15 @@ rm /etc/NetworkManager/system-connections/eth2.connection
 ```
 Afterwards, it will be configured via DHCP like ETH1.
 
+See also [the Quickstart Guide]({{ '/edge-solutions/moducop/quick-start-guide/connect-to-internet/ethernet' | relative_url }}) for more examples.
+
 ## WiFi
 
-The ModuCop MEC01 provides a WiFi interface, which is supporting both 2.4GHz and 5GHz bands. It can operate in both client and access point mode, even simultaneously.
+The ModuCop provides a WiFi interface, which is supporting both 2.4GHz and 5GHz bands. It can operate in both client and access point mode, even simultaneously.
 
 ### Antenna configuration
 
-On the MEC01 front, you see two antenna connectors, labelled `WLAN1` and `WLAN2`. These are the antenna connectors for the WiFi interface. You can use either one or both of them, depending on your use case.
+On the MEC01/02 front, you see two antenna connectors, labelled `WLAN1` and `WLAN2`. These are the antenna connectors for the WiFi interface. You can use either one or both of them, depending on your use case.
 
 By default, both antenna connectors are enabled. However, if you only want to use one antenna (`WLAN1`), you must configure the WiFi interface accordingly. In this case, call
 
@@ -107,6 +109,12 @@ nmcli con modify WIFI_AP ipv4.method shared
 nmcli con up WIFI_AP
 ```
 
-To provide a DHCP server for the connected clients, the `ipv4.method` is set to `shared`. This allows the MEC01 to act as a WiFi access point, providing network connectivity to connected devices.
+To provide a DHCP server for the connected clients, the `ipv4.method` is set to `shared`. This allows the ModuCop to act as a WiFi access point, providing network connectivity to connected devices.
 
 ## Cellular
+
+Most models of the ModuCop Edge Computer MEC01/02 are equipped with a cellular modem, which can be used to connect to a mobile network. The cellular modem is configured via NetworkManager, similar to the WiFi and Ethernet interfaces.
+
+The network interface for the cellular modem is called `wwu1u1i5`.
+
+See [the Quickstart Guide]({{ '/edge-solutions/moducop/quick-start-guide/connect-to-internet/lte' | relative_url }}) for a step-by-step guide on how to set up the cellular modem and connect to the Internet.

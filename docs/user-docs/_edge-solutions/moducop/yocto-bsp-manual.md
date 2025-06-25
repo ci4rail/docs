@@ -5,7 +5,7 @@ excerpt: User and developer manual for the ModuCop Yocto Board Support Package.
 custom_next: /edge-solutions/moducop/general/specification/
 
 ---
-This manual describes how to use the standard Yocto Linux images from Ci4Rail for the ModuCop Edge Computer MEC01.
+This manual describes how to use the standard Yocto Linux images from Ci4Rail for the ModuCop Edge Computer MEC01/02.
 
 The manual does not describe how to build the images, instead it describes how to use the pre-built images and how to adapt them to your needs. In case you want to build your own image, you can use [our yocto-images repo on github](https://github.com/ci4rail/yocto-images)
 
@@ -25,12 +25,7 @@ This documentation is valid for the Image versions 2.x and higher, which are bas
 * Container runtime
 
 * BSP Functions
-   * Network Interfaces
-     * Ethernet
-     * WiFi
-     * Bluetooth
-     * Cellular
-   * GNSS
+   * Accelerometer
    * USB Host Port via M12
    * UART via M12
    * SDCard

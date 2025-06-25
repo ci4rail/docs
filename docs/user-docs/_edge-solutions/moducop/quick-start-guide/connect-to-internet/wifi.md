@@ -27,6 +27,8 @@ What you need:
 
 Attach Wifi antenna to ModuCop's antenna connectors labelled `WLAN1` and `WLAN2`. One antenna is enough, a second antenna can improve Wifi quality.
 
+However, when using only one antenna, please [configure it]({{ '/edge-solutions/moducop/yocto-bsp-manual/networkinterfaces/#antenna-configuration' | relative_url }}) for optimal results.
+
 
 # Step 2: Scan for Wifi Access Points
 

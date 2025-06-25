@@ -7,7 +7,7 @@ custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
 custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
 ---
 
-The ModuCop Edge Computer MEC01 provides a USB serial console for debugging and development purposes.
+The ModuCop Edge Computer MEC01/02 provides a USB serial console for debugging and development purposes.
 
 It is helpful also for initial setup, such as configuring the network interfaces or setting up the device for the first time. It also allows you to enter the u-boot bootloader console.
 
