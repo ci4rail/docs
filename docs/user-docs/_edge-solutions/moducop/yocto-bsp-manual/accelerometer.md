@@ -9,6 +9,8 @@ custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
 custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
 ---
 
+ModuCop features an integrated accelerometer, which is a LIS2DW12 3-axis accelerometer. It is implemented on the CPU01 microcontroller (CPU01UC).
+
 {% include content/io4edge/lis2d-motionsensor/detailed-description.md %}
 
 ### Orientation of the Accelerometer in ModuCop

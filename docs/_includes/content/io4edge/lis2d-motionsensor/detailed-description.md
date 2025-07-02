@@ -8,18 +8,16 @@ The device is always operated in high performance mode (focus on low noise), sup
 Note that the LIS2D sensor is a 3-axis accelerometer, so the data stream contains samples for all three axes (X, Y, Z). It has no gyroscope functionality, so it does not provide angular velocity data.
 
 Configurable parameters are:
-
-	* Sample rate: 12.5 Hz to 1600 Hz
-	* Full scale range: 2g to 16g
-	* Filter band width
-	* Select high pass or low pass path
+* Sample rate: 12.5 Hz to 1600 Hz
+* Full scale range: 2g to 16g
+* Filter band width
+* Select high pass or low pass path
 
 Not supported:
-
-	* Temperature sensor
-	* Orientation functions
-	* Free-fall detection
-	* Tap detection
+* Temperature sensor
+* Orientation functions
+* Free-fall detection
+* Tap detection
 
 
 ### Functional Description

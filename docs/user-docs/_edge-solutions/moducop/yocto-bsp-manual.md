@@ -25,11 +25,9 @@ This documentation is valid for the Image versions 2.x and higher, which are bas
 * Container runtime
 
 * BSP Functions
-   * Accelerometer
    * USB Host Port via M12
    * UART via M12
    * SDCard
-   * RTC
    * Moducop Inventory Data
    * Ignition Shutdown
    * Scheduled Reboot
