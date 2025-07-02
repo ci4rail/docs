@@ -2,8 +2,8 @@
 title: Network Interfaces
 excerpt: How to use the network interfaces of the ModuCop Edge Computer
 order: 60
-custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
-custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
+custom_previous: /edge-solutions/moducop/yocto-bsp-manual/customizations/
+custom_next: /edge-solutions/moducop/yocto-bsp-manual/gnss/
 ---
 
 The ModuCop Edge Computer MEC01/02 provides several network interfaces to connect to the outside world. This section describes how to use these interfaces.

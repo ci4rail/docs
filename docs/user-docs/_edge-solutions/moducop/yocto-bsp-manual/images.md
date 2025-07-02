@@ -2,8 +2,8 @@
 title: Pre-Built Yocto Images
 excerpt: Pre-Built Yocto Images for ModuCop Edge Computer
 order: 25
-custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
-custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
+custom_previous: /edge-solutions/moducop/yocto-bsp-manual/concept/
+custom_next: /edge-solutions/moducop/yocto-bsp-manual/mender/
 ---
 The pre-built images can be found on [github](https://github.com/ci4rail/yocto-images/releases). Within the releases there are several flavours of the image, for example `Moducop-CPU01Plus_Standard-Image_v2.3.1.4823182.20250603.1127.mender`.
 

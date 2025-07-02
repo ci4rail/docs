@@ -2,8 +2,8 @@
 title: Customizations
 excerpt: How to add customizations to the ModuCop Yocto BSP
 order: 50
-custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
-custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
+custom_previous: /edge-solutions/moducop/yocto-bsp-manual/console/
+custom_next: /edge-solutions/moducop/yocto-bsp-manual/networkinterfaces/
 ---
 
 Because the root filesystem is read-only, you cannot modify it directly. Instead, you can use the writable data partition to store your custom configurations and modifications. This allows you to keep the root filesystem clean and stable while still being able to customize the system to your needs.

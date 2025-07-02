@@ -2,8 +2,8 @@
 title: LEDs
 excerpt: How to control the front panel LEDs of the ModuCop
 order: 120
-custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
-custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
+custom_previous: /edge-solutions/moducop/yocto-bsp-manual/rtc/
+#custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
 ---
 
 The CPU01 of the ModuCop Edge Computer MEC01/02 features two front panel LEDs that can be controlled via GPIOs of the SoM.

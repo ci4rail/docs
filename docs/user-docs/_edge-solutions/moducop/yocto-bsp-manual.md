@@ -22,16 +22,12 @@ This documentation is valid for the Image versions 2.x and higher, which are bas
   {% endfor %}
 </ul>
 
-* Container runtime
-
-* BSP Functions
-   * USB Host Port via M12
-   * UART via M12
-   * SDCard
-   * Moducop Inventory Data
-   * Ignition Shutdown
-   * Scheduled Reboot
-   * Time Synchronization
-   * Tailscale VPN
-   * LEDs
- * Troubleshooting
+The following topics are TODO and will be added in the future:
+  * UART via M12
+  * SDCard
+  * Moducop Inventory Data
+  * Ignition Shutdown
+  * Scheduled Reboot
+  * Time Synchronization
+  * Tailscale VPN
+  * Troubleshooting

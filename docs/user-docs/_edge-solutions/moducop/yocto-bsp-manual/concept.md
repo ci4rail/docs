@@ -2,8 +2,7 @@
 title: Concepts
 excerpt: Concepts of the ModuCop Yocto BSP
 order: 10
-custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
-custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
+custom_next: /edge-solutions/moducop/yocto-bsp-manual/images/
 ---
 
 The ModuCop Yocto BSP is based on the following core concepts:

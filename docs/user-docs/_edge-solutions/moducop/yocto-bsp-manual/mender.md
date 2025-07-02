@@ -2,8 +2,8 @@
 title: Mender Integration
 excerpt: Using Mender for OTA updates and remote management of the ModuCop.
 order: 30
-custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
-custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
+custom_previous: /edge-solutions/moducop/yocto-bsp-manual/images/
+custom_next: /edge-solutions/moducop/yocto-bsp-manual/console/
 ---
 
 The ModuCop Yocto BSP integrates with [Mender](https://mender.io/), a popular open-source solution for over-the-air (OTA) updates and remote management of embedded devices. Mender provides a robust framework for deploying software updates, managing device configurations, and perform troubleshooting tasks remotely.

@@ -2,8 +2,8 @@
 title: GNSS Receiver
 excerpt: How to use the GNSS receiver of the ModuCop Edge Computer
 order: 70
-custom_previous: /edge-solutions/moducop/yocto-bsp-manual/partition-concept/
-custom_next: /edge-solutions/moducop/yocto-bsp-manual/rootfs-ota-update/
+custom_previous: /edge-solutions/moducop/yocto-bsp-manual/networkinterfaces/
+custom_next: /edge-solutions/moducop/yocto-bsp-manual/com/
 ---
 
 The ModuCop has U-Blox NEO-8MU GNSS receiver on board, which can be used to get position and time information. The GNSS receiver is connected via USB to the CPU, and it is supported by the [GPSD](https://gpsd.gitlab.io/gpsd/) daemon.
