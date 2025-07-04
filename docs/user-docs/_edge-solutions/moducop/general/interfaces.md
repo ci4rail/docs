@@ -76,7 +76,7 @@ Mating connector: M12 4-pin A-coded, plug.
 
 The CPU01 has two 10/100/1000BASE-T Ethernet ports via M12 connectors.
 
-Under Linux, Interface labelled `ETH1` is available as `eth0`, Interface labelled `ETH2` is available as `enp5s0`.
+Under Linux, Interface labelled `ETH1` is available as `end0`, Interface labelled `ETH2` is available as `enp5s0`.
 
 Type: M12 8-pin X-coded, socket.
 Mating connector: M12 8-pin X-coded, plug.

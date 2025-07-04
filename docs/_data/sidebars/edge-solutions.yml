@@ -30,6 +30,31 @@ sidebar:
                   url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/wifi/
                 - title: via LTE
                   url: /edge-solutions/moducop/quick-start-guide/connect-to-internet/lte/
+        - title: Yocto BSP Manual
+          url: /edge-solutions/moducop/yocto-bsp-manual/
+          navitems:
+            - title: Core Concepts
+              url: /edge-solutions/moducop/yocto-bsp-manual/concept/
+            - title: Pre-Built Images
+              url: /edge-solutions/moducop/yocto-bsp-manual/images/
+            - title: Mender Integration
+              url: /edge-solutions/moducop/yocto-bsp-manual/mender/
+            - title: Console
+              url: /edge-solutions/moducop/yocto-bsp-manual/console/
+            - title: Customizations
+              url: /edge-solutions/moducop/yocto-bsp-manual/customizations/
+            - title: Network Interfaces
+              url: /edge-solutions/moducop/yocto-bsp-manual/networkinterfaces/
+            - title: GNSS Receiver
+              url: /edge-solutions/moducop/yocto-bsp-manual/gnss/
+            - title: COM Port
+              url: /edge-solutions/moducop/yocto-bsp-manual/com/
+            - title: Accelerometer
+              url: /edge-solutions/moducop/yocto-bsp-manual/accelerometer/
+            - title: Real-Time Clock
+              url: /edge-solutions/moducop/yocto-bsp-manual/rtc/
+            - title: LEDs
+              url: /edge-solutions/moducop/yocto-bsp-manual/leds/
         - title: General Information
           url: /edge-solutions/moducop/general/
           navitems:
