@@ -29,17 +29,19 @@ This chapter assumes that you have created your instance in the Mender Portal an
 To use Mender, you need to accept your device in the Mender Portal. When the device connects to the Mender server for the first time, it will appear in the Mender Portal under "Pending Devices". You need to accept the device authorization request to allow it to receive updates and remote commands.
 
 ### Rootfs OTA Updates
-To perform rootfs OTA updates, you must first upload the new rootfs image to the Mender Portal.
+To perform `rootfs` OTA updates, you must first upload the new rootfs image to the Mender Portal.
 
 First get the image with the `*.mender` extension from our [Releases]({{ '/edge-solutions/moducop/yocto-bsp-manual/images' | relative_url }}) and store it on your local machine.
 
 In the mender portal navigate to the "Releases" section and upload the new image file.
 
-Once the image is uploaded, you can create a deployment to push the update to your devices. For a single, device deployment, you can select the device from the "Devices" section and click on "Create a deployment for this device" und "Device actions".
+Once the image is uploaded, you can create a deployment to push the update to your devices. For a single device deployment, you can select the device from the "Devices" section and click on "Create a deployment for this device" und "Device actions".
 
-When the device polls the Mender server, it will receive the update and apply it to the currently inactive rootfs partition. The device will reboot from the updated rootfs partition.
+When the device polls the Mender server, it will receive the update and apply it to the currently inactive `rootfs` partition. The device will reboot from the updated `rootfs` partition.
 
-This update will affect only the rootfs partition, leaving your custom configurations in the data partition intact.
+This update will affect only the `rootfs` partition, leaving your custom configurations in the data partition intact.
+
+You can also create device groups in the Mender Portal to manage multiple devices at once. This allows you to deploy updates to all devices in a group simultaneously, making it easier to manage large fleets of devices. Once a group is created, go to deployments and select the group to create a deployment for all devices in that group.
 
 ### Remote Shell
 To access the device's shell remotely, you can use the Mender Portal's "Remote terminal" feature. Select the device, click on "Troubleshooting" and the "CONNECT TERMINAL" button. This will open a terminal session to the device, allowing you to execute commands and perform troubleshooting tasks.
