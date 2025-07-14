@@ -44,7 +44,7 @@ This page provides information about the technical specification of ModuCop Edge
 |                                 |                                  1x USB Service via Type C                                  |         x          |            x             |
 |                                 |                               1x UART Service via USB Type C                                |         x          |            x             |
 | Security                        |                                     Integrated TPM 2.0                                      |         x          |            x             |
-| Miscellaneous                   |                               Integrated 6-axis accelerometer                               |         x          |            x             |
+| Miscellaneous                   |                               Integrated 3-axis accelerometer                               |         x          |            x             |
 | **I/O Extensions**              |                                                                                             |                    |                          |
 | Extensibility                   |                        Modular configuration by I/O extension units                         |         x          |            x             |
 |                                 |                                1 extension (4 slot / 28 HP)                                 |         x          |            x             |
