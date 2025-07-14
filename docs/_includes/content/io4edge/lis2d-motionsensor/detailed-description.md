@@ -29,7 +29,7 @@ Note that X, Y, Z values are provided in the same coordinate system as the LIS2D
 X, Y, Z values are provided as float values in g (acceleration due to gravity). The values are scaled according to the configured full scale range. For example, if the full scale range is set to 2g, the values will be in the range of -2g to +2g.
 
 
-### Using the io4edge API to access the MVB Sniffer
+### Using the io4edge API to access the Motion Sensor Function
 
 There is currently no python client for the MotionSensor function block. The following code is for the Go client only.
 
