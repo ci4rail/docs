@@ -19,7 +19,8 @@ The on-board components are qualified for use in buses (E-Mark) and trains (EN50
 The following sections show the user documentation of each kind.
 
 
-| LYVE Components                         | Description      |
-| --------------------------------------- | ---------------- |
-| [Tracelet]({{ '/lyve/lyve-tracelets/'   | relative_url }}) | Vehicle components for seamless localization indoor and outdoor                               |
-| [Infrastructure]({{ '/lyve/lyve-infra/'        | relative_url }}) | Infrastructur components for indoor localization and depot communication                      |
+|             LYVE Components                                |   Description    |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [Tracelet]({{ '/lyve/lyve-tracelets/'   | relative_url }}) | Vehicle components for seamless localization indoor and outdoor          |
+| [Infrastructure]({{ '/lyve/lyve-infra/' | relative_url }}) | Infrastructur components for indoor localization and depot communication |
+| [Demokit]({{ '/lyve/lyve-demo-kit/' | relative_url }}) | Development kit for testing LYVE components          |

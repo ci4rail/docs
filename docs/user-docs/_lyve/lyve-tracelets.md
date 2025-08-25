@@ -1,7 +1,6 @@
 ---
 title: Lyve Tracelets
 excerpt: Lyve Tracelet User Manual
-last_modified_at: 2024-06-07
 ---
 
 WELCOME to the LYVE Tracelet user documentation.

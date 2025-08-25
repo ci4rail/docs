@@ -40,3 +40,5 @@ sidebar:
           url: /lyve/lyve-infra/satlet-monitor/
         - title: Edge Device
           url: /edge-solutions/moducop/general/
+    - title: Lyve Demo Kit
+      url: /lyve/lyve-demo-kit/
