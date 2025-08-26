@@ -10,6 +10,13 @@ Your PC will be used to
 
 ![Architecture](/user-docs/images/lyve/lyve-demo-kit-rev0-pc-setup1.svg){: style="width: 50%"}
 
+Quick explanation of the software components:
+* Easyplan: A Windows app to visualize and record the vehicle tracks on a map
+* Grafana: A web-based container to visualize the quality metrics of the tracelet
+* Prometheus: A time-series database used to store the quality metrics of the tracelet
+* redpanda-connect: A connector to stream the tracelet data to other systems. In our application, it splits the tracelet message into positioning data and quality metrics. Can be used also to publish the data to other systems, e.g. via MQTT.
+* io4edge-cli: A command line tool to manage Tracelet parameters and firmware.
+
 ## Software Installation
 
 We assume you have a Windows 11 PC. Windows 10 may work but has not been tested.
@@ -53,7 +60,6 @@ Check if grafana is running:
 
     * Username: lyve-demo
     * Password: lyve123
-
 
 
 ### Install io4edge-cli to configure Tracelet

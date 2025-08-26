@@ -212,8 +212,8 @@ The axes of the device are defined as follows:
 ![Mount Alignment]({{ '/user-docs/images/lyve/sio04-99-mntalg.svg' | relative_url }}){: style="width: 30%"}
 
 If the IMU is not aligned 1:1 there are two possibilities:
-* auto-alignment: the device will try to determine the alignment automatically. This is the default. Set the `ubx_mntalg` parameter to an empty string to enable auto-alignment.
-* manual alignment: the alignment can be configured using the `ubx_mntalg` parameter. The value is a 3-tuple, specifying yaw (0..360), pitch (-90..90), and roll (-180..180) in degrees, e.g. `0:0:0` for no alignment.
+* auto-alignment: the device will try to determine the alignment automatically. This is the default. Set the `imu_mntalg` parameter to an empty string to enable auto-alignment.
+* manual alignment: the alignment can be configured using the `imu_mntalg` parameter. The value is a 3-tuple, specifying yaw (0..360), pitch (-90..90), and roll (-180..180) in degrees, e.g. `0:0:0` for no alignment.
 
 For more information, refer to the [UBlox Integration Manual](https://content.u-blox.com/sites/default/files/ZED-F9R_Integrationmanual_UBX-20039643.pdf).
 
@@ -288,7 +288,7 @@ The following table lists the user relevant parameters of the device:
 | fuse-origin                     | Note relevant for this device, but MUST BE SET TO A NON-EMPTY VALUE. Otherwise, no position messages are generated | ""           | 0:0:0                   |
 | dr                              | Enable GNSS sensor fusion                                                                                          | on           | on                      |
 | dynmodel                        | Dynamic model of the vehicle (rail, automotive)                                                                    | automotive   | rail                    |
-| ubx_mntalg                      | Manual alignment of the IMU to the vehicle (yaw:pitch:roll). If parameter is not set, use auto mount alignment     | ""           | -90:0:0                 |
+| imu_mntalg                      | Manual alignment of the IMU to the vehicle (yaw:pitch:roll). If parameter is not set, use auto mount alignment     | ""           | -90:0:0                 |
 | imu2vrp_x, imu2vrp_y, imu2vrp_Z | Lever arm from IMU to VRP in cm                                                                                    | 0            | 100                     |
 | imu2ant_x, imu2ant_y, imu2ant_z | Lever arm from IMU to GNSS antenna in cm                                                                           | 0            | 100                     |
 | tacho_k                         | Number of ticks per km for the wheeltick signal                                                                    | 0            | 1000                    |
