@@ -53,7 +53,10 @@ docker compose ps
 Should show three running containers:
 
 ```
-TODO:
+NAME                        IMAGE                                 COMMAND                  SERVICE      CREATED          STATUS                  PORTS
+lyve-demokit-benthos-1      ci4rail/redpanda-connect-kyt:v1.1.0   "./redpanda-connect-…"   benthos      13 seconds ago   Up 9 seconds            0.0.0.0:4195->4195/tcp, 0.0.0.0:11001->11001/udp
+lyve-demokit-grafana-1      grafana/grafana-enterprise:11.3.1     "/run.sh"                grafana      13 seconds ago   Up 9 seconds            0.0.0.0:3000->3000/tcp
+lyve-demokit-prometheus-1   prom/prometheus:v2.53.5               "/bin/prometheus --c…"   prometheus   13 seconds ago   Up Less than a second   0.0.0.0:9090->9090/tcp
 ```
 
 Check if grafana is running:
@@ -62,6 +65,11 @@ Check if grafana is running:
 
     * Username: lyve-demo
     * Password: lyve123
+
+Click on Dashboards->Single Tracelet Details
+
+![Tracelet Dashboard](/user-docs/images/lyve/lyve-grafana1.png){: style="width: 50%"}
+
 
 ### Install Easyplan
 

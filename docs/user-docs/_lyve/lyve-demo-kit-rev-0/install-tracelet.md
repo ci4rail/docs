@@ -6,10 +6,10 @@ excerpt: How to install the Tracelet on the Vehicle
 ## Install Tracelet and measure mounting parameters
 Install the Tracelet on the roof of the vehicle, using the provided base plate and the magnets.
 
-TODO: Foto
-
+![Car Mounting](/user-docs/images/lyve/lyve-demo-kit-rev0-carmount.jpg){: style="width: 80%"}
 
 * Ideally, left/right centered. If not installed in the middle, measure the distance to the vehicle centerline and write it down
+* Ideally, yaw angle of 0, i.e. in parallel to the floor. If not, measure the yaw angle and write it down
 * The cable outlet of the SIO02 must point to the vehicle rear
 * Measure the distances between SIO02 center and the vehicle rotation point (rear axes of vehicle)/floor and write it down
 * Measure the height of the Tracelet above ground level and write it down

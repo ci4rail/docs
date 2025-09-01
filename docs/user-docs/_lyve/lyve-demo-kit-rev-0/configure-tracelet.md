@@ -83,6 +83,13 @@ The number of ticks per km must be configured using the `tacho_k` parameter.
 
 To enable wheel tick usage, set `ubx_wt_dir` to `1:0:0:0`. To disable wheeltick usage (if you don't have a wheeltick), set it to `0:0:0:0`.
 
+### Localization Server Address
+
+Tell the Tracelet where to send the position messages to. Enter the address and port of your localization server. To find out your PC's address, open a command prompt and enter `ipconfig`. Look for the IPv4 address of your active WLAN network connection (e.g., `192.168.55.100`).
+
+The port of the Localization server is 11001.
+
+Set the parameter `loc-srv` to `<your_pc_ip>:11001`.
 
 ## Device Configuration
 
@@ -101,8 +108,8 @@ To apply a set of parameters, use the provided `sio02-params-demo.yaml` file (pa
 
 Afterwards, apply them with
 ```
-c:\work\io4edge-cli\io4edge-cli -i <ip-of-tracelet>:9999 set-parameter -f sio02-params-demo.yaml
-c:\work\io4edge-cli\io4edge-cli -i <ip-of-tracelet>:9999 restart
+c:\work\io4edge-cli\io4edge-cli -i 192.168.55.2:9999 set-parameter -f sio02-params-demo.yaml
+c:\work\io4edge-cli\io4edge-cli -i 192.168.55.2:9999 restart
 ```
 
 ### Setting Parameters via USB Console

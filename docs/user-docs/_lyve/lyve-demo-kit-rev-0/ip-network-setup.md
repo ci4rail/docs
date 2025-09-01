@@ -27,11 +27,13 @@ Ensure the router is within the WLAN range of your PC.
 
 Connect your PC to the WLAN of the router. The SSID is `lyveap`, the password is printed on a label on the router.
 
+Open the network settings for this connection, and mark this connection as a "private" network. Otherwise, the tracelet cannot communicate with your PC.
+
 Check if you can connect with the Internet. Open a browser and navigate to a website, e.g. https://www.wikipedia.org.
 
 ## Test connection to the tracelet
 
-The tracelet is pre-configured to connect automatically to the LTE/WLAN Router.
+The tracelet is pre-configured at a fixed IP address and connects automatically to the LTE/WLAN Router.
 
 Ensure the tracelet is connected to the power bank and the power bank is turned on.
 
