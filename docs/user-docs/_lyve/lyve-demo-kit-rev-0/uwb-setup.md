@@ -1,6 +1,8 @@
 ---
 title: UWB Setup
 excerpt: Setting up the UWB infrastructure for the Lyve Demo Kit
+custom_next: /lyve/lyve-demo-kit-rev-0/install-tracelet/
+custom_previous: /lyve/lyve-demo-kit-rev-0/ip-network-setup/
 ---
 
 To setup the UWB infrastructure, you need to the "User Manual Easyplan", which is available online for download

@@ -1,6 +1,7 @@
 ---
 title: Run Demo
 excerpt: How to run the demo
+custom_previous: /lyve/lyve-demo-kit-rev-0/configure-tracelet/
 ---
 
 ## Pre-checks

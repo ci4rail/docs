@@ -1,6 +1,8 @@
 ---
 title: Install Tracelet
 excerpt: How to install the Tracelet on the Vehicle
+custom_next: /lyve/lyve-demo-kit-rev-0/configure-tracelet/
+custom_previous: /lyve/lyve-demo-kit-rev-0/uwb-setup/
 ---
 
 ## Install Tracelet and measure mounting parameters

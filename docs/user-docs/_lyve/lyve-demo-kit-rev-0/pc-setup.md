@@ -1,6 +1,7 @@
 ---
 title: PC Setup
 excerpt: Setting up your PC for the Lyve Demo Kit
+custom_next: /lyve/lyve-demo-kit-rev-0/ip-network-setup/
 ---
 
 Your PC will be used to

@@ -1,6 +1,8 @@
 ---
 title: Configure Tracelet
 excerpt: How to configure the Tracelet
+custom_next: /lyve/lyve-demo-kit-rev-0/run-demo/
+custom_previous: /lyve/lyve-demo-kit-rev-0/install-tracelet/
 ---
 This section shows how to configure the Tracelet parameters.
 

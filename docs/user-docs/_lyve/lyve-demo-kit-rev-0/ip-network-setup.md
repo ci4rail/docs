@@ -1,6 +1,8 @@
 ---
 title: IP Network Setup
 excerpt: Setting the IP Network using the LTE/WLAN Router
+custom_next: /lyve/lyve-demo-kit-rev-0/uwb-setup/
+custom_previous: /lyve/lyve-demo-kit-rev-0/pc-setup/
 ---
 
 The kit includes a LTE/WLAN Router to provide
