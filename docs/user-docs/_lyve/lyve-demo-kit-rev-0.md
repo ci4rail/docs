@@ -17,6 +17,8 @@ The demo kit allows you to evaluate the performance and capabilities of LYVE com
 
 ### What is included in the demo kit?
 
+![Demokit contents]({{ '/user-docs/images/lyve/lyve-demo-kit-rev0-content.jpg' | relative_url }}){: style="width: 80%"}
+
 The demo kit includes the following components:
 * [SIO02 Tracelet]({{ '/lyve/lyve-tracelets/sio02/' | relative_url }})
 * A base plate for the tracelet to ease installation on the vehicle, including magnets
@@ -42,6 +44,7 @@ The demo kit includes the following components:
 
 * [Setup your PC]({{'/lyve/lyve-demo-kit-rev-0/pc-setup/' | relative_url }})
 * [Setup IP Network]({{'/lyve/lyve-demo-kit-rev-0/ip-network-setup/' | relative_url }})
-* [Setup UWB Infrastructure]({{'/lyve/lyve-demo-kit-rev-0/uwb-setup/' | relative_url }})  TODO:
-* [Install Tracelet in the vehicle]({{'/lyve/lyve-demo-kit-rev-0/install-tracelet/' | relative_url }}) TODO:
+* [Setup UWB Infrastructure]({{'/lyve/lyve-demo-kit-rev-0/uwb-setup/' | relative_url }})
+* [Install Tracelet in the vehicle]({{'/lyve/lyve-demo-kit-rev-0/install-tracelet/' | relative_url }})
 * [Configure the Tracelet]({{'/lyve/lyve-demo-kit-rev-0/configure-tracelet/' | relative_url }})
+* [Run a demo]({{'/lyve/lyve-demo-kit-rev-0/run-demo/' | relative_url }})

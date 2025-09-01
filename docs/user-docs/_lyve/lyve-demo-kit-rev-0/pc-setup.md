@@ -52,14 +52,21 @@ docker compose ps
 ```
 Should show three running containers:
 
+```
 TODO:
+```
 
 Check if grafana is running:
-* Open your web browser and navigate to http://localhost:3000.
+* Open your web browser and navigate to `http://localhost:3000`.
 * Log in with the following credentials:
 
     * Username: lyve-demo
     * Password: lyve123
+
+### Install Easyplan
+
+Easyplan is available online for download at [Pinpoint Cloud](https://connect.pinpoint.de/).
+It's currently accessible only for customers of the LYVE Demo Kit. The credentials to access it will be provided by your LYVE contact.
 
 
 ### Install io4edge-cli to configure Tracelet

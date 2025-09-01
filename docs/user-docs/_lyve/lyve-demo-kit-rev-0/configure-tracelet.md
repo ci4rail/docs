@@ -10,6 +10,14 @@ The Tracelet can translate UWB site coordinates into WGS84 coordinates. For that
 
 Enter these values in `fuse-origin` parameter.
 
+You can get the parameters from Easyplan: Use the "View" feature of the site. In the JSON, look for
+
+```
+    "originAzimuth": xxx,
+    "originLatitude": yyy,
+    "originLongitude": zzz,
+```
+
 ## GNSS RTK Correction Data Source
 
 RTK corection data is required to achieve high accuracy. Correction data may come from:
@@ -141,4 +149,4 @@ The following table lists the user relevant parameters of the device:
 | uwb_z                           | Tracelet mounting height (to floor) in cm                                                                         | 0            | 280                             |
 | tacho_k                         | Number of ticks per km for the wheeltick signal                                                                   | 0            | 4000                            |
 | ubx_wt_dir                      | Enable wheeltick usage (1:0:0:0) or disable wheeltick usage (0:0:0:0)                                             | 0:0:0:0      | 1:0:0:0                         |
-| uwb_radio                       | UWB channel to use (5 or 9)                                                                                       | 5            | 9                               |
+| uwb_radio                       | UWB channel to use (5 or 9) - Must be 9 for LYVE Demokit Rev. 0                                                   | 5            | 9                               |
