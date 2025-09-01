@@ -87,7 +87,7 @@ Create a directory to store it, for example:
 mkdir C:\work\io4edge-cli
 ```
 
-Download the [Release](https://github.com/ci4rail/io4edge-client-go/releases/download/v2.0.0-alpha.4/io4edge-cli-v2.0.0-alpha.4-windows-amd64.zip) from github and store it into the folder you've created.
+Download the [Release](https://github.com/ci4rail/io4edge-client-go/releases/download/v2.0.0-alpha.5/io4edge-cli-v2.0.0-alpha.5-windows-amd64.zip) from github and store it into the folder you've created.
 
 Unzip the `.zip` file into the same folder.
 
