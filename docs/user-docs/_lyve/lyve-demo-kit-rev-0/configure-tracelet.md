@@ -12,7 +12,10 @@ The Tracelet can translate UWB site coordinates into WGS84 coordinates. For that
 
 Enter these values in `fuse-origin` parameter.
 
-You can get the parameters from Easyplan: Use the "View" feature of the site. In the JSON, look for
+
+You can get the parameters from Easyplan: Use the "View" feature of the site. A JSON file will be stored in your download folder. In the JSON, look for
+
+![Easyplan Building View](/user-docs/images/lyve/easyplan-building-view.png){: style="width: 50%"}
 
 ```
     "originAzimuth": xxx,
@@ -22,7 +25,7 @@ You can get the parameters from Easyplan: Use the "View" feature of the site. In
 
 ## GNSS RTK Correction Data Source
 
-RTK corection data is required to achieve high accuracy. Correction data may come from:
+RTK corection data is required to achieve high accuracy. Correction data may come:
 
 * from NTRIP service providers, delivering RTCM correction data, such as [Sapos](https://sapos.de/) or [rtk2go](http://rtk2go.com/).
 * from UBLOX [pointperfect](https://www.u-blox.com/en/product/pointperfect), delivering SPARTN correction data.

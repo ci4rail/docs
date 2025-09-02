@@ -40,3 +40,8 @@ The tracelet is pre-configured at a fixed IP address and connects automatically 
 Ensure the tracelet is connected to the power bank and the power bank is turned on.
 
 On your PC, open a command prompt and ping the tracelet's IP address: `ping 192.168.55.2`. You should receive replies from the tracelet.
+
+**WARNING** "mdns" (zero IP configuration) is not yet implemented in the io4edge-cli for windows.
+Therefore, you cannot use the io4edge-cli "scan" command and you cannot use the device-id to address the tracelet.
+You must use raw IP addresses.
+{: .notice--warning}

@@ -26,7 +26,7 @@ Easyplan vizualises three different positions:
 * Blue: Position from GNSS Subsystem
 * Purple: Fused Position
 
-TODO: Screenshot
+![Easyplan Markers](/user-docs/images/lyve/easyplan-markers.png){: style="width: 50%"}
 
 ## Check quality metrics in Grafana
 

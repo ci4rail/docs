@@ -42,3 +42,16 @@ sidebar:
           url: /edge-solutions/moducop/general/
     - title: Lyve Demo Kit
       url: /lyve/lyve-demo-kit/
+      navitems:
+        - title: PC Setup
+          url: /lyve/lyve-demo-kit-rev-0/pc-setup/
+        - title: IP Network Setup
+          url: /lyve/lyve-demo-kit-rev-0/ip-network-setup/
+        - title: UWB Setup
+          url: /lyve/lyve-demo-kit-rev-0/uwb-setup/
+        - title: Install Tracelet
+          url: /lyve/lyve-demo-kit-rev-0/install-tracelet/
+        - title: Configure Tracelet
+          url: /lyve/lyve-demo-kit-rev-0/configure-tracelet/
+        - title: Run Demo
+          url: /lyve/lyve-demo-kit-rev-0/run-demo/
