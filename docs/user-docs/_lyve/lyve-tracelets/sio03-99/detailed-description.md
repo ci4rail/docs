@@ -1,21 +1,18 @@
 ---
-title: SIO04-99 Detailed Description
-excerpt: Detailed Description of the SIO04-99 functionality
+title: SIO03-99 Detailed Description
+excerpt: Detailed Description of the SIO03-99 functionality
 
-product_name: SIO04-99
+product_name: SIO03-99
 article_group: S103
-example_device_name: SIO04-99-1
+example_device_name: sio03-1
 ---
 
 ## Introduction
-The GNSS RTK precise positioning module SIO04-99 is a member of the KYT Sensor family by Ci4Rail and can work as a standalone device as well as in combination with ModuCop MEC0x.
+The GNSS RTK precise positioning module SIO03-99 is a member of the KYT Sensor family by Ci4Rail and can work as a standalone device as well as in combination with ModuCop MEC0x.
 
 The GNSS/RTK technology provides high precision positioning information. The speed pulse input signal and the integrated IMU together with specific movement models allow for precise positioning even in areas with poor GNSS reception.
 
 The positioning information is transferred to in-vehicle subsystems via Ethernet interface.
-
-**NOTE:** The SIO04-99 is a temporary prototyping unit. It will be subsituted by the "real" SIO04 when available.
-{: .notice--warning}
 
 ## Specification
 
@@ -33,7 +30,7 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Speed Pulse Signal            |                   acc. to IEC 16844-2 (input high: 4,8V; input low: 2,2V)                   |
 | Ignition                      |                          On State: Input high: 5,2 V (min) or open                          |
 |                               |                 Standby State (after delay ~3 sec): Input low: 3,6 V (max)                  |
-| Antenna                       |        External GNSS Antenna supporting L1 and L2 band, 3V supply voltage, max 60mA         |
+| Antenna                       |                                    Internal GNSS antenna                                    |
 | **Maintenance**               |
 | Firmware update               |                                        Via USB, LAN                                         |
 | Management                    |          Via io4edge protocol, see [io4edge protocol]({{ '/edge-solutions/io4edge'          | relative_url }}) |
@@ -43,11 +40,11 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Power Consumption             |                                    Operation typ. < 3 W                                     |
 |                               |                                    Standby State < 0,1 W                                    |
 | **Mechanics**                 |                                                                                             |
-| Dimensions (w/o mounting acc) |                                       Width: 71.0 mm                                       |
-|                               |                                       Depth: 61.2 mm                                        |
-|                               |                                       Height: 111.5 mm                                       |
-| Mounting                      |            Flexible Mounting: Wall mount, mounting as 19" cassette, or DIN Rail             |
-| Ingress Protection            |                                            IP40                                             |
+| Dimensions (w/o mounting acc) |                                        Width: 162 mm                                        |
+|                               |                                        Depth: 186 mm                                        |
+|                               |                                        Height: 63 mm                                        |
+| Weight                        |                                            700 g                                            |
+| Ingress Protection            |                                            IP68                                             |
 | **Environmental**             |
 | Operating                     |                               -40…+70°C (EN 50155:2021 - OT4)                               |
 | Storage Temperature           |                                          -40…+85°C                                          |
@@ -58,13 +55,12 @@ The positioning information is transferred to in-vehicle subsystems via Ethernet
 | Safety                        | EN 50155:2017; EN 50153:2014+A1:2017; EN 50124-1:2017; EN 62368-1:2016; EN ISO 13732-1:2008 |
 | Fire & Smoke                  |                               EN 45545-2:2013 + A1:2015; HL3                                |
 | Useful Life                   |                             20 years (EN 50155:2017, class L4)                              |
-| Certifications                |                                             TBD                                             |
 
 
 
 ## Connections
 
-SIO04-99 provides two M12 interface connectors for roboust and IP protected connections.
+SIO03-99 provides two M12 interface connectors for roboust and IP protected connections.
 The product offers an M12-8pin A-coded connector for shared power and service interfaces as well as an M12-4pin D-coded Ethernet interface connector.
 
 ### M12-8pin A-coded, socket
@@ -112,7 +108,7 @@ It will then periodically send its acquired position in a "position message" to 
 
 To achieve high precision, the GNSS RTK receiver must be fed with correction data using a network connection to the correction data server.
 
-Optionally, the device can be configured to apply "GNSS sensor fusion". In this mode, the device uses a dynamic model of the vehicle, integrated IMU, and the external wheeltick to further improve the precision, especially in cases with bad GNSS receiption conditions. GNSS sensor fusion however requires additional configuration of the device.
+Optionally, the device can be configured to apply "GNSS sensor fusion". In this mode, the device uses a dynamic model of the vehicle, integrated IMU, and the external wheeltick to further improve the precision, especially in cases with bad GNSS reception conditions. GNSS sensor fusion however requires additional configuration of the device.
 
 Optionally, the device may be configured to connect to a NTP (network time protocol) server. It uses the NTP time to timestamp its messages in case no time from GNSS is available.
 
@@ -180,28 +176,24 @@ To enable GNSS Sensor Fusion mode generally:
 
 * Configure the type of vehicle in parameter `dynmodel` to `rail` for railway vehicles, like trains or trams
 * Configure the [alignment](#mount-alg) of the IMU to the vehicle
-* Configure the [lever arms](#lever-arms)
+* Configure the [lever arm](#lever-arm)
 * Configure the [wheeltick](#wt)
 * set the `dr` configuration parameter to `on`.
 
-#### Lever Arms {#lever-arms}
+#### Lever Arm {#lever-arm}
 
-The dynamic model for sensor fusion requires the configuration of two lever arms:
-
-* the lever arm from the GNSS antenna to the IMU (the IMU inside the device)
-* the lever arm from the IMU to the vehicle rotation point (VRP)
+The dynamic model for sensor fusion requires the configuration the lever arm from the IMU to the vehicle rotation point (VRP). As the IMU sits inside the device, the lever arm must be configured from the device to the VRP.
 
 The VRP is defined as the point where the vehicle rotates around. For a train, this is the center between two bogies.
 
 The configuration parameters are:
-* `imu2vrp_x`, `imu2vrp_y`, `imu2vrp_z` for the IMU to VRP lever arm
-* `imu2ant_x`, `imu2ant_y`, `imu2ant_z` for the IMU to GNSS antenna lever arm
+* `imu2vrp_x`, `imu2vrp_y`, `imu2vrp_z` for the Device to VRP lever arm
 
 All parameters are specified in centimeters.
 
 Here is a typical example for a train. The values are not to scale:
 
-![Lever ARM example]({{ '/user-docs/images/lyve/railvehicle-vrp.svg' | relative_url }}){: style="width: 100%"}
+![Lever ARM example]({{ '/user-docs/images/lyve/railvehicle-vrp-integrated-antenna.svg' | relative_url }}){: style="width: 100%"}
 
 #### IMU Mount Alignment {#mount-alg}
 
@@ -209,9 +201,11 @@ If sensor fusion is enabled, the alignment of the IMU to the vehicle is importan
 
 The axes of the device are defined as follows:
 
-![Mount Alignment]({{ '/user-docs/images/lyve/sio04-99-mntalg.svg' | relative_url }}){: style="width: 30%"}
+![Mount Alignment]({{ '/user-docs/images/lyve/sio03-99-mntalg.svg' | relative_url }}){: style="width: 30%"}
 
-If the IMU is not aligned 1:1 there are two possibilities:
+If possible, the device should be aligned 1:1 with the vehicle's coordinate system, i.e. the connectors shall point to the rear of the vehicle, the top of the device shall point to the roof of the vehicle.
+
+If the device is not aligned 1:1 there are two possibilities:
 * auto-alignment: the device will try to determine the alignment automatically. This is the default. Set the `imu_mntalg` parameter to an empty string to enable auto-alignment.
 * manual alignment: the alignment can be configured using the `imu_mntalg` parameter. The value is a 3-tuple, specifying yaw (0..360), pitch (-90..90), and roll (-180..180) in degrees, e.g. `0:0:0` for no alignment.
 
@@ -252,7 +246,7 @@ After changing a parameter, the device must be rebooted to apply the new configu
 
 #### Setting Parameters via USB Console
 
-The device can be configured via the USB console. [Connect the device to a computer using a USB cable]({{'/lyve/lyve-tracelets/sio04-99/quick-start-guide' | relative_url}}) and start a terminal program. You should see some log messages of the device.
+The device can be configured via the USB console. [Connect the device to a computer using a USB cable]({{'/lyve/lyve-tracelets/sio03-99/quick-start-guide' | relative_url}}) and start a terminal program. You should see some log messages of the device.
 Press ENTER and the device will present a `config>` prompt. Enter the commands to configure the device.
 
 For example, to enable sensor fusion, you would enter:
@@ -276,20 +270,19 @@ To set parameters via network, use the io4edge-cli tool, This [page]({{'/edge-so
 The following table lists the user relevant parameters of the device:
 
 
-| Parameter                       | Description                                                                                                        | Default      | Example                 |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------ | ----------------------- |
-| device-id                       | Use to identify the device in the network and used for `traceled_id` in the position message                       | ""           | SIO04-99-1              |
-| loc-srv                         | Address of the localization server to send position messages to                                                    | ""           | 192.168.0.88:11002      |
-| ntp-srv                         | Address of the NTP server to get time from                                                                         | pool.ntp.org | pool.ntp.org            |
-| ntrip-caster                    | Address of the NTRIP caster to get correction data from (host:port:mountpoint)                                     | ""           | rtk2go.com:2101:LAU01DE |
-| ntrip-credentials               | Credentials for the NTRIP caster (username:password)                                                               | ""           | info@ci4rail.com:none   |
-| gnss-rate                       | Rate of GNSS position messages in Hz, 1..4Hz                                                                       | 1            | 3                       |
-| fuse-rate                       | Rate of fused position messages in Hz, 1..4Hz. Set it to the same value as `gnss-rate                              | 1            | 3                       |
-| fuse-origin                     | Note relevant for this device, but MUST BE SET TO A NON-EMPTY VALUE. Otherwise, no position messages are generated | ""           | 0:0:0                   |
-| dr                              | Enable GNSS sensor fusion                                                                                          | on           | on                      |
-| dynmodel                        | Dynamic model of the vehicle (rail, automotive)                                                                    | automotive   | rail                    |
-| imu_mntalg                      | Manual alignment of the IMU to the vehicle (yaw:pitch:roll). If parameter is not set, use auto mount alignment     | ""           | -90:0:0                 |
-| imu2vrp_x, imu2vrp_y, imu2vrp_Z | Lever arm from IMU to VRP in cm                                                                                    | 0            | 100                     |
-| imu2ant_x, imu2ant_y, imu2ant_z | Lever arm from IMU to GNSS antenna in cm                                                                           | 0            | 100                     |
-| tacho_k                         | Number of ticks per km for the wheeltick signal                                                                    | 0            | 1000                    |
-| ubx_wt_dir                      | Enable wheeltick usage (1:0:0:0) or disable wheeltick usage (0:0:0:0)                                              | 0:0:0:0      | 1:0:0:0                 |
+| Parameter                       | Description                                                                                                                                                                   | Default      | Example                 |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------------- |
+| device-id                       | Use to identify the device in the network and used for `traceled_id` in the position message. MUST BE SET TO A NON-EMPTY VALUE. Otherwise, no position messages are generated | ""           | SIO03-99-1              |
+| loc-srv                         | Address of the localization server to send position messages to                                                                                                               | ""           | 192.168.0.88:11002      |
+| ntp-srv                         | Address of the NTP server to get time from                                                                                                                                    | pool.ntp.org | pool.ntp.org            |
+| ntrip-caster                    | Address of the NTRIP caster to get correction data from (host:port:mountpoint)                                                                                                | ""           | rtk2go.com:2101:LAU01DE |
+| ntrip-credentials               | Credentials for the NTRIP caster (username:password)                                                                                                                          | ""           | info@ci4rail.com:none   |
+| gnss-rate                       | Rate of GNSS position messages in Hz, 1..4Hz                                                                                                                                  | 1            | 3                       |
+| fuse-rate                       | Rate of fused position messages in Hz, 1..4Hz. Set it to the same value as `gnss-rate                                                                                         | 1            | 3                       |
+| fuse-origin                     | Note relevant for this device, but MUST BE SET TO A NON-EMPTY VALUE. Otherwise, no position messages are generated                                                            | ""           | 0:0:0                   |
+| dr                              | Enable GNSS sensor fusion                                                                                                                                                     | on           | on                      |
+| dynmodel                        | Dynamic model of the vehicle (rail, automotive)                                                                                                                               | automotive   | rail                    |
+| imu_mntalg                      | Manual alignment of the IMU to the vehicle (yaw:pitch:roll). If parameter is not set, use auto mount alignment                                                                | ""           | -90:0:0                 |
+| imu2vrp_x, imu2vrp_y, imu2vrp_Z | Lever arm from IMU to VRP in cm                                                                                                                                               | 0            | 100                     |
+| tacho_k                         | Number of ticks per km for the wheeltick signal                                                                                                                               | 0            | 1000                    |
+| ubx_wt_dir                      | Enable wheeltick usage (1:0:0:0) or disable wheeltick usage (0:0:0:0)                                                                                                         | 0:0:0:0      | 1:0:0:0                 |
